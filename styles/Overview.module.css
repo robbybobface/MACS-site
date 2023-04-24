@@ -4,23 +4,6 @@
 	justify-content: center;
 }
 
-.text {
-	pointer-events: none;
-	justify-content: start !important;
-	line-height: 0px;
-	/* text-transform: uppercase; */
-}
-
-.number {
-	font-size: 300px;
-	color: white;
-}
-
-.number span {
-	display: flex;
-	position: relative;
-}
-
 .slopeBegin {
 	background-color: #323232;
 	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 17%);
@@ -28,11 +11,10 @@
 
 .slopeBeginStart {
 	background-color: #323232;
-	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 0%);
-	position: absolute;
+	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 17%);
+	position: relative;
 	width: 100%;
 	height: 100%;
-	/* cursor: pointer; */
 }
 
 .slopeEnd {
@@ -47,6 +29,14 @@
 	/* cursor: pointer; */
 }
 
+.slopeEndTop {
+	clip-path: polygon(100% 69%, 100% 78%, 0 95%, 0 86%);
+	position: absolute;
+	bottom: 47%;
+	width: 350%;
+	height: 350%;
+}
+
 .slopeBegin {
 	position: absolute;
 	width: 100%;
@@ -54,17 +44,22 @@
 	/* cursor: pointer; */
 }
 
-.pink {
-	background: rgb(192, 0, 69);
+.redYellow {
 	background: linear-gradient(225deg, rgba(192, 0, 69) 33%, rgba(255, 184, 0) 67%);
 }
 
-.teal {
-	background: rgb(192, 0, 69);
+.yellowGreen {
 	background: linear-gradient(225deg, rgba(255, 184, 0) 33%, rgba(160, 232, 134) 67%);
 }
 
-.tomato {
-	background: rgb(192, 0, 69);
+.greenBlue {
 	background: linear-gradient(225deg, rgba(160, 232, 134) 33%, rgba(0, 135, 177) 67%);
+}
+
+.blue {
+	background: linear-gradient(225deg, rgba(160, 232, 134) 0%, rgba(0, 135, 177) 67%);
+}
+
+.blueRed {
+	background: linear-gradient(225deg, rgba(0, 135, 177) 0%, rgba(192, 0, 69) 100%);
 }
