@@ -544,7 +544,7 @@ export default function Home() {
 			<Box className='bg bg2'></Box>
 			<Box className='bg bg3'></Box>
 			<Box flex={1} sx={{ position: "absolute" }}>
-				<Box sx={{ position: "absolute", top: 40, left: 120 }}>
+				<Box sx={{ position: "absolute", top: "3%", left: "6%" }}>
 					<MACSLogoWhite />
 				</Box>
 				<Grid container spacing={2} sx={{ minWidth: "100vw", minHeight: "100vh" }}>

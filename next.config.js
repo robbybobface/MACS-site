@@ -1,4 +1,4 @@
 module.exports = {
-	transpilePackages: ["react-hexgrid"],
+	transpilePackages: ["@react-spring/web", "react-hexgrid"],
 	/* Your Next.js config */
 };
