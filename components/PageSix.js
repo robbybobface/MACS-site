@@ -48,10 +48,18 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 									backdropFilter: "blur( 7px );",
 									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<Typography className={styles.MACSText}>Modular</Typography>
-								<Typography className={styles.MACSText}>Accessible</Typography>
-								<Typography className={styles.MACSText}>Controller</Typography>
-								<Typography className={styles.MACSText}>System</Typography>
+								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+									Modular
+								</Typography>
+								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+									Accessible
+								</Typography>
+								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+									Controller
+								</Typography>
+								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+									System
+								</Typography>
 								<Typography
 									color='white'
 									fontFamily={"bitcount-mono-single-line-ci"}
