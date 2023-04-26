@@ -52,28 +52,32 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
 									fontSize='4rem'
-									lineHeight={1.1}>
+									lineHeight={1.1}
+									mb='20px'>
 									Modular
 								</Typography>
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
 									fontSize='4rem'
-									lineHeight={1.1}>
+									lineHeight={1.1}
+									mb='20px'>
 									Accessible
 								</Typography>
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
 									fontSize='4rem'
-									lineHeight={1.1}>
+									lineHeight={1.1}
+									mb='20px'>
 									Controller
 								</Typography>
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
 									fontSize='4rem'
-									lineHeight={1.1}>
+									lineHeight={1.1}
+									mb='20px'>
 									System
 								</Typography>
 								<Typography
