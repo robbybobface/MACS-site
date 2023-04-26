@@ -49,7 +49,7 @@ export default function Overview() {
 			<Head>
 				<style>{"body { background-color: #FFF; !important; }"}</style>
 			</Head>
-			<Header />
+			<Header router={router} />
 			<BottomNav router={router} />
 			<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={9}>
 				<PageOne offset={0} gradient='greenBlue' onClick={() => scroll(1)} router={router} />

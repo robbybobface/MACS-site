@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { MACSLogoWhite } from "../assets/macs_logo_white";
 
-const Header = () => {
+const Header = ({ router }) => {
 	return (
 		<Box
 			sx={{
