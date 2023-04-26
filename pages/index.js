@@ -574,7 +574,8 @@ export default function Home() {
 									fontFamily='bitcount-mono-single-line-ci'
 									fontSize='12rem'
 									color='white'
-									fontWeight={300}>
+									fontWeight={300}
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 									MACS
 								</Typography>
 								<LinearProgress color='hexagonBlueFull' sx={{ mt: -6 }} />
@@ -587,7 +588,11 @@ export default function Home() {
 								alignItems: "flex-start",
 								justifyContent: "flex-start",
 							}}>
-							<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+							<Typography
+								fontFamily='Gilroy-Heavy'
+								color='white'
+								fontSize='5rem'
+								sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 								A
 							</Typography>
 							<Box
@@ -596,7 +601,11 @@ export default function Home() {
 									flexDirection: "column",
 									ml: 4,
 								}}>
-								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+								<Typography
+									fontFamily='Gilroy-Heavy'
+									color='white'
+									fontSize='5rem'
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 									Modular
 								</Typography>
 								<LinearProgress color='hexagonGreenFull' sx={{ mt: -2 }} />
@@ -607,7 +616,11 @@ export default function Home() {
 									flexDirection: "column",
 									ml: 4,
 								}}>
-								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+								<Typography
+									fontFamily='Gilroy-Heavy'
+									color='white'
+									fontSize='5rem'
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 									Accessible
 								</Typography>
 								<LinearProgress color='hexagonYellowFull' sx={{ mt: -2 }} />
@@ -626,7 +639,11 @@ export default function Home() {
 									display: "flex",
 									flexDirection: "column",
 								}}>
-								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+								<Typography
+									fontFamily='Gilroy-Heavy'
+									color='white'
+									fontSize='5rem'
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 									Controller
 								</Typography>
 								<LinearProgress color='hexagonOrangeFull' sx={{ mt: -1 }} />
@@ -637,7 +654,11 @@ export default function Home() {
 									flexDirection: "column",
 									ml: 4,
 								}}>
-								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+								<Typography
+									fontFamily='Gilroy-Heavy'
+									color='white'
+									fontSize='5rem'
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 									System
 								</Typography>
 								<LinearProgress color='hexagonRedFull' sx={{ mt: -1 }} />

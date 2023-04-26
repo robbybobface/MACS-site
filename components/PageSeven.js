@@ -36,7 +36,8 @@ const PageSeven = ({ offset, gradient, onClick, router }) => (
 							fontFamily={"bitcount-mono-single-line-ci"}
 							fontSize='9rem'
 							my={-1}
-							onClick={onClick}>
+							onClick={onClick}
+							sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 							MACS
 						</Typography>
 						<GradientText

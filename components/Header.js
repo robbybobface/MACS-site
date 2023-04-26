@@ -40,7 +40,8 @@ const Header = ({ router }) => {
 					lineHeight={1.4}
 					color='white'
 					ml={2}
-					fontWeight={300}>
+					fontWeight={300}
+					sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 					MACS
 				</Typography>
 			</Box>

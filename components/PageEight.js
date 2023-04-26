@@ -44,7 +44,8 @@ const PageEight = ({ offset, gradient, onClick, router }) => (
 								fontSize='9rem'
 								mb={-3}
 								mt={-4}
-								onClick={onClick}>
+								onClick={onClick}
+								sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 								MACS
 							</Typography>
 							<GradientText
