@@ -3,7 +3,8 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import { Box, Typography, Container, Grid } from "@mui/material";
 import styles from "../styles/Overview.module.css";
 import boxStyles from "../styles/BoxStyles.module.css";
-import { MACSLogoPurple } from "../assets/macs_logo_purple";
+import { MACSLogoPurpleDark } from "../assets/macs_logo_purple_dark";
+import { MACSLogoGrey } from "../assets/macs_logo_grey";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../styles/theme";
 import GradientText from "./GradientText";
@@ -225,7 +226,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => (
 					justifyContent: "center",
 					alignItems: "center",
 				}}>
-				<MACSLogoPurple height='36vh' />
+				<MACSLogoGrey height='36vh' />
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.8} onClick={onClick}>
