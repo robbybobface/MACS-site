@@ -32,7 +32,6 @@ import {
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../styles/theme";
 import { useEffect } from "react";
-import { useState } from "react";
 
 const PageOne = ({ offset, gradient, onClick }) => (
 	<>
@@ -60,23 +59,41 @@ const PageOne = ({ offset, gradient, onClick }) => (
 							fontWeight={300}>
 							MACS
 						</Typography> */}
-						<Typography
-							sx={{
-								fontSize: "6.5rem",
-								fontFamily: "Gilroy-Heavy",
-								textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
-							}}>
-							Project
-						</Typography>
-						<Typography
-							sx={{
-								fontSize: "6.5rem",
-								fontFamily: "Gilroy-Heavy",
-								mt: -1,
-								textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
-							}}>
-							Overview
-						</Typography>
+						<Box sx={{ position: "relative" }}>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='7rem'
+								onClick={onClick}
+								sx={{
+									position: "relative",
+									backgroundImage:
+										"linear-gradient(161deg, rgba(255,255,255,1) 0%, rgba(0,135,177,1) 100%);",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								}}>
+								Project Overview
+							</Typography>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='7rem'
+								onClick={onClick}
+								sx={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+									// backgroundImage:
+									// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+									// WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									zIndex: -1,
+								}}>
+								Project Overview
+							</Typography>
+						</Box>
 					</Grid>
 					<Grid
 						item
@@ -380,14 +397,42 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 						WebkitBackdropFilter: "blur( 7px );",
 						zIndex: 10000000,
 					}}>
-					<Typography
-						color='backgroundBlack.main'
-						fontFamily={"Gilroy-Heavy"}
-						fontSize='5rem'
-						textAlign='center'
-						sx={{ pt: 3, textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-						Problem Formulation
-					</Typography>
+					<Box sx={{ position: "relative" }}>
+						<Typography
+							// color='white'
+							fontFamily={"Gilroy-Heavy"}
+							fontSize='6rem'
+							onClick={onClick}
+							textAlign={"center"}
+							sx={{
+								position: "relative",
+								backgroundImage:
+									"linear-gradient(161deg, rgba(112,130,143,1) 0%, rgba(50,50,50,1) 100%);",
+								WebkitBackgroundClip: "text",
+								WebkitTextFillColor: "transparent",
+								// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							}}>
+							Problem Formulation
+						</Typography>
+						<Typography
+							// color='white'
+							fontFamily={"Gilroy-Heavy"}
+							fontSize='6rem'
+							onClick={onClick}
+							textAlign={"center"}
+							sx={{
+								position: "absolute",
+								top: 0,
+								right: 0,
+								left: 0,
+
+								WebkitTextFillColor: "transparent",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								zIndex: -1,
+							}}>
+							Problem Formulation
+						</Typography>
+					</Box>
 					<Grid
 						container
 						spacing={4}
@@ -404,24 +449,6 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								configurability.
 							</Typography>
 						</Grid>
-						{/* <Grid item xs={12}>
-							<Typography
-								color='backgroundBlack.main'
-								fontFamily={"Gilroy-Bold"}
-								fontSize='2.5rem'
-								textAlign='center'
-								sx={{ mt: -3 }}>
-								Existing Solutions
-							</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography color={"backgroundBlack.main"} fontSize={"20px"} textAlign='center'>
-								With the release of the Xbox Adaptive Controller in 2018 and the Xbox Elite 2 Wireless
-								Controller in 2019, Microsoft has been almost the sole provider of accessible
-								controllers for disabled gamers. Sony is also working on their accessible controller,
-								codenamed Project Leonardo, which is scheduled to be released in 2024.
-							</Typography>
-						</Grid> */}
 						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
@@ -614,14 +641,40 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 			<Container
 				maxWidth='xl'
 				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
-				<Typography
-					color='white'
-					fontFamily={"Gilroy-Heavy"}
-					fontSize='5rem'
-					textAlign='center'
-					sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);", pt: 3 }}>
-					Existing Solutions
-				</Typography>
+				<Box sx={{ position: "relative" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='6rem'
+						onClick={onClick}
+						sx={{
+							position: "relative",
+							backgroundImage: "linear-gradient(161deg, rgba(94,196,176,1) 0%, rgba(255,190,0,1) 100%);",
+							WebkitBackgroundClip: "text",
+							WebkitTextFillColor: "transparent",
+							// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Existing Solutions
+					</Typography>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='6rem'
+						onClick={onClick}
+						sx={{
+							position: "absolute",
+							top: 0,
+							left: 0,
+							// backgroundImage:
+							// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+							// WebkitBackgroundClip: "text",
+							WebkitTextFillColor: "transparent",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							zIndex: -1,
+						}}>
+						Existing Solutions
+					</Typography>
+				</Box>
 				<Box
 					sx={{
 						width: "100%",
@@ -847,16 +900,45 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							justifyContent: "center",
 							alignItems: "center",
 						}}>
-						<Typography
-							color='white'
-							fontFamily={"Gilroy-Heavy"}
-							fontSize='5rem'
-							textAlign='center'
-							lineHeight={1.2}
-							mb={3}
-							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-							Solution Proposition
-						</Typography>
+						<Box sx={{ position: "relative", mb: 3 }}>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='6rem'
+								onClick={onClick}
+								textAlign={"center"}
+								lineHeight={1}
+								sx={{
+									position: "relative",
+									backgroundImage:
+										"linear-gradient(161deg, rgba(159,242,130,1) 0%, rgba(255,105,48,1) 100%);",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								}}>
+								Solution Proposition
+							</Typography>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='6rem'
+								onClick={onClick}
+								textAlign={"center"}
+								lineHeight={1}
+								sx={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+									// backgroundImage:
+									// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+									// WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									zIndex: -1,
+								}}>
+								Solution Proposition
+							</Typography>
+						</Box>
 						<Box
 							sx={{
 								// minHeight: 700,
@@ -1155,17 +1237,44 @@ const PageFive = ({ offset, gradient, onClick, router }) => (
 							justifyContent: "center",
 							alignItems: "center",
 						}}>
-						<Typography
-							color='white'
-							fontFamily={"Gilroy-Heavy"}
-							fontSize='5rem'
-							textAlign='center'
-							lineHeight={1.2}
-							mb={3}
-							onClick={onClick}
-							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-							Design & Implementation
-						</Typography>
+						<Box sx={{ position: "relative", mb: 3 }}>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='5rem'
+								onClick={onClick}
+								textAlign={"center"}
+								lineHeight={1.2}
+								sx={{
+									position: "relative",
+									backgroundImage:
+										"linear-gradient(161deg, rgba(245,186,60,1) 0%, rgba(177,40,70,1) 100%);",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								}}>
+								Design & Implementation
+							</Typography>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='5rem'
+								onClick={onClick}
+								textAlign={"center"}
+								lineHeight={1.2}
+								sx={{
+									position: "absolute",
+									top: 0,
+									right: 0,
+									left: 0,
+
+									WebkitTextFillColor: "transparent",
+									textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									zIndex: -1,
+								}}>
+								Design & Implementation
+							</Typography>
+						</Box>
 						<Box
 							onClick={onClick}
 							sx={{
@@ -1505,11 +1614,11 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 				<Grid container spacing={2}>
 					<Grid
 						item
-						xs={3.5}
+						xs={4}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
-							justifyContent: "center",
+							justifyContent: "space-evenly",
 							alignItems: "center",
 						}}>
 						<Box
@@ -1517,81 +1626,54 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								borderRadius: 2,
 								p: 3,
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								background:
 									"linear-gradient(315deg, rgba(192,0,69,0.65) 0%, rgba(255,184,0,0.65) 33%, rgba(160,232,134,0.65) 67%, rgba(0,135,177,0.65) 100%);",
-								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
 								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<Box
 								sx={{
-									// minHeight: 700,
-									// maxWidth: 1350,
 									borderRadius: 2,
 									p: 3,
 									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-									// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 									backgroundColor: "rgba( 72, 88, 99, 0.8 )",
-									// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 									backdropFilter: "blur( 7px );",
 									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<Typography
-									color='white'
-									fontFamily={"Gilroy-Heavy"}
-									fontSize='4rem'
-									// textAlign='center'
-									lineHeight={1.1}
-									mb={3}
-									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-									Modular
-								</Typography>
-								<Typography
-									color='white'
-									fontFamily={"Gilroy-Heavy"}
-									fontSize='4rem'
-									// textAlign='center'
-									lineHeight={1.1}
-									mb={3}
-									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-									Accessible
-								</Typography>
-								<Typography
-									color='white'
-									fontFamily={"Gilroy-Heavy"}
-									fontSize='4rem'
-									// textAlign='center'
-									lineHeight={1.1}
-									mb={3}
-									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-									Controller
-								</Typography>
-								<Typography
-									color='white'
-									fontFamily={"Gilroy-Heavy"}
-									fontSize='4rem'
-									// textAlign='center'
-									lineHeight={1.1}
-									mb={3}
-									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
-									System
-								</Typography>
+								<Typography className={styles.MACSText}>Modular</Typography>
+								<Typography className={styles.MACSText}>Accessible</Typography>
+								<Typography className={styles.MACSText}>Controller</Typography>
+								<Typography className={styles.MACSText}>System</Typography>
 								<Typography
 									color='white'
 									fontFamily={"bitcount-mono-single-line-ci"}
 									fontSize='5rem'
-									// textAlign='center'
 									lineHeight={1}
 									mb={2}>
 									MACS
 								</Typography>
 							</Box>
 						</Box>
+						<Box
+							sx={{
+								mt: 2,
+								borderRadius: 2,
+								p: 3,
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								backgroundColor: "rgba( 72, 88, 99, 0.8 )",
+								backdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
+							}}>
+							<Typography textAlign='justify' fontSize={"18px"} color={"white"}>
+								With 5 distinct input modules, and a central hub users can physically build the
+								controller that is perfect for them. Then with our software, users can further configure
+								each module to emulate whatever action they want.
+							</Typography>
+						</Box>
 					</Grid>
 					<Grid
 						item
-						xs={8.5}
+						xs={8}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
@@ -1599,16 +1681,6 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 							alignItems: "center",
 							minHeight: "725px",
 						}}>
-						{/* <Typography
-							color='white'
-							fontFamily={"Gilroy-Heavy"}
-							fontSize='5rem'
-							textAlign='center'
-							lineHeight={1.1}
-							mb={3}>
-							Modules
-						</Typography> */}
-
 						<Grid
 							container
 							spacing={2}
@@ -1617,15 +1689,11 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Box
 									onClick={onClick}
 									sx={{
-										// minHeight: 700,
-										// maxWidth: 1350,
 										borderRadius: 2,
 										p: 2,
 										my: 1,
 										boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-										// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 										backgroundColor: "rgba( 72, 88, 99, 0.7 )",
-										// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 										backdropFilter: "blur( 7px );",
 										WebkitBackdropFilter: "blur( 7px );",
 									}}>
@@ -1643,8 +1711,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 												color='white'
 												fontFamily={"Gilroy-Heavy"}
 												fontSize='3rem'
-												// textAlign='left'
-												sx={{ transform: "rotate(-90deg)" }}>
+												sx={{
+													transform: "rotate(-90deg)",
+													textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+												}}>
 												Modules
 											</Typography>
 										</Grid>
@@ -1665,10 +1735,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1697,10 +1764,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1731,10 +1795,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1763,10 +1824,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1795,10 +1853,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1827,10 +1882,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 															borderRadius: 2,
 															px: 1,
 															py: 0.75,
-															// my: 1,
 															backgroundColor: "rgba( 255, 255, 255, 1 )",
-															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 															display: "flex",
 															position: "absolute",
 															bottom: -10,
@@ -1861,15 +1913,11 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Box
 									onClick={onClick}
 									sx={{
-										// minHeight: 700,
-										// maxWidth: 1350,
 										borderRadius: 2,
 										p: 2,
 										my: 1,
 										boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-										// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 										backgroundColor: "#70828FCE",
-										// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 										backdropFilter: "blur( 7px );",
 										WebkitBackdropFilter: "blur( 7px );",
 									}}>
@@ -1891,7 +1939,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 												fontFamily={"Gilroy-Heavy"}
 												fontSize='3rem'
 												// textAlign='left'
-												sx={{ transform: "rotate(-90deg)" }}>
+												sx={{
+													transform: "rotate(-90deg)",
+													textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+												}}>
 												Controller
 											</Typography>
 										</Grid>
@@ -1921,20 +1972,6 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 												</Grid>
 											</Grid>
 										</Grid>
-
-										{/* <Grid item xs={12}>
-											<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-												<CardActionArea>
-													<CardMedia
-														component='img'
-														alt='macs configuration 3'
-														height='200'
-														// sx={{ objectPosition: "50% 60%" }}
-														image='/macs-config-2.jpg'
-													/>
-												</CardActionArea>
-											</Card>
-										</Grid> */}
 									</Grid>
 								</Box>
 							</Grid>
@@ -1943,15 +1980,11 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 						<Box
 							onClick={onClick}
 							sx={{
-								// minHeight: 700,
-								// maxWidth: 1350,
 								borderRadius: 2,
 								p: 2,
 								my: 1,
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 255, 255, 255, 0.85 )",
-								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
 								WebkitBackdropFilter: "blur( 7px );",
 							}}>
@@ -1970,7 +2003,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 										fontFamily={"Gilroy-Heavy"}
 										fontSize='3rem'
 										// textAlign='left'
-										sx={{ transform: "rotate(-90deg)" }}>
+										sx={{
+											transform: "rotate(-90deg)",
+											textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+										}}>
 										App
 									</Typography>
 								</Grid>
@@ -2173,7 +2209,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingSlowEaseInOut}
-				sx={{ position: "absolute", left: "10%", top: "6%", transform: "rotate(34deg)" }}>
+				sx={{ position: "absolute", left: "3%", top: "0%", transform: "rotate(34deg)" }}>
 				<HexGrid
 					id='module-grid-25'
 					height={"20vh"}
@@ -2254,24 +2290,80 @@ const PageSeven = ({ offset, gradient, onClick, router }) => (
 							onClick={onClick}>
 							MACS
 						</Typography>
-						<Typography
-							color='white'
-							fontFamily={"Gilroy-Heavy"}
-							fontSize='8rem'
-							my={-5}
-							onClick={onClick}
-							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.5);" }}>
-							in
-						</Typography>
-						<Typography
-							color='white'
-							fontFamily={"Gilroy-Heavy"}
-							fontSize='8rem'
-							my={-2}
-							onClick={onClick}
-							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.5);" }}>
-							action
-						</Typography>
+						<Box sx={{ position: "relative" }}>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='8rem'
+								my={-5}
+								onClick={onClick}
+								sx={{
+									position: "relative",
+									backgroundImage:
+										"linear-gradient(125deg, rgba(255,255,255,1) 30%, rgba(25,177,0,1) 100%);",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								}}>
+								in
+							</Typography>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='8rem'
+								my={-5}
+								onClick={onClick}
+								sx={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+									// backgroundImage:
+									// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+									// WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									zIndex: -1,
+								}}>
+								in
+							</Typography>
+						</Box>
+						<Box sx={{ position: "relative" }}>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='8rem'
+								// my={-5}
+								onClick={onClick}
+								sx={{
+									position: "relative",
+									backgroundImage:
+										"linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,184,0,1) 100%);",
+									WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+								}}>
+								action
+							</Typography>
+							<Typography
+								// color='white'
+								fontFamily={"Gilroy-Heavy"}
+								fontSize='8rem'
+								// my={-5}
+								onClick={onClick}
+								sx={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+									// backgroundImage:
+									// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+									// WebkitBackgroundClip: "text",
+									WebkitTextFillColor: "transparent",
+									textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									zIndex: -1,
+								}}>
+								action
+							</Typography>
+						</Box>
 					</Grid>
 					<Grid
 						item
@@ -2429,30 +2521,6 @@ const PageSeven = ({ offset, gradient, onClick, router }) => (
 				</HexGrid>
 			</Box>
 		</ParallaxLayer>
-		{/* <ParallaxLayer offset={offset} speed={-0.1} onClick={onClick} style={{ zIndex: 10 }}>
-			<Box
-				className={styles.rotatingReverseNormal}
-				sx={{ position: "absolute", left: "10%", bottom: "5%", transform: "rotate(333deg)" }}>
-				<HexGrid
-					id='module-grid-32'
-					height={"15vh"}
-					width={"15vw"}
-					viewBox='-50 -50 100 100'
-					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						<Hexagon
-							id={`hexagon-32`}
-							q={0}
-							r={0}
-							s={0}
-							cellStyle={{ fill: theme.palette.hexagonGreen.main }}
-							stroke='white'
-							strokeWidth={1}
-						/>
-					</Layout>
-				</HexGrid>
-			</Box>
-		</ParallaxLayer> */}
 	</>
 );
 
@@ -2508,7 +2576,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => (
 									sx={{
 										position: "relative",
 										backgroundImage:
-											"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+											"linear-gradient(345deg, rgba(192,0,69,1) 20%,rgba(255,184,0,1) 70%);",
 										WebkitBackgroundClip: "text",
 										WebkitTextFillColor: "transparent",
 										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
@@ -2545,10 +2613,9 @@ const PageEight = ({ offset, gradient, onClick, router }) => (
 									sx={{
 										position: "relative",
 										backgroundImage:
-											"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+											"linear-gradient(161deg, rgba(255,61,0,1) 0%, rgba(192,0,69,1) 80%);",
 										WebkitBackgroundClip: "text",
 										WebkitTextFillColor: "transparent",
-										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
 									}}>
 									Down
 								</Typography>
@@ -2562,9 +2629,6 @@ const PageEight = ({ offset, gradient, onClick, router }) => (
 										position: "absolute",
 										top: 0,
 										left: 0,
-										// backgroundImage:
-										// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
-										// WebkitBackgroundClip: "text",
 										WebkitTextFillColor: "transparent",
 										textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
 										zIndex: -1,
@@ -2856,7 +2920,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 							sx={{
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								borderRadius: 2,
-								backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+								backgroundColor: "rgba( 72, 88, 99, 0.7 )",
 								backdropFilter: "blur( 7px );",
 								WebkitBackdropFilter: "blur( 7px );",
 								display: "flex",
@@ -2877,7 +2941,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 										position: "relative",
 										background: "rgb(199,14,81)",
 										backgroundImage:
-											"linear-gradient(126deg, rgba(199,14,81,1) 10%, rgba(255,184,0,1) 40%, rgba(25,177,0,1) 67%, rgba(0,135,177,1) 90%)",
+											"linear-gradient(325deg, rgba(0,135,177,1) 0%, rgba(255,255,255,1) 100%);",
 										WebkitBackgroundClip: "text",
 										WebkitTextFillColor: "transparent",
 										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
@@ -2905,7 +2969,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 								</Typography>
 							</Box>
 							<Typography
-								color='backgroundBlack.main'
+								color='white'
 								fontFamily={"bitcount-mono-single-line-ci"}
 								fontSize='7rem'
 								mb={-3}
@@ -3423,7 +3487,7 @@ export default function Overview() {
 				<PageSix offset={5} gradient='blueRed' onClick={() => scroll(6)} router={router} />
 				<PageSeven offset={6} gradient='purpleBlue' onClick={() => scroll(7)} router={router} />
 				<PageEight offset={7} gradient='blue' onClick={() => scroll(8)} router={router} />
-				<PageNine offset={8} gradient='blue' onClick={() => scroll(0)} router={router} />
+				<PageNine offset={8} gradient='greenBlue' onClick={() => scroll(0)} router={router} />
 			</Parallax>
 		</animated.div>
 	);
