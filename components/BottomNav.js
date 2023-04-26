@@ -8,13 +8,11 @@ import {
 	Diversity3Outlined,
 } from "@mui/icons-material";
 
-const BottomNav = ({ router }) => {
+const BottomNav = ({ router, home }) => {
 	return (
 		<Box
 			sx={{
-				// display: "flex",
 				position: "absolute",
-				// right: -460,
 				zIndex: 1000,
 				right: 100,
 				bottom: 30,
@@ -43,12 +41,9 @@ const BottomNav = ({ router }) => {
 					}}>
 					<Button
 						variant='contained'
-						// disabled={gridRotate === "-30deg"}
 						color='drawerBackground'
 						onClick={() => console.log("rotate left")}
-						sx={{ marginRight: 4.9, minHeight: 40 }}
-						// style={{ padding: 0 }}
-					>
+						sx={{ marginRight: 4.9, minHeight: 40 }}>
 						<Diversity3Outlined color='primary' />
 					</Button>
 				</Tooltip>
@@ -65,7 +60,6 @@ const BottomNav = ({ router }) => {
 					}}>
 					<Button
 						variant='contained'
-						// disabled={gridRotate === "30deg"}
 						color='drawerBackground'
 						sx={{ minHeight: 40 }}
 						onClick={() => console.log("rotate right")}>
@@ -81,14 +75,20 @@ const BottomNav = ({ router }) => {
 				}}>
 				<Button
 					variant='contained'
-					color={"stopButtonRed"}
+					color={home ? "startButtonGreen" : "stopButtonRed"}
 					style={{
 						textTransform: "none",
 						color: "white",
 						fontSize: "1rem",
 					}}
-					onClick={() => router.push("/")}>
-					{"Go Home"}
+					onClick={() => {
+						if (home) {
+							router.push("/project-overview");
+						} else {
+							router.push("/");
+						}
+					}}>
+					{home ? "Learn More" : "Go Home"}
 				</Button>
 				<Tooltip
 					title='Module Design'
@@ -145,10 +145,7 @@ const BottomNav = ({ router }) => {
 						variant='contained'
 						color='drawerBackground'
 						onClick={() => {
-							// centerView();
-							// resetTransform();
 							console.log("reset");
-							// setTransform(160, 0, 1, 300, "easeInQuad");
 						}}
 						size='small'>
 						<Terminal color='primary' />

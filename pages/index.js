@@ -26,6 +26,7 @@ import DpadLogo from "../assets/dpad";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import styles from "../styles/Home.module.css";
 import { MACSLogo } from "../assets/macs_logo";
+import BottomNav from "../components/BottomNav";
 
 const Hexagons = [
 	{
@@ -540,223 +541,138 @@ export default function Home() {
 			<Box className='bg'></Box>
 			<Box className='bg bg2'></Box>
 			<Box className='bg bg3'></Box>
-			<Box flex={1} sx={{ position: "absolute" }}>
-				<Box sx={{ position: "absolute", top: "3%", left: "6%" }}>
-					<MACSLogo />
-				</Box>
-				<Grid container spacing={2} sx={{ minWidth: "100vw", minHeight: "100vh" }}>
-					<Grid
-						item
-						xs={6}
+			<Box sx={{ position: "absolute", top: "3%", left: "6%" }}>
+				<MACSLogo />
+			</Box>
+			<BottomNav router={router} home={true} />
+			<Grid container spacing={2} sx={{ minWidth: "100vw", minHeight: "100vh" }}>
+				<Grid
+					item
+					xs={6}
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "flex-end",
+						alignItems: "flex-start",
+						zIndex: 1000,
+					}}>
+					<Box
+						className='noselect'
 						sx={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "flex-end",
-							alignItems: "flex-start",
-							zIndex: 1000,
+							pl: 14.5,
+							pb: 10,
 						}}>
 						<Box
-							className='noselect'
 							sx={{
-								pl: 14.5,
-								pb: 8,
+								display: "flex",
+								flexDirection: "row",
+								alignItems: "flex-start",
+								justifyContent: "flex-start",
 							}}>
-							<Box
-								sx={{
-									display: "flex",
-									flexDirection: "row",
-									alignItems: "flex-start",
-									justifyContent: "flex-start",
-								}}>
-								<Box sx={{ display: "flex", flexDirection: "column" }}>
-									<Typography
-										fontFamily='bitcount-mono-single-line-ci'
-										fontSize='12rem'
-										color='white'
-										fontWeight={300}>
-										MACS
-									</Typography>
-									<LinearProgress color='hexagonBlueFull' sx={{ mt: -6 }} />
-								</Box>
+							<Box sx={{ display: "flex", flexDirection: "column" }}>
+								<Typography
+									fontFamily='bitcount-mono-single-line-ci'
+									fontSize='12rem'
+									color='white'
+									fontWeight={300}>
+									MACS
+								</Typography>
+								<LinearProgress color='hexagonBlueFull' sx={{ mt: -6 }} />
 							</Box>
+						</Box>
+						<Box
+							sx={{
+								display: "flex",
+								flexDirection: "row",
+								alignItems: "flex-start",
+								justifyContent: "flex-start",
+							}}>
+							<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+								A
+							</Typography>
 							<Box
 								sx={{
 									display: "flex",
-									flexDirection: "row",
-									alignItems: "flex-start",
-									justifyContent: "flex-start",
+									flexDirection: "column",
+									ml: 4,
 								}}>
 								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
-									A
+									Modular
 								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 4,
-									}}>
-									<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
-										Modular
-									</Typography>
-									<LinearProgress color='hexagonGreenFull' sx={{ mt: -2 }} />
-								</Box>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 4,
-									}}>
-									<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
-										Accessible
-									</Typography>
-									<LinearProgress color='hexagonYellowFull' sx={{ mt: -2 }} />
-								</Box>
+								<LinearProgress color='hexagonGreenFull' sx={{ mt: -2 }} />
 							</Box>
 							<Box
 								sx={{
 									display: "flex",
-									flexDirection: "row",
-									alignItems: "flex-start",
-									justifyContent: "flex-start",
-									mb: 2,
+									flexDirection: "column",
+									ml: 4,
 								}}>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-									}}>
-									<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
-										Controller
-									</Typography>
-									<LinearProgress color='hexagonOrangeFull' sx={{ mt: -1 }} />
-								</Box>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 4,
-									}}>
-									<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
-										System
-									</Typography>
-									<LinearProgress color='hexagonRedFull' sx={{ mt: -1 }} />
-								</Box>
+								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+									Accessible
+								</Typography>
+								<LinearProgress color='hexagonYellowFull' sx={{ mt: -2 }} />
 							</Box>
-							<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='60%'>
-								Capstone Project by:
-							</Typography>
-							<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='70%'>
-								Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
-								Freeman
-							</Typography>
 						</Box>
-					</Grid>
-					<Grid
-						item
-						xs={6}
-						sx={{
-							display: "flex",
-							flexDirection: "column",
-							justifyContent: "flex-start",
-							alignItems: "flex-end",
-						}}>
 						<Box
-							id='hexgrid-container'
 							sx={{
-								position: "relative",
 								display: "flex",
-								justifyContent: "center",
-							}}>
-							<GeneratedHexgrid localHexagons={hexagons} />
-							<Dropzones />
-						</Box>
-						<Box
-							sx={{
-								position: "relative",
-								zIndex: 1000,
-								justifyContent: "space-between",
-								width: 400,
-								flexDirection: "column",
-								mt: -10,
-								mr: 10,
+								flexDirection: "row",
+								alignItems: "flex-start",
+								justifyContent: "flex-start",
+								mb: 2,
 							}}>
 							<Box
 								sx={{
 									display: "flex",
-									flexDirection: "row",
-									justifyContent: "flex-end",
-									alignItems: "center",
-									pb: 1.5,
+									flexDirection: "column",
 								}}>
-								<Button
-									variant='contained'
-									// disabled={gridRotate === "-30deg"}
-									color='drawerBackground'
-									onClick={() => console.log("rotate left")}
-									sx={{ marginRight: 3.9, minHeight: 40 }}
-									// style={{ padding: 0 }}
-								>
-									<Diversity3Outlined color='primary' />
-								</Button>
-								<Button
-									variant='contained'
-									// disabled={gridRotate === "30deg"}
-									color='drawerBackground'
-									sx={{ minHeight: 40 }}
-									onClick={() => console.log("rotate right")}>
-									<EmojiEventsOutlined color='primary' />
-								</Button>
+								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+									Controller
+								</Typography>
+								<LinearProgress color='hexagonOrangeFull' sx={{ mt: -1 }} />
 							</Box>
 							<Box
 								sx={{
 									display: "flex",
-									flexDirection: "row",
-									justifyContent: "space-between",
+									flexDirection: "column",
+									ml: 4,
 								}}>
-								<Button
-									variant='contained'
-									color={"startButtonGreen"}
-									style={{
-										textTransform: "none",
-										color: "white",
-										fontSize: "1rem",
-									}}
-									onClick={() => router.push("/project-overview")}>
-									{"Learn More"}
-								</Button>
-								<Button
-									variant='contained'
-									color='drawerBackground'
-									onClick={() => console.log("zoom in")}
-									sx={{ padding: 0, minHeight: 40 }}
-									style={{ padding: 0 }}>
-									<BoltOutlined color='primary' />
-								</Button>
-								<Button
-									variant='contained'
-									color='drawerBackground'
-									onClick={() => console.log("zoom out")}
-									size='small'
-									sx={{ padding: 0 }}>
-									<VideogameAssetOutlined color='primary' />
-								</Button>
-								<Button
-									variant='contained'
-									color='drawerBackground'
-									onClick={() => {
-										// centerView();
-										// resetTransform();
-										console.log("reset");
-										// setTransform(160, 0, 1, 300, "easeInQuad");
-									}}
-									size='small'>
-									<Terminal color='primary' />
-								</Button>
+								<Typography fontFamily='Gilroy-Heavy' color='white' fontSize='5rem'>
+									System
+								</Typography>
+								<LinearProgress color='hexagonRedFull' sx={{ mt: -1 }} />
 							</Box>
 						</Box>
-					</Grid>
+						<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='60%'>
+							Capstone Project by:
+						</Typography>
+						<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='70%'>
+							Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
+							Freeman
+						</Typography>
+					</Box>
 				</Grid>
-			</Box>
+				<Grid
+					item
+					xs={6}
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "flex-start",
+						alignItems: "flex-end",
+					}}>
+					<Box
+						id='hexgrid-container'
+						sx={{
+							position: "relative",
+							display: "flex",
+							justifyContent: "center",
+						}}>
+						<GeneratedHexgrid localHexagons={hexagons} />
+						<Dropzones />
+					</Box>
+				</Grid>
+			</Grid>
 		</div>
 	);
 }
