@@ -43,7 +43,7 @@ const BottomNav = ({ router, home }) => {
 						variant='contained'
 						color='drawerBackground'
 						onClick={() => console.log("rotate left")}
-						sx={{ marginRight: 4.9, minHeight: 40 }}>
+						sx={{ marginRight: 4, minHeight: 40, maxWidth: 64 }}>
 						<Diversity3Outlined color='primary' />
 					</Button>
 				</Tooltip>
@@ -61,7 +61,7 @@ const BottomNav = ({ router, home }) => {
 					<Button
 						variant='contained'
 						color='drawerBackground'
-						sx={{ minHeight: 40 }}
+						sx={{ minHeight: 40, maxWidth: 64 }}
 						onClick={() => console.log("rotate right")}>
 						<EmojiEventsOutlined color='primary' />
 					</Button>
@@ -76,6 +76,7 @@ const BottomNav = ({ router, home }) => {
 				<Button
 					variant='contained'
 					color={home ? "startButtonGreen" : "stopButtonRed"}
+					sx={{ minWidth: "113px" }}
 					style={{
 						textTransform: "none",
 						color: "white",
@@ -105,8 +106,7 @@ const BottomNav = ({ router, home }) => {
 						variant='contained'
 						color='drawerBackground'
 						onClick={() => console.log("zoom in")}
-						sx={{ padding: 0, minHeight: 40 }}
-						style={{ padding: 0 }}>
+						sx={{ padding: 0, minHeight: 40, maxWidth: 64 }}>
 						<BoltOutlined color='primary' />
 					</Button>
 				</Tooltip>
@@ -126,7 +126,7 @@ const BottomNav = ({ router, home }) => {
 						color='drawerBackground'
 						onClick={() => console.log("zoom out")}
 						size='small'
-						sx={{ padding: 0 }}>
+						sx={{ padding: 0, maxWidth: 64 }}>
 						<VideogameAssetOutlined color='primary' />
 					</Button>
 				</Tooltip>
@@ -147,7 +147,8 @@ const BottomNav = ({ router, home }) => {
 						onClick={() => {
 							console.log("reset");
 						}}
-						size='small'>
+						size='small'
+						sx={{ maxWidth: 64 }}>
 						<Terminal color='primary' />
 					</Button>
 				</Tooltip>
