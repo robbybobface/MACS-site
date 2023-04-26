@@ -5,51 +5,86 @@
 }
 
 .slopeBegin {
+	display: flex;
 	background-color: #323232;
 	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 17%);
+	/* z-index: 20; */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/* cursor: pointer; */
+	/* z-index: 10; */
 }
 
 .slopeBeginStart {
+	/* display: flex; */
 	background-color: #323232;
 	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 17%);
-	position: relative;
+	position: absolute;
 	width: 100%;
 	height: 100%;
+	/* z-index: 10; */
 }
 
 .slopeEnd {
+	/* display: flex; */
 	clip-path: polygon(100% 69%, 100% 78%, 0 95%, 0 86%);
-}
-
-.slopeEnd {
 	position: absolute;
 	bottom: -68%;
 	width: 350%;
 	height: 350%;
 	/* cursor: pointer; */
+	/* z-index: -1; */
 }
 
 .slopeEndTop {
+	/* display: flex; */
 	clip-path: polygon(100% 69%, 100% 78%, 0 95%, 0 86%);
 	position: absolute;
 	bottom: 47%;
 	width: 350%;
 	height: 350%;
+	/* z-index: -1; */
 }
 
-.slopeBegin {
+.responsiveIframe {
+	display: flex !important;
+	border: none !important;
 	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
-	/* cursor: pointer; */
+}
+
+.semiCircle {
+	width: 30rem;
+	height: 15rem;
+	background-color: rgba(255, 255, 255, 0.85);
+	border-radius: 15rem 15rem 0 0;
+	transform: rotate(90deg);
+	box-shadow: "9px 10px 13px -8px rgba(0,0,0,0.55)";
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	z-index: 4;
 }
 
 .redYellow {
 	background: linear-gradient(225deg, rgba(192, 0, 69) 33%, rgba(255, 184, 0) 67%);
 }
 
+.redYellowAlt {
+	background: linear-gradient(225deg, rgba(192, 0, 69) 50%, rgba(255, 184, 0) 67%);
+}
+
 .yellowGreen {
-	background: linear-gradient(225deg, rgba(255, 184, 0) 33%, rgba(160, 232, 134) 67%);
+	background: linear-gradient(225deg, rgba(255, 184, 0) 40%, rgba(160, 232, 134) 60%, rgba(0, 135, 177) 80%);
+}
+
+.yellowGreenAlt {
+	background: linear-gradient(225deg, rgba(255, 184, 0) 55%, rgba(160, 232, 134) 70%);
 }
 
 .greenBlue {
@@ -61,5 +96,114 @@
 }
 
 .blueRed {
-	background: linear-gradient(225deg, rgba(0, 135, 177) 0%, rgba(192, 0, 69) 100%);
+	background: linear-gradient(225deg, rgba(0, 135, 177) 40%, rgba(192, 0, 69) 67%);
+}
+
+.blueRedAlt {
+	background: linear-gradient(225deg, rgba(0, 135, 177) 40%, rgba(192, 0, 69) 67%);
+}
+
+.purpleBlue {
+	background: linear-gradient(225deg, rgba(0, 135, 177) 50%, rgba(192, 0, 69) 80%);
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+	from {
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotating {
+	from {
+		-ms-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.rotating {
+	-webkit-animation: rotating 20s linear infinite;
+	-moz-animation: rotating 20s linear infinite;
+	-ms-animation: rotating 20s linear infinite;
+	-o-animation: rotating 20s linear infinite;
+	animation: rotating 20s linear infinite;
+}
+
+.rotatingReverseNormal {
+	-webkit-animation: rotating 20s linear reverse infinite;
+	-moz-animation: rotating 20s linear reverse infinite;
+	-ms-animation: rotating 20s linear reverse infinite;
+	-o-animation: rotating 20s linear reverse infinite;
+	animation: rotating 20s linear reverse infinite;
+}
+
+.rotatingFast {
+	-webkit-animation: rotating 10s linear infinite;
+	-moz-animation: rotating 10s linear infinite;
+	-ms-animation: rotating 10s linear infinite;
+	-o-animation: rotating 10s linear infinite;
+	animation: rotating 10s linear infinite;
+}
+
+.rotatingReverse {
+	-webkit-animation: rotating 15.5s linear reverse infinite;
+	-moz-animation: rotating 15.5s linear reverse infinite;
+	-ms-animation: rotating 15.5s linear reverse infinite;
+	-o-animation: rotating 15.5s linear reverse infinite;
+	animation: rotating 15.5s linear reverse infinite;
+}
+
+.rotatingReverseSlow {
+	-webkit-animation: rotating 30s linear reverse infinite;
+	-moz-animation: rotating 30s linear reverse infinite;
+	-ms-animation: rotating 30s linear reverse infinite;
+	-o-animation: rotating 30s linear reverse infinite;
+	animation: rotating 30s linear reverse infinite;
+}
+
+.rotatingReverseSlowEaseInOut {
+	-webkit-animation: rotating 35s linear reverse infinite;
+	-moz-animation: rotating 35s linear reverse infinite;
+	-ms-animation: rotating 35s linear reverse infinite;
+	-o-animation: rotating 35s linear reverse infinite;
+	animation: rotating 35s linear reverse infinite;
+}
+
+.rotatingSlow {
+	-webkit-animation: rotating 30s linear infinite;
+	-moz-animation: rotating 30s linear infinite;
+	-ms-animation: rotating 30s linear infinite;
+	-o-animation: rotating 30s linear infinite;
+	animation: rotating 30s linear infinite;
+}
+
+.rotatingSlowEaseInOut {
+	-webkit-animation: rotating 30s ease-in-out infinite;
+	-moz-animation: rotating 30s ease-in-out infinite;
+	-ms-animation: rotating 30s ease-in-out infinite;
+	-o-animation: rotating 30s ease-in-out infinite;
+	animation: rotating 30s ease-in-out infinite;
+}
+
+.rotatingReverseEaseInOut {
+	-webkit-animation: rotating 25s ease-in-out reverse infinite;
+	-moz-animation: rotating 25s ease-in-out reverse infinite;
+	-ms-animation: rotating 25s ease-in-out reverse infinite;
+	-o-animation: rotating 25s ease-in-out reverse infinite;
+	animation: rotating 25s ease-in-out reverse infinite;
 }

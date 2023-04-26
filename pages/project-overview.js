@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { useScroll, animated } from "@react-spring/web";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
 import {
@@ -14,9 +15,12 @@ import {
 	CardActionArea,
 	CardContent,
 	Tooltip,
+	CardMedia,
 } from "@mui/material";
 import styles from "../styles/Overview.module.css";
 import { MACSLogoWhite } from "../assets/macs_logo_white";
+import { MACSLogoRed } from "../assets/macs_logo_red";
+import { MACSLogoBlue } from "../assets/macs_logo_light_blue";
 import { MACSFlowchart } from "../assets/macs_flowchart";
 import {
 	BoltOutlined,
@@ -25,9 +29,12 @@ import {
 	EmojiEventsOutlined,
 	Diversity3Outlined,
 } from "@mui/icons-material";
+import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../styles/theme";
+import { useEffect } from "react";
+import { useState } from "react";
 
-const PageOne = ({ offset, gradient, onClick, router }) => (
+const PageOne = ({ offset, gradient, onClick }) => (
 	<>
 		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 			<div className={`${styles.slopeEndTop} ${styles.blue}`} />
@@ -45,8 +52,29 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 						zIndex: 10000,
 					}}>
 					<Grid item xs={5} sx={{ mt: -4 }}>
-						<Typography sx={{ fontSize: "6.5rem", fontFamily: "Gilroy-Heavy" }}>Project</Typography>
-						<Typography sx={{ fontSize: "6.5rem", fontFamily: "Gilroy-Heavy", mt: -1 }}>
+						{/* <Typography
+							fontFamily='bitcount-mono-single-line-ci'
+							fontSize='10rem'
+							color='white'
+							mb={-4.5}
+							fontWeight={300}>
+							MACS
+						</Typography> */}
+						<Typography
+							sx={{
+								fontSize: "6.5rem",
+								fontFamily: "Gilroy-Heavy",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+							}}>
+							Project
+						</Typography>
+						<Typography
+							sx={{
+								fontSize: "6.5rem",
+								fontFamily: "Gilroy-Heavy",
+								mt: -1,
+								textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+							}}>
 							Overview
 						</Typography>
 					</Grid>
@@ -64,7 +92,7 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 								// backgroundColor: theme.palette.drawerBackground.main,
 								// minHeight: 400,
 								// minWidth: 200,
-								borderRadius: 4,
+								borderRadius: 2,
 								py: 4,
 								px: 6,
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
@@ -72,7 +100,7 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 								backgroundColor: "rgba( 72, 88, 99, 0.7 )",
 								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<Typography textAlign='justify' fontSize={"20px"} color={"white"}>
 								In recent years, video gaming has become a cornerstone of digital entertainment. Despite
@@ -98,13 +126,13 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 								sx={{
 									maxWidth: 290,
 									minHeight: 200,
-									borderRadius: 4,
+									borderRadius: 2,
 									py: 2,
 									px: 4,
 									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 									backgroundColor: "#F2F2F2CE",
 									backdropFilter: "blur( 7px );",
-									webkitBackdropFilter: "blur( 7px );",
+									WebkitBackdropFilter: "blur( 7px );",
 									display: "flex",
 									flexDirection: "column",
 									justifyContent: "space-evenly",
@@ -157,7 +185,7 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 										// minHeight: 400,
 										// minWidth: 200,
 										maxWidth: 275,
-										borderRadius: 4,
+										borderRadius: 2,
 										py: 2,
 										px: 6,
 										boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
@@ -166,7 +194,7 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 										backgroundColor: "#70828FCE",
 										// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 										backdropFilter: "blur( 7px );",
-										webkitBackdropFilter: "blur( 7px );",
+										WebkitBackdropFilter: "blur( 7px );",
 										display: "flex",
 										flexDirection: "column",
 										justifyContent: "space-evenly",
@@ -216,6 +244,108 @@ const PageOne = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<Box
+				component='div'
+				className={styles.rotating}
+				sx={{
+					position: "absolute",
+					left: "75%",
+					top: "10%",
+					transform: `rotate(347deg)`,
+				}}>
+				<HexGrid
+					id='module-grid-1'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-1`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.35} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverse}
+				sx={{ position: "absolute", left: "33%", top: "30%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-2'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-2`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.7} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverseEaseInOut}
+				sx={{ position: "absolute", left: "53%", top: "55%", transform: "rotate(10deg)" }}>
+				<HexGrid
+					id='module-grid-3'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-3`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<Box
+				className={styles.rotatingFast}
+				sx={{ position: "absolute", left: "45%", top: "15%", transform: "rotate(0deg)" }}>
+				<HexGrid
+					id='module-grid-4'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 30, y: 30 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-4`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
 	</>
 );
 
@@ -231,27 +361,31 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 			className={`${styles.text} ${styles.number} noselect`}
 			onClick={onClick}
 			offset={offset}
-			speed={0.3}>
-			<Container maxWidth='xl' sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
+			<Container
+				maxWidth='xl'
+				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
 				<Box
 					sx={{
 						width: "85%",
 						minHeight: 700,
 						// maxWidth: 1350,
 						boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
-						borderRadius: 5,
+						borderRadius: 2,
 						// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 						backgroundColor: "rgba( 255, 255, 255, 0.85 )",
 						// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 						backdropFilter: "blur( 7px );",
-						webkitBackdropFilter: "blur( 7px );",
+						WebkitBackdropFilter: "blur( 7px );",
+						zIndex: 10000000,
 					}}>
 					<Typography
 						color='backgroundBlack.main'
 						fontFamily={"Gilroy-Heavy"}
 						fontSize='5rem'
 						textAlign='center'
-						sx={{ pt: 3 }}>
+						sx={{ pt: 3, textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
 						Problem Formulation
 					</Typography>
 					<Grid
@@ -267,12 +401,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								Despite gaming being one of the biggest emerging markets of the past few decades, there
 								still remain holes in the market, specifically concerning controller options. Most
 								controllers sold today give little to no regard for accessibility, reparability, and
-								configurability. With the release of the Xbox Adaptive Controller in 2018 and the Xbox
-								Elite 2 Wireless Controller in 2019, Microsoft has been almost the sole provider of
-								accessible controllers for disabled gamers. Sony is also working on their accessible
-								controller, codenamed Project Leonardo, which is scheduled to be released in 2024.
-								Despite these positive developments, more can still be done to enable accessibility in
-								these controllers.
+								configurability.
 							</Typography>
 						</Grid>
 						{/* <Grid item xs={12}>
@@ -293,8 +422,8 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								codenamed Project Leonardo, which is scheduled to be released in 2024.
 							</Typography>
 						</Grid> */}
-						<Grid item xs={4} sx={{ display: "flex" }}>
-							<Card elevation={4}>
+						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
 										backgroundColor: "#70828f77",
@@ -325,8 +454,8 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								</CardContent>
 							</Card>
 						</Grid>
-						<Grid item xs={4}>
-							<Card elevation={4}>
+						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
 										backgroundColor: "#70828f77",
@@ -358,8 +487,8 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								</CardContent>
 							</Card>
 						</Grid>
-						<Grid item xs={4}>
-							<Card elevation={4}>
+						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
 										backgroundColor: "#70828f77",
@@ -394,10 +523,308 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Container>
 		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", left: "0%", top: "-10%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-5'
+					height={"40vh"}
+					width={"40vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-5`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverse}
+				sx={{ position: "absolute", right: "5%", top: "30%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-6'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-6`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", right: "45%", bottom: "0%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-7'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-7`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+	</>
+);
+const PageThree = ({ offset, gradient, onClick, router }) => (
+	<>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<div className={styles.slopeBegin} />
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		</ParallaxLayer>
+		<ParallaxLayer
+			className={`${styles.text} ${styles.number} noselect`}
+			onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
+			<Container
+				maxWidth='xl'
+				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+				<Typography
+					color='white'
+					fontFamily={"Gilroy-Heavy"}
+					fontSize='5rem'
+					textAlign='center'
+					sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);", pt: 3 }}>
+					Existing Solutions
+				</Typography>
+				<Box
+					sx={{
+						width: "100%",
+
+						// maxWidth: 1350,
+						boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+						borderRadius: 2,
+						// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+						backgroundColor: "rgba( 72, 88, 99, 0.7 )",
+						// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+						backdropFilter: "blur( 7px );",
+						WebkitBackdropFilter: "blur( 7px );",
+						zIndex: 10000,
+					}}>
+					<Grid
+						container
+						spacing={4}
+						sx={{ display: "flex", justifyContent: "center", alignItems: "flex-start", px: 6, py: 4 }}>
+						<Grid item xs={12}>
+							<Typography color='white' fontSize={"20px"} textAlign='justify' sx={{ px: 4 }}>
+								With the release of the Xbox Adaptive Controller in 2018 Microsoft has been almost the
+								sole provider of accessible controllers for disabled gamers. Sony is also working on
+								their accessible controller, codenamed Project Leonardo, which is scheduled to be
+								released in 2024. Despite these positive developments, more can still be done to enable
+								accessibility in these controllers. Whereas both of these controllers still suffer from
+								the same rigid form factors that most modern controllers conform to. And the number of
+								inputs are still limited and the supported input types are restricted by traditional
+								controllers.
+							</Typography>
+						</Grid>
+						<Grid item xs={6}>
+							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+								<CardMedia
+									component='img'
+									alt='microsoft adaptive controller'
+									height='250'
+									sx={{ objectPosition: "50% 60%" }}
+									image='/xbox-adaptive-controller.png'
+								/>
+							</Card>
+						</Grid>
+						<Grid item xs={6}>
+							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+								<CardMedia
+									component='img'
+									alt='project leonardo'
+									height='250'
+									image='/project-leonardo.jpg'
+								/>
+							</Card>
+						</Grid>
+					</Grid>
+				</Box>
+			</Container>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.75} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", left: "-0%", top: "0%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-8'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-8`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverse}
+				sx={{ position: "absolute", left: "27%", top: "27%", transform: "rotate(312deg)" }}>
+				<HexGrid
+					id='module-grid-9'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-9`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+			<Box
+				className={styles.rotatingFast}
+				sx={{ position: "absolute", left: "7%", bottom: "0%", transform: "rotate(165deg)" }}>
+				<HexGrid
+					id='module-grid-10'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-10`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", right: "5%", top: "-10%", transform: "rotate(7deg)" }}>
+				<HexGrid
+					id='module-grid-11'
+					height={"35vh"}
+					width={"35vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-11`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.27} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseEaseInOut}
+				sx={{ position: "absolute", right: "45%", bottom: "10%", transform: "rotate(216deg)" }}>
+				<HexGrid
+					id='module-grid-12'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-12`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", right: "0%", bottom: "10%", transform: "rotate(216deg)" }}>
+				<HexGrid
+					id='module-grid-12'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-12`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
 	</>
 );
 
-const PageThree = ({ offset, gradient, onClick, router }) => (
+const PageFour = ({ offset, gradient, onClick, router }) => (
 	<>
 		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
 			<div className={styles.slopeBegin} />
@@ -406,13 +833,10 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 		</ParallaxLayer>
-
-		<ParallaxLayer
-			className={`${styles.text} ${styles.number} noselect`}
-			onClick={onClick}
-			offset={offset}
-			speed={0.3}>
-			<Container maxWidth='xl' sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+		<ParallaxLayer className={`noselect`} onClick={onClick} offset={offset} speed={0.3} style={{ zIndex: 100 }}>
+			<Container
+				maxWidth='xl'
+				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
 				<Grid container spacing={2}>
 					<Grid
 						item
@@ -429,21 +853,22 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 							fontSize='5rem'
 							textAlign='center'
 							lineHeight={1.2}
-							mb={3}>
+							mb={3}
+							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
 							Solution Proposition
 						</Typography>
 						<Box
 							sx={{
 								// minHeight: 700,
 								// maxWidth: 1350,
-								borderRadius: 5,
+								borderRadius: 2,
 								p: 4,
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 72, 88, 99, 0.7 )",
 								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<Typography color={"white"} fontSize={"20px"} textAlign='justify'>
 								To address the problems of accessibility, repairability, and configurability (or lack
@@ -472,7 +897,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<CardContent
 								sx={{
@@ -505,7 +930,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<CardContent
 								sx={{
@@ -539,7 +964,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<CardContent
 								sx={{
@@ -572,7 +997,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<CardContent
 								sx={{
@@ -602,10 +1027,82 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 				</Grid>
 			</Container>
 		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.05} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseEaseInOut}
+				sx={{ position: "absolute", right: "0%", bottom: "10%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-13'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-13`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.25} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotating}
+				sx={{ position: "absolute", right: "40%", bottom: "30%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-14'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-14`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotating}
+				sx={{ position: "absolute", right: "0%", bottom: "45%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-15'
+					height={"35vh"}
+					width={"35vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-15`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
 	</>
 );
 
-const PageFour = ({ offset, gradient, onClick, router }) => (
+const PageFive = ({ offset, gradient, onClick, router }) => (
 	<>
 		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
 			<div className={styles.slopeBegin} />
@@ -619,7 +1116,8 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 			className={`${styles.text} ${styles.number} noselect`}
 			// onClick={onClick}
 			offset={offset}
-			speed={0.3}>
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
 			<Container maxWidth='xl' sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 				<Grid container spacing={2}>
 					<Grid
@@ -637,12 +1135,13 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							sx={{
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 								backgroundColor: "rgba(255,255,255,0.9)",
-								borderRadius: 4,
+								borderRadius: 2,
 								overflow: "clip",
 								// maxHeight: "600px",
 								// width: "100%",
+								display: "flex",
 							}}>
 							<MACSFlowchart width={"43vw"} />
 						</Box>
@@ -663,7 +1162,8 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							textAlign='center'
 							lineHeight={1.2}
 							mb={3}
-							onClick={onClick}>
+							onClick={onClick}
+							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
 							Design & Implementation
 						</Typography>
 						<Box
@@ -671,7 +1171,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							sx={{
 								// minHeight: 700,
 								// maxWidth: 1350,
-								borderRadius: 4,
+								borderRadius: 2,
 								px: 4,
 								py: 2,
 								mb: 2,
@@ -681,10 +1181,11 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 								backgroundColor: "#70828FCE",
 								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<Typography color={"white"} fontSize={"20px"} textAlign='center'>
-								The design ascpets of the project were broken down into three main categories:
+								The design ascpets of the project were broken down into three main categories. Click to
+								learn more about each section of the project.
 							</Typography>
 						</Box>
 						<Box
@@ -698,128 +1199,148 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							<Card
 								elevation={4}
 								sx={{
+									position: "relative",
+									display: "flex",
+									alignSelf: "stretch",
 									maxWidth: "200px",
-									maxHeight: "190px",
+									minHeight: "190px",
 									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 									backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 									backdropFilter: "blur( 7px );",
-									webkitBackdropFilter: "blur( 7px );",
+									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<CardActionArea>
-									<CardContent
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-											justifyContent: "center",
-											alignItems: "center",
-											backgroundColor: theme.palette.hexagonBlueAlt.main,
-											transition: "all ease-in 0.25s",
-											"&:hover": {
-												backgroundColor: theme.palette.hexagonBlue.main,
-											},
-										}}>
-										<Typography
-											gutterBottom
-											fontSize='24px'
-											fontWeight='bold'
-											textAlign='center'
-											color='backgroundBlack.main'
-											fontFamily='Gilroy-Bold'>
-											MODULE
-										</Typography>
-										<Typography color='text.secondary' textAlign='center'>
-											The design of each module and the central hub
-										</Typography>
-										<Button variant='contained' sx={{ my: 1 }}>
-											Learn More
-										</Button>
-									</CardContent>
-								</CardActionArea>
+								{/* <CardActionArea> */}
+								<CardContent
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										position: "relative",
+										// justifyContent: "flex-start",
+										// flexGrow: 1,
+										height: "100%",
+										alignItems: "center",
+										alignSelf: "stretch",
+										backgroundColor: theme.palette.hexagonBlueAlt.main,
+										transition: "all ease-in 0.25s",
+										"&:hover": {
+											backgroundColor: theme.palette.hexagonBlue.main,
+										},
+									}}>
+									<Typography
+										gutterBottom
+										fontSize='24px'
+										fontWeight='bold'
+										textAlign='center'
+										color='backgroundBlack.main'
+										fontFamily='Gilroy-Bold'>
+										MODULE
+									</Typography>
+									<Typography color='text.secondary' textAlign='center'>
+										The design of each module and the central hub
+									</Typography>
+									<Button variant='contained' sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										Learn More
+									</Button>
+								</CardContent>
+								{/* </CardActionArea> */}
 							</Card>
 							<Card
 								elevation={4}
 								sx={{
+									position: "relative",
+									display: "flex",
+									alignSelf: "stretch",
 									maxWidth: "200px",
-									maxHeight: "190px",
+									minHeight: "190px",
 									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 									backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 									backdropFilter: "blur( 7px );",
-									webkitBackdropFilter: "blur( 7px );",
+									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<CardActionArea>
-									<CardContent
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-											justifyContent: "center",
-											alignItems: "center",
-											backgroundColor: theme.palette.hexagonGreenAlt.main,
-											transition: "all ease-in 0.25s",
-											"&:hover": {
-												backgroundColor: theme.palette.hexagonGreen.main,
-											},
-										}}>
-										<Typography
-											gutterBottom
-											fontSize='24px'
-											fontWeight='bold'
-											textAlign='center'
-											color='backgroundBlack.main'
-											fontFamily='Gilroy-Bold'>
-											CONTROLLER
-										</Typography>
-										<Typography color='text.secondary' textAlign='center'>
-											The communication between the modules and the application
-										</Typography>
-										<Button
-											variant='contained'
-											sx={{ my: 1, maxWidth: "150px", maxHeight: "40px" }}
-											onClick={() => router.push("/controller")}>
-											Learn More
-										</Button>
-									</CardContent>
-								</CardActionArea>
+								{/* <CardActionArea> */}
+								<CardContent
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										position: "relative",
+										// justifyContent: "flex-start",
+										// flexGrow: 1,
+										height: "100%",
+										alignItems: "center",
+										alignSelf: "stretch",
+										backgroundColor: theme.palette.hexagonGreenAlt.main,
+										transition: "all ease-in 0.25s",
+										"&:hover": {
+											backgroundColor: theme.palette.hexagonGreen.main,
+										},
+									}}>
+									<Typography
+										gutterBottom
+										fontSize='24px'
+										fontWeight='bold'
+										textAlign='center'
+										color='backgroundBlack.main'
+										fontFamily='Gilroy-Bold'>
+										CONTROLLER
+									</Typography>
+									<Typography color='text.secondary' textAlign='center'>
+										The communication between the modules and the application
+									</Typography>
+									<Button
+										variant='contained'
+										onClick={() => router.push("/")}
+										sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										Learn More
+									</Button>
+								</CardContent>
+								{/* </CardActionArea> */}
 							</Card>
 							<Card
 								elevation={4}
 								sx={{
+									display: "flex",
+									alignSelf: "stretch",
 									maxWidth: "200px",
-									height: "190px",
+									minHeight: "190px",
 									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 									backgroundColor: "rgba( 255, 255, 255, 0.9 )",
 									backdropFilter: "blur( 7px );",
-									webkitBackdropFilter: "blur( 7px );",
+									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<CardActionArea>
-									<CardContent
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-											justifyContent: "center",
-											alignItems: "center",
-											backgroundColor: theme.palette.hexagonRedAlt.main,
-											transition: "all ease-in 0.25s",
-											"&:hover": {
-												backgroundColor: theme.palette.hexagonRed.main,
-											},
-										}}>
-										<Typography
-											gutterBottom
-											fontSize='24px'
-											fontWeight='bold'
-											textAlign='center'
-											color='backgroundBlack.main'
-											fontFamily='Gilroy-Bold'>
-											APPLICATION
-										</Typography>
-										<Typography color='text.secondary' textAlign='center' minHeight='72px'>
-											The interpretation and emulation of inputs
-										</Typography>
-										<Button variant='contained' sx={{ my: 1 }}>
-											Learn More
-										</Button>
-									</CardContent>
-								</CardActionArea>
+								{/* <CardActionArea> */}
+								<CardContent
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										position: "relative",
+										// justifyContent: "flex-start",
+										// flexGrow: 1,
+										height: "100%",
+										alignItems: "center",
+										alignSelf: "stretch",
+										backgroundColor: theme.palette.hexagonRedAlt.main,
+										transition: "all ease-in 0.25s",
+										"&:hover": {
+											backgroundColor: theme.palette.hexagonRed.main,
+										},
+									}}>
+									<Typography
+										gutterBottom
+										fontSize='24px'
+										fontWeight='bold'
+										textAlign='center'
+										color='backgroundBlack.main'
+										fontFamily='Gilroy-Bold'>
+										APPLICATION
+									</Typography>
+									<Typography color='text.secondary' textAlign='center'>
+										The interpretation and emulation of inputs
+									</Typography>
+									<Button variant='contained' sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										Learn More
+									</Button>
+								</CardContent>
+								{/* </CardActionArea> */}
 							</Card>
 						</Box>
 						<Box
@@ -827,14 +1348,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							sx={{
 								// minHeight: 700,
 								// maxWidth: 1350,
-								borderRadius: 4,
+								borderRadius: 2,
 								p: 4,
 								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 								backgroundColor: "rgba( 72, 88, 99, 0.7 )",
 								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
 								backdropFilter: "blur( 7px );",
-								webkitBackdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
 							}}>
 							<Typography color={"white"} fontSize={"20px"} textAlign='justify'>
 								MACS works using two bridges of communication. The communication between modules and
@@ -845,25 +1366,1907 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 				</Grid>
 			</Container>
 		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotating}
+				sx={{ position: "absolute", right: "30%", bottom: "5%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-16'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-16`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseSlowEaseInOut}
+				sx={{ position: "absolute", left: "0%", bottom: "35%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-17'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-17`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", right: "0%", top: "0%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-18'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-18`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseSlow}
+				sx={{ position: "absolute", right: "50%", top: "0%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-19'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-19`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseNormal}
+				sx={{ position: "absolute", right: "0%", bottom: "15%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-20'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-20`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+	</>
+);
+
+const PageSix = ({ offset, gradient, onClick, router }) => (
+	<>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<div className={styles.slopeBegin} />
+		</ParallaxLayer>
+
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		</ParallaxLayer>
+		<ParallaxLayer className={`noselect`} onClick={onClick} offset={offset} speed={0.3} style={{ zIndex: 100 }}>
+			<Container
+				maxWidth='xl'
+				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+				<Grid container spacing={2}>
+					<Grid
+						item
+						xs={3.5}
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "center",
+							alignItems: "center",
+						}}>
+						<Box
+							sx={{
+								borderRadius: 2,
+								p: 3,
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								background:
+									"linear-gradient(315deg, rgba(192,0,69,0.65) 0%, rgba(255,184,0,0.65) 33%, rgba(160,232,134,0.65) 67%, rgba(0,135,177,0.65) 100%);",
+								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+								backdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
+							}}>
+							<Box
+								sx={{
+									// minHeight: 700,
+									// maxWidth: 1350,
+									borderRadius: 2,
+									p: 3,
+									boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+									// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+									backgroundColor: "rgba( 72, 88, 99, 0.8 )",
+									// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+									backdropFilter: "blur( 7px );",
+									WebkitBackdropFilter: "blur( 7px );",
+								}}>
+								<Typography
+									color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='4rem'
+									// textAlign='center'
+									lineHeight={1.1}
+									mb={3}
+									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
+									Modular
+								</Typography>
+								<Typography
+									color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='4rem'
+									// textAlign='center'
+									lineHeight={1.1}
+									mb={3}
+									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
+									Accessible
+								</Typography>
+								<Typography
+									color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='4rem'
+									// textAlign='center'
+									lineHeight={1.1}
+									mb={3}
+									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
+									Controller
+								</Typography>
+								<Typography
+									color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='4rem'
+									// textAlign='center'
+									lineHeight={1.1}
+									mb={3}
+									sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.37);" }}>
+									System
+								</Typography>
+								<Typography
+									color='white'
+									fontFamily={"bitcount-mono-single-line-ci"}
+									fontSize='5rem'
+									// textAlign='center'
+									lineHeight={1}
+									mb={2}>
+									MACS
+								</Typography>
+							</Box>
+						</Box>
+					</Grid>
+					<Grid
+						item
+						xs={8.5}
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-evenly",
+							alignItems: "center",
+							minHeight: "725px",
+						}}>
+						{/* <Typography
+							color='white'
+							fontFamily={"Gilroy-Heavy"}
+							fontSize='5rem'
+							textAlign='center'
+							lineHeight={1.1}
+							mb={3}>
+							Modules
+						</Typography> */}
+
+						<Grid
+							container
+							spacing={2}
+							sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+							<Grid item xs={8}>
+								<Box
+									onClick={onClick}
+									sx={{
+										// minHeight: 700,
+										// maxWidth: 1350,
+										borderRadius: 2,
+										p: 2,
+										my: 1,
+										boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+										// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+										backgroundColor: "rgba( 72, 88, 99, 0.7 )",
+										// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+										backdropFilter: "blur( 7px );",
+										WebkitBackdropFilter: "blur( 7px );",
+									}}>
+									<Grid container spacing={2}>
+										<Grid
+											item
+											xs={1}
+											sx={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												alignSelf: "stretch",
+											}}>
+											<Typography
+												color='white'
+												fontFamily={"Gilroy-Heavy"}
+												fontSize='3rem'
+												// textAlign='left'
+												sx={{ transform: "rotate(-90deg)" }}>
+												Modules
+											</Typography>
+										</Grid>
+										<Grid item xs={11}>
+											<Grid container spacing={2}>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardMedia
+															component='img'
+															alt='final central hub module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/central-hub.jpg'
+														/>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Central Hub
+														</Typography>
+													</Box>
+												</Grid>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardMedia
+															component='img'
+															alt='final button module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/button-module.jpg'
+														/>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Button Module
+														</Typography>
+													</Box>
+												</Grid>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardActionArea>
+															<CardMedia
+																component='img'
+																alt='final switch module'
+																height='150'
+																sx={{ objectFit: "cover" }}
+																image='/switch-module.jpg'
+															/>
+														</CardActionArea>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Switch Module
+														</Typography>
+													</Box>
+												</Grid>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardMedia
+															component='img'
+															alt='final joystick module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/joystick-module.jpg'
+														/>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Joystick Module
+														</Typography>
+													</Box>
+												</Grid>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardMedia
+															component='img'
+															alt='final slider module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/slider-module.jpg'
+														/>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Slider Module
+														</Typography>
+													</Box>
+												</Grid>
+												<Grid item xs={4} sx={{ position: "relative" }}>
+													<Card elevation={4} sx={{ display: "flex" }}>
+														<CardMedia
+															component='img'
+															alt='final dial module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/dial-module.jpg'
+														/>
+													</Card>
+													<Box
+														sx={{
+															borderRadius: 2,
+															px: 1,
+															py: 0.75,
+															// my: 1,
+															backgroundColor: "rgba( 255, 255, 255, 1 )",
+															// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+															// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+															display: "flex",
+															position: "absolute",
+															bottom: -10,
+															left: 10,
+														}}>
+														<Typography
+															color='backgroundBlack.main'
+															fontWeight='bold'
+															fontSize={"12px"}>
+															Dial Module
+														</Typography>
+													</Box>
+												</Grid>
+											</Grid>
+										</Grid>
+									</Grid>
+								</Box>
+							</Grid>
+							<Grid
+								item
+								xs={4}
+								sx={{
+									display: "flex",
+									flexDirection: "row",
+									justifyContent: "center",
+									alignItems: "center",
+								}}>
+								<Box
+									onClick={onClick}
+									sx={{
+										// minHeight: 700,
+										// maxWidth: 1350,
+										borderRadius: 2,
+										p: 2,
+										my: 1,
+										boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+										// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+										backgroundColor: "#70828FCE",
+										// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+										backdropFilter: "blur( 7px );",
+										WebkitBackdropFilter: "blur( 7px );",
+									}}>
+									<Grid
+										container
+										spacing={2}
+										sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+										<Grid
+											item
+											xs={2}
+											sx={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												alignSelf: "stretch",
+											}}>
+											<Typography
+												color='white'
+												fontFamily={"Gilroy-Heavy"}
+												fontSize='3rem'
+												// textAlign='left'
+												sx={{ transform: "rotate(-90deg)" }}>
+												Controller
+											</Typography>
+										</Grid>
+										<Grid item xs={10}>
+											<Grid container spacing={2}>
+												<Grid item xs={12}>
+													<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+														<CardMedia
+															component='img'
+															alt='microsoft adaptive controller'
+															height='200'
+															// sx={{ objectPosition: "50% 60%" }}
+															image='/macs-config-3.jpg'
+														/>
+													</Card>
+												</Grid>
+												<Grid item xs={12}>
+													<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+														<CardMedia
+															component='img'
+															alt='macs configuration 2'
+															height='200'
+															// sx={{ objectPosition: "50% 60%" }}
+															image='/macs-config-4.jpg'
+														/>
+													</Card>
+												</Grid>
+											</Grid>
+										</Grid>
+
+										{/* <Grid item xs={12}>
+											<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+												<CardActionArea>
+													<CardMedia
+														component='img'
+														alt='macs configuration 3'
+														height='200'
+														// sx={{ objectPosition: "50% 60%" }}
+														image='/macs-config-2.jpg'
+													/>
+												</CardActionArea>
+											</Card>
+										</Grid> */}
+									</Grid>
+								</Box>
+							</Grid>
+						</Grid>
+
+						<Box
+							onClick={onClick}
+							sx={{
+								// minHeight: 700,
+								// maxWidth: 1350,
+								borderRadius: 2,
+								p: 2,
+								my: 1,
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+								// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+								backdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
+							}}>
+							<Grid container spacing={2}>
+								<Grid
+									item
+									xs={0.75}
+									sx={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										alignSelf: "stretch",
+									}}>
+									<Typography
+										color='backgroundBlack.main'
+										fontFamily={"Gilroy-Heavy"}
+										fontSize='3rem'
+										// textAlign='left'
+										sx={{ transform: "rotate(-90deg)" }}>
+										App
+									</Typography>
+								</Grid>
+								<Grid item xs={11.25}>
+									<Grid container spacing={2}>
+										<Grid item xs={4} sx={{ position: "relative" }}>
+											<Card elevation={4} sx={{ display: "flex" }}>
+												<CardMedia
+													component='img'
+													alt='macs-application'
+													height='auto'
+													sx={{ objectFit: "contain" }}
+													image='/macs-application.png'
+												/>
+											</Card>
+											<Box
+												sx={{
+													borderRadius: 2,
+													px: 1,
+													py: 0.75,
+													// my: 1,
+													boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													backgroundColor: "#70828F",
+													// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+													display: "flex",
+													position: "absolute",
+													bottom: -10,
+													left: 10,
+												}}>
+												<Typography color='white' fontWeight='bold' fontSize={"12px"}>
+													Interface
+												</Typography>
+											</Box>
+										</Grid>
+										<Grid item xs={4} sx={{ position: "relative" }}>
+											<Card elevation={4} sx={{ display: "flex" }}>
+												<CardMedia
+													component='img'
+													alt='application joystick configuration'
+													height='auto'
+													sx={{ objectFit: "contain" }}
+													image='/joystick-config.png'
+												/>
+											</Card>
+											<Box
+												sx={{
+													borderRadius: 2,
+													px: 1,
+													py: 0.75,
+													// my: 1,
+													boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													backgroundColor: "#70828F",
+													// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+													display: "flex",
+													position: "absolute",
+													bottom: -10,
+													left: 10,
+												}}>
+												<Typography color='white' fontWeight='bold' fontSize={"12px"}>
+													Joystick Configuration
+												</Typography>
+											</Box>
+										</Grid>
+										<Grid item xs={4} sx={{ position: "relative" }}>
+											<Card elevation={4} sx={{ display: "flex" }}>
+												<CardMedia
+													component='img'
+													alt='application button configuration'
+													height='auto'
+													sx={{ objectFit: "contain" }}
+													image='/button-config.png'
+												/>
+											</Card>
+											<Box
+												sx={{
+													borderRadius: 2,
+													px: 1,
+													py: 0.75,
+													// my: 1,
+													boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													// WebkitBoxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+													backgroundColor: "#70828F",
+													// boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 );",
+													display: "flex",
+													position: "absolute",
+													bottom: -10,
+													left: 10,
+												}}>
+												<Typography color='white' fontWeight='bold' fontSize={"12px"}>
+													Button Configuration
+												</Typography>
+											</Box>
+										</Grid>
+									</Grid>
+								</Grid>
+							</Grid>
+						</Box>
+					</Grid>
+				</Grid>
+			</Container>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseEaseInOut}
+				sx={{ position: "absolute", left: "20%", bottom: "25%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-21'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-21`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.35} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotating}
+				sx={{ position: "absolute", left: "2%", bottom: "10%", transform: "rotate(154deg)" }}>
+				<HexGrid
+					id='module-grid-14'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-22`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.01} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", right: "-5%", bottom: "65%", transform: "rotate(98deg)" }}>
+				<HexGrid
+					id='module-grid-23'
+					height={"40vh"}
+					width={"40vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-23`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseEaseInOut}
+				sx={{ position: "absolute", right: "30%", bottom: "6%", transform: "rotate(72deg)" }}>
+				<HexGrid
+					id='module-grid-24'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-24`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", left: "10%", top: "6%", transform: "rotate(34deg)" }}>
+				<HexGrid
+					id='module-grid-25'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-25`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.2} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingFast}
+				sx={{ position: "absolute", right: "3%", bottom: "25%", transform: "rotate(216deg)" }}>
+				<HexGrid
+					id='module-grid-26'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-26`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+	</>
+);
+
+const PageSeven = ({ offset, gradient, onClick, router }) => (
+	<>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<div className={styles.slopeBegin} />
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		</ParallaxLayer>
+		<ParallaxLayer
+			className={`${styles.text} ${styles.number} noselect`}
+			// onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
+			<Container maxWidth='xl' sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+				<Grid container spacing={2}>
+					<Grid
+						item
+						onClick={onClick}
+						xs={4}
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "flex-start",
+						}}>
+						<Typography
+							color='white'
+							fontFamily={"bitcount-mono-single-line-ci"}
+							fontSize='9rem'
+							my={-1}
+							onClick={onClick}>
+							MACS
+						</Typography>
+						<Typography
+							color='white'
+							fontFamily={"Gilroy-Heavy"}
+							fontSize='8rem'
+							my={-5}
+							onClick={onClick}
+							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.5);" }}>
+							in
+						</Typography>
+						<Typography
+							color='white'
+							fontFamily={"Gilroy-Heavy"}
+							fontSize='8rem'
+							my={-2}
+							onClick={onClick}
+							sx={{ textShadow: "2px 3px 5px rgba(0,0,0,0.5);" }}>
+							action
+						</Typography>
+					</Grid>
+					<Grid
+						item
+						xs={8}
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "center",
+							alignItems: "center",
+						}}>
+						<Box
+							onClick={onClick}
+							sx={{
+								display: "flex",
+								borderRadius: 2,
+								// p: 4,
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								backgroundColor: "rgba( 72, 88, 99, 0.7 )",
+								// backdropFilter: "blur( 7px );",
+								// webkitBackdropFilter: "blur( 7px );",
+								position: "relative",
+								overflow: "hidden",
+								width: "100%",
+								paddingTop: "56.25%",
+							}}>
+							<iframe
+								className={styles.responsiveIframe}
+								title='MACS in action'
+								src='https://drive.google.com/file/d/1QmNI558EnRjYwXppvZrDmpxlafCn1kr1/preview?=controls=0'
+								allow='autoplay'
+								allowFullScreen
+								contextMenu={false}></iframe>
+						</Box>
+					</Grid>
+				</Grid>
+			</Container>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.7} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotating}
+				sx={{ position: "absolute", left: "25%", bottom: "5%", transform: "rotate(112deg)" }}>
+				<HexGrid
+					id='module-grid-27'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-27`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonRed.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseSlowEaseInOut}
+				sx={{ position: "absolute", left: "40%", top: "10%", transform: "rotate(180deg)" }}>
+				<HexGrid
+					id='module-grid-28'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-28`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", right: "3%", top: "15%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-29'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-29`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.45} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseSlow}
+				sx={{ position: "absolute", left: "0%", top: "0%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-30'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-30`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseNormal}
+				sx={{ position: "absolute", right: "5%", bottom: "5%", transform: "rotate(212deg)" }}>
+				<HexGrid
+					id='module-grid-31'
+					height={"40vh"}
+					width={"40vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-31`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		{/* <ParallaxLayer offset={offset} speed={-0.1} onClick={onClick} style={{ zIndex: 10 }}>
+			<Box
+				className={styles.rotatingReverseNormal}
+				sx={{ position: "absolute", left: "10%", bottom: "5%", transform: "rotate(333deg)" }}>
+				<HexGrid
+					id='module-grid-32'
+					height={"15vh"}
+					width={"15vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-32`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer> */}
+	</>
+);
+
+const PageEight = ({ offset, gradient, onClick, router }) => (
+	<>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<div className={styles.slopeBegin} />
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		</ParallaxLayer>
+		<ParallaxLayer
+			className={`${styles.text} ${styles.number} noselect`}
+			onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
+			<Container
+				maxWidth='xl'
+				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+				<Grid container spacing={2}>
+					<Grid item xs={5} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+						<Box
+							sx={{
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								borderRadius: 2,
+								backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+								backdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "center",
+								alignItems: "flex-start",
+								px: 8,
+								py: 2,
+							}}>
+							<Typography
+								color='backgroundBlack.main'
+								fontFamily={"bitcount-mono-single-line-ci"}
+								fontSize='9rem'
+								mb={-3}
+								mt={-4}
+								onClick={onClick}>
+								MACS
+							</Typography>
+							<Box sx={{ position: "relative" }}>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='8rem'
+									my={-5}
+									onClick={onClick}
+									sx={{
+										position: "relative",
+										backgroundImage:
+											"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									}}>
+									Break
+								</Typography>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='8rem'
+									my={-5}
+									onClick={onClick}
+									sx={{
+										position: "absolute",
+										top: 0,
+										left: 0,
+										// backgroundImage:
+										// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+										// WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+										zIndex: -1,
+									}}>
+									Break
+								</Typography>
+							</Box>
+							<Box sx={{ position: "relative" }}>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='8rem'
+									my={-2}
+									onClick={onClick}
+									sx={{
+										position: "relative",
+										backgroundImage:
+											"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									}}>
+									Down
+								</Typography>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='8rem'
+									my={-2}
+									onClick={onClick}
+									sx={{
+										position: "absolute",
+										top: 0,
+										left: 0,
+										// backgroundImage:
+										// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+										// WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+										zIndex: -1,
+									}}>
+									Down
+								</Typography>
+							</Box>
+						</Box>
+					</Grid>
+				</Grid>
+			</Container>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick}>
+			<Box sx={{ position: "absolute", left: "70%", top: "35%", transform: "rotate(-17deg)" }}>
+				<Box className={styles.rotating}>
+					<HexGrid
+						id='module-grid-35'
+						height={"50vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-35`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonRed.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Per Module
+					</Typography>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='4rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						$15.50
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick}>
+			<Box sx={{ position: "absolute", left: "61%", top: "17%", transform: "rotate(-3deg)" }}>
+				<Box className={styles.rotatingReverseSlowEaseInOut}>
+					<HexGrid
+						id='module-grid-34'
+						height={"40vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-34`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Actual
+					</Typography>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='4rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						$466.87
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<Box sx={{ position: "absolute", left: "55%", top: "45%", transform: "rotate(15deg)" }}>
+				<Box className={styles.rotatingSlow}>
+					<HexGrid
+						id='module-grid-33'
+						height={"40vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-33`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Anticipated
+					</Typography>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='4rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						$650
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+			<Box
+				sx={{
+					position: "absolute",
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+					boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+					borderRadius: "50%",
+					backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+					backdropFilter: "blur( 7px );",
+					WebkitBackdropFilter: "blur( 7px );",
+					height: "30vh",
+					width: "30vh",
+					zIndex: 10,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}}>
+				<MACSLogoRed height='27vh' />
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.8} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", left: "-5%", top: "5%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-36'
+					height={"40vh"}
+					width={"40vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-36`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverse}
+				sx={{ position: "absolute", right: "3%", top: "12%", transform: "rotate(82deg)" }}>
+				<HexGrid
+					id='module-grid-37'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-37`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", right: "45%", bottom: "5%", transform: "rotate(2deg)" }}>
+				<HexGrid
+					id='module-grid-38'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-38`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+	</>
+);
+
+const PageNine = ({ offset, gradient, onClick, router }) => (
+	<>
+		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<div className={styles.slopeBegin} />
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		</ParallaxLayer>
+		<ParallaxLayer
+			className={`${styles.text} ${styles.number} noselect`}
+			onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 9999 }}>
+			<Container
+				maxWidth='xl'
+				sx={{
+					display: "flex",
+					alignItems: "flex-start",
+					justifyContent: "flex-start",
+					zIndex: 1000000,
+					minHeight: "80vh",
+				}}>
+				<Grid container spacing={2}>
+					<Grid item xs={12} sx={{ display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
+						<Box
+							sx={{
+								boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+								borderRadius: 2,
+								backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+								backdropFilter: "blur( 7px );",
+								WebkitBackdropFilter: "blur( 7px );",
+								display: "flex",
+								flexDirection: "row",
+								justifyContent: "center",
+								alignItems: "center",
+								px: 8,
+								py: 2,
+							}}>
+							<Box sx={{ position: "relative" }}>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='6rem'
+									my={-5}
+									onClick={onClick}
+									sx={{
+										position: "relative",
+										background: "rgb(199,14,81)",
+										backgroundImage:
+											"linear-gradient(126deg, rgba(199,14,81,1) 10%, rgba(255,184,0,1) 40%, rgba(25,177,0,1) 67%, rgba(0,135,177,1) 90%)",
+										WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										// textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+									}}>
+									Beyond
+								</Typography>
+								<Typography
+									// color='white'
+									fontFamily={"Gilroy-Heavy"}
+									fontSize='6rem'
+									my={-5}
+									onClick={onClick}
+									sx={{
+										position: "absolute",
+										top: 0,
+										left: 0,
+										// backgroundImage:
+										// 	"linear-gradient(135deg, rgba(0,135,177,1) 0%, rgba(199,14,81,1) 100%)",
+										// WebkitBackgroundClip: "text",
+										WebkitTextFillColor: "transparent",
+										textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
+										zIndex: -1,
+									}}>
+									Beyond
+								</Typography>
+							</Box>
+							<Typography
+								color='backgroundBlack.main'
+								fontFamily={"bitcount-mono-single-line-ci"}
+								fontSize='7rem'
+								mb={-3}
+								mt={-4}
+								ml={4}
+								onClick={onClick}>
+								MACS
+							</Typography>
+						</Box>
+					</Grid>
+				</Grid>
+			</Container>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
+			<Box sx={{ position: "absolute", left: "20%", top: "25%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotating}>
+					<HexGrid
+						id='module-grid-39'
+						height={"35vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-39`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonRed.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						// mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Magnetic Connectors
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.8} onClick={onClick}>
+			<Box sx={{ position: "absolute", left: "27%", top: "60%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingReverseNormal}>
+					<HexGrid
+						id='module-grid-40'
+						height={"35vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-40`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonYellow.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						// mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Module Extension Cord
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.9} onClick={onClick}>
+			<Box sx={{ position: "absolute", right: "20%", top: "25%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingReverseSlowEaseInOut}>
+					<HexGrid
+						id='module-grid-41'
+						height={"35vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-41`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.5rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						More Non-Traditional Inputs
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
+			<Box sx={{ position: "absolute", right: "27%", top: "60%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingSlow}>
+					<HexGrid
+						id='module-grid-42'
+						height={"35vh"}
+						width={"auto"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-42`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						// color='white'
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.25rem'
+						// mb={-2}
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Increased Configuration Options
+					</Typography>
+				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<Box
+				sx={{
+					position: "absolute",
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+					boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
+					borderRadius: "50%",
+					backgroundColor: "rgba( 255, 255, 255, 0.85 )",
+					backdropFilter: "blur( 7px );",
+					WebkitBackdropFilter: "blur( 7px );",
+					height: "40vh",
+					width: "40vh",
+					zIndex: 10,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}}>
+				<MACSLogoBlue height='37vh' />
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.3} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlowEaseInOut}
+				sx={{ position: "absolute", left: "0%", top: "60%", transform: "rotate(15deg)" }}>
+				<HexGrid
+					id='module-grid-43'
+					height={"25vh"}
+					width={"25vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-43`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.4} onClick={onClick}>
+			<Box
+				className={styles.rotatingReverse}
+				sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(82deg)" }}>
+				<HexGrid
+					id='module-grid-44'
+					height={"20vh"}
+					width={"20vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-44`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(2deg)" }}>
+				<HexGrid
+					id='module-grid-45'
+					height={"30vh"}
+					width={"30vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-45`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
+			<Box
+				className={styles.rotatingSlow}
+				sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(2deg)" }}>
+				<HexGrid
+					id='module-grid-46'
+					height={"27vh"}
+					width={"27vw"}
+					viewBox='-50 -50 100 100'
+					preserveAspectRatio='xMidYMid meet'>
+					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Hexagon
+							id={`hexagon-46`}
+							q={0}
+							r={0}
+							s={0}
+							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+							stroke='white'
+							strokeWidth={1}
+						/>
+					</Layout>
+				</HexGrid>
+			</Box>
+		</ParallaxLayer>
 	</>
 );
 
 export default function Overview() {
 	const parallax = useRef(null);
 	const router = useRouter();
+	let scrollYProgress = 0;
 
 	const scroll = (to) => {
 		if (parallax.current) {
 			parallax.current.scrollTo(to);
+			// console.log(parallax.current);
 		}
 	};
+
+	const handleScroll = () => {
+		if (parallax.current) {
+			// console.log(parallax.current.current);
+			scrollYProgress = parallax.current.current / 500;
+		}
+	};
+
+	useEffect(() => {
+		const container = document.querySelector(".parallax-scroll");
+		container.addEventListener("scroll", handleScroll);
+		return () => {
+			container.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<Box>
+		<animated.div>
 			<Head>
 				<style>{"body { background-color: #FFF; !important; }"}</style>
 			</Head>
-			<Box sx={{ position: "absolute", top: "2.5%", left: "6%", zIndex: 9999 }}>
-				<MACSLogoWhite />
+			<Box
+				sx={{
+					position: "absolute",
+					// top: "2.5%",
+					// left: "6%",
+					background: "linear-gradient(to bottom, rgba( 255, 255, 255, 0.2 ), rgba( 255, 255, 255, 0 ))",
+					boxShadow: "0 2px 8px 0 rgba( 0, 0, 0, 0.35 )",
+					backdropFilter: "blur( 7px )",
+					WebkitBackdropFilter: "blur( 7px )",
+					zIndex: 1,
+					// pl: 10,
+					display: "flex",
+					flexDirection: "row",
+					alignItems: "center",
+					justifyContent: "flex-start",
+					width: "100vw",
+					"&:hover": {
+						cursor: "pointer",
+					},
+				}}>
+				<Box
+					sx={{
+						position: "relative",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						left: "5%",
+					}}
+					onClick={() => router.push("/")}>
+					<MACSLogoWhite height={60} />
+					<Typography
+						fontFamily='bitcount-mono-single-line-ci'
+						fontSize='3.5rem'
+						lineHeight={1.4}
+						color='white'
+						ml={2}
+						fontWeight={300}>
+						MACS
+					</Typography>
+				</Box>
 			</Box>
 			<Box
 				sx={{
@@ -1011,12 +3414,17 @@ export default function Overview() {
 					</Tooltip>
 				</Box>
 			</Box>
-			<Parallax className={styles.parallaxContainer} ref={parallax} pages={4}>
+			<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={9}>
 				<PageOne offset={0} gradient='greenBlue' onClick={() => scroll(1)} router={router} />
 				<PageTwo offset={1} gradient='yellowGreen' onClick={() => scroll(2)} router={router} />
-				<PageThree offset={2} gradient='redYellow' onClick={() => scroll(3)} router={router} />
-				<PageFour offset={3} gradient='blueRed' onClick={() => scroll(0)} router={router} />
+				<PageThree offset={2} gradient='yellowGreenAlt' onClick={() => scroll(3)} router={router} />
+				<PageFour offset={3} gradient='redYellow' onClick={() => scroll(4)} router={router} />
+				<PageFive offset={4} gradient='redYellowAlt' onClick={() => scroll(5)} router={router} />
+				<PageSix offset={5} gradient='blueRed' onClick={() => scroll(6)} router={router} />
+				<PageSeven offset={6} gradient='purpleBlue' onClick={() => scroll(7)} router={router} />
+				<PageEight offset={7} gradient='blue' onClick={() => scroll(8)} router={router} />
+				<PageNine offset={8} gradient='blue' onClick={() => scroll(0)} router={router} />
 			</Parallax>
-		</Box>
+		</animated.div>
 	);
 }
