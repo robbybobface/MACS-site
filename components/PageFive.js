@@ -120,7 +120,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => (
 									<Button
 										variant='contained'
 										onClick={() => router.push("/modules")}
-										sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										sx={{ my: 2, position: "absolute", bottom: 38 }}>
 										Learn More
 									</Button>
 								</CardContent>
@@ -164,7 +164,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => (
 									<Button
 										variant='contained'
 										onClick={() => router.push("/controller")}
-										sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										sx={{ my: 2, position: "absolute", bottom: 38 }}>
 										Learn More
 									</Button>
 								</CardContent>
@@ -207,7 +207,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => (
 									<Button
 										variant='contained'
 										onClick={() => router.push("/application")}
-										sx={{ my: 1, position: "absolute", bottom: 38 }}>
+										sx={{ my: 2, position: "absolute", bottom: 38 }}>
 										Learn More
 									</Button>
 								</CardContent>

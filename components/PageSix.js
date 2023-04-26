@@ -48,16 +48,32 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 									backdropFilter: "blur( 7px );",
 									WebkitBackdropFilter: "blur( 7px );",
 								}}>
-								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+								<Typography
+									className={styles.MACSText}
+									fontFamily='Gilroy-Heavy'
+									fontSize='4rem'
+									lineHeight={1.1}>
 									Modular
 								</Typography>
-								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+								<Typography
+									className={styles.MACSText}
+									fontFamily='Gilroy-Heavy'
+									fontSize='4rem'
+									lineHeight={1.1}>
 									Accessible
 								</Typography>
-								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+								<Typography
+									className={styles.MACSText}
+									fontFamily='Gilroy-Heavy'
+									fontSize='4rem'
+									lineHeight={1.1}>
 									Controller
 								</Typography>
-								<Typography className={styles.MACSText} fontFamily={"Gilroy-Heavy"}>
+								<Typography
+									className={styles.MACSText}
+									fontFamily='Gilroy-Heavy'
+									fontSize='4rem'
+									lineHeight={1.1}>
 									System
 								</Typography>
 								<Typography

@@ -20,9 +20,6 @@ const Header = () => {
 				alignItems: "center",
 				justifyContent: "flex-start",
 				width: "100vw",
-				"&:hover": {
-					cursor: "pointer",
-				},
 			}}>
 			<Box
 				sx={{
@@ -31,6 +28,9 @@ const Header = () => {
 					alignItems: "center",
 					justifyContent: "center",
 					left: "5%",
+					"&:hover": {
+						cursor: "pointer",
+					},
 				}}
 				onClick={() => router.push("/")}>
 				<MACSLogoWhite height={60} />

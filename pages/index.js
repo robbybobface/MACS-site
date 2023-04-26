@@ -25,6 +25,7 @@ import SwitchLogo from "../assets/switch";
 import DpadLogo from "../assets/dpad";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import styles from "../styles/Home.module.css";
+import { MACSLogo } from "../assets/macs_logo";
 
 const Hexagons = [
 	{
@@ -536,16 +537,12 @@ export default function Home() {
 
 	return (
 		<div className={styles.container}>
-			{/* <Head>
-				<title>MACS</title>
-				<link rel='icon' href='/favicon.svg' />
-			</Head> */}
 			<Box className='bg'></Box>
 			<Box className='bg bg2'></Box>
 			<Box className='bg bg3'></Box>
 			<Box flex={1} sx={{ position: "absolute" }}>
 				<Box sx={{ position: "absolute", top: "3%", left: "6%" }}>
-					<MACSLogoWhite />
+					<MACSLogo />
 				</Box>
 				<Grid container spacing={2} sx={{ minWidth: "100vw", minHeight: "100vh" }}>
 					<Grid
@@ -675,11 +672,8 @@ export default function Home() {
 						</Box>
 						<Box
 							sx={{
-								// display: "flex",
 								position: "relative",
-								// right: -460,
 								zIndex: 1000,
-								// right: 80,
 								justifyContent: "space-between",
 								width: 400,
 								flexDirection: "column",
