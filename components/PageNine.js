@@ -233,99 +233,151 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.3} onClick={onClick}>
-			<Box
-				className={styles.rotatingSlowEaseInOut}
-				sx={{ position: "absolute", left: "0%", top: "60%", transform: "rotate(15deg)" }}>
-				<HexGrid
-					id='module-grid-43'
-					height={"25vh"}
-					width={"25vw"}
-					viewBox='-50 -50 100 100'
-					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						<Hexagon
-							id={`hexagon-43`}
-							q={0}
-							r={0}
-							s={0}
-							cellStyle={{ fill: theme.palette.hexagonOrange.main }}
-							stroke='white'
-							strokeWidth={1}
-						/>
-					</Layout>
-				</HexGrid>
+			<Box sx={{ position: "absolute", left: "0%", top: "60%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingSlowEaseInOut}>
+					<HexGrid
+						id='module-grid-43'
+						height={"29vh"}
+						width={"29vw"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-43`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonOrange.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.4rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Wireless Connectivity
+					</Typography>
+				</Box>
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.4} onClick={onClick}>
-			<Box
-				className={styles.rotatingReverse}
-				sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(82deg)" }}>
-				<HexGrid
-					id='module-grid-44'
-					height={"20vh"}
-					width={"20vw"}
-					viewBox='-50 -50 100 100'
-					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						<Hexagon
-							id={`hexagon-44`}
-							q={0}
-							r={0}
-							s={0}
-							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
-							stroke='white'
-							strokeWidth={1}
-						/>
-					</Layout>
-				</HexGrid>
+			<Box sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingReverse}>
+					<HexGrid
+						id='module-grid-44'
+						height={"25vh"}
+						width={"25vw"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-44`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.25rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Module LED Edges
+					</Typography>
+				</Box>
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box
-				className={styles.rotatingSlow}
-				sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(2deg)" }}>
-				<HexGrid
-					id='module-grid-45'
-					height={"30vh"}
-					width={"30vw"}
-					viewBox='-50 -50 100 100'
-					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						<Hexagon
-							id={`hexagon-45`}
-							q={0}
-							r={0}
-							s={0}
-							cellStyle={{ fill: theme.palette.hexagonBlack.main }}
-							stroke='white'
-							strokeWidth={1}
-						/>
-					</Layout>
-				</HexGrid>
+			<Box sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingSlow}>
+					<HexGrid
+						id='module-grid-45'
+						height={"30vh"}
+						width={"30vw"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-45`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonBlack.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.25rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Multi-Platform Support
+					</Typography>
+				</Box>
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box
-				className={styles.rotatingSlow}
-				sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(2deg)" }}>
-				<HexGrid
-					id='module-grid-46'
-					height={"27vh"}
-					width={"27vw"}
-					viewBox='-50 -50 100 100'
-					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						<Hexagon
-							id={`hexagon-46`}
-							q={0}
-							r={0}
-							s={0}
-							cellStyle={{ fill: theme.palette.hexagonPurple.main }}
-							stroke='white'
-							strokeWidth={1}
-						/>
-					</Layout>
-				</HexGrid>
+			<Box sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(0deg)" }}>
+				<Box className={styles.rotatingSlow}>
+					<HexGrid
+						id='module-grid-46'
+						height={"27vh"}
+						width={"27vw"}
+						viewBox='-50 -50 100 100'
+						preserveAspectRatio='xMidYMid meet'>
+						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Hexagon
+								id={`hexagon-46`}
+								q={0}
+								r={0}
+								s={0}
+								cellStyle={{ fill: theme.palette.hexagonPurple.main }}
+								stroke='white'
+								strokeWidth={1}
+							/>
+						</Layout>
+					</HexGrid>
+				</Box>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+					<Typography
+						fontFamily={"Gilroy-Heavy"}
+						fontSize='2.25rem'
+						onClick={onClick}
+						sx={{
+							color: "white",
+							textAlign: "center",
+							textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+						}}>
+						Multi-Group Modules
+					</Typography>
+				</Box>
 			</Box>
 		</ParallaxLayer>
 	</>
