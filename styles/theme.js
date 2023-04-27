@@ -92,6 +92,9 @@ const theme = createTheme({
 		topBarBlue: {
 			main: "#263d52",
 		},
+		mainLogoBlue: {
+			main: "#325982",
+		},
 	},
 	typography: {
 		fontFamily: ["K2D", "Roboto", "Helvetica", "Arial", "sans-serif"].join(","),

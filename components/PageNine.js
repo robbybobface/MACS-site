@@ -28,7 +28,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 					display: "flex",
 					alignItems: "flex-start",
 					justifyContent: "flex-start",
-					zIndex: 1000000,
+					// zIndex: 1000000,
 					minHeight: "80vh",
 				}}>
 				<Grid container spacing={2}>
@@ -67,7 +67,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Container>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "20%", top: "25%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", left: "20%", top: "25%", transform: "rotate(4deg)" }}>
 				<Box className={styles.rotating}>
 					<HexGrid
 						id='module-grid-39'
@@ -104,7 +104,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.8} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "27%", top: "60%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", left: "27%", top: "60%", transform: "rotate(-12deg)" }}>
 				<Box className={styles.rotatingReverseNormal}>
 					<HexGrid
 						id='module-grid-40'
@@ -141,7 +141,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.9} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "20%", top: "25%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", right: "20%", top: "25%", transform: "rotate(-2deg)" }}>
 				<Box className={styles.rotatingReverseSlowEaseInOut}>
 					<HexGrid
 						id='module-grid-41'
@@ -178,7 +178,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "27%", top: "60%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", right: "27%", top: "60%", transform: "rotate(10deg)" }}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-42'
@@ -232,13 +232,13 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<MACSLogoBlue height='44vh' />
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.3} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "0%", top: "60%", transform: "rotate(0deg)" }}>
+		<ParallaxLayer offset={offset} speed={-0.13} onClick={onClick} style={{ zIndex: 9999 }}>
+			<Box sx={{ position: "absolute", left: "5%", top: "60%", transform: "rotate(10deg)" }}>
 				<Box className={styles.rotatingSlowEaseInOut}>
 					<HexGrid
 						id='module-grid-43'
-						height={"29vh"}
-						width={"29vw"}
+						height={"22vh"}
+						width={"22vw"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
@@ -257,7 +257,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.4rem'
+						fontSize='1.8rem'
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -269,13 +269,13 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.4} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(0deg)" }}>
+		<ParallaxLayer offset={offset} speed={-0.12} onClick={onClick} style={{ zIndex: 9999 }}>
+			<Box sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(10deg)" }}>
 				<Box className={styles.rotatingReverse}>
 					<HexGrid
 						id='module-grid-44'
-						height={"25vh"}
-						width={"25vw"}
+						height={"20vh"}
+						width={"20vw"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
@@ -294,7 +294,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.25rem'
+						fontSize='1.75rem'
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -307,12 +307,12 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(-15deg)" }}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-45'
-						height={"30vh"}
-						width={"30vw"}
+						height={"32vh"}
+						width={"32vw"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
@@ -344,7 +344,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(0deg)" }}>
+			<Box sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(-7deg)" }}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-46'

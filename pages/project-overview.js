@@ -16,6 +16,7 @@ import PageSix from "../components/PageSix";
 import PageSeven from "../components/PageSeven";
 import PageEight from "../components/PageEight";
 import PageNine from "../components/PageNine";
+import PageTen from "../components/PageTen";
 
 export default function Overview() {
 	const parallax = useRef(null);
@@ -51,7 +52,7 @@ export default function Overview() {
 			</Head>
 			<Header router={router} />
 			<BottomNav router={router} />
-			<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={9}>
+			<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={10}>
 				<PageOne offset={0} gradient='greenBlue' onClick={() => scroll(1)} router={router} />
 				<PageTwo offset={1} gradient='yellowGreen' onClick={() => scroll(2)} router={router} />
 				<PageThree offset={2} gradient='yellowGreenAlt' onClick={() => scroll(3)} router={router} />
@@ -60,7 +61,8 @@ export default function Overview() {
 				<PageSix offset={5} gradient='blueRed' onClick={() => scroll(6)} router={router} />
 				<PageSeven offset={6} gradient='purpleBlue' onClick={() => scroll(7)} router={router} />
 				<PageEight offset={7} gradient='blue' onClick={() => scroll(8)} router={router} />
-				<PageNine offset={8} gradient='greenBlue' onClick={() => scroll(0)} router={router} />
+				<PageNine offset={8} gradient='greenBlue' onClick={() => scroll(9)} router={router} />
+				<PageTen offset={9} gradient='yellowGreen' onClick={() => scroll(0)} router={router} />
 			</Parallax>
 		</animated.div>
 	);

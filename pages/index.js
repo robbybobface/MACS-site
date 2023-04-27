@@ -1,105 +1,63 @@
-import React, { useEffect, useState, useRef, memo, useMemo } from "react";
+import React, { useEffect, useState, useRef, memo } from "react";
 import { useRouter } from "next/navigation";
-import { nanoid } from "nanoid";
-import { Box, Typography, LinearProgress, Grid, Card, CardActionArea, CardContent, Button } from "@mui/material";
-import {
-	ZoomIn,
-	ZoomOut,
-	RestartAlt,
-	RotateLeft,
-	RotateRight,
-	BoltOutlined,
-	Terminal,
-	VideogameAssetOutlined,
-	EmojiEventsOutlined,
-	Diversity3Outlined,
-} from "@mui/icons-material";
-import theme from "../styles/theme";
-import { MACSLogoLightBlue } from "../assets/macs_logo_light_blue";
-import { MACSLogoWhite } from "../assets/macs_logo_white";
-import ButtonLogo from "../assets/button";
-import DialLogo from "../assets/knob";
-import JoystickLogo from "../assets/joystick";
-import SliderLogo from "../assets/slider";
-import SwitchLogo from "../assets/switch";
-import DpadLogo from "../assets/dpad";
-import { HexGrid, Layout, Hexagon } from "react-hexgrid";
+import { Box, Typography, LinearProgress, Grid, Card, CardActionArea, CardContent } from "@mui/material";
+import { HexGrid, Layout } from "react-hexgrid";
 import styles from "../styles/Home.module.css";
 import { MACSLogo } from "../assets/macs_logo";
 import BottomNav from "../components/BottomNav";
+import { Hexagons } from "../utils/Hexagons";
+import { animated, useTrail, to } from "@react-spring/web";
+import {
+	getWidthOffset,
+	getHeightOffset,
+	gridScaler,
+	ModuleSVG,
+	getElevation,
+	getModuleBackgroundColor,
+	GeneratedHexagon,
+} from "../utils/HelperFunctions";
 
-const Hexagons = [
-	{
-		id: nanoid(),
-		q: 0,
-		r: -1,
-		s: 1,
-		moduleType: undefined,
-		mainModule: true,
-	},
-	{
-		id: nanoid(),
-		q: -1,
-		r: 0,
-		s: 1,
-		moduleType: "dial",
-		configuration: {
-			input: [
-				{
-					start: 0,
-					end: 100,
-				},
-			],
-		},
-	},
-	{
-		id: nanoid(),
-		q: -1,
-		r: 1,
-		s: 0,
-		moduleType: "button",
-		configuration: {},
-	},
-	{
-		id: nanoid(),
-		q: 1,
-		r: -1,
-		s: 0,
-		moduleType: "slider",
-		configuration: {
-			input: [
-				{
-					start: 0,
-					end: 100,
-				},
-			],
-		},
-	},
-	{
-		id: nanoid(),
-		q: 1,
-		r: 0,
-		s: -1,
-		moduleType: "joystick",
-		configuration: {
-			behavior: "default",
-		},
-	},
-	{
-		id: nanoid(),
-		q: 0,
-		r: 1,
-		s: -1,
-		moduleType: "switch",
-		configuration: {},
-	},
-];
+const Trail = ({ open, children }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 10, tension: 2000, friction: 250 },
+		opacity: open ? 1 : 0,
+		x: open ? 0 : 10,
+		y: open ? 0 : 50,
+		from: { opacity: 0, x: 10, y: 50 },
+	});
+	return (
+		<>
+			{trail.map(({ height, ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div style={{ position: "relative", overflow: "hidden" }}>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
+const TrailLogo = ({ open, children }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 10, tension: 2000, friction: 250 },
+		opacity: open ? 1 : 0,
+		from: { opacity: 0 },
+	});
+	return (
+		<>
+			{trail.map(({ height, ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
 
 export default function Home() {
-	const [hexagons, setHexagons] = useState(Hexagons);
-	const [dropzones, setDropzones] = useState([]);
 	const [viewBox, setViewBox] = useState("-50 -50 100 100");
-	const filteredHexagons = hexagons.filter((hexagon) => {
+	const [open, setOpen] = useState(false);
+	const filteredHexagons = Hexagons.filter((hexagon) => {
 		return !(hexagon?.mainModule ?? false);
 	});
 	const hexagonSize = { x: 10, y: 10 };
@@ -127,134 +85,6 @@ export default function Home() {
 		}
 	};
 
-	const getWidthOffset = (controllerWidth, controllerHeight) => {
-		switch (controllerWidth) {
-			case 1:
-				switch (controllerHeight) {
-					case 1:
-						return 2; // done
-					case 2:
-						return 1.75; // done
-					case 3:
-						return 1.5; // done
-					default:
-						return 1.4;
-				}
-			case 2:
-				switch (controllerHeight) {
-					case 1:
-						return 3.25;
-					case 2: //done
-						return 1.5;
-					case 3: // done
-						return 1;
-					default:
-						return 1;
-				}
-			case 3:
-				switch (controllerHeight) {
-					case 1: // done
-						return 1.6;
-					case 2: //done
-						return 1.2;
-					case 3: // done
-						return 1.15;
-					default:
-						return 1.4;
-				}
-			case 4:
-				switch (controllerHeight) {
-					case 1:
-						return 1.6;
-					case 2:
-						return 1.4;
-					case 3: // done
-						return 1.5;
-					case 4:
-						return 1.2;
-					default:
-						return 1;
-				}
-			default:
-				return 1;
-		}
-	};
-
-	const getHeightOffset = (controllerHeight, controllerWidth) => {
-		switch (controllerHeight) {
-			case 1:
-				return 1.8; // done
-			case 2:
-				switch (controllerWidth) {
-					case 1:
-						return 2; // done
-					case 2: // done
-						return 1.5;
-					case 3:
-						return 1.25;
-					default:
-						return 1;
-				}
-			case 3:
-				switch (controllerWidth) {
-					case 1: // done
-						return 1.2;
-					case 2: // done
-						return 1.2;
-					case 3: // done
-						return 1.3;
-					default:
-						return 1.3;
-				}
-			case 4:
-				switch (controllerWidth) {
-					case 1: // done
-						return 1.2;
-					case 2: // done
-						return 1.2;
-					case 3: // done
-						return 1.2;
-					case 4:
-						return 1.2;
-					default:
-						return 1;
-				}
-
-			case 5:
-				switch (controllerWidth) {
-					case 1: // done
-						return 1.2;
-					case 2: // done
-						return 1.2;
-					case 3: // done
-						return 1.15;
-					default:
-						return 1;
-				}
-
-			default:
-				return 1;
-		}
-	};
-
-	const gridScaler = (width, height) => {
-		if (width === 1 && height === 1) {
-			return 2;
-		} else if (width < 3 && height < 3) {
-			return 1.6;
-		} else if (width === 3) {
-			return height <= 3 ? 1.3 : 1.1;
-		} else if (width === 4) {
-			return height <= 4 ? 1.2 : 1;
-		} else if (height === 3) {
-			return width <= 3 ? 1.3 : 1.1;
-		} else if (height === 4) {
-			return width <= 4 ? 1.0 : 1;
-		} else {
-			return 0.7;
-		}
-	};
-
 	const positionSVG = () => {
 		const svgGrid = document.getElementById("module-grid");
 		const { xMin, xMax, yMin, yMax } = [...svgGrid?.children].reduce((acc, el) => {
@@ -265,18 +95,18 @@ export default function Home() {
 			if (!acc.yMax || y + height > acc.yMax) acc.yMax = y + height;
 			return acc;
 		}, {});
-		const heightMin = Math.min(...hexagons.map((hexagon) => hexagon.r));
-		const heightMax = Math.max(...hexagons.map((hexagon) => hexagon.r));
-		const widthMin = Math.min(...hexagons.map((hexagon) => hexagon.q));
-		const widthMax = Math.max(...hexagons.map((hexagon) => hexagon.q));
+		const heightMin = Math.min(...Hexagons.map((hexagon) => hexagon.r));
+		const heightMax = Math.max(...Hexagons.map((hexagon) => hexagon.r));
+		const widthMin = Math.min(...Hexagons.map((hexagon) => hexagon.q));
+		const widthMax = Math.max(...Hexagons.map((hexagon) => hexagon.q));
 		console.log(widthMin, widthMax, heightMin, heightMax);
 		const controllerWidth =
 			Math.abs(
-				Math.max(...hexagons.map((hexagon) => hexagon.q)) - Math.min(...hexagons.map((hexagon) => hexagon.q))
+				Math.max(...Hexagons.map((hexagon) => hexagon.q)) - Math.min(...Hexagons.map((hexagon) => hexagon.q))
 			) + 1;
 		const controllerHeight =
 			Math.abs(
-				Math.max(...hexagons.map((hexagon) => hexagon.r)) - Math.min(...hexagons.map((hexagon) => hexagon.r))
+				Math.max(...Hexagons.map((hexagon) => hexagon.r)) - Math.min(...Hexagons.map((hexagon) => hexagon.r))
 			) + 1;
 		console.log(controllerWidth, controllerHeight);
 		const viewBox = `${xMin * getWidthOffset(controllerWidth, controllerHeight)} ${
@@ -289,97 +119,8 @@ export default function Home() {
 		setViewBox(viewBox);
 	};
 
-	const ModuleSVG = memo(
-		({ moduleType }) => {
-			switch (moduleType) {
-				case "button":
-					return <ButtonLogo width={65} height={65} style={{ paddingTop: 4, paddingLeft: 2.25 }} />;
-				case "switch":
-					return <SwitchLogo width={70} height={80} style={{ paddingTop: 6.5 }} />;
-				case "slider":
-					return <SliderLogo width={70} height={70} style={{ paddingTop: 6 }} />;
-				case "dial":
-					return <DialLogo width={107} height={107} style={{ marginTop: -1.25, marginLeft: -18.5 }} />;
-				case "dpad":
-					return <DpadLogo width={65} height={65} style={{ paddingTop: 3.75, paddingLeft: 2.25 }} />;
-				case "joystick":
-					return <JoystickLogo width={70} height={70} style={{ paddingTop: 5 }} />;
-				default:
-					return "";
-			}
-		},
-		(prevProps, nextProps) => {
-			return prevProps.moduleType === nextProps.moduleType;
-		}
-	);
-
-	const getElevation = (moduleType) => {
-		switch (moduleType) {
-			case "switch":
-				return 8;
-			case "dpad":
-				return 8;
-			case "dial":
-				return 10;
-			default:
-				return 4;
-		}
-	};
-
-	const getModuleBackgroundColor = (moduleType) => {
-		switch (moduleType) {
-			case "button":
-				return "hexagonRedAlt.main";
-			case "switch":
-				return "hexagonYellowAlt.main";
-			case "slider":
-				return "hexagonGreenAlt.main";
-			case "dial":
-				return "hexagonOrangeAlt.main";
-			case "dpad":
-				return "hexagonPurpleAlt.main";
-			case "joystick":
-				return "hexagonBlueAlt.main";
-			default:
-				return "hexagonBlackAlt.main";
-		}
-	};
-
-	const getHexagonBackgroundColor = (moduleType) => {
-		switch (moduleType) {
-			case "button":
-				return theme.palette.hexagonRed.main;
-			case "switch":
-				return theme.palette.hexagonYellow.main;
-			case "slider":
-				return theme.palette.hexagonGreen.main;
-			case "dial":
-				return theme.palette.hexagonOrange.main;
-			case "dpad":
-				return theme.palette.hexagonPurple.main;
-			case "joystick":
-				return theme.palette.hexagonBlue.main;
-			default:
-				return theme.palette.hexagonBlack.main;
-		}
-	};
-
-	const GeneratedHexagon = ({ hexagon, index }) => {
-		return (
-			<Hexagon
-				id={`hexagon-${hexagon.id}`}
-				q={hexagon.q}
-				r={hexagon.r}
-				s={hexagon.s}
-				cellStyle={{ fill: getHexagonBackgroundColor(hexagon.moduleType) }}
-				stroke='white'
-				strokeWidth={0.25}
-			/>
-		);
-	};
-
 	const GeneratedHexgrid = memo(
-		({ localHexagons }) => {
+		() => {
 			return (
 				<HexGrid
 					id='module-grid'
@@ -388,7 +129,7 @@ export default function Home() {
 					viewBox={viewBox}
 					preserveAspectRatio='xMidYMid meet'>
 					<Layout size={hexagonSize} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-						{localHexagons.map((hexagon, index) => (
+						{Hexagons.map((hexagon, index) => (
 							<GeneratedHexagon key={hexagon.id} hexagon={hexagon} index={index} />
 						))}
 					</Layout>
@@ -404,7 +145,6 @@ export default function Home() {
 	const Dropzones = memo(
 		() => {
 			return filteredHexagons.map((hexagon, index) => {
-				// <ModuleContext.Provider value={providerValues}>
 				return (
 					<Dropzone
 						key={`dropzoneKey-${hexagon.id}`}
@@ -420,8 +160,7 @@ export default function Home() {
 
 	const Dropzone = memo(
 		({ moduleID, moduleType, index }) => {
-			const foundHexagon = hexagons.find((hexagon) => hexagon.id === moduleID);
-			// console.log(foundHexagon);
+			const foundHexagon = Hexagons.find((hexagon) => hexagon.id === moduleID);
 			return (
 				<Box
 					id={`dropzone-${moduleID}`}
@@ -443,18 +182,8 @@ export default function Home() {
 								width: "70px",
 								height: "70px",
 								backgroundColor: getModuleBackgroundColor(moduleType),
-								// zIndex: 1000,
 							}}>
-							<CardActionArea
-								onClick={(e) => {
-									// panRef.current.zoomToElement(`dropzone-${moduleID}`, 3, 300, "easeOut");
-									// console.log(hexagons);
-									// setActiveHexagon({ ...foundHexagon, index });
-									// setTempHexagon({ ...foundHexagon, index });
-									// setSidePanelOpen(true);
-									// console.log("active Hexagon:");
-									// console.log(foundHexagon);
-								}}>
+							<CardActionArea onClick={(e) => {}}>
 								<CardContent
 									sx={{
 										width: "70px",
@@ -524,16 +253,11 @@ export default function Home() {
 				false
 			);
 		}, 5);
-		let tempDropzones = [];
 		positionSVG();
 		for (const [index, Hexagon] of filteredHexagons.entries()) {
 			positionDropzone(index, `hexagon-${Hexagon.id}`);
-			tempDropzones = [...tempDropzones, Hexagon.id];
 		}
-		const tempInputTypes = new Set(filteredHexagons.map((hexagon) => hexagon.moduleType));
-		console.log(tempInputTypes);
-		// setDistinctInputTypes(Array.from(tempInputTypes));
-		setDropzones(tempDropzones);
+		setOpen(true);
 	}, []);
 
 	return (
@@ -541,11 +265,21 @@ export default function Home() {
 			<Box className='bg'></Box>
 			<Box className='bg bg2'></Box>
 			<Box className='bg bg3'></Box>
-			<Box sx={{ position: "absolute", top: "3%", left: "6%" }}>
-				<MACSLogo />
-			</Box>
+			<TrailLogo open={open}>
+				<Box
+					sx={{
+						display: "flex",
+						position: "absolute",
+						top: "3%",
+						left: "6%",
+						borderRadius: "50%",
+						boxShadow: "8px 8px 13px -6px rgba(0,0,0,0.4)",
+					}}>
+					<MACSLogo />
+				</Box>
+			</TrailLogo>
 			<BottomNav router={router} home={true} />
-			<Grid container spacing={2} sx={{ minWidth: "100vw", minHeight: "100vh" }}>
+			<Grid container spacing={2}>
 				<Grid
 					item
 					xs={6}
@@ -560,117 +294,119 @@ export default function Home() {
 						className='noselect'
 						sx={{
 							pl: 14.5,
-							pb: 10,
+							pb: 5,
 						}}>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "flex-start",
-								justifyContent: "flex-start",
-							}}>
-							<Box sx={{ display: "flex", flexDirection: "column" }}>
-								<Typography
-									fontFamily='bitcount-mono-single-line-ci'
-									fontSize='12rem'
-									color='white'
-									fontWeight={300}
-									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-									MACS
-								</Typography>
-								<LinearProgress color='hexagonBlueFull' sx={{ mt: -6 }} />
+						<Trail open={open}>
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "row",
+									alignItems: "flex-start",
+									justifyContent: "flex-start",
+								}}>
+								<Box sx={{ display: "flex", flexDirection: "column" }}>
+									<Typography
+										fontFamily='bitcount-mono-single-line-ci'
+										fontSize='12rem'
+										color='white'
+										fontWeight={300}
+										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+										MACS
+									</Typography>
+									<LinearProgress color='hexagonBlueFull' sx={{ mt: -6 }} />
+								</Box>
 							</Box>
-						</Box>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "flex-start",
-								justifyContent: "flex-start",
-							}}>
-							<Typography
-								fontFamily='Gilroy-Heavy'
-								color='white'
-								fontSize='5rem'
-								sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-								A
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "row",
+									alignItems: "flex-start",
+									justifyContent: "flex-start",
+								}}>
+								<Typography
+									fontFamily='Gilroy-Heavy'
+									color='white'
+									fontSize='5rem'
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+									A
+								</Typography>
+								<Box
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										ml: 4,
+									}}>
+									<Typography
+										fontFamily='Gilroy-Heavy'
+										color='white'
+										fontSize='5rem'
+										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+										Modular
+									</Typography>
+									<LinearProgress color='hexagonGreenFull' sx={{ mt: -2 }} />
+								</Box>
+								<Box
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										ml: 4,
+									}}>
+									<Typography
+										fontFamily='Gilroy-Heavy'
+										color='white'
+										fontSize='5rem'
+										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+										Accessible
+									</Typography>
+									<LinearProgress color='hexagonYellowFull' sx={{ mt: -2 }} />
+								</Box>
+							</Box>
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "row",
+									alignItems: "flex-start",
+									justifyContent: "flex-start",
+									mb: 2,
+								}}>
+								<Box
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+									}}>
+									<Typography
+										fontFamily='Gilroy-Heavy'
+										color='white'
+										fontSize='5rem'
+										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+										Controller
+									</Typography>
+									<LinearProgress color='hexagonOrangeFull' sx={{ mt: -1 }} />
+								</Box>
+								<Box
+									sx={{
+										display: "flex",
+										flexDirection: "column",
+										ml: 4,
+									}}>
+									<Typography
+										fontFamily='Gilroy-Heavy'
+										color='white'
+										fontSize='5rem'
+										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+										System
+									</Typography>
+									<LinearProgress color='hexagonRedFull' sx={{ mt: -1 }} />
+								</Box>
+							</Box>
+							<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='60%'>
+								Capstone Project by:
 							</Typography>
-							<Box
-								sx={{
-									display: "flex",
-									flexDirection: "column",
-									ml: 4,
-								}}>
-								<Typography
-									fontFamily='Gilroy-Heavy'
-									color='white'
-									fontSize='5rem'
-									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-									Modular
-								</Typography>
-								<LinearProgress color='hexagonGreenFull' sx={{ mt: -2 }} />
-							</Box>
-							<Box
-								sx={{
-									display: "flex",
-									flexDirection: "column",
-									ml: 4,
-								}}>
-								<Typography
-									fontFamily='Gilroy-Heavy'
-									color='white'
-									fontSize='5rem'
-									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-									Accessible
-								</Typography>
-								<LinearProgress color='hexagonYellowFull' sx={{ mt: -2 }} />
-							</Box>
-						</Box>
-						<Box
-							sx={{
-								display: "flex",
-								flexDirection: "row",
-								alignItems: "flex-start",
-								justifyContent: "flex-start",
-								mb: 2,
-							}}>
-							<Box
-								sx={{
-									display: "flex",
-									flexDirection: "column",
-								}}>
-								<Typography
-									fontFamily='Gilroy-Heavy'
-									color='white'
-									fontSize='5rem'
-									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-									Controller
-								</Typography>
-								<LinearProgress color='hexagonOrangeFull' sx={{ mt: -1 }} />
-							</Box>
-							<Box
-								sx={{
-									display: "flex",
-									flexDirection: "column",
-									ml: 4,
-								}}>
-								<Typography
-									fontFamily='Gilroy-Heavy'
-									color='white'
-									fontSize='5rem'
-									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-									System
-								</Typography>
-								<LinearProgress color='hexagonRedFull' sx={{ mt: -1 }} />
-							</Box>
-						</Box>
-						<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='60%'>
-							Capstone Project by:
-						</Typography>
-						<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='70%'>
-							Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
-							Freeman
-						</Typography>
+							<Typography fontFamily='K2D' color='white' fontSize='1.5rem' maxWidth='70%'>
+								Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
+								Freeman
+							</Typography>
+						</Trail>
 					</Box>
 				</Grid>
 				<Grid
@@ -689,7 +425,7 @@ export default function Home() {
 							display: "flex",
 							justifyContent: "center",
 						}}>
-						<GeneratedHexgrid localHexagons={hexagons} />
+						<GeneratedHexgrid />
 						<Dropzones />
 					</Box>
 				</Grid>
