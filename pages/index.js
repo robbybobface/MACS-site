@@ -413,7 +413,7 @@ export default function Home() {
 			<TrailLogo open={open}>
 				<Box
 					sx={{
-						display: "flex",
+						display: { xs: "none", mdPlus: "flex" },
 						position: "fixed",
 						zIndex: 100000000,
 						top: "3%",
@@ -690,7 +690,7 @@ export default function Home() {
 							justifyContent: "center",
 							alignItems: "center",
 							flexDirection: "column",
-							mt: { xs: 3, smPlus: 0 },
+							mt: { xs: 0, smPlus: 0 },
 						}}>
 						<Box
 							className={boxStyles.darkerGreyBox}
@@ -730,7 +730,7 @@ export default function Home() {
 								pb: 1,
 								pt: 1,
 								zIndex: 99999,
-								mb: { xs: -30, smMinus: -15 },
+								mb: { xs: -22, smMinus: -15 },
 							}}>
 							<Box sx={{ display: "flex", justifyContent: "center" }}>
 								<Typography
