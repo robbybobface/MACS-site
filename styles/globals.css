@@ -55,3 +55,9 @@ body {
 		transform: translateX(25%);
 	}
 }
+
+.MuiTooltip-popper,
+.MuiTooltip-popperInteractive,
+.MuiPopper-root {
+	z-index: 999999 !important;
+}
