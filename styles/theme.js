@@ -99,6 +99,21 @@ const theme = createTheme({
 	typography: {
 		fontFamily: ["K2D", "Roboto", "Helvetica", "Arial", "sans-serif"].join(","),
 	},
+	breakpoints: {
+		values: {
+			xs: 0,
+			smMinus: 600,
+			sm: 675,
+			smPlus: 800,
+			md: 900,
+			mdPlus: 1000,
+			lg: 1200,
+			lgPlus: 1300,
+			lgPlusPlus: 1450,
+			xl: 1620,
+			xlPlus: 1700,
+		},
+	},
 });
 
 export default theme;

@@ -22,10 +22,34 @@
 	border-radius: 8px;
 }
 
+.darkerGreyBox {
+	box-shadow: 9px 10px 13px -8px rgba(0, 0, 0, 0.55);
+	background-color: rgba(72, 88, 99, 0.85);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	border-radius: 8px;
+}
+
 .whiteCircle {
 	box-shadow: 9px 10px 13px -8px rgba(0, 0, 0, 0.55);
 	border-radius: 50%;
 	background-color: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+}
+
+.lightGreyCircle {
+	box-shadow: 9px 10px 13px -8px rgba(0, 0, 0, 0.55);
+	border-radius: 50%;
+	background-color: #70828fce;
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+}
+
+.darkGreyCircle {
+	box-shadow: 9px 10px 13px -8px rgba(0, 0, 0, 0.55);
+	border-radius: 50%;
+	background-color: rgba(72, 88, 99, 0.7) e;
 	backdrop-filter: blur(7px);
 	-webkit-backdrop-filter: blur(7px);
 }

@@ -17,11 +17,6 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
-#hexgrid-container {
-	transform-origin: 50% 50%;
-	display: inline-block;
-	/* <--- */
-}
 /* @keyframes ckw {
 	0% {
 		transform: rotate(0deg);

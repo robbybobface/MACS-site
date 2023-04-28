@@ -1,11 +1,18 @@
 import React, { memo } from "react";
+
+import theme from "../styles/theme";
 import ButtonLogo from "../assets/button";
 import DialLogo from "../assets/knob";
 import JoystickLogo from "../assets/joystick";
 import SliderLogo from "../assets/slider";
 import SwitchLogo from "../assets/switch";
 import DpadLogo from "../assets/dpad";
-import theme from "../styles/theme";
+import ButtonLogoAlt from "../assets/buttonAlt";
+import DialLogoAlt from "../assets/knobAlt";
+import JoystickLogoAlt from "../assets/joystickAlt";
+import SliderLogoAlt from "../assets/sliderAlt";
+import SwitchLogoAlt from "../assets/switchAlt";
+import DpadLogoAlt from "../assets/dpadAlt";
 import { Hexagon } from "react-hexgrid";
 
 export const getWidthOffset = (controllerWidth, controllerHeight) => {
@@ -136,30 +143,6 @@ export const gridScaler = (width, height) => {
 	}
 };
 
-export const ModuleSVG = memo(
-	({ moduleType }) => {
-		switch (moduleType) {
-			case "button":
-				return <ButtonLogo width={65} height={65} style={{ paddingTop: 4, paddingLeft: 2.25 }} />;
-			case "switch":
-				return <SwitchLogo width={70} height={80} style={{ paddingTop: 6.5 }} />;
-			case "slider":
-				return <SliderLogo width={70} height={70} style={{ paddingTop: 6 }} />;
-			case "dial":
-				return <DialLogo width={107} height={107} style={{ marginTop: -1.25, marginLeft: -18.5 }} />;
-			case "dpad":
-				return <DpadLogo width={65} height={65} style={{ paddingTop: 3.75, paddingLeft: 2.25 }} />;
-			case "joystick":
-				return <JoystickLogo width={70} height={70} style={{ paddingTop: 5 }} />;
-			default:
-				return "";
-		}
-	},
-	(prevProps, nextProps) => {
-		return prevProps.moduleType === nextProps.moduleType;
-	}
-);
-
 export const getElevation = (moduleType) => {
 	switch (moduleType) {
 		case "switch":
@@ -223,4 +206,66 @@ export const GeneratedHexagon = ({ hexagon, index }) => {
 			strokeWidth={0.25}
 		/>
 	);
+};
+
+export const GeneratedHexagonAlt = ({ hexagon, index }) => {
+	return (
+		<Hexagon
+			id={`hexagonAlt-${hexagon.id}`}
+			q={hexagon.q}
+			r={hexagon.r}
+			s={hexagon.s}
+			cellStyle={{ fill: getHexagonBackgroundColor(hexagon.moduleType) }}
+			stroke='white'
+			strokeWidth={0.25}
+		/>
+	);
+};
+
+export const ModuleSVG = ({ moduleType }) => {
+	switch (moduleType) {
+		case "button":
+			return (
+				<ButtonLogo
+					width={65}
+					height={65}
+					style={{ paddingTop: 4, paddingLeft: 2.25, zIndex: 99999, display: "flex" }}
+				/>
+			);
+		case "switch":
+			return <SwitchLogo width={70} height={80} style={{ paddingTop: 6.5, zIndex: 99999 }} />;
+		case "slider":
+			return <SliderLogo width={70} height={70} style={{ paddingTop: 6, zIndex: 99999 }} />;
+		case "dial":
+			return <DialLogo width={107} height={107} style={{ marginTop: -1.25, marginLeft: -18.5, zIndex: 99999 }} />;
+		case "dpad":
+			return <DpadLogo width={65} height={65} style={{ paddingTop: 3.75, paddingLeft: 2.25, zIndex: 99999 }} />;
+		case "joystick":
+			return <JoystickLogo width={70} height={70} style={{ paddingTop: 5, zIndex: 99999 }} />;
+		default:
+			return "";
+	}
+};
+
+export const ModuleSVGAlt = ({ moduleType, altType }) => {
+	switch (moduleType) {
+		case "button":
+			return <ButtonLogoAlt width={65} height={65} style={{ paddingTop: 4, paddingLeft: 2.25, zIndex: 99999 }} />;
+		case "switch":
+			return <SwitchLogoAlt width={70} height={80} style={{ paddingTop: 6.5, zIndex: 99999 }} />;
+		case "slider":
+			return <SliderLogoAlt width={70} height={70} style={{ paddingTop: 6, zIndex: 99999 }} />;
+		case "dial":
+			return (
+				<DialLogoAlt width={107} height={107} style={{ marginTop: -1.25, marginLeft: -18.5, zIndex: 99999 }} />
+			);
+		case "dpad":
+			return (
+				<DpadLogoAlt width={65} height={65} style={{ paddingTop: 3.75, paddingLeft: 2.25, zIndex: 99999 }} />
+			);
+		case "joystick":
+			return <JoystickLogoAlt width={70} height={70} style={{ paddingTop: 5, zIndex: 99999 }} />;
+		default:
+			return "";
+	}
 };

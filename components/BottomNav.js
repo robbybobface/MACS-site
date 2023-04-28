@@ -12,12 +12,12 @@ const BottomNav = ({ router, home }) => {
 	return (
 		<Box
 			sx={{
-				position: "absolute",
+				position: "fixed",
 				zIndex: 1000,
-				right: 100,
+				right: { xs: 50, lg: 100 },
 				bottom: 30,
 				justifyContent: "space-between",
-				width: 400,
+				width: { xs: 350, md: 400 },
 				flexDirection: "column",
 			}}>
 			<Box
@@ -43,7 +43,7 @@ const BottomNav = ({ router, home }) => {
 						variant='contained'
 						color='drawerBackground'
 						onClick={() => console.log("rotate left")}
-						sx={{ marginRight: 4, minHeight: 40, maxWidth: 64 }}>
+						sx={{ marginRight: { xs: 1.9, md: 4 }, minHeight: 40, maxWidth: 64 }}>
 						<Diversity3Outlined color='primary' />
 					</Button>
 				</Tooltip>
