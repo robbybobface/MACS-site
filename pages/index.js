@@ -372,32 +372,32 @@ export default function Home() {
 	const isSmallMinus = useMediaQuery(theme.breakpoints.only("smMinus"));
 	const isExtraSmall = useMediaQuery(theme.breakpoints.only("xs"));
 
-	window.setTimeout(() => {
-		console.log("resize");
-		for (const [index, Hexagon] of filteredHexagons.entries()) {
-			positionDropzone(index, `hexagon-${Hexagon.id}`);
-		}
-		for (const [index, Hexagon] of filteredHexagonsAlt.entries()) {
-			positionDropzoneAlt(index, `hexagonAlt-${Hexagon.id}`);
-		}
-		positionSVG();
-		window.addEventListener(
-			"resize",
-			() => {
-				console.log("resize again");
-				for (const [index, Hexagon] of filteredHexagons.entries()) {
-					positionDropzone(index, `hexagon-${Hexagon.id}`);
-				}
-				for (const [index, Hexagon] of filteredHexagonsAlt.entries()) {
-					positionDropzoneAlt(index, `hexagonAlt-${Hexagon.id}`);
-				}
-				positionSVG();
-			},
-			false
-		);
-	}, 5);
 	// On initial render
 	useEffect(() => {
+		window.setTimeout(() => {
+			console.log("resize");
+			for (const [index, Hexagon] of filteredHexagons.entries()) {
+				positionDropzone(index, `hexagon-${Hexagon.id}`);
+			}
+			for (const [index, Hexagon] of filteredHexagonsAlt.entries()) {
+				positionDropzoneAlt(index, `hexagonAlt-${Hexagon.id}`);
+			}
+			positionSVG();
+			window.addEventListener(
+				"resize",
+				() => {
+					console.log("resize again");
+					for (const [index, Hexagon] of filteredHexagons.entries()) {
+						positionDropzone(index, `hexagon-${Hexagon.id}`);
+					}
+					for (const [index, Hexagon] of filteredHexagonsAlt.entries()) {
+						positionDropzoneAlt(index, `hexagonAlt-${Hexagon.id}`);
+					}
+					positionSVG();
+				},
+				false
+			);
+		}, 5);
 		positionSVG();
 		for (const [index, Hexagon] of filteredHexagons.entries()) {
 			positionDropzone(index, `hexagon-${Hexagon.id}`);
