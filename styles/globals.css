@@ -2,7 +2,7 @@ html,
 body {
 	font-family: K2D, -apple-system, K2D, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
 		Droid Sans, Helvetica Neue, sans-serif;
-	/* background-color: #272727; */
+	background-color: #323232;
 	color: white;
 	margin: 0 !important;
 }
@@ -35,7 +35,7 @@ body {
 	position: fixed;
 	right: -50%;
 	top: 0;
-	z-index: -1;
+	z-index: 0;
 }
 
 .bg2 {

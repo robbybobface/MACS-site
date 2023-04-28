@@ -415,6 +415,7 @@ export default function Home() {
 					sx={{
 						display: "flex",
 						position: "fixed",
+						zIndex: 100000000,
 						top: "3%",
 						left: { xs: "3%", lg: "6%" },
 						borderRadius: "50%",
