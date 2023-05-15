@@ -1,17 +1,21 @@
 import React from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
-import { MACSLogoBlue } from "../assets/macs_logo_light_blue";
+import { Box, Typography, Container, Grid, useMediaQuery } from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
+import { MACSLogoBlue } from "../../assets/macs_logo_light_blue";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import GradientText from "./GradientText";
+import theme from "../../styles/theme";
+import GradientText from "../GradientText";
 
 const PageNine = ({ offset, gradient, onClick, router }) => (
 	<>
 		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
-			<div className={styles.slopeBegin} />
+			<div
+				className={
+					useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileNine : styles.slopeBegin
+				}
+			/>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
@@ -47,16 +51,16 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 								text='Beyond'
 								gradient={"linear-gradient(145deg, rgba(54,133,173,1) 0%, rgba(116,182,158,1) 100%)"}
 								my={-5}
-								fontSize={"6rem"}
+								fontSize={{ xs: "3.5rem", md: "6rem" }}
 								onClick={onClick}
 							/>
 							<Typography
 								color='white'
 								fontFamily={"bitcount-mono-single-line-ci"}
-								fontSize='7rem'
+								fontSize={{ xs: "4.5rem", md: "7rem" }}
 								mb={-3}
 								mt={-4}
-								ml={4}
+								ml={{ xs: 2, md: 4 }}
 								onClick={onClick}
 								sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 								MACS
@@ -67,11 +71,17 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Container>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "20%", top: "25%", transform: "rotate(4deg)" }}>
+			<Box
+				sx={{
+					position: "absolute",
+					left: { xs: "50%", md: "20%" },
+					top: { xs: "20%", md: "25%" },
+					transform: "rotate(4deg)",
+				}}>
 				<Box className={styles.rotating}>
 					<HexGrid
 						id='module-grid-39'
-						height={"35vh"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
@@ -91,7 +101,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.5rem'
+						fontSize={{ xs: "1.65rem", md: "2.5rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -104,11 +114,17 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.8} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "27%", top: "60%", transform: "rotate(-12deg)" }}>
+			<Box
+				sx={{
+					position: "absolute",
+					left: { xs: "50%", md: "27%" },
+					top: { xs: "57%", md: "60%" },
+					transform: "rotate(-12deg)",
+				}}>
 				<Box className={styles.rotatingReverseNormal}>
 					<HexGrid
 						id='module-grid-40'
-						height={"35vh"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
@@ -128,7 +144,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.5rem'
+						fontSize={{ xs: "1.65rem", md: "2.5rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -141,11 +157,17 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.9} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "20%", top: "25%", transform: "rotate(-2deg)" }}>
+			<Box
+				sx={{
+					position: "absolute",
+					right: { xs: "50%", md: "20%" },
+					top: { xs: "20%", md: "25%" },
+					transform: "rotate(-2deg)",
+				}}>
 				<Box className={styles.rotatingReverseSlowEaseInOut}>
 					<HexGrid
 						id='module-grid-41'
-						height={"35vh"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
@@ -165,7 +187,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.5rem'
+						fontSize={{ xs: "1.6rem", md: "2.5rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -178,11 +200,17 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 			</Box>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "27%", top: "60%", transform: "rotate(10deg)" }}>
+			<Box
+				sx={{
+					position: "absolute",
+					right: { xs: "50%", md: "27%" },
+					top: { xs: "57%", md: "60%" },
+					transform: "rotate(10deg)",
+				}}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-42'
-						height={"35vh"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
@@ -202,7 +230,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.25rem'
+						fontSize={{ xs: "1.5rem", md: "2.25rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -214,34 +242,23 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+
+		<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick}>
 			<Box
-				className={boxStyles.whiteCircle}
 				sx={{
 					position: "absolute",
-					top: "50%",
-					left: "50%",
-					transform: "translate(-50%, -50%)",
-					height: "46vh",
-					width: "46vh",
-					zIndex: 10,
-					display: "flex",
-					justifyContent: "center",
-					alignItems: "center",
+					left: { xs: "0%", md: "11%" },
+					top: { xs: "77%", md: "60%" },
+					transform: "rotate(10deg)",
 				}}>
-				<MACSLogoBlue height='44vh' />
-			</Box>
-		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.13} onClick={onClick} style={{ zIndex: 9999 }}>
-			<Box sx={{ position: "absolute", left: "5%", top: "60%", transform: "rotate(10deg)" }}>
 				<Box className={styles.rotatingSlowEaseInOut}>
 					<HexGrid
 						id='module-grid-43'
-						height={"22vh"}
-						width={"22vw"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "16vh" : "22vh"}
+						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
-						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 							<Hexagon
 								id={`hexagon-43`}
 								q={0}
@@ -257,7 +274,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='1.8rem'
+						fontSize={{ xs: "1.1rem", md: "1.8rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -269,16 +286,22 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.12} onClick={onClick} style={{ zIndex: 9999 }}>
-			<Box sx={{ position: "absolute", right: "3%", top: "55%", transform: "rotate(10deg)" }}>
+		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
+			<Box
+				sx={{
+					position: "absolute",
+					right: { xs: "2%", md: "8%" },
+					top: { xs: "78%", md: "55%" },
+					transform: "rotate(10deg)",
+				}}>
 				<Box className={styles.rotatingReverse}>
 					<HexGrid
 						id='module-grid-44'
-						height={"20vh"}
-						width={"20vw"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "13vh" : "20vh"}
+						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
-						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 							<Hexagon
 								id={`hexagon-44`}
 								q={0}
@@ -294,7 +317,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='1.75rem'
+						fontSize={{ xs: "1.15rem", md: "1.75rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -306,16 +329,22 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box sx={{ position: "absolute", left: "-5%", top: "15%", transform: "rotate(-15deg)" }}>
+		<ParallaxLayer offset={offset} speed={0} onClick={onClick}>
+			<Box
+				sx={{
+					position: "absolute",
+					left: { xs: "-3%", md: "2%" },
+					top: { xs: "42%", md: "15%" },
+					transform: "rotate(-15deg)",
+				}}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-45'
-						height={"32vh"}
-						width={"32vw"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "32vh"}
+						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
-						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 							<Hexagon
 								id={`hexagon-45`}
 								q={0}
@@ -328,10 +357,10 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 						</Layout>
 					</HexGrid>
 				</Box>
-				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -53%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.25rem'
+						fontSize={{ xs: "1.4rem", md: "2.25rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -343,16 +372,22 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick}>
-			<Box sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(-7deg)" }}>
+		<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick}>
+			<Box
+				sx={{
+					position: "absolute",
+					right: { xs: "0%", md: "5%" },
+					top: { xs: "42%", md: "15%" },
+					transform: "rotate(-7deg)",
+				}}>
 				<Box className={styles.rotatingSlow}>
 					<HexGrid
 						id='module-grid-46'
-						height={"27vh"}
-						width={"27vw"}
+						height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "27vh"}
+						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
-						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 							<Hexagon
 								id={`hexagon-46`}
 								q={0}
@@ -368,7 +403,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 				<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 					<Typography
 						fontFamily={"Gilroy-Heavy"}
-						fontSize='2.25rem'
+						fontSize={{ xs: "1.4rem", md: "2.25rem" }}
 						onClick={onClick}
 						sx={{
 							color: "white",
@@ -378,6 +413,24 @@ const PageNine = ({ offset, gradient, onClick, router }) => (
 						Multi-Group Modules
 					</Typography>
 				</Box>
+			</Box>
+		</ParallaxLayer>
+		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<Box
+				className={boxStyles.whiteCircle}
+				sx={{
+					position: "absolute",
+					top: "50%",
+					left: "50%",
+					transform: "translate(-50%, -50%)",
+					height: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
+					width: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
+					zIndex: 10,
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}}>
+				<MACSLogoBlue height={useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "44vh"} />
 			</Box>
 		</ParallaxLayer>
 	</>

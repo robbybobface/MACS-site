@@ -1,28 +1,49 @@
 import React from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid, Card, CardActionArea, CardMedia } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
+import { Box, Typography, Container, Grid, Card, CardActionArea, CardMedia, useMediaQuery } from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import ImageCaption from "./ImageCaption";
+import theme from "../../styles/theme";
+import ImageCaption from "../ImageCaption";
 
 const PageSix = ({ offset, gradient, onClick, router }) => (
 	<>
-		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
-			<div className={styles.slopeBegin} />
+		<ParallaxLayer
+			offset={offset}
+			speed={0.1}
+			onClick={onClick}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.9 : 1}>
+			<div
+				className={useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileSix : styles.slopeBegin}
+			/>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
-			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+		<ParallaxLayer
+			offset={offset}
+			speed={0.15}
+			onClick={onClick}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.9 : 1}>
+			<div
+				className={`${
+					useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileSix : styles.slopeEnd
+				} ${styles[gradient]}`}
+			/>
 		</ParallaxLayer>
-		<ParallaxLayer className={`noselect`} onClick={onClick} offset={offset} speed={0.3} style={{ zIndex: 100 }}>
+		<ParallaxLayer
+			className={`noselect`}
+			onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 100 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.9 : 1}>
 			<Container
 				maxWidth='xl'
 				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
 				<Grid container spacing={2}>
 					<Grid
 						item
-						xs={4}
+						xs={12}
+						md={4}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
@@ -51,7 +72,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
-									fontSize='4rem'
+									fontSize={{ xs: "3rem", md: "4rem" }}
 									lineHeight={1.1}
 									mb='20px'>
 									Modular
@@ -59,7 +80,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
-									fontSize='4rem'
+									fontSize={{ xs: "3rem", md: "4rem" }}
 									lineHeight={1.1}
 									mb='20px'>
 									Accessible
@@ -67,7 +88,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
-									fontSize='4rem'
+									fontSize={{ xs: "3rem", md: "4rem" }}
 									lineHeight={1.1}
 									mb='20px'>
 									Controller
@@ -75,7 +96,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									className={styles.MACSText}
 									fontFamily='Gilroy-Heavy'
-									fontSize='4rem'
+									fontSize={{ xs: "3rem", md: "4rem" }}
 									lineHeight={1.1}
 									mb='20px'>
 									System
@@ -83,7 +104,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									color='white'
 									fontFamily={"bitcount-mono-single-line-ci"}
-									fontSize='5rem'
+									fontSize={{ xs: "4rem", md: "5rem" }}
 									lineHeight={1}
 									mb={2}>
 									MACS
@@ -94,9 +115,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 							className={boxStyles.darkGreyBox}
 							sx={{
 								mt: 2,
-								p: 3,
+								p: { xs: 2, md: 3 },
 							}}>
-							<Typography textAlign='justify' fontSize={"18px"} color={"white"}>
+							<Typography
+								textAlign='justify'
+								sx={{ fontSize: { xs: "16px", md: "20px" } }}
+								color={"white"}>
 								With 5 distinct input modules, and a central hub users can physically build the
 								controller that is perfect for them. Then with our software, users can further configure
 								each module to emulate whatever action they want.
@@ -105,7 +129,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 					</Grid>
 					<Grid
 						item
-						xs={8}
+						xs={12}
+						md={8}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
@@ -117,7 +142,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 							container
 							spacing={2}
 							sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-							<Grid item xs={8}>
+							<Grid item xs={12} md={8}>
 								<Box
 									className={boxStyles.darkGreyBox}
 									onClick={onClick}
@@ -138,7 +163,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 											<Typography
 												color='white'
 												fontFamily={"Gilroy-Heavy"}
-												fontSize='3rem'
+												fontSize={{ xs: "2rem", md: "3rem" }}
 												sx={{
 													transform: "rotate(-90deg)",
 													textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -148,7 +173,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 										</Grid>
 										<Grid item xs={11}>
 											<Grid container spacing={2}>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
 														<CardMedia
 															component='img'
@@ -160,7 +185,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 													</Card>
 													<ImageCaption caption={"Central Hub"} light={true} />
 												</Grid>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
 														<CardMedia
 															component='img'
@@ -172,21 +197,19 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 													</Card>
 													<ImageCaption caption={"Button Module"} light={true} />
 												</Grid>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
-														<CardActionArea>
-															<CardMedia
-																component='img'
-																alt='final switch module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/switch-module.jpg'
-															/>
-														</CardActionArea>
+														<CardMedia
+															component='img'
+															alt='final switch module'
+															height='150'
+															sx={{ objectFit: "cover" }}
+															image='/switch-module.jpg'
+														/>
 													</Card>
 													<ImageCaption caption={"Switch Module"} light={true} />
 												</Grid>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
 														<CardMedia
 															component='img'
@@ -198,7 +221,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 													</Card>
 													<ImageCaption caption={"Joystick Module"} light={true} />
 												</Grid>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
 														<CardMedia
 															component='img'
@@ -210,7 +233,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 													</Card>
 													<ImageCaption caption={"Slider Module"} light={true} />
 												</Grid>
-												<Grid item xs={4} sx={{ position: "relative" }}>
+												<Grid item xs={6} md={4} sx={{ position: "relative" }}>
 													<Card elevation={4} sx={{ display: "flex" }}>
 														<CardMedia
 															component='img'
@@ -229,7 +252,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 							</Grid>
 							<Grid
 								item
-								xs={4}
+								xs={12}
+								md={4}
 								sx={{
 									display: "flex",
 									flexDirection: "row",
@@ -259,7 +283,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 											<Typography
 												color='white'
 												fontFamily={"Gilroy-Heavy"}
-												fontSize='3rem'
+												fontSize={{ xs: "2.5rem", md: "3rem" }}
 												sx={{
 													transform: "rotate(-90deg)",
 													textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -305,7 +329,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 							<Grid container spacing={2}>
 								<Grid
 									item
-									xs={0.75}
+									xs={2}
 									sx={{
 										display: "flex",
 										justifyContent: "center",
@@ -315,7 +339,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 									<Typography
 										color='backgroundBlack.main'
 										fontFamily={"Gilroy-Heavy"}
-										fontSize='3rem'
+										fontSize={{ xs: "2.5rem", md: "3rem" }}
 										sx={{
 											transform: "rotate(-90deg)",
 											textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -323,9 +347,9 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 										App
 									</Typography>
 								</Grid>
-								<Grid item xs={11.25}>
+								<Grid item xs={10}>
 									<Grid container spacing={2}>
-										<Grid item xs={4} sx={{ position: "relative" }}>
+										<Grid item xs={12} md={4} sx={{ position: "relative" }}>
 											<Card elevation={4} sx={{ display: "flex" }}>
 												<CardMedia
 													component='img'
@@ -337,7 +361,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 											</Card>
 											<ImageCaption caption={"User Interface"} light={false} />
 										</Grid>
-										<Grid item xs={4} sx={{ position: "relative" }}>
+										<Grid item xs={12} md={4} sx={{ position: "relative" }}>
 											<Card elevation={4} sx={{ display: "flex" }}>
 												<CardMedia
 													component='img'
@@ -349,7 +373,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 											</Card>
 											<ImageCaption caption={"Joystick Configuration"} light={false} />
 										</Grid>
-										<Grid item xs={4} sx={{ position: "relative" }}>
+										<Grid item xs={12} md={4} sx={{ position: "relative" }}>
 											<Card elevation={4} sx={{ display: "flex" }}>
 												<CardMedia
 													component='img'
@@ -372,14 +396,23 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingReverseEaseInOut}
-				sx={{ position: "absolute", left: "20%", bottom: "25%", transform: "rotate(180deg)" }}>
+				sx={{
+					position: "absolute",
+					left: "20%",
+					bottom: { xs: "0%", md: "25%" },
+					transform: "rotate(180deg)",
+				}}>
 				<HexGrid
 					id='module-grid-21'
 					height={"25vh"}
-					width={"25vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-21`}
 							q={0}
@@ -396,14 +429,23 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.35} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotating}
-				sx={{ position: "absolute", left: "2%", bottom: "10%", transform: "rotate(154deg)" }}>
+				sx={{
+					position: "absolute",
+					left: { xs: "-5%", md: "2%" },
+					bottom: "10%",
+					transform: "rotate(154deg)",
+				}}>
 				<HexGrid
 					id='module-grid-14'
 					height={"20vh"}
-					width={"20vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-22`}
 							q={0}
@@ -423,11 +465,15 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 				sx={{ position: "absolute", right: "-5%", bottom: "65%", transform: "rotate(98deg)" }}>
 				<HexGrid
 					id='module-grid-23'
-					height={"40vh"}
-					width={"40vw"}
+					height={useMediaQuery(theme.breakpoints.down("md")) ? "32vh" : "40vh"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-23`}
 							q={0}
@@ -444,14 +490,24 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingReverseEaseInOut}
-				sx={{ position: "absolute", right: "30%", bottom: "6%", transform: "rotate(72deg)" }}>
+				sx={{
+					position: "absolute",
+					left: { xs: "-10%", md: "0" },
+					right: { md: "30%" },
+					bottom: { xs: "-80%", md: "6%" },
+					transform: "rotate(72deg)",
+				}}>
 				<HexGrid
 					id='module-grid-24'
 					height={"15vh"}
-					width={"15vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-24`}
 							q={0}
@@ -468,14 +524,18 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingSlowEaseInOut}
-				sx={{ position: "absolute", left: "3%", top: "0%", transform: "rotate(34deg)" }}>
+				sx={{ position: "absolute", left: { xs: "0%", md: "3%" }, top: "0%", transform: "rotate(34deg)" }}>
 				<HexGrid
 					id='module-grid-25'
 					height={"20vh"}
 					width={"20vw"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-25`}
 							q={0}
@@ -492,14 +552,23 @@ const PageSix = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={-0.2} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingFast}
-				sx={{ position: "absolute", right: "3%", bottom: "25%", transform: "rotate(216deg)" }}>
+				sx={{
+					position: "absolute",
+					right: { xs: "0%", md: "5%" },
+					bottom: { xs: "-10%", md: "25%" },
+					transform: "rotate(216deg)",
+				}}>
 				<HexGrid
 					id='module-grid-26'
 					height={"15vh"}
-					width={"15vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-26`}
 							q={0}

@@ -1,16 +1,20 @@
 import React from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid, Card, CardMedia } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
+import { Box, Typography, Container, Grid, Card, CardMedia, useMediaQuery } from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import GradientText from "./GradientText";
+import theme from "../../styles/theme";
+import GradientText from "../GradientText";
 
 const PageThree = ({ offset, gradient, onClick, router }) => (
 	<>
 		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
-			<div className={styles.slopeBegin} />
+			<div
+				className={
+					useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileThree : styles.slopeBegin
+				}
+			/>
 		</ParallaxLayer>
 		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
@@ -23,13 +27,20 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 			style={{ zIndex: 9999 }}>
 			<Container
 				maxWidth='xl'
-				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+				sx={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					zIndex: 1000000,
+					flexDirection: { xs: "column", md: "row" },
+				}}>
 				<GradientText
 					text='Existing Solutions'
 					gradient='linear-gradient(161deg, rgba(94,196,176,1) 0%, rgba(255,190,0,1) 100%)'
-					fontSize={"6rem"}
 					onClick={onClick}
+					fontSize={{ xs: "2.5rem", md: "6rem" }}
 					lineHeight={1.3}
+					mb={{ xs: 3, md: 0 }}
 				/>
 				<Box
 					className={boxStyles.darkGreyBox}
@@ -38,10 +49,19 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 					}}>
 					<Grid
 						container
-						spacing={4}
-						sx={{ display: "flex", justifyContent: "center", alignItems: "flex-start", px: 6, py: 4 }}>
+						spacing={{ xs: 2, md: 4 }}
+						sx={{
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "flex-start",
+							px: { xs: 2, md: 6 },
+							py: { xs: 2, md: 4 },
+						}}>
 						<Grid item xs={12}>
-							<Typography color='white' fontSize={"20px"} textAlign='justify' sx={{ px: 4 }}>
+							<Typography
+								color='white'
+								textAlign='justify'
+								sx={{ px: { xs: 0, md: 4 }, fontSize: { xs: "14px", md: "20px" } }}>
 								With the release of the Xbox Adaptive Controller in 2018 Microsoft has been almost the
 								sole provider of accessible controllers for disabled gamers. Sony is also working on
 								their accessible controller, codenamed Project Leonardo, which is scheduled to be
@@ -52,7 +72,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								controllers.
 							</Typography>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item xs={12} md={6}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardMedia
 									component='img'
@@ -63,12 +83,13 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 								/>
 							</Card>
 						</Grid>
-						<Grid item xs={6}>
+						<Grid item xs={12} md={6}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardMedia
 									component='img'
 									alt='project leonardo'
 									height='250'
+									sx={{ objectFit: { xs: "contain", md: "cover" } }}
 									image='/project-leonardo.jpg'
 								/>
 							</Card>
@@ -87,7 +108,11 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 					width={"30vw"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-8`}
 							q={0}
@@ -108,10 +133,14 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 				<HexGrid
 					id='module-grid-9'
 					height={"20vh"}
-					width={"20vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-9`}
 							q={0}
@@ -128,14 +157,23 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
 			<Box
 				className={styles.rotatingFast}
-				sx={{ position: "absolute", left: "7%", bottom: "0%", transform: "rotate(165deg)" }}>
+				sx={{
+					position: "absolute",
+					left: { xs: "-10%", md: "7%" },
+					bottom: "0%",
+					transform: "rotate(165deg)",
+				}}>
 				<HexGrid
 					id='module-grid-10'
 					height={"25vh"}
-					width={"25vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-10`}
 							q={0}
@@ -159,7 +197,11 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 					width={"35vw"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-11`}
 							q={0}
@@ -180,10 +222,14 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 				<HexGrid
 					id='module-grid-12'
 					height={"15vh"}
-					width={"15vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-12`}
 							q={0}
@@ -200,14 +246,23 @@ const PageThree = ({ offset, gradient, onClick, router }) => (
 		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} style={{ zIndex: 10 }}>
 			<Box
 				className={styles.rotatingSlowEaseInOut}
-				sx={{ position: "absolute", right: "0%", bottom: "10%", transform: "rotate(216deg)" }}>
+				sx={{
+					position: "absolute",
+					right: { xs: "-15%", md: "0%" },
+					bottom: { xs: "30%", md: "10%" },
+					transform: "rotate(216deg)",
+				}}>
 				<HexGrid
 					id='module-grid-12'
 					height={"25vh"}
-					width={"25vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-12`}
 							q={0}

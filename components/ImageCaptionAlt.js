@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-const ImageCaption = ({ caption, light, center }) => {
+const ImageCaptionAlt = ({ caption, light, center }) => {
 	return (
 		<Box
 			sx={{
@@ -11,14 +11,16 @@ const ImageCaption = ({ caption, light, center }) => {
 				backgroundColor: light ? "white" : "#70828F",
 				display: "flex",
 				position: "absolute",
-				bottom: -10,
-				left: 10,
+				bottom: -25,
+				left: "50%",
+				WebkitTransform: "translateX(-50%)",
+				transform: "translateX(-50%)",
 			}}>
-			<Typography color={light ? "backgroundBlack.main" : "white"} fontWeight='bold' fontSize={"12px"}>
+			<Typography color={light ? "backgroundBlack.main" : "white"} fontWeight='bold' fontSize={"16px"}>
 				{caption}
 			</Typography>
 		</Box>
 	);
 };
 
-export default ImageCaption;
+export default ImageCaptionAlt;

@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { MACSLogoWhite } from "../assets/macs_logo_white";
+import theme from "../styles/theme";
 
 const Header = ({ router }) => {
 	return (
@@ -33,10 +34,10 @@ const Header = ({ router }) => {
 					},
 				}}
 				onClick={() => router.push("/")}>
-				<MACSLogoWhite height={60} />
+				<MACSLogoWhite height={useMediaQuery(theme.breakpoints.down("md")) ? 45 : 60} />
 				<Typography
 					fontFamily='bitcount-mono-single-line-ci'
-					fontSize='3.5rem'
+					fontSize={{ xs: "2.5rem", md: "3.5rem" }}
 					lineHeight={1.4}
 					color='white'
 					ml={2}

@@ -1,63 +1,84 @@
 import React from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid, Card, CardContent } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
+import { Box, Typography, Container, Grid, Card, CardContent, useMediaQuery } from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import GradientText from "./GradientText";
+import theme from "../../styles/theme";
+import GradientText from "../GradientText";
 
 const PageTwo = ({ offset, gradient, onClick, router }) => (
 	<>
-		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
-			<div className={styles.slopeBegin} />
+		<ParallaxLayer
+			offset={offset}
+			onClick={onClick}
+			speed={0.1}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
+			<div
+				className={useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileTwo : styles.slopeBegin}
+			/>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+		<ParallaxLayer
+			offset={offset}
+			onClick={onClick}
+			speed={0.15}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 		</ParallaxLayer>
 		<ParallaxLayer
 			className={`${styles.text} ${styles.number} noselect`}
-			onClick={onClick}
 			offset={offset}
 			speed={0.3}
-			style={{ zIndex: 9999 }}>
+			onClick={onClick}
+			style={{ zIndex: 9999 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Container
 				maxWidth='xl'
 				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
 				<Box
 					className={boxStyles.whiteBox}
 					sx={{
-						width: "85%",
+						width: { xs: "100%", md: "85%" },
 						minHeight: 700,
 						zIndex: 10000000,
+						px: { xs: 2, md: 0 },
 					}}>
 					<GradientText
 						text='Problem Formulation'
 						gradient='linear-gradient(170deg, rgba(112,130,143,1) 0%, rgba(50,50,50,1) 100%)'
-						fontSize='6rem'
 						onClick={onClick}
 						lineHeight='1.2'
 						textAlign='center'
+						fontSize={{ xs: "2.5rem", md: "6rem" }}
 						width='100%'
 						pt={1}
 					/>
 					<Grid
 						container
 						spacing={4}
-						sx={{ display: "flex", justifyContent: "center", alignItems: "flex-start", px: 6, pb: 6 }}>
+						sx={{
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "flex-start",
+							px: { xs: 0, md: 6 },
+							pb: 6,
+						}}>
 						<Grid item xs={12}>
 							<Typography
 								color='backgroundBlack.main'
-								fontSize={"20px"}
-								textAlign='justify'
-								sx={{ px: 4 }}>
+								sx={{
+									fontSize: { xs: "14px", md: "20px" },
+									px: { xs: 0, md: 4 },
+									mt: { xs: 1, md: 0 },
+								}}
+								textAlign='justify'>
 								Despite gaming being one of the biggest emerging markets of the past few decades, there
 								still remain holes in the market, specifically concerning controller options. Most
 								controllers sold today give little to no regard for accessibility, reparability, and
 								configurability.
 							</Typography>
 						</Grid>
-						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+						<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
@@ -75,7 +96,10 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 										fontFamily='Gilroy-Bold'>
 										Accessibility
 									</Typography>
-									<Typography color='text.secondary' textAlign='justify'>
+									<Typography
+										color='text.secondary'
+										textAlign='justify'
+										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 										For would-be gamers with motor disabilities, controller usability poses a
 										significant barrier to entry. Most gamers can relate to the frustration of
 										feeling limited by their controller; unfortunately, this is a struggle that
@@ -89,7 +113,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								</CardContent>
 							</Card>
 						</Grid>
-						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+						<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
@@ -107,7 +131,10 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 										fontFamily='Gilroy-Bold'>
 										Repairability
 									</Typography>
-									<Typography color='text.secondary' textAlign='justify'>
+									<Typography
+										color='text.secondary'
+										textAlign='justify'
+										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 										Video game controllers comprise several components and inputs. In many instances
 										of failure, proprietary controllers were mostly functional save for one critical
 										piece. For instance, the Nintendo Switch is notorious for having faulty
@@ -122,7 +149,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 								</CardContent>
 							</Card>
 						</Grid>
-						<Grid item xs={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+						<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 							<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<CardContent
 									sx={{
@@ -140,7 +167,10 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 										fontFamily='Gilroy-Bold'>
 										Configuability
 									</Typography>
-									<Typography color='text.secondary' textAlign='justify'>
+									<Typography
+										color='text.secondary'
+										textAlign='justify'
+										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 										The problem is not necessarily that video games demand too much of the user, but
 										also that the user is limited by their physical interaction with the game.
 										Ultimately, this is because traditional controllers have no means of adapting to
@@ -158,17 +188,25 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 				</Box>
 			</Container>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+		<ParallaxLayer
+			offset={offset}
+			onClick={onClick}
+			speed={-0.05}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotatingSlowEaseInOut}
-				sx={{ position: "absolute", left: "0%", top: "-10%", transform: "rotate(15deg)" }}>
+				sx={{ position: "absolute", left: { xs: "-20%", md: "0%" }, top: "-10%", transform: "rotate(15deg)" }}>
 				<HexGrid
 					id='module-grid-5'
 					height={"40vh"}
-					width={"40vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 45, y: 45 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-5`}
 							q={0}
@@ -182,17 +220,25 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 				</HexGrid>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+		<ParallaxLayer
+			offset={offset}
+			onClick={onClick}
+			speed={0.2}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotatingReverse}
-				sx={{ position: "absolute", right: "5%", top: "30%", transform: "rotate(15deg)" }}>
+				sx={{ position: "absolute", right: { xs: "-10%", md: "5%" }, top: "30%", transform: "rotate(15deg)" }}>
 				<HexGrid
 					id='module-grid-6'
 					height={"20vh"}
-					width={"20vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-6`}
 							q={0}
@@ -206,17 +252,31 @@ const PageTwo = ({ offset, gradient, onClick, router }) => (
 				</HexGrid>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.2} onClick={onClick}>
+		<ParallaxLayer
+			offset={offset}
+			onClick={onClick}
+			speed={0.2}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotatingSlow}
-				sx={{ position: "absolute", right: "45%", bottom: "0%", transform: "rotate(15deg)" }}>
+				sx={{
+					position: "absolute",
+					left: { xs: "-15%" },
+					right: { md: "45%" },
+					bottom: "0%",
+					transform: "rotate(15deg)",
+				}}>
 				<HexGrid
 					id='module-grid-7'
 					height={"30vh"}
-					width={"30vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-7`}
 							q={0}

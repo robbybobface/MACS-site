@@ -1,13 +1,23 @@
 import React, { useState, useRef, useEffect, memo } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Container, Box, Typography, LinearProgress, Grid, Card, CardActionArea, CardContent } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
-import { MACSLogoBlue } from "../assets/macs_logo_light_blue";
+import {
+	Container,
+	Box,
+	Typography,
+	LinearProgress,
+	Grid,
+	Card,
+	CardActionArea,
+	CardContent,
+	useMediaQuery,
+} from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
+import { MACSLogoBlue } from "../../assets/macs_logo_light_blue";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import GradientText from "./GradientText";
-import { MACSLogo } from "../assets/macs_logo";
+import theme from "../../styles/theme";
+import GradientText from "../GradientText";
+import { MACSLogo } from "../../assets/macs_logo";
 import {
 	getWidthOffset,
 	getHeightOffset,
@@ -16,15 +26,15 @@ import {
 	getElevation,
 	getModuleBackgroundColor,
 	GeneratedHexagon,
-} from "../utils/HelperFunctions";
-import { Hexagons } from "../utils/Hexagons";
+} from "../../utils/HelperFunctions";
+import { Hexagons } from "../../utils/Hexagons";
 
 const PageTen = ({ offset, gradient, onClick, router }) => {
 	const [viewBox, setViewBox] = useState("-50 -50 100 100");
 	const filteredHexagons = Hexagons.filter((hexagon) => {
 		return !(hexagon?.mainModule ?? false);
 	});
-	const hexagonSize = { x: 15, y: 15 };
+	const hexagonSize = useMediaQuery(theme.breakpoints.down("md")) ? { x: 18, y: 18 } : { x: 15, y: 15 };
 	const dropzoneRefs = useRef([]);
 
 	const positionDropzone = (dropzoneIndex, moduleID) => {
@@ -87,7 +97,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			return (
 				<HexGrid
 					id='module-grid'
-					height={"85vh"}
+					height={useMediaQuery(theme.breakpoints.down("md")) ? "100vh" : "85vh"}
 					width={"auto"}
 					viewBox={viewBox}
 					preserveAspectRatio='xMidYMid meet'>
@@ -229,42 +239,18 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 				<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 			</ParallaxLayer>
-			<ParallaxLayer
-				className={`${styles.text} ${styles.number} noselect`}
-				onClick={onClick}
-				offset={offset}
-				speed={0.3}>
-				<Container
-					maxWidth='xl'
-					sx={{
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-						minHeight: "100vh",
-						minWidth: "100vw",
-					}}>
-					<Grid container spacing={2}>
-						<Grid item xs={12} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-							<Box
-								id='hexgrid-container'
-								sx={{
-									position: "relative",
-									display: "flex",
-									justifyContent: "center",
-								}}>
-								<GeneratedHexgrid />
-								<Dropzones />
-							</Box>
-						</Grid>
-					</Grid>
-				</Container>
-			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
-				<Box sx={{ position: "absolute", left: "5%", top: "15%", transform: "rotate(4deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						left: { xs: "-7%", md: "5%" },
+						top: { xs: "12%", md: "15%" },
+						transform: "rotate(4deg)",
+					}}>
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-47'
-							height={"30vh"}
+							height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "30vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -284,7 +270,13 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={-0.3} onClick={onClick}>
-				<Box sx={{ position: "absolute", left: "19%", top: "42%", transform: "rotate(-12deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						left: { xs: "55%", md: "19%" },
+						top: { xs: "0%", md: "42%" },
+						transform: "rotate(-12deg)",
+					}}>
 					<Box className={styles.rotatingReverseNormal}>
 						<HexGrid
 							id='module-grid-48'
@@ -308,7 +300,13 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.9} onClick={onClick}>
-				<Box sx={{ position: "absolute", left: "25%", bottom: "5%", transform: "rotate(-2deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						left: { xs: "5%", md: "25%" },
+						bottom: "5%",
+						transform: "rotate(-2deg)",
+					}}>
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-49'
@@ -332,11 +330,17 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={-0.35} onClick={onClick}>
-				<Box sx={{ position: "absolute", left: "0%", bottom: "5%", transform: "rotate(10deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						left: { xs: "5%", md: "0%" },
+						bottom: { xs: "22%", md: "5%" },
+						transform: "rotate(10deg)",
+					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-50'
-							height={"35vh"}
+							height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "35vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -355,26 +359,14 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
 				<Box
-					className={boxStyles.whiteCircle}
 					sx={{
 						position: "absolute",
-						top: "50%",
-						left: "50%",
-						transform: "translate(-50%, -50%)",
-						height: "28vh",
-						width: "28vh",
-						zIndex: 10,
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
+						right: { xs: "8%", md: "22%" },
+						bottom: "3%",
+						transform: "rotate(10deg)",
 					}}>
-					<MACSLogo height='27vh' />
-				</Box>
-			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
-				<Box sx={{ position: "absolute", right: "22%", bottom: "3%", transform: "rotate(10deg)" }}>
 					<Box className={styles.rotatingSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-51'
@@ -382,7 +374,11 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 							width={"22vw"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Layout
+								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+								flat={true}
+								spacing={1.05}
+								origin={{ x: 0, y: 0 }}>
 								<Hexagon
 									id={`hexagon-51`}
 									q={0}
@@ -398,15 +394,25 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={-0.27} onClick={onClick}>
-				<Box sx={{ position: "absolute", right: "1%", top: "65%", transform: "rotate(10deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						right: "1%",
+						top: { xs: "55%", md: "65%" },
+						transform: "rotate(10deg)",
+					}}>
 					<Box className={styles.rotatingReverse}>
 						<HexGrid
 							id='module-grid-52'
-							height={"20vh"}
-							width={"20vw"}
+							height={useMediaQuery(theme.breakpoints.down("md")) ? "35vh" : "20vh"}
+							width={useMediaQuery(theme.breakpoints.down("md")) ? "35vw" : "20vw"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Layout
+								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+								flat={true}
+								spacing={1.05}
+								origin={{ x: 0, y: 0 }}>
 								<Hexagon
 									id={`hexagon-52`}
 									q={0}
@@ -422,15 +428,26 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.55} onClick={onClick}>
-				<Box sx={{ position: "absolute", right: "10%", bottom: "30%", transform: "rotate(-15deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						right: "18%",
+						bottom: "30%",
+						transform: "rotate(-15deg)",
+						display: { xs: "none", md: "block" },
+					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-53'
-							height={"28vh"}
-							width={"28vw"}
+							height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "28vh"}
+							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Layout
+								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+								flat={true}
+								spacing={1.05}
+								origin={{ x: 0, y: 0 }}>
 								<Hexagon
 									id={`hexagon-53`}
 									q={0}
@@ -446,7 +463,13 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.4} onClick={onClick}>
-				<Box sx={{ position: "absolute", right: "-2%", top: "15%", transform: "rotate(-7deg)" }}>
+				<Box
+					sx={{
+						position: "absolute",
+						right: "-2%",
+						top: { xs: "12%", md: "15%" },
+						transform: "rotate(-7deg)",
+					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-53'
@@ -454,7 +477,11 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 							width={"30vw"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+							<Layout
+								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 40, y: 40 } : { x: 55, y: 55 }}
+								flat={true}
+								spacing={1.05}
+								origin={{ x: 0, y: 0 }}>
 								<Hexagon
 									id={`hexagon-53`}
 									q={0}
@@ -469,12 +496,61 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<ParallaxLayer
+				className={`${styles.text} ${styles.number} noselect`}
+				onClick={onClick}
+				offset={offset}
+				speed={0.3}>
+				<Container
+					maxWidth='xl'
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						minHeight: "100vh",
+						minWidth: "100vw",
+					}}>
+					<Grid container spacing={2}>
+						<Grid item xs={12} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+							<Box
+								id='hexgrid-container'
+								sx={{
+									position: "relative",
+									display: "flex",
+									justifyContent: "center",
+									mt: { xs: -5, md: 0 },
+								}}>
+								<GeneratedHexgrid />
+								<Dropzones />
+							</Box>
+						</Grid>
+					</Grid>
+				</Container>
+			</ParallaxLayer>
+			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
 				<Box
-					className={boxStyles.darkGreyBox}
+					className={boxStyles.whiteCircle}
 					sx={{
 						position: "absolute",
-						top: "24%",
+						top: { xs: "47.5%", md: "50%" },
+						left: "50%",
+						transform: "translate(-50%, -50%)",
+						height: useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "28vh",
+						width: useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "28vh",
+						zIndex: 10,
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}>
+					<MACSLogo height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "27vh"} />
+				</Box>
+			</ParallaxLayer>
+			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+				<Box
+					className={[boxStyles.darkGreyBox, "noselect"]}
+					sx={{
+						position: "absolute",
+						top: { xs: "18%", md: "24%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						zIndex: 10,
@@ -490,7 +566,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
 						<Typography
 							fontFamily='bitcount-mono-single-line-ci'
-							fontSize='8rem'
+							fontSize={{ xs: "6rem", md: "8rem" }}
 							color='white'
 							fontWeight={300}
 							lineHeight={1}
@@ -502,12 +578,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.45} onClick={onClick}>
 				<Box
-					className={boxStyles.whiteBox}
+					className={[boxStyles.whiteBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: "0%",
-						left: "50%",
-						transform: "translate(-50%, -50%)",
+						bottom: { xs: "17.5%", md: "0%" },
+						left: { xs: "0%", md: "50%" },
+						transform: { xs: "none", md: "translate(-50%, -50%)" },
 						zIndex: 10,
 						display: "flex",
 						flexDirection: "column",
@@ -515,10 +591,15 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 						alignItems: "center",
 						py: 1,
 						px: 2,
-						maxWidth: "35vw",
+						maxWidth: { xs: "100vw", md: "35vw" },
+						mx: { xs: 5, md: 0 },
 					}}>
 					<Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-						<Typography fontFamily='K2D' color='backgroundBlack.main' fontSize='1.5rem' textAlign='center'>
+						<Typography
+							fontFamily='K2D'
+							color='backgroundBlack.main'
+							fontSize={{ xs: "0.9rem", md: "1.5rem" }}
+							textAlign='center'>
 							Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
 							Freeman
 						</Typography>
@@ -527,10 +608,10 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.6} onClick={onClick}>
 				<Box
-					className={boxStyles.lightGreyBox}
+					className={[boxStyles.lightGreyBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: "10.5%",
+						bottom: { xs: "24%", md: "10.5%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						zIndex: 10,
@@ -542,7 +623,11 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 						px: 2,
 					}}>
 					<Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-						<Typography fontFamily='K2D' color='white' fontSize='1.5rem' textAlign='center'>
+						<Typography
+							fontFamily='K2D'
+							color='white'
+							fontSize={{ xs: "1rem", md: "1.5rem" }}
+							textAlign='center'>
 							Capstone Project By:
 						</Typography>
 					</Box>

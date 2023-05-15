@@ -1,28 +1,47 @@
 import React from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid, Card, CardContent } from "@mui/material";
-import styles from "../styles/Overview.module.css";
-import boxStyles from "../styles/BoxStyles.module.css";
+import { Box, Typography, Container, Grid, Card, CardContent, useMediaQuery } from "@mui/material";
+import styles from "../../styles/Overview.module.css";
+import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
-import theme from "../styles/theme";
-import GradientText from "./GradientText";
+import theme from "../../styles/theme";
+import GradientText from "../GradientText";
 
 const PageFour = ({ offset, gradient, onClick, router }) => (
 	<>
-		<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
-			<div className={styles.slopeBegin} />
+		<ParallaxLayer
+			offset={offset}
+			speed={0.1}
+			onClick={onClick}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1}>
+			<div
+				className={
+					useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileFour : styles.slopeBegin
+				}
+			/>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+		<ParallaxLayer
+			offset={offset}
+			speed={0.15}
+			onClick={onClick}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1}>
 			<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 		</ParallaxLayer>
-		<ParallaxLayer className={`noselect`} onClick={onClick} offset={offset} speed={0.3} style={{ zIndex: 100 }}>
+		<ParallaxLayer
+			className={`noselect`}
+			onClick={onClick}
+			offset={offset}
+			speed={0.3}
+			style={{ zIndex: 100 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1}>
 			<Container
 				maxWidth='xl'
 				sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
 				<Grid container spacing={2}>
 					<Grid
 						item
-						xs={5}
+						xs={12}
+						md={5}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
@@ -33,7 +52,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 							text='Solution Proposition'
 							gradient='linear-gradient(161deg, rgba(159,242,130,1) 0%, rgba(255,105,48,1) 100%)'
 							onClick={onClick}
-							fontSize={"6rem"}
+							fontSize={{ xs: "3rem", md: "6rem" }}
 							textAlign={"center"}
 							lineHeight={1.1}
 							mb={3}
@@ -41,9 +60,12 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 						<Box
 							className={boxStyles.darkGreyBox}
 							sx={{
-								p: 4,
+								p: { xs: 2, md: 4 },
 							}}>
-							<Typography color={"white"} fontSize={"20px"} textAlign='justify'>
+							<Typography
+								color={"white"}
+								sx={{ fontSize: { xs: "14px", md: "20px" } }}
+								textAlign='justify'>
 								To address the problems of accessibility, repairability, and configurability (or lack
 								thereof) in modern game controllers, we aimed to design a modular game controller. In
 								doing so, we could break free from the previously stated shortcomings that stem from a
@@ -55,13 +77,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 					</Grid>
 					<Grid
 						item
-						xs={7}
+						xs={12}
+						md={7}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-evenly",
 							alignItems: "center",
-							minHeight: "725px",
+							minHeight: { xs: "900px", md: "725px" },
 						}}>
 						<Card
 							elevation={4}
@@ -81,11 +104,15 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 									gutterBottom
 									component='div'
 									fontSize='24px'
+									sx={{ fontSize: { xs: "18px", md: "24px" } }}
 									fontWeight='bold'
 									fontFamily='Gilroy-Bold'>
 									Flexibility
 								</Typography>
-								<Typography color='text.secondary' textAlign='justify'>
+								<Typography
+									color='text.secondary'
+									textAlign='justify'
+									sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 									Our design will mean that modules can be arranged in any way you want. With no
 									limitations on the number of modules connected, the controller is flexible in its
 									size, shape, and complexity. This allows the controller to be catered to the user’s
@@ -95,7 +122,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 						</Card>
 						<Card
 							elevation={4}
-							className={styles.whiteBox}
+							className={boxStyles.whiteBox}
 							sx={{
 								maxWidth: "700px",
 							}}>
@@ -110,12 +137,15 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									gutterBottom
 									component='div'
-									fontSize='24px'
+									sx={{ fontSize: { xs: "18px", md: "24px" } }}
 									fontWeight='bold'
 									fontFamily='Gilroy-Bold'>
 									Customizability
 								</Typography>
-								<Typography color='text.secondary' textAlign='justify'>
+								<Typography
+									color='text.secondary'
+									textAlign='justify'
+									sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 									Not only is the controller mechanically flexible, but the software associated with
 									it will allow the user to fully customize their controller. After constructing the
 									controller to their liking, a user can map and remap each module to emulate certain
@@ -126,7 +156,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 						</Card>
 						<Card
 							elevation={4}
-							className={styles.whiteBox}
+							className={boxStyles.whiteBox}
 							sx={{
 								maxWidth: "700px",
 							}}>
@@ -141,12 +171,15 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									gutterBottom
 									component='div'
-									fontSize='24px'
+									sx={{ fontSize: { xs: "18px", md: "24px" } }}
 									fontWeight='bold'
 									fontFamily='Gilroy-Bold'>
 									Accessibility
 								</Typography>
-								<Typography color='text.secondary' textAlign='justify'>
+								<Typography
+									color='text.secondary'
+									textAlign='justify'
+									sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 									A modular controller will allow for easier development for physical modules that can
 									address the needs of any gamer according to their disability if they have one. In
 									conjunction with our software, both new and existing input types can be repurposed
@@ -156,7 +189,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 						</Card>
 						<Card
 							elevation={4}
-							className={styles.whiteBox}
+							className={boxStyles.whiteBox}
 							sx={{
 								maxWidth: "700px",
 							}}>
@@ -171,12 +204,15 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 								<Typography
 									gutterBottom
 									component='div'
-									fontSize='24px'
+									sx={{ fontSize: { xs: "18px", md: "24px" } }}
 									fontWeight='bold'
 									fontFamily='Gilroy-Bold'>
 									Repairability
 								</Typography>
-								<Typography color='text.secondary' textAlign='justify'>
+								<Typography
+									color='text.secondary'
+									textAlign='justify'
+									sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
 									Inherently, a modular controller would be easily reparable since the operation of
 									the controller would not depend on any one particular module. In the event of a
 									module failure, only that specific module requires repair, rather than having to
@@ -188,17 +224,31 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 				</Grid>
 			</Container>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.05} onClick={onClick} style={{ zIndex: 10 }}>
+		<ParallaxLayer
+			offset={offset}
+			speed={0.05}
+			onClick={onClick}
+			style={{ zIndex: 10 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotatingReverseEaseInOut}
-				sx={{ position: "absolute", right: "0%", bottom: "10%", transform: "rotate(180deg)" }}>
+				sx={{
+					position: "absolute",
+					right: { xs: "-15%", md: "5%" },
+					bottom: { xs: "30%", md: "10%" },
+					transform: "rotate(180deg)",
+				}}>
 				<HexGrid
 					id='module-grid-13'
 					height={"25vh"}
-					width={"25vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-13`}
 							q={0}
@@ -212,17 +262,31 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 				</HexGrid>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.25} onClick={onClick} style={{ zIndex: 10 }}>
+		<ParallaxLayer
+			offset={offset}
+			speed={0.25}
+			onClick={onClick}
+			style={{ zIndex: 10 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotating}
-				sx={{ position: "absolute", right: "40%", bottom: "30%", transform: "rotate(180deg)" }}>
+				sx={{
+					position: "absolute",
+					right: { xs: "50%", md: "42%" },
+					bottom: { xs: "40%", md: "30%" },
+					transform: "rotate(180deg)",
+				}}>
 				<HexGrid
 					id='module-grid-14'
 					height={"25vh"}
-					width={"25vw"}
+					width={"auto"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-14`}
 							q={0}
@@ -236,17 +300,31 @@ const PageFour = ({ offset, gradient, onClick, router }) => (
 				</HexGrid>
 			</Box>
 		</ParallaxLayer>
-		<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} style={{ zIndex: 10 }}>
+		<ParallaxLayer
+			offset={offset}
+			speed={0.4}
+			onClick={onClick}
+			style={{ zIndex: 10 }}
+			factor={useMediaQuery(theme.breakpoints.down("md")) ? 1.5 : 1}>
 			<Box
 				className={styles.rotating}
-				sx={{ position: "absolute", right: "0%", bottom: "45%", transform: "rotate(180deg)" }}>
+				sx={{
+					position: "absolute",
+					right: { xs: "-5%", md: "0%" },
+					bottom: "45%",
+					transform: "rotate(180deg)",
+				}}>
 				<HexGrid
 					id='module-grid-15'
 					height={"35vh"}
 					width={"35vw"}
 					viewBox='-50 -50 100 100'
 					preserveAspectRatio='xMidYMid meet'>
-					<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+					<Layout
+						size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+						flat={true}
+						spacing={1.05}
+						origin={{ x: 0, y: 0 }}>
 						<Hexagon
 							id={`hexagon-15`}
 							q={0}

@@ -115,7 +115,7 @@ const BottomNav = ({ router, home }) => {
 						<Button
 							variant='contained'
 							color='drawerBackground'
-							onClick={() => console.log("zoom in")}
+							onClick={() => router.push("/module-design")}
 							sx={{ padding: 0, minHeight: 40, maxWidth: 64 }}>
 							<BoltOutlined color='primary' />
 						</Button>
