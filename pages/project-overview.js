@@ -22,6 +22,7 @@ import theme from "../styles/theme";
 
 export default function Overview() {
 	const [isMobile, setIsMobile] = useState(false);
+	const [offsets, setOffsets] = useState([]);
 	const parallax = useRef(null);
 	const router = useRouter();
 	let scrollYProgress = 0;
@@ -53,9 +54,47 @@ export default function Overview() {
 		container.addEventListener("scroll", handleScroll);
 		console.log(window.screen.width <= 900);
 		setIsMobile(window.screen.width <= 900);
+		let tempOffsets = [];
+		let accTempOffsets = [];
+		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
+		tempOffsets.push(1272 / screen.height >= 1.5 ? 1272 / screen.height : 1.5);
+		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
+		tempOffsets.push(932.8 / screen.height >= 1.1 ? 932.8 / screen.height : 1.1);
+		tempOffsets.push(932.8 / screen.height >= 1.1 ? 932.8 / screen.height : 1.1);
+		tempOffsets.push(1611.2 / screen.height >= 1.9 ? 1611.2 / screen.height : 1.9);
+		tempOffsets.push(593.6 / screen.height >= 0.7 ? 593.6 / screen.height : 0.7);
+		tempOffsets.push(593.6 / screen.height >= 0.7 ? 593.6 / screen.height : 0.7);
+		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
+		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
+
+		accTempOffsets.push(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 2).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 2).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 3).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 3).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 4).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 4).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 5).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 5).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 6).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 6).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 7).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 7).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 8).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 8).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 9).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 9).reduce((acc, curr) => acc + curr, 0));
+		accTempOffsets.push(tempOffsets.slice(0, 10).reduce((acc, curr) => acc + curr, 0));
+		console.log(tempOffsets.slice(0, 10).reduce((acc, curr) => acc + curr, 0));
+
+		console.log(accTempOffsets);
+
+		setOffsets(accTempOffsets);
 		return () => {
 			container.removeEventListener("scroll", handleScroll);
 			setIsMobile(false);
+			setOffsets([]);
 		};
 	}, []);
 
@@ -70,13 +109,38 @@ export default function Overview() {
 			{isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={11}>
 					<PageOne offset={0} gradient='greenBlue' onClick={() => allowScroll(1)} router={router} />
-					<PageTwo offset={1} gradient='yellowGreen' onClick={() => allowScroll(2)} router={router} />
-					<PageThree offset={2.5} gradient='yellowGreenAlt' onClick={() => allowScroll(3)} router={router} />
-					<PageFour offset={3.5} gradient='redYellow' onClick={() => allowScroll(4)} router={router} />
-					<PageFive offset={4.6} gradient='redYellowAlt' onClick={() => allowScroll(5)} router={router} />
-					<PageSix offset={5.9} gradient='blueRed' onClick={() => allowScroll(6)} router={router} />
-					<PageSeven offset={7.6} gradient='purpleBlue' onClick={() => allowScroll(7)} router={router} />
-					<PageEight offset={8.3} gradient='blue' onClick={() => allowScroll(8)} router={router} />
+					<PageTwo
+						offset={offsets[0]}
+						gradient='yellowGreen'
+						onClick={() => allowScroll(2)}
+						router={router}
+					/>
+					<PageThree
+						offset={offsets[1]}
+						gradient='yellowGreenAlt'
+						onClick={() => allowScroll(3)}
+						router={router}
+					/>
+					<PageFour offset={offsets[2]} gradient='redYellow' onClick={() => allowScroll(4)} router={router} />
+					<PageFive
+						offset={offsets[3]}
+						gradient='redYellowAlt'
+						onClick={() => allowScroll(5)}
+						router={router}
+					/>
+					<PageSix
+						offset={offsets[4] + 0.2}
+						gradient='blueRed'
+						onClick={() => allowScroll(6)}
+						router={router}
+					/>
+					<PageSeven
+						offset={offsets[5]}
+						gradient='purpleBlue'
+						onClick={() => allowScroll(7)}
+						router={router}
+					/>
+					<PageEight offset={offsets[6]} gradient='blue' onClick={() => allowScroll(8)} router={router} />
 					<PageNine offset={9} gradient='greenBlue' onClick={() => allowScroll(9)} router={router} />
 					<PageTen offset={10} gradient='yellowGreen' onClick={() => allowScroll(0)} router={router} />
 				</Parallax>

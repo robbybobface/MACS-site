@@ -51,6 +51,13 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	const [open, setOpen] = useState(false);
 	const [openHexagon, setOpenHexagon] = useState(false);
 
+	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
+		? 850 / screen.height >= 1
+			? 850 / screen.height
+			: 1
+		: 1;
+	console.log(newFactor);
+
 	useEffect(() => {
 		setInterval(() => {
 			setOpen(true);
@@ -61,17 +68,17 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	}, []);
 	return (
 		<>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div className={`${styles.slopeEndTop} ${styles.blue}`} />
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
 				<div className={styles.slopeBeginStart} />
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 			</ParallaxLayer>
 			{/* <TrailHexagon open={openHexagon}> */}
-			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} factor={newFactor}>
 				<Box
 					component='div'
 					className={styles.rotating}
@@ -105,7 +112,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 					</HexGrid>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.35} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.35} onClick={onClick} factor={newFactor}>
 				<Box
 					className={styles.rotatingReverse}
 					sx={{
@@ -138,7 +145,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 					</HexGrid>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.7} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.7} onClick={onClick} factor={newFactor}>
 				<Box
 					className={styles.rotatingReverseEaseInOut}
 					sx={{
@@ -167,7 +174,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 					</HexGrid>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
 				<Box
 					className={styles.rotatingFast}
 					sx={{
@@ -200,7 +207,12 @@ const PageOne = ({ offset, gradient, onClick }) => {
 					</HexGrid>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.3} onClick={onClick} style={{ zIndex: 9999, overflow: "visible" }}>
+			<ParallaxLayer
+				offset={offset}
+				speed={0.3}
+				onClick={onClick}
+				style={{ zIndex: 9999, overflow: "visible" }}
+				factor={newFactor}>
 				<Container className='noselect' maxWidth='xl'>
 					{/* <Trail open={open}> */}
 					<Grid

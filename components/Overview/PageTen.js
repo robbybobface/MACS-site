@@ -208,6 +208,13 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 		}
 	);
 
+	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
+		? 850 / screen.height >= 1
+			? 850 / screen.height
+			: 1
+		: 1;
+	console.log(newFactor);
+
 	// On initial render
 	useEffect(() => {
 		window.setTimeout(() => {
@@ -269,7 +276,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.3} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
 				<Box
 					sx={{
 						position: "absolute",

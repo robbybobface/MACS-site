@@ -143,6 +143,14 @@
 	height: 350%;
 }
 
+.slopeEndMobileNine {
+	clip-path: polygon(100% 69%, 100% 79.7%, 0 96.7%, 0 86%);
+	position: absolute;
+	bottom: -68%;
+	width: 350%;
+	height: 350%;
+}
+
 .slopeEndTop {
 	/* display: flex; */
 	clip-path: polygon(100% 69%, 100% 78%, 0 95%, 0 86%);
