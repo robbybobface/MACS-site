@@ -9,9 +9,9 @@ import ImageCaption from "../ImageCaption";
 
 const PageSix = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 1611.2 / screen.height >= 1.9
-			? 1611.2 / screen.height
-			: 1.9
+		? 1800 / window.innerHeight >= 2.4
+			? 1800 / window.innerHeight
+			: 2.4
 		: 1;
 	console.log(newFactor);
 	return (
@@ -39,7 +39,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 				factor={newFactor}>
 				<Container
 					maxWidth='xl'
-					sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+					sx={{
+						display: { xs: "none", md: "flex" },
+						justifyContent: "center",
+						alignItems: "center",
+						zIndex: 1000000,
+					}}>
 					<Grid container spacing={2}>
 						<Grid
 							item

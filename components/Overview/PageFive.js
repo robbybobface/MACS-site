@@ -10,9 +10,9 @@ import GradientText from "../GradientText";
 
 const PageFive = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 932.8 / screen.height >= 1.1
-			? 932.8 / screen.height
-			: 1.1
+		? 1000 / window.innerHeight >= 1.2
+			? 1000 / window.innerHeight
+			: 1.2
 		: 1;
 	console.log(newFactor);
 	return (
@@ -29,7 +29,14 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 				speed={0.3}
 				style={{ zIndex: 9999 }}
 				factor={newFactor}>
-				<Container maxWidth='xl' sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+				<Container
+					maxWidth='xl'
+					sx={{
+						display: { xs: "none", md: "flex" },
+						justifyContent: "center",
+						alignItems: "center",
+						mb: { xs: 6, md: 0 },
+					}}>
 					<Grid
 						container
 						spacing={2}

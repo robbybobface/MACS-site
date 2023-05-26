@@ -19,6 +19,7 @@ import PageNine from "../components/Overview/PageNine";
 import PageTen from "../components/Overview/PageTen";
 import { useMediaQuery } from "@mui/material";
 import theme from "../styles/theme";
+import MobileContent from "../components/Overview/MobileContent";
 
 export default function Overview() {
 	const [isMobile, setIsMobile] = useState(false);
@@ -56,16 +57,17 @@ export default function Overview() {
 		setIsMobile(window.screen.width <= 900);
 		let tempOffsets = [];
 		let accTempOffsets = [];
-		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
-		tempOffsets.push(1272 / screen.height >= 1.5 ? 1272 / screen.height : 1.5);
-		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
-		tempOffsets.push(932.8 / screen.height >= 1.1 ? 932.8 / screen.height : 1.1);
-		tempOffsets.push(932.8 / screen.height >= 1.1 ? 932.8 / screen.height : 1.1);
-		tempOffsets.push(1611.2 / screen.height >= 1.9 ? 1611.2 / screen.height : 1.9);
-		tempOffsets.push(593.6 / screen.height >= 0.7 ? 593.6 / screen.height : 0.7);
-		tempOffsets.push(593.6 / screen.height >= 0.7 ? 593.6 / screen.height : 0.7);
-		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
-		tempOffsets.push(850 / screen.height >= 1 ? 850 / screen.height : 1);
+		console.log("windowHeight: " + window.innerHeight);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1800 / window.innerHeight >= 2.4 ? 1800 / window.innerHeight : 2.4);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
+		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
 
 		accTempOffsets.push(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
 		console.log(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
@@ -107,29 +109,33 @@ export default function Overview() {
 			<Header router={router} />
 			<BottomNav router={router} />
 			{isMobile && (
-				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={11}>
+				<Parallax
+					className={`${styles.parallaxContainer} parallax-scroll`}
+					ref={parallax}
+					pages={offsets[9] + 0.3}>
+					<MobileContent router={router} />
 					<PageOne offset={0} gradient='greenBlue' onClick={() => allowScroll(1)} router={router} />
 					<PageTwo
-						offset={offsets[0]}
+						offset={offsets[0] + 0.032 * offsets[0]}
 						gradient='yellowGreen'
 						onClick={() => allowScroll(2)}
 						router={router}
 					/>
 					<PageThree
-						offset={offsets[1]}
+						offset={offsets[1] - 0.01 * offsets[1]}
 						gradient='yellowGreenAlt'
 						onClick={() => allowScroll(3)}
 						router={router}
 					/>
 					<PageFour offset={offsets[2]} gradient='redYellow' onClick={() => allowScroll(4)} router={router} />
 					<PageFive
-						offset={offsets[3]}
+						offset={offsets[3] - 0.035 * offsets[0]}
 						gradient='redYellowAlt'
 						onClick={() => allowScroll(5)}
 						router={router}
 					/>
 					<PageSix
-						offset={offsets[4] + 0.2}
+						offset={offsets[4] + 0.13 * offsets[0]}
 						gradient='blueRed'
 						onClick={() => allowScroll(6)}
 						router={router}
@@ -141,8 +147,13 @@ export default function Overview() {
 						router={router}
 					/>
 					<PageEight offset={offsets[6]} gradient='blue' onClick={() => allowScroll(8)} router={router} />
-					<PageNine offset={9} gradient='greenBlue' onClick={() => allowScroll(9)} router={router} />
-					<PageTen offset={10} gradient='yellowGreen' onClick={() => allowScroll(0)} router={router} />
+					<PageNine offset={offsets[7]} gradient='greenBlue' onClick={() => allowScroll(9)} router={router} />
+					<PageTen
+						offset={offsets[8]}
+						gradient='yellowGreen'
+						onClick={() => allowScroll(0)}
+						router={router}
+					/>
 				</Parallax>
 			)}
 			{!isMobile && (

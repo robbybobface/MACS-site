@@ -9,8 +9,8 @@ import GradientText from "../GradientText";
 
 const PageThree = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 850 / screen.height >= 1
-			? 850 / screen.height
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
 			: 1
 		: 1;
 	console.log(newFactor);
@@ -18,9 +18,10 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
 				<div
-					className={
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileThree : styles.slopeBegin
-					}
+					// className={
+					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileThree : styles.slopeBegin
+					// }
+					className={styles.slopeBegin}
 				/>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
@@ -36,7 +37,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 				<Container
 					maxWidth='xl'
 					sx={{
-						display: "flex",
+						display: { xs: "none", md: "flex" },
 						justifyContent: "center",
 						alignItems: "center",
 						zIndex: 1000000,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import { Box, Typography, Container, Grid, Divider, useMediaQuery } from "@mui/material";
+import { Box, Typography, Container, Grid, Divider, useMediaQuery, Card, CardContent } from "@mui/material";
 import styles from "../../styles/Overview.module.css";
 import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
@@ -52,8 +52,8 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	const [openHexagon, setOpenHexagon] = useState(false);
 
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 850 / screen.height >= 1
-			? 850 / screen.height
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
 			: 1
 		: 1;
 	console.log(newFactor);
@@ -208,12 +208,15 @@ const PageOne = ({ offset, gradient, onClick }) => {
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer
+				className={`${styles.text} ${styles.number} noselect`}
 				offset={offset}
 				speed={0.3}
-				onClick={onClick}
-				style={{ zIndex: 9999, overflow: "visible" }}
+				style={{ zIndex: 9999 }}
 				factor={newFactor}>
-				<Container className='noselect' maxWidth='xl'>
+				<Container
+					className='noselect'
+					maxWidth='xl'
+					sx={{ mb: { xs: 6, md: 0 }, display: { xs: "none", md: "flex" } }}>
 					{/* <Trail open={open}> */}
 					<Grid
 						container
@@ -226,7 +229,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 							px: { xs: 0, md: 5 },
 							zIndex: 10000,
 							// minHeight: "1000px",
-							mt: { xs: 15, md: 0 },
+							mt: { xs: -10, md: 0 },
 						}}>
 						<Grid
 							item

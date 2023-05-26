@@ -43,7 +43,7 @@
 .slopeBeginMobileThree {
 	display: flex;
 	background-color: #323232;
-	clip-path: polygon(100% 4.5%, 100% 78%, 0 95%, 0 30%);
+	clip-path: polygon(100% 4.5%, 100% 78%, 0 95%, 0 26%);
 	/* z-index: 20; */
 	position: absolute;
 	width: 100%;
@@ -68,7 +68,7 @@
 .slopeBeginMobileSix {
 	display: flex;
 	background-color: #323232;
-	clip-path: polygon(100% 0%, 100% 78.25%, 0 84%, 0 8.25%);
+	clip-path: polygon(100% 0%, 100% 78.25%, 0 83.8%, 0 8.25%);
 	/* z-index: 20; */
 	position: absolute;
 	width: 100%;
@@ -81,7 +81,7 @@
 .slopeBeginMobileNine {
 	display: flex;
 	background-color: #323232;
-	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 12%);
+	clip-path: polygon(100% 0, 100% 78%, 0 95%, 0 16%);
 	/* z-index: 20; */
 	position: absolute;
 	width: 100%;
@@ -120,7 +120,7 @@
 }
 
 .slopeEndMobileSix {
-	clip-path: polygon(100% 74.8%, 100% 80%, 0 86.3%, 0 81.5%);
+	clip-path: polygon(100% 74.8%, 100% 78.4%, 0 87.1%, 0 81.5%);
 	position: absolute;
 	bottom: -68%;
 	width: 350%;

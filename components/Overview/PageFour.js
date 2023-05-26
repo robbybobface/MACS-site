@@ -9,18 +9,19 @@ import GradientText from "../GradientText";
 
 const PageFour = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 900 / screen.height >= 1.05
-			? 900 / screen.height
-			: 1.05
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
+			: 1
 		: 1;
 	console.log(newFactor);
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
 				<div
-					className={
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileFour : styles.slopeBegin
-					}
+					// className={
+					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileFour : styles.slopeBegin
+					// }
+					className={styles.slopeBegin}
 				/>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
@@ -35,7 +36,12 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 				factor={newFactor}>
 				<Container
 					maxWidth='xl'
-					sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
+					sx={{
+						display: { xs: "none", md: "flex" },
+						justifyContent: "center",
+						alignItems: "center",
+						zIndex: 1000000,
+					}}>
 					<Grid container spacing={2}>
 						<Grid
 							item

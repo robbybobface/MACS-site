@@ -11,9 +11,9 @@ import GradientText from "../GradientText";
 
 const PageEight = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 593.6 / screen.height >= 0.7
-			? 593.6 / screen.height
-			: 0.7
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
+			: 1
 		: 1;
 	console.log(newFactor);
 	return (
@@ -23,9 +23,10 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div
-					className={`${
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileEight : styles.slopeEnd
-					} ${styles[gradient]}`}
+					// className={`${
+					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileEight : styles.slopeEnd
+					// } ${styles[gradient]}`}
+					className={`${styles.slopeEnd} ${styles[gradient]}`}
 				/>
 			</ParallaxLayer>
 			<ParallaxLayer
@@ -37,8 +38,13 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 				factor={newFactor}>
 				<Container
 					maxWidth='xl'
-					sx={{ display: "flex", justifyContent: "center", alignItems: "center", zIndex: 1000000 }}>
-					<Grid container spacing={2} sx={{ minHeight: "900px", mt: { xs: -10, md: 0 } }}>
+					sx={{
+						display: { xs: "none", md: "flex" },
+						justifyContent: "center",
+						alignItems: "center",
+						zIndex: 1000000,
+					}}>
+					<Grid container spacing={2} sx={{ minHeight: "750px", mt: { xs: 0, md: 0 } }}>
 						<Grid
 							item
 							xs={12}
@@ -89,8 +95,8 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 				<Box
 					sx={{
 						position: "absolute",
-						left: { xs: "25%", md: "61%" },
-						top: { xs: "35%", md: "17%" },
+						left: { xs: "30%", md: "61%" },
+						top: { xs: "53%", md: "17%" },
 						transform: "rotate(-3deg)",
 					}}>
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
@@ -145,14 +151,14 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 				<Box
 					sx={{
 						position: "absolute",
-						left: { xs: "2%", md: "55%" },
-						top: { xs: "57%", md: "45%" },
+						left: { xs: "7%", md: "55%" },
+						top: { xs: "80%", md: "45%" },
 						transform: "rotate(15deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-33'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "26vh" : "40vh"}
+							height={useMediaQuery(theme.breakpoints.down("md")) ? "28vh" : "40vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -202,7 +208,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						position: "absolute",
 						left: { xs: "47%", md: "70%" },
-						top: { xs: "40%", md: "35%" },
+						top: { xs: "82%", md: "35%" },
 						transform: "rotate(-17deg)",
 					}}>
 					<Box className={styles.rotating}>
@@ -287,7 +293,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						position: "absolute",
 						right: { xs: "0%", md: "3%" },
-						top: "12%",
+						top: { xs: "22%", md: "12%" },
 						transform: "rotate(82deg)",
 					}}>
 					<HexGrid
@@ -323,7 +329,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					className={boxStyles.whiteCircle}
 					sx={{
 						position: "absolute",
-						top: { xs: "30%", md: "50%" },
+						top: { xs: "65%", md: "50%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						height: useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "38vh",

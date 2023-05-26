@@ -209,7 +209,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 				onClick={onClick}
 				style={{ zIndex: 9999, overflow: "visible" }}
 				factor={newFactor}>
-				<Container className='noselect' maxWidth='xl' sx={{ minHeight: "900px" }}>
+				<Container className='noselect' maxWidth='xl'>
 					{/* <Trail open={open}> */}
 					<Grid
 						container

@@ -209,8 +209,8 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 	);
 
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 850 / screen.height >= 1
-			? 850 / screen.height
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
 			: 1
 		: 1;
 	console.log(newFactor);
@@ -240,18 +240,18 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 	}, []);
 	return (
 		<>
-			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
 				<div className={styles.slopeBegin} />
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
 						left: { xs: "-7%", md: "5%" },
-						top: { xs: "12%", md: "15%" },
+						top: { xs: "42%", md: "15%" },
 						transform: "rotate(4deg)",
 					}}>
 					<Box className={styles.rotating}>
@@ -276,7 +276,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
@@ -306,12 +306,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.9} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.9} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
-						left: { xs: "5%", md: "25%" },
-						bottom: "5%",
+						left: { xs: "0%", md: "25%" },
+						bottom: { xs: "-32%", md: "5%" },
 						transform: "rotate(-2deg)",
 					}}>
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
@@ -336,12 +336,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.35} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.35} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
 						left: { xs: "5%", md: "0%" },
-						bottom: { xs: "22%", md: "5%" },
+						bottom: { xs: "37%", md: "5%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
@@ -366,12 +366,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
 						right: { xs: "8%", md: "22%" },
-						bottom: "3%",
+						bottom: { xs: "16%", md: "3%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlowEaseInOut}>
@@ -400,12 +400,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.27} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.27} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
 						right: "1%",
-						top: { xs: "55%", md: "65%" },
+						top: { xs: "45%", md: "65%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingReverse}>
@@ -434,7 +434,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.55} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.55} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
@@ -469,12 +469,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.4} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						position: "absolute",
 						right: "-2%",
-						top: { xs: "12%", md: "15%" },
+						top: { xs: "40%", md: "15%" },
 						transform: "rotate(-7deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
@@ -507,7 +507,8 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				className={`${styles.text} ${styles.number} noselect`}
 				onClick={onClick}
 				offset={offset}
-				speed={0.3}>
+				speed={0.3}
+				factor={newFactor}>
 				<Container
 					maxWidth='xl'
 					sx={{
@@ -525,7 +526,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 									position: "relative",
 									display: "flex",
 									justifyContent: "center",
-									mt: { xs: -5, md: 0 },
+									mt: { xs: 25, md: 0 },
 								}}>
 								<GeneratedHexgrid />
 								<Dropzones />
@@ -534,30 +535,30 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Grid>
 				</Container>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} factor={newFactor}>
 				<Box
 					className={boxStyles.whiteCircle}
 					sx={{
 						position: "absolute",
-						top: { xs: "47.5%", md: "50%" },
+						top: { xs: "75.5%", md: "50%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						height: useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "28vh",
-						width: useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "28vh",
+						height: useMediaQuery(theme.breakpoints.down("md")) ? "21vh" : "28vh",
+						width: useMediaQuery(theme.breakpoints.down("md")) ? "21vh" : "28vh",
 						zIndex: 10,
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 					}}>
-					<MACSLogo height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "27vh"} />
+					<MACSLogo height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "27vh"} />
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} factor={newFactor}>
 				<Box
 					className={[boxStyles.darkGreyBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						top: { xs: "18%", md: "24%" },
+						top: { xs: "20%", md: "24%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						zIndex: 10,
@@ -583,12 +584,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.45} onClick={onClick}>
+			<ParallaxLayer offset={offset} speed={0.45} onClick={onClick} factor={newFactor}>
 				<Box
 					className={[boxStyles.whiteBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: { xs: "17.5%", md: "0%" },
+						bottom: { xs: "-2%", md: "0%" },
 						left: { xs: "0%", md: "50%" },
 						transform: { xs: "none", md: "translate(-50%, -50%)" },
 						zIndex: 10,
@@ -618,7 +619,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					className={[boxStyles.lightGreyBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: { xs: "24%", md: "10.5%" },
+						bottom: { xs: "-30%", md: "10.5%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						zIndex: 10,

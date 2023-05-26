@@ -9,9 +9,9 @@ import GradientText from "../GradientText";
 
 const PageSeven = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 593.6 / screen.height >= 0.7
-			? 593.6 / screen.height
-			: 0.7
+		? 1000 / window.innerHeight >= 1
+			? 1000 / window.innerHeight
+			: 1
 		: 1;
 	console.log(newFactor);
 	return (
@@ -21,9 +21,10 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div
-					className={`${
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileSeven : styles.slopeEnd
-					} ${styles[gradient]}`}
+					// className={`${
+					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileSeven : styles.slopeEnd
+					// } ${styles[gradient]}`}
+					className={`${styles.slopeEnd} ${styles[gradient]}`}
 				/>
 			</ParallaxLayer>
 			<ParallaxLayer
@@ -34,7 +35,12 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 				factor={newFactor}>
 				<Container
 					maxWidth='xl'
-					sx={{ display: "flex", justifyContent: "center", alignItems: "center", mt: 10 }}>
+					sx={{
+						display: { xs: "none", md: "flex" },
+						justifyContent: "center",
+						alignItems: "center",
+						mt: { xs: 0, md: 10 },
+					}}>
 					<Grid container spacing={2}>
 						<Grid
 							item
