@@ -17,16 +17,17 @@ const BottomNav = ({ router, home }) => {
 				display: "flex",
 				justifyContent: { xs: "center", smPlus: "flex-end" },
 				alignItems: "center",
-				width: "100%",
+				width: "100vw",
 				bottom: 30,
-				right: { xs: 0, smPlus: 40, md: 50, lg: 100 },
+				right: { xs: undefined, smPlus: 40, md: 50, lg: 100 },
 			}}>
 			<Box
 				sx={{
+					display: "flex",
 					position: "relative",
 					justifyContent: "space-between",
-					width: { xs: 350, md: 400 },
-					maxWidth: { xs: 350, md: 400 },
+					width: { xs: 320, md: 400 },
+					maxWidth: { xs: 320, md: 400 },
 					flexDirection: "column",
 				}}>
 				<Box

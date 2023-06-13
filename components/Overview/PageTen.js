@@ -244,7 +244,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				<div className={styles.slopeBegin} />
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
-				<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
+				<div className={`${styles.slopeEndMobile} ${styles[gradient]}`} />
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} factor={newFactor}>
 				<Box

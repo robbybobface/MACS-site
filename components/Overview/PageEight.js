@@ -19,14 +19,19 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
-				<div className={styles.slopeBegin} />
+				<div
+					// className={
+					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileEight : styles.slopeBegin
+					// }
+					className={styles.slopeBegin}
+				/>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div
-					// className={`${
-					// 	useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileEight : styles.slopeEnd
-					// } ${styles[gradient]}`}
-					className={`${styles.slopeEnd} ${styles[gradient]}`}
+					className={`${
+						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileEight : styles.slopeEnd
+					} ${styles[gradient]}`}
+					// className={`${styles.slopeEnd} ${styles[gradient]}`}
 				/>
 			</ParallaxLayer>
 			<ParallaxLayer
@@ -94,6 +99,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "30%", md: "61%" },
 						top: { xs: "53%", md: "17%" },
@@ -150,6 +156,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "7%", md: "55%" },
 						top: { xs: "80%", md: "45%" },
@@ -206,6 +213,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "47%", md: "70%" },
 						top: { xs: "82%", md: "35%" },
@@ -328,6 +336,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 				<Box
 					className={boxStyles.whiteCircle}
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						top: { xs: "65%", md: "50%" },
 						left: "50%",
@@ -335,7 +344,6 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						height: useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "38vh",
 						width: useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "38vh",
 						zIndex: 10,
-						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 					}}>

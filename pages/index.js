@@ -739,7 +739,7 @@ export default function Home() {
 									sx={{
 										textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 										fontSize: {
-											xs: "2rem",
+											xs: "1.8rem",
 											smMinus: "2.5rem",
 											md: "2.75rem",
 											mdPlus: "3rem",
@@ -759,7 +759,7 @@ export default function Home() {
 										sx={{
 											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 											fontSize: {
-												xs: "2rem",
+												xs: "1.8rem",
 												smMinus: "2.5rem",
 												md: "2.75rem",
 												mdPlus: "3rem",
@@ -784,7 +784,7 @@ export default function Home() {
 										sx={{
 											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 											fontSize: {
-												xs: "2rem",
+												xs: "1.8rem",
 												smMinus: "2.5rem",
 												md: "2.75rem",
 												mdPlus: "3rem",
@@ -867,7 +867,7 @@ export default function Home() {
 										sx={{
 											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 											fontSize: {
-												xs: "2rem",
+												xs: "1.8rem",
 												smMinus: "2.5rem",
 												md: "2.75rem",
 												mdPlus: "3rem",
@@ -892,7 +892,7 @@ export default function Home() {
 										sx={{
 											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 											fontSize: {
-												xs: "2rem",
+												xs: "1.8rem",
 												smMinus: "2.5rem",
 												md: "2.75rem",
 												mdPlus: "3rem",

@@ -38,10 +38,9 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 				<Container
 					maxWidth='xl'
 					sx={{
-						display: "flex",
+						display: { xs: "none", md: "flex" },
 						alignItems: "flex-start",
 						justifyContent: "flex-start",
-						// zIndex: 1000000,
 						minHeight: "70vh",
 					}}>
 					<Grid container spacing={2}>
@@ -84,6 +83,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.6} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "55%", md: "20%" },
 						top: { xs: "40%", md: "25%" },
@@ -127,6 +127,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.8} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "55%", md: "27%" },
 						top: { xs: "77%", md: "60%" },
@@ -170,6 +171,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.9} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						right: { xs: "57%", md: "20%" },
 						top: { xs: "53%", md: "25%" },
@@ -213,6 +215,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0.6} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						right: { xs: "50%", md: "27%" },
 						top: { xs: "69%", md: "60%" },
@@ -256,6 +259,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "0%", md: "11%" },
 						top: { xs: "56%", md: "60%" },
@@ -299,6 +303,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={-0.1} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						right: { xs: "2%", md: "8%" },
 						top: { xs: "59%", md: "55%" },
@@ -342,6 +347,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={0} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						left: { xs: "0%", md: "2%" },
 						top: { xs: "35%", md: "15%" },
@@ -385,6 +391,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						right: { xs: "0%", md: "5%" },
 						top: { xs: "28%", md: "15%" },
@@ -429,6 +436,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 				<Box
 					className={boxStyles.whiteCircle}
 					sx={{
+						display: { xs: "none", md: "flex" },
 						position: "absolute",
 						top: "60%",
 						left: "50%",
@@ -436,7 +444,6 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 						height: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
 						width: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
 						zIndex: 10,
-						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 					}}>

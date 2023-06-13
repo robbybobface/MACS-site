@@ -7,15 +7,14 @@ const Header = ({ router }) => {
 	return (
 		<Box
 			sx={{
-				position: "absolute",
-				// top: "2.5%",
-				// left: "6%",
+				position: "fixed",
+				top: 0,
+				left: 0,
+				zIndex: 99999999,
 				background: "linear-gradient(to bottom, rgba( 255, 255, 255, 0.2 ), rgba( 255, 255, 255, 0 ))",
 				boxShadow: "0 2px 8px 0 rgba( 0, 0, 0, 0.35 )",
 				backdropFilter: "blur( 7px )",
 				WebkitBackdropFilter: "blur( 7px )",
-				zIndex: 1,
-				// pl: 10,
 				display: "flex",
 				flexDirection: "row",
 				alignItems: "center",

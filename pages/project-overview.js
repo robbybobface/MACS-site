@@ -17,7 +17,7 @@ import PageSeven from "../components/Overview/PageSeven";
 import PageEight from "../components/Overview/PageEight";
 import PageNine from "../components/Overview/PageNine";
 import PageTen from "../components/Overview/PageTen";
-import { useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import theme from "../styles/theme";
 import MobileContent from "../components/Overview/MobileContent";
 
@@ -53,7 +53,14 @@ export default function Overview() {
 	useEffect(() => {
 		const container = document.querySelector(".parallax-scroll");
 		container.addEventListener("scroll", handleScroll);
-		console.log(window.screen.width <= 900);
+		function handleResize() {
+			if (window.screen.width <= 900) {
+				setIsMobile(true);
+			} else {
+				setIsMobile(false);
+			}
+		}
+		window.addEventListener("resize", handleResize);
 		setIsMobile(window.screen.width <= 900);
 		let tempOffsets = [];
 		let accTempOffsets = [];
@@ -95,6 +102,7 @@ export default function Overview() {
 		setOffsets(accTempOffsets);
 		return () => {
 			container.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("resize", handleResize);
 			setIsMobile(false);
 			setOffsets([]);
 		};
@@ -104,58 +112,15 @@ export default function Overview() {
 		<animated.div>
 			<Head>
 				<title>Project Overview</title>
-				<style>{"body { background-color: #FFF; !important; }"}</style>
+				<style>
+					{isMobile
+						? "body { background-color: #323232; !important; }"
+						: "body { background-color: #FFF; !important; }"}
+				</style>
 			</Head>
 			<Header router={router} />
 			<BottomNav router={router} />
-			{isMobile && (
-				<Parallax
-					className={`${styles.parallaxContainer} parallax-scroll`}
-					ref={parallax}
-					pages={offsets[9] + 0.3}>
-					<MobileContent router={router} />
-					<PageOne offset={0} gradient='greenBlue' onClick={() => allowScroll(1)} router={router} />
-					<PageTwo
-						offset={offsets[0] + 0.032 * offsets[0]}
-						gradient='yellowGreen'
-						onClick={() => allowScroll(2)}
-						router={router}
-					/>
-					<PageThree
-						offset={offsets[1] - 0.01 * offsets[1]}
-						gradient='yellowGreenAlt'
-						onClick={() => allowScroll(3)}
-						router={router}
-					/>
-					<PageFour offset={offsets[2]} gradient='redYellow' onClick={() => allowScroll(4)} router={router} />
-					<PageFive
-						offset={offsets[3] - 0.035 * offsets[0]}
-						gradient='redYellowAlt'
-						onClick={() => allowScroll(5)}
-						router={router}
-					/>
-					<PageSix
-						offset={offsets[4] + 0.13 * offsets[0]}
-						gradient='blueRed'
-						onClick={() => allowScroll(6)}
-						router={router}
-					/>
-					<PageSeven
-						offset={offsets[5]}
-						gradient='purpleBlue'
-						onClick={() => allowScroll(7)}
-						router={router}
-					/>
-					<PageEight offset={offsets[6]} gradient='blue' onClick={() => allowScroll(8)} router={router} />
-					<PageNine offset={offsets[7]} gradient='greenBlue' onClick={() => allowScroll(9)} router={router} />
-					<PageTen
-						offset={offsets[8]}
-						gradient='yellowGreen'
-						onClick={() => allowScroll(0)}
-						router={router}
-					/>
-				</Parallax>
-			)}
+			{isMobile && <MobileContent router={router} />}
 			{!isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={10}>
 					<PageOne offset={0} gradient='greenBlue' onClick={() => allowScroll(1)} router={router} />

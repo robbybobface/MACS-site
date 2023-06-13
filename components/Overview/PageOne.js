@@ -56,7 +56,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
+	// console.log(newFactor);
 
 	useEffect(() => {
 		setInterval(() => {
