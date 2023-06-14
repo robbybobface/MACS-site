@@ -8,6 +8,7 @@ import { Parallax } from "@react-spring/parallax";
 import styles from "../styles/Overview.module.css";
 import PageOne from "../components/ModuleDesign/PageOne";
 import PageTwo from "../components/ModuleDesign/PageTwo";
+import MobileContentModule from "../components/ModuleDesign/MobileContentModule";
 
 export default function ModuleDesign() {
 	const [isMobile, setIsMobile] = useState(false);
@@ -40,7 +41,14 @@ export default function ModuleDesign() {
 	useEffect(() => {
 		const container = document.querySelector(".parallax-scroll");
 		container.addEventListener("scroll", handleScroll);
-		console.log(window.screen.width <= 900);
+		function handleResize() {
+			if (window.screen.width <= 900) {
+				setIsMobile(true);
+			} else {
+				setIsMobile(false);
+			}
+		}
+		window.addEventListener("resize", handleResize);
 		setIsMobile(window.screen.width <= 900);
 		return () => {
 			container.removeEventListener("scroll", handleScroll);
@@ -55,12 +63,7 @@ export default function ModuleDesign() {
 			</Head>
 			<Header router={router} />
 			<BottomNav router={router} home={true} />
-			{isMobile && (
-				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={2.28}>
-					<PageOne offset={0} gradient='yellowAlt' onClick={() => allowScroll(1)} router={router} />
-					<PageTwo offset={1.1} gradient='yellowAltTwo' onClick={() => allowScroll(2)} router={router} />
-				</Parallax>
-			)}
+			{isMobile && <MobileContentModule />}
 			{!isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={2}>
 					<PageOne offset={0} gradient='yellowAlt' onClick={() => allowScroll(1)} router={router} />

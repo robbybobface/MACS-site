@@ -81,7 +81,7 @@ function PageTenMobile() {
 			return (
 				<HexGrid
 					id='module-grid-main'
-					height={useMediaQuery(theme.breakpoints.down("md")) ? (height ? "50vh" : "100vh") : "85vh"}
+					height={useMediaQuery(theme.breakpoints.down("md")) ? (height ? "50vmax" : "100vmax") : "85vmax"}
 					width={"auto"}
 					viewBox={"-50 -50 100 100"}
 					preserveAspectRatio={"xMidYMid meet"}>
@@ -269,13 +269,14 @@ function PageTenMobile() {
 							justifyContent: "center",
 							mt: -3,
 						}}>
-						<GeneratedHexgrid height={"70vh"} />
+						<GeneratedHexgrid height={"70vmax"} />
 						<Dropzones />
 					</Box>
 				</Grid>
 				<Grid
 					item
 					xs={12}
+					mt={2}
 					sx={{
 						display: "flex",
 						justifyContent: "center",

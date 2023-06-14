@@ -439,6 +439,7 @@ export default function Home() {
 						height: "100vh",
 						minHeight: "850px",
 						minWidth: "100%",
+						mb: { xs: 10, sm: 15 },
 					}}>
 					<Grid
 						item
@@ -448,7 +449,7 @@ export default function Home() {
 							flexDirection: "column",
 							justifyContent: { xs: "center", md: "flex-end" },
 							alignItems: { xs: "center", md: "flex-start" },
-							zIndex: 100000000,
+							zIndex: 100,
 						}}>
 						<Box
 							className='noselect'
@@ -729,7 +730,7 @@ export default function Home() {
 								px: 2,
 								pb: 1,
 								pt: 1,
-								zIndex: 99999,
+								zIndex: 99,
 								mb: { xs: -22, smMinus: -15 },
 							}}>
 							<Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -962,7 +963,6 @@ export default function Home() {
 								zIndex: 100,
 								p: { xs: 1, smMinus: 2 },
 								pb: { xs: 2, sm: 2, smPlus: 2, md: 2 },
-								mb: { xs: 10, sm: 15 },
 								mt: { xs: -22, smMinus: -10, sm: -5, smPlus: -5, md: -5 },
 							}}>
 							<Typography

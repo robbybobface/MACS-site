@@ -58,11 +58,19 @@ const Trail = ({ open, children }) => {
 };
 
 const MobileContent = ({ offset, gradient, onClick, router }) => {
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
 	const getSolutionImageHeights = () => {
-		if (useMediaQuery("(min-width: 0px)")) {
+		if (isXS) {
 			return 200;
-		} else if (useMediaQuery("(max-width: 600px)")) {
+		} else if (isXSPlus) {
+			return 200;
+		} else if (isSM) {
 			return 250;
+		} else if (isMD) {
+			return 300;
 		} else {
 			return 350;
 		}
@@ -70,53 +78,59 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 
 	const getModuleImageHeight = useMediaQuery("(min-width: 0px)") && useMediaQuery("(max-width: 600px)") ? 150 : 200;
 
-	const getFlowchartWidth =
-		useMediaQuery("(max-width: 900px)") && useMediaQuery("(min-width: 0px)") ? "95vw" : "43vw";
-
-	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
-	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
-	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
-	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const getFlowchartWidth = () => {
+		if (isXS) {
+			return "95vmin";
+		} else if (isXSPlus) {
+			return "95vmin";
+		} else if (isSM) {
+			return "90vmax";
+		} else if (isMD) {
+			return "85vmax";
+		} else {
+			return "43vmax";
+		}
+	};
 
 	const getBlueLogoHeight = () => {
 		if (isXS) {
-			return "14vh";
+			return "14vmax";
 		} else if (isXSPlus) {
-			return "14vh";
+			return "14vmax";
 		} else if (isSM) {
-			return "21vh";
+			return "21vmax";
 		} else if (isMD) {
-			return "24vh";
+			return "24vmax";
 		} else {
-			return "44vh";
+			return "44vmax";
 		}
 	};
 
 	const getGreyLogoHeight = () => {
 		if (isXS) {
-			return "13vh";
+			return "13vmax";
 		} else if (isXSPlus) {
-			return "17vh";
+			return "17vmax";
 		} else if (isSM) {
-			return "21vh";
+			return "21vmax";
 		} else if (isMD) {
-			return "24vh";
+			return "24vmax";
 		} else {
-			return "44vh";
+			return "44vmax";
 		}
 	};
 
 	const getPriceHexagonHeight = () => {
 		if (isXS) {
-			return "22vh";
+			return "22vmax";
 		} else if (isXSPlus) {
-			return "22vh";
+			return "22vmax";
 		} else if (isSM) {
-			return "25vh";
+			return "25vmax";
 		} else if (isMD) {
-			return "27vh";
+			return "27vmax";
 		} else {
-			return "30vh";
+			return "30vmax";
 		}
 	};
 
@@ -124,42 +138,42 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 		switch (size) {
 			case "normal":
 				if (isXS) {
-					return "18vh";
+					return "18vmax";
 				} else if (isXSPlus) {
-					return "18vh";
+					return "18vmax";
 				} else if (isSM) {
-					return "22vh";
+					return "22vmax";
 				} else if (isMD) {
-					return "24vh";
+					return "24vmax";
 				} else {
-					return "27vh";
+					return "27vmax";
 				}
 			case "small":
 				if (isXS) {
-					return "15vh";
+					return "15vmax";
 				} else if (isXSPlus) {
-					return "15vh";
+					return "15vmax";
 				} else if (isSM) {
-					return "19vh";
+					return "19vmax";
 				} else if (isMD) {
-					return "21vh";
+					return "21vmax";
 				} else {
-					return "24vh";
+					return "24vmax";
 				}
 			case "xs":
 				if (isXS) {
-					return "15vh";
+					return "15vmax";
 				} else if (isXSPlus) {
-					return "15vh";
+					return "15vmax";
 				} else if (isSM) {
-					return "19vh";
+					return "19vmax";
 				} else if (isMD) {
-					return "21vh";
+					return "21vmax";
 				} else {
-					return "24vh";
+					return "24vmax";
 				}
 			default:
-				return "18vh";
+				return "18vmax";
 		}
 	};
 
@@ -179,7 +193,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 				<Container
 					className='noselect'
 					maxWidth='xl'
-					sx={{ mb: { xs: 6, md: 0 }, px: { xs: 2, smMinus: 5 }, zIndex: 3 }}>
+					sx={{ mb: { xs: 6, md: 0 }, px: { xs: 2, smMinus: 10 }, zIndex: 3 }}>
 					{/* <Trail open={open}> */}
 					<Grid
 						container
@@ -377,7 +391,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						zIndex: 3,
 						mt: -20,
 						mb: -5,
-						px: { xs: 2, smMinus: 5 },
+						px: { xs: 2, smMinus: 8 },
 					}}>
 					<Box
 						className={boxStyles.whiteBox}
@@ -580,7 +594,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						flexDirection: { xs: "column", md: "row" },
 						zIndex: 3,
 						mb: -5,
-						px: { xs: 2, smMinus: 5 },
+						px: { xs: 2, smMinus: 10 },
 					}}>
 					<GradientText
 						text='Existing Solutions'
@@ -670,9 +684,12 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						alignItems: "center",
 						zIndex: 3,
 						mb: -8,
-						px: { xs: 2, smMinus: 5 },
+						px: { xs: 2, smMinus: 7 },
 					}}>
-					<Grid container spacing={2}>
+					<Grid
+						container
+						spacing={2}
+						sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 						<Grid
 							item
 							xs={12}
@@ -727,6 +744,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						<Grid
 							item
 							xs={12}
+							sm={10}
 							md={7}
 							sx={{
 								display: "flex",
@@ -944,7 +962,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									overflow: "clip",
 									display: "flex",
 								}}>
-								<MACSFlowchart width={getFlowchartWidth} />
+								<MACSFlowchart width={getFlowchartWidth()} />
 							</Box>
 						</Grid>
 						<Grid
@@ -1270,7 +1288,6 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									<Box
 										sx={{
 											borderRadius: 2,
-
 											p: 3,
 											boxShadow: "9px 10px 13px -8px rgba(0,0,0,0.55)",
 											background:
@@ -1630,7 +1647,10 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						zIndex: 3,
 						mb: -5,
 					}}>
-					<Grid container spacing={2}>
+					<Grid
+						container
+						spacing={2}
+						sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 						<Grid
 							item
 							onClick={onClick}
@@ -1665,6 +1685,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						<Grid
 							item
 							xs={12}
+							sm={10}
 							md={8}
 							sx={{
 								display: "flex",
@@ -1681,6 +1702,8 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									overflow: "hidden",
 									width: "100%",
 									paddingTop: "56.25%",
+									alignItems: "center",
+									justifyContent: "center",
 								}}>
 								<iframe
 									className={styles.responsiveIframe}
@@ -1745,8 +1768,8 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 							<Box
 								className={boxStyles.whiteCircle}
 								sx={{
-									height: { xs: "19vh", xsPlus: "23vh", sm: "26vh", md: "30vh" },
-									width: { xs: "19vh", xsPlus: "23vh", sm: "26vh", md: "30vh" },
+									height: { xs: "19vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
+									width: { xs: "19vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
 									zIndex: 10,
 									display: "flex",
 									justifyContent: "center",
@@ -2235,8 +2258,8 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 								className={boxStyles.whiteCircle}
 								sx={{
 									position: "absolute",
-									height: { xs: "15vh", xsPlus: "23vh", sm: "26vh", md: "30vh" },
-									width: { xs: "15vh", xsPlus: "23vh", sm: "26vh", md: "30vh" },
+									height: { xs: "15vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
+									width: { xs: "15vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
 									zIndex: 10,
 									display: "flex",
 									justifyContent: "center",
