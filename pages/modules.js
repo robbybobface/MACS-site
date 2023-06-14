@@ -10,7 +10,7 @@ import PageOne from "../components/ModuleDesign/PageOne";
 import PageTwo from "../components/ModuleDesign/PageTwo";
 import MobileContentModule from "../components/ModuleDesign/MobileContentModule";
 
-export default function ModuleDesign() {
+export default function Modules() {
 	const [isMobile, setIsMobile] = useState(false);
 	const parallax = useRef(null);
 	const router = useRouter();
