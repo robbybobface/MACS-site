@@ -412,18 +412,19 @@ export default function Home() {
 	return (
 		<>
 			<TrailLogo open={open}>
-				<Box
-					sx={{
-						display: { xs: "none", mdPlus: "flex" },
-						position: "fixed",
-						zIndex: 100000000,
-						top: 30,
-						left: { xs: "3%", lg: 30 },
-						borderRadius: "50%",
-						boxShadow: "8px 8px 13px -6px rgba(0,0,0,0.4)",
-					}}>
-					<MACSLogo />
-				</Box>
+				<Container maxWidth='xl'>
+					<Box
+						sx={{
+							display: { xs: "none", mdPlus: "flex" },
+							position: "fixed",
+							zIndex: 100000000,
+							top: 30,
+							borderRadius: "50%",
+							boxShadow: "8px 8px 13px -6px rgba(0,0,0,0.4)",
+						}}>
+						<MACSLogo />
+					</Box>
+				</Container>
 			</TrailLogo>
 			<BottomNav router={router} home={true} />
 			<Box className={styles.container}>
