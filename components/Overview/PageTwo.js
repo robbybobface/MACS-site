@@ -8,12 +8,15 @@ import theme from "../../styles/theme";
 import GradientText from "../GradientText";
 
 const PageTwo = ({ offset, gradient, onClick, router }) => {
-	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
-		? 1000 / window.innerHeight >= 1
-			? 1000 / window.innerHeight
-			: 1
-		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+	const newFactor = isMD ? (1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1) : 1;
+
 	return (
 		<>
 			<ParallaxLayer offset={offset} onClick={onClick} speed={0.1} factor={newFactor}>
@@ -255,7 +258,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 45, y: 45 } : { x: 50, y: 50 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -288,7 +291,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 50, y: 50 }}
+							size={isLG ? { x: 50, y: 50 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -310,7 +313,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 					className={styles.rotatingSlow}
 					sx={{
 						position: "absolute",
-						left: { xs: "-15%" },
+						left: { xs: "-25%", lg: "-15%" },
 						right: { md: "45%" },
 						bottom: "0%",
 						transform: "rotate(15deg)",
@@ -322,7 +325,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 50, y: 50 } : { x: 55, y: 55 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>

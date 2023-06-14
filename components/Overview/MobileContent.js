@@ -1394,7 +1394,6 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 											p: 2,
 											my: 1,
 											mx: 0,
-											width: "93%",
 										}}>
 										<Grid
 											container
