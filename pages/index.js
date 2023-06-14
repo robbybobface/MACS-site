@@ -439,7 +439,7 @@ export default function Home() {
 						height: "100vh",
 						minHeight: "850px",
 						minWidth: "100%",
-						mb: { xs: 10, sm: 15 },
+						mb: { xs: 10, sm: 15, md: 0 },
 					}}>
 					<Grid
 						item
