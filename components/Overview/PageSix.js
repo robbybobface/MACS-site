@@ -14,22 +14,48 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 			? 1800 / window.innerHeight
 			: 2.4
 		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getModuleImageHeights = () => {
+		if (isMD) {
+			return 100;
+		} else if (isMDPlus) {
+			return 125;
+		} else if (isLG) {
+			return 150;
+		} else if (isXL) {
+			return 150;
+		} else {
+			return 150;
+		}
+	};
+
+	const getControllerImageHeights = () => {
+		if (isMD) {
+			return 175;
+		} else if (isMDPlus) {
+			return 200;
+		} else if (isLG) {
+			return 225;
+		} else if (isXL) {
+			return 225;
+		} else {
+			return 225;
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
-				<div
-					className={
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeBeginMobileSix : styles.slopeBegin
-					}
-				/>
+				<div className={isMD ? styles.slopeBeginMobileSix : styles.slopeBegin} />
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
-				<div
-					className={`${
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileSix : styles.slopeEnd
-					} ${styles[gradient]}`}
-				/>
+				<div className={`${isMD ? styles.slopeEndMobileSix : styles.slopeEnd} ${styles[gradient]}`} />
 			</ParallaxLayer>
 			<ParallaxLayer
 				className={`noselect`}
@@ -79,41 +105,41 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 									<Typography
 										className={styles.MACSText}
 										fontFamily='Gilroy-Heavy'
-										fontSize={{ xs: "3rem", md: "4rem" }}
+										fontSize={{ xs: "3rem", md: "2.5rem", mdPlus: "3rem", lg: "4rem" }}
 										lineHeight={1.1}
-										mb='20px'>
+										mb={{ xs: "10px", lg: "20px" }}>
 										Modular
 									</Typography>
 									<Typography
 										className={styles.MACSText}
 										fontFamily='Gilroy-Heavy'
-										fontSize={{ xs: "3rem", md: "4rem" }}
+										fontSize={{ xs: "3rem", md: "2.5rem", mdPlus: "3rem", lg: "4rem" }}
 										lineHeight={1.1}
-										mb='20px'>
+										mb={{ xs: "10px", lg: "20px" }}>
 										Accessible
 									</Typography>
 									<Typography
 										className={styles.MACSText}
 										fontFamily='Gilroy-Heavy'
-										fontSize={{ xs: "3rem", md: "4rem" }}
+										fontSize={{ xs: "3rem", md: "2.5rem", mdPlus: "3rem", lg: "4rem" }}
 										lineHeight={1.1}
-										mb='20px'>
+										mb={{ xs: "10px", lg: "20px" }}>
 										Controller
 									</Typography>
 									<Typography
 										className={styles.MACSText}
 										fontFamily='Gilroy-Heavy'
-										fontSize={{ xs: "3rem", md: "4rem" }}
+										fontSize={{ xs: "3rem", md: "2.5rem", mdPlus: "3rem", lg: "4rem" }}
 										lineHeight={1.1}
-										mb='20px'>
+										mb={{ xs: "10px", lg: "20px" }}>
 										System
 									</Typography>
 									<Typography
 										color='white'
 										fontFamily={"bitcount-mono-single-line-ci"}
-										fontSize={{ xs: "4rem", md: "5rem" }}
+										fontSize={{ xs: "4rem", md: "3.5rem", mdPlus: "4rem", lg: "5rem" }}
 										lineHeight={1}
-										mb={2}>
+										mb={{ xs: 0, lg: 2 }}>
 										MACS
 									</Typography>
 								</Box>
@@ -122,11 +148,19 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 								className={boxStyles.darkGreyBox}
 								sx={{
 									mt: 2,
-									p: { xs: 2, md: 3 },
+									p: { xs: 2, lg: 3 },
 								}}>
 								<Typography
 									textAlign='justify'
-									sx={{ fontSize: { xs: "16px", md: "20px" } }}
+									sx={{
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}
 									color={"white"}>
 									With 5 distinct input modules, and a central hub users can physically build the
 									controller that is perfect for them. Then with our software, users can further
@@ -149,7 +183,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 								container
 								spacing={2}
 								sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-								<Grid item xs={12} md={8}>
+								<Grid item xs={12} md={12} lg={8}>
 									<Box
 										className={boxStyles.darkGreyBox}
 										onClick={onClick}
@@ -171,7 +205,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 												<Typography
 													color='white'
 													fontFamily={"Gilroy-Heavy"}
-													fontSize={{ xs: "2rem", md: "3rem" }}
+													fontSize={{
+														xs: "2rem",
+														md: "2.25rem",
+														mdPlus: "2.5rem",
+														lg: "3rem",
+													}}
 													sx={{
 														transform: "rotate(-90deg)",
 														textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -186,10 +225,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg?tr=h-1500'
 																hash='LILqC9xu~VE1M{WWE1M{R3M{9bs.'
 																alt='final central hub module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Central Hub"} light={true} />
@@ -199,10 +238,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg?tr=h-1500'
 																hash='LNLgkQjr~Ut7%Mt7M{f6=^RjE2jY'
 																alt='final button module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Button Module"} light={true} />
@@ -212,10 +251,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg?tr=h-1500'
 																hash='LJM7V_t6~VbIxtogE1WB-ORj9aWA'
 																alt='final switch module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Switch Module"} light={true} />
@@ -225,10 +264,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg?tr=h-1500'
 																hash='LPLqC8Rj~Vof-;tRRjju=@RjIpjY'
 																alt='final joystick module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Joystick Module"} light={true} />
@@ -238,10 +277,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg?tr=h-1500'
 																hash='LIMQbIjE~VkDxut8RjRj^hNG9as.'
 																alt='final slider module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Slider Module"} light={true} />
@@ -251,10 +290,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg?tr=h-1500'
 																hash='LOL;Kdax~VkC%Mt8Rjf6=^RjE3o0'
 																alt='final dial module'
-																height={150}
+																height={getModuleImageHeights()}
 															/>
 														</Card>
 														<ImageCaption caption={"Dial Module"} light={true} />
@@ -267,7 +306,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 								<Grid
 									item
 									xs={12}
-									md={4}
+									md={12}
+									lg={4}
 									sx={{
 										display: "flex",
 										flexDirection: "row",
@@ -280,6 +320,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 										sx={{
 											p: 2,
 											my: 1,
+											width: "90%",
 										}}>
 										<Grid
 											container
@@ -287,7 +328,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 											sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 											<Grid
 												item
-												xs={2}
+												xs={1}
+												lg={2}
 												sx={{
 													display: "flex",
 													justifyContent: "center",
@@ -297,7 +339,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 												<Typography
 													color='white'
 													fontFamily={"Gilroy-Heavy"}
-													fontSize={{ xs: "2.5rem", md: "3rem" }}
+													fontSize={{
+														xs: "2rem",
+														md: "2.25rem",
+														mdPlus: "2.5rem",
+														lg: "3rem",
+													}}
 													sx={{
 														transform: "rotate(-90deg)",
 														textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -305,9 +352,9 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 													Controller
 												</Typography>
 											</Grid>
-											<Grid item xs={10}>
+											<Grid item xs={11} lg={10}>
 												<Grid container spacing={2}>
-													<Grid item xs={12}>
+													<Grid item xs={6} lg={12}>
 														<Card
 															elevation={4}
 															sx={{
@@ -316,14 +363,14 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg?tr=h-1500'
 																hash='LIKdYr_N},t7%Mi^V?Ri}*kDI]R*'
 																alt='macs configuration 1'
-																height={225}
+																height={getControllerImageHeights()}
 															/>
 														</Card>
 													</Grid>
-													<Grid item xs={12}>
+													<Grid item xs={6} lg={12}>
 														<Card
 															elevation={4}
 															sx={{
@@ -332,10 +379,10 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg?tr=h-1500'
 																hash='LKJk4M~p==%0S$s8M{e-^Gx[JDR+'
 																alt='macs configuration 2'
-																height={225}
+																height={getControllerImageHeights()}
 															/>
 														</Card>
 													</Grid>
@@ -355,7 +402,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 								<Grid container spacing={2}>
 									<Grid
 										item
-										xs={2}
+										xs={0.75}
+										lg={2}
 										sx={{
 											display: "flex",
 											justifyContent: "center",
@@ -365,7 +413,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											color='backgroundBlack.main'
 											fontFamily={"Gilroy-Heavy"}
-											fontSize={{ xs: "2.5rem", md: "3rem" }}
+											fontSize={{
+												xs: "2rem",
+												md: "2.25rem",
+												mdPlus: "2.5rem",
+												lg: "3rem",
+											}}
 											sx={{
 												transform: "rotate(-90deg)",
 												textShadow: "2px 3px 5px rgba(0,0,0,0.37);",
@@ -373,8 +426,8 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 											App
 										</Typography>
 									</Grid>
-									<Grid item xs={10}>
-										<Grid container spacing={2}>
+									<Grid item xs={11.25} lg={10}>
+										<Grid container spacing={{ xs: 0.5, md: 0.5, lg: 2 }}>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
 												<Card
 													elevation={4}
@@ -384,7 +437,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png'
+														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png?tr=h-1500'
 														hash='L39jT61j00{e8|iwx=k;0f^d[J5Y'
 														alt='macs application'
 														height={"auto"}
@@ -401,7 +454,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png'
+														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
 														hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 														alt='application joystick configuration'
 														height={"auto"}
@@ -418,7 +471,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/button-config.png'
+														src='https://ik.imagekit.io/5ywj5edvn/button-config.png?tr=h-1500'
 														hash='L6E2qc3WBV=^00IA9YVc34,G~X-5'
 														alt='application button configuration'
 														height={"auto"}

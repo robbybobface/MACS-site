@@ -213,8 +213,51 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
 
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isLGPlus = useMediaQuery(theme.breakpoints.down("lgPlus"));
+	const isLGPLusPlus = useMediaQuery(theme.breakpoints.down("lgPlusPlus"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+	const getLogoSize = () => {
+		if (isMD) {
+			return "36min";
+		} else if (isMDPlus) {
+			return "24vmin";
+		} else if (isLG) {
+			return "27vmin";
+		} else if (isLGPlus) {
+			return "29vmin";
+		} else if (isLGPLusPlus) {
+			return "31vmin";
+		} else if (isXL) {
+			return "35vmin";
+		} else {
+			return "44vmin";
+		}
+	};
+
+	const getLogoPaddingSize = () => {
+		if (isMD) {
+			return "27min";
+		} else if (isMDPlus) {
+			return "26vmin";
+		} else if (isLG) {
+			return "29vmin";
+		} else if (isLGPlus) {
+			return "32vmin";
+		} else if (isLGPLusPlus) {
+			return "34vmin";
+		} else if (isXL) {
+			return "38vmin";
+		} else {
+			return "47vmin";
+		}
+	};
 	// On initial render
 	useEffect(() => {
 		window.setTimeout(() => {
@@ -574,7 +617,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
 						<Typography
 							fontFamily='bitcount-mono-single-line-ci'
-							fontSize={{ xs: "6rem", md: "8rem" }}
+							fontSize={{ xs: "6rem", mdPlus: "6.5rem", lg: "6.75rem", xl: "8rem" }}
 							color='white'
 							fontWeight={300}
 							lineHeight={1}
@@ -589,7 +632,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					className={[boxStyles.whiteBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: { xs: "-2%", md: "0%" },
+						bottom: { xs: "-2%", md: "5%", mdPlus: "4%", lg: "3%" },
 						left: { xs: "0%", md: "50%" },
 						transform: { xs: "none", md: "translate(-50%, -50%)" },
 						zIndex: 10,
@@ -599,14 +642,14 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 						alignItems: "center",
 						py: 1,
 						px: 2,
-						maxWidth: { xs: "100vw", md: "35vw" },
+						maxWidth: { xs: "100vw", md: "50vmax", lg: "40vmax", xl: "35vmax" },
 						mx: { xs: 5, md: 0 },
 					}}>
 					<Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
 						<Typography
 							fontFamily='K2D'
 							color='backgroundBlack.main'
-							fontSize={{ xs: "0.9rem", md: "1.5rem" }}
+							fontSize={{ xs: "1rem", md: "1.1rem", mdPlus: "1.15rem", lg: "1.25rem", xl: "1.4rem" }}
 							textAlign='center'>
 							Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
 							Freeman
@@ -619,7 +662,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					className={[boxStyles.lightGreyBox, "noselect"]}
 					sx={{
 						position: "absolute",
-						bottom: { xs: "-30%", md: "10.5%" },
+						bottom: { xs: "-30%", md: "15%", mdPlus: "15%", lg: "14.25%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
 						zIndex: 10,
@@ -634,7 +677,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 						<Typography
 							fontFamily='K2D'
 							color='white'
-							fontSize={{ xs: "1rem", md: "1.5rem" }}
+							fontSize={{ xs: "1rem", md: "1.1rem", mdPlus: "1.2rem", lg: "1.3rem", xl: "1.4rem" }}
 							textAlign='center'>
 							Capstone Project By:
 						</Typography>

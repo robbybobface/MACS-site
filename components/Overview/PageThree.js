@@ -14,7 +14,27 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getImageHeights = () => {
+		if (isMD) {
+			return 225;
+		} else if (isMDPlus) {
+			return 225;
+		} else if (isLG) {
+			return 275;
+		} else if (isXL) {
+			return 300;
+		} else {
+			return 300;
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -48,8 +68,9 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 						text='Existing Solutions'
 						gradient='linear-gradient(161deg, rgba(94,196,176,1) 0%, rgba(255,190,0,1) 100%)'
 						onClick={onClick}
-						fontSize={{ xs: "2.5rem", md: "6rem" }}
+						fontSize={{ xs: "2.5rem", md: "4rem", mdPlus: "4.75rem", lg: "5.25rem", xl: "6rem" }}
 						lineHeight={1.3}
+						ml={{ xs: 0, md: 4, lg: 4 }}
 						mb={{ xs: 3, md: 0 }}
 					/>
 					<Box
@@ -64,14 +85,23 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 								display: "flex",
 								justifyContent: "center",
 								alignItems: "flex-start",
-								px: { xs: 2, md: 6 },
-								py: { xs: 2, md: 4 },
+								px: { xs: 2, md: 3, lg: 6 },
+								py: { xs: 2, md: 3, lg: 4 },
 							}}>
 							<Grid item xs={12}>
 								<Typography
 									color='white'
 									textAlign='justify'
-									sx={{ px: { xs: 0, md: 4 }, fontSize: { xs: "14px", md: "20px" } }}>
+									sx={{
+										px: { xs: 0, md: 2, lg: 4 },
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}>
 									With the release of the Xbox Adaptive Controller in 2018 Microsoft has been almost
 									the sole provider of accessible controllers for disabled gamers. Sony is also
 									working on their accessible controller, codenamed Project Leonardo, which is
@@ -87,10 +117,10 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 									elevation={4}
 									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png'
+										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png?tr=h-1500'
 										hash='LNRC[6E1-;-;IVM{%Mt7~qt7WBRj'
 										alt='xbox adaptive controller'
-										height={300}
+										height={getImageHeights()}
 									/>
 								</Card>
 							</Grid>
@@ -99,10 +129,10 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 									elevation={4}
 									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg'
+										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg?tr=h-1500'
 										hash='LNR:KPWA_2a$xuofoej[~qog9FWA'
 										alt="sony's project leonardo"
-										height={300}
+										height={getImageHeights()}
 									/>
 								</Card>
 							</Grid>

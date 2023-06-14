@@ -440,7 +440,7 @@ export default function Home() {
 							justifyContent: "center",
 							flexDirection: "row",
 							height: "100vh",
-							minHeight: "850px",
+							minHeight: { xs: "850px", md: "950px", lg: "850px" },
 							minWidth: "100%",
 							mb: { xs: 10, sm: 15, md: 0 },
 						}}>

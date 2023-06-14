@@ -15,7 +15,41 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getGreyLogoSize = () => {
+		if (isMD) {
+			return "30min";
+		} else if (isMDPlus) {
+			return "30vmin";
+		} else if (isLG) {
+			return "34vmin";
+		} else if (isXL) {
+			return "36vmin";
+		} else {
+			return "36vmin";
+		}
+	};
+
+	const getGreyLogoPaddingSize = () => {
+		if (isMD) {
+			return "32min";
+		} else if (isMDPlus) {
+			return "32vmin";
+		} else if (isLG) {
+			return "36vmin";
+		} else if (isXL) {
+			return "38vmin";
+		} else {
+			return "38vmin";
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -28,9 +62,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
 				<div
-					className={`${
-						useMediaQuery(theme.breakpoints.down("md")) ? styles.slopeEndMobileEight : styles.slopeEnd
-					} ${styles[gradient]}`}
+					className={`${isMD ? styles.slopeEndMobileEight : styles.slopeEnd} ${styles[gradient]}`}
 					// className={`${styles.slopeEnd} ${styles[gradient]}`}
 				/>
 			</ParallaxLayer>
@@ -72,7 +104,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 								<Typography
 									color='white'
 									fontFamily={"bitcount-mono-single-line-ci"}
-									fontSize={{ xs: "7rem", md: "9rem" }}
+									fontSize={{ xs: "6rem", mdPlus: "7rem", lg: "8rem", xl: "9rem" }}
 									mb={-3}
 									mt={-4}
 									onClick={onClick}
@@ -82,147 +114,33 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 								<GradientText
 									text='Break'
 									gradient='linear-gradient(145deg, rgba(139,68,102,1) 0%, rgba(105,129,162,1) 80%)'
-									my={{ xs: -3.5, md: -5 }}
-									fontSize={{ xs: "5rem", md: "8rem" }}
+									my={{ xs: -1, lg: -5 }}
+									fontSize={{ xs: "5rem", mdPlus: "6rem", lg: "7rem", xl: "8rem" }}
 								/>
 								<GradientText
 									text='Down'
 									gradient='linear-gradient(145deg, rgba(122,96,122,1) 0%, rgba(86,158,165,1) 80%)'
 									my={-2}
-									fontSize={{ xs: "5rem", md: "8rem" }}
+									fontSize={{ xs: "5rem", mdPlus: "6rem", lg: "7rem", xl: "8rem" }}
 								/>
 							</Box>
 						</Grid>
 					</Grid>
 				</Container>
 			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick} factor={newFactor}>
-				<Box
-					sx={{
-						display: { xs: "none", md: "flex" },
-						position: "absolute",
-						left: { xs: "30%", md: "61%" },
-						top: { xs: "53%", md: "17%" },
-						transform: "rotate(-3deg)",
-					}}>
-					<Box className={styles.rotatingReverseSlowEaseInOut}>
-						<HexGrid
-							id='module-grid-34'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "25vh" : "40vh"}
-							width={"auto"}
-							viewBox='-50 -50 100 100'
-							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-								<Hexagon
-									id={`hexagon-34`}
-									q={0}
-									r={0}
-									s={0}
-									cellStyle={{ fill: theme.palette.hexagonGreen.main }}
-									stroke='white'
-									strokeWidth={1}
-								/>
-							</Layout>
-						</HexGrid>
-					</Box>
-					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-						<Typography
-							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.75rem", md: "2.5rem" }}
-							mb={{ xs: 0, md: -2 }}
-							onClick={onClick}
-							lineHeight={{ xs: 1, md: 1.5 }}
-							sx={{
-								color: "white",
-								textAlign: "center",
-								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
-							}}>
-							Actual
-						</Typography>
-						<Typography
-							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "2.25rem", md: "4rem" }}
-							onClick={onClick}
-							sx={{
-								color: "white",
-								textAlign: "center",
-								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
-							}}>
-							$466.87
-						</Typography>
-					</Box>
-				</Box>
-			</ParallaxLayer>
-			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
-				<Box
-					sx={{
-						display: { xs: "none", md: "flex" },
-						position: "absolute",
-						left: { xs: "7%", md: "55%" },
-						top: { xs: "80%", md: "45%" },
-						transform: "rotate(15deg)",
-					}}>
-					<Box className={styles.rotatingSlow}>
-						<HexGrid
-							id='module-grid-33'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "28vh" : "40vh"}
-							width={"auto"}
-							viewBox='-50 -50 100 100'
-							preserveAspectRatio='xMidYMid meet'>
-							<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
-								<Hexagon
-									id={`hexagon-33`}
-									q={0}
-									r={0}
-									s={0}
-									cellStyle={{ fill: theme.palette.hexagonBlue.main }}
-									stroke='white'
-									strokeWidth={1}
-								/>
-							</Layout>
-						</HexGrid>
-					</Box>
-					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-						<Typography
-							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.75rem", md: "2.5rem" }}
-							mb={{ xs: 0, md: -2 }}
-							onClick={onClick}
-							lineHeight={{ xs: 1, md: 1.5 }}
-							sx={{
-								color: "white",
-								textAlign: "center",
-								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
-							}}>
-							Anticipated
-						</Typography>
-						<Typography
-							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "2.25rem", md: "4rem" }}
-							onClick={onClick}
-							sx={{
-								color: "white",
-								textAlign: "center",
-								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
-							}}>
-							$650
-						</Typography>
-					</Box>
-				</Box>
-			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.4} onClick={onClick} factor={newFactor}>
 				<Box
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "47%", md: "70%" },
+						left: { xs: "47%", md: "75%", lg: "70%" },
 						top: { xs: "82%", md: "35%" },
 						transform: "rotate(-17deg)",
 					}}>
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-35'
-							height={"50vh"}
+							height={"50vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -242,7 +160,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+							fontSize={{ xs: "1.75rem", md: "2rem", lg: "2.5rem" }}
 							mb={{ xs: 0, md: -2 }}
 							onClick={onClick}
 							lineHeight={{ xs: 1, md: 1.5 }}
@@ -255,7 +173,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						</Typography>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "2.25rem", md: "4rem" }}
+							fontSize={{ xs: "2.25rem", md: "3rem", lg: "4rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -267,18 +185,132 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					</Box>
 				</Box>
 			</ParallaxLayer>
+			<ParallaxLayer offset={offset} speed={-0.15} onClick={onClick} factor={newFactor}>
+				<Box
+					sx={{
+						display: { xs: "none", md: "flex" },
+						position: "absolute",
+						left: { xs: "30%", md: "61%" },
+						top: { xs: "53%", md: "17%" },
+						transform: "rotate(-3deg)",
+					}}>
+					<Box className={styles.rotatingReverseSlowEaseInOut}>
+						<HexGrid
+							id='module-grid-34'
+							height={"40vmin"}
+							width={"auto"}
+							viewBox='-50 -50 100 100'
+							preserveAspectRatio='xMidYMid meet'>
+							<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+								<Hexagon
+									id={`hexagon-34`}
+									q={0}
+									r={0}
+									s={0}
+									cellStyle={{ fill: theme.palette.hexagonGreen.main }}
+									stroke='white'
+									strokeWidth={1}
+								/>
+							</Layout>
+						</HexGrid>
+					</Box>
+					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+						<Typography
+							fontFamily={"Gilroy-Heavy"}
+							fontSize={{ xs: "1.75rem", md: "2rem", lg: "2.5rem" }}
+							mb={{ xs: 0, md: -2 }}
+							onClick={onClick}
+							lineHeight={{ xs: 1, md: 1.5 }}
+							sx={{
+								color: "white",
+								textAlign: "center",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							}}>
+							Actual
+						</Typography>
+						<Typography
+							fontFamily={"Gilroy-Heavy"}
+							fontSize={{ xs: "2.25rem", md: "3rem", lg: "4rem" }}
+							onClick={onClick}
+							sx={{
+								color: "white",
+								textAlign: "center",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							}}>
+							$466.87
+						</Typography>
+					</Box>
+				</Box>
+			</ParallaxLayer>
+			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
+				<Box
+					sx={{
+						display: { xs: "none", md: "flex" },
+						position: "absolute",
+						left: { xs: "55%", lg: "57%", xl: "55%" },
+						top: { xs: "80%", md: "45%" },
+						transform: "rotate(15deg)",
+					}}>
+					<Box className={styles.rotatingSlow}>
+						<HexGrid
+							id='module-grid-33'
+							height={"40vmin"}
+							width={"auto"}
+							viewBox='-50 -50 100 100'
+							preserveAspectRatio='xMidYMid meet'>
+							<Layout size={{ x: 45, y: 45 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+								<Hexagon
+									id={`hexagon-33`}
+									q={0}
+									r={0}
+									s={0}
+									cellStyle={{ fill: theme.palette.hexagonBlue.main }}
+									stroke='white'
+									strokeWidth={1}
+								/>
+							</Layout>
+						</HexGrid>
+					</Box>
+					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+						<Typography
+							fontFamily={"Gilroy-Heavy"}
+							fontSize={{ xs: "1.75rem", md: "2rem", lg: "2.5rem" }}
+							mb={{ xs: 0, md: -2 }}
+							onClick={onClick}
+							lineHeight={{ xs: 1, md: 1.5 }}
+							sx={{
+								color: "white",
+								textAlign: "center",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							}}>
+							Anticipated
+						</Typography>
+						<Typography
+							fontFamily={"Gilroy-Heavy"}
+							fontSize={{ xs: "2.25rem", md: "3rem", lg: "4rem" }}
+							onClick={onClick}
+							sx={{
+								color: "white",
+								textAlign: "center",
+								textShadow: "2px 3px 5px rgba(0,0,0,0.5);",
+							}}>
+							$650
+						</Typography>
+					</Box>
+				</Box>
+			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.8} onClick={onClick} factor={newFactor}>
 				<Box
 					className={styles.rotatingSlowEaseInOut}
 					sx={{ position: "absolute", left: "-5%", top: "0%", transform: "rotate(15deg)" }}>
 					<HexGrid
 						id='module-grid-36'
-						height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "32vh"}
+						height={isMD ? "20vh" : "32vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+							size={isMD ? { x: 50, y: 50 } : { x: 49, y: 49 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -306,12 +338,12 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					}}>
 					<HexGrid
 						id='module-grid-37'
-						height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "20vh"}
+						height={isMD ? "15vh" : "20vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+							size={isMD ? { x: 50, y: 50 } : { x: 49, y: 49 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -321,9 +353,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 								r={0}
 								s={0}
 								cellStyle={{
-									fill: useMediaQuery(theme.breakpoints.down("md"))
-										? theme.palette.hexagonOrange.main
-										: theme.palette.hexagonBlack.main,
+									fill: isMD ? theme.palette.hexagonOrange.main : theme.palette.hexagonBlack.main,
 								}}
 								stroke='white'
 								strokeWidth={1}
@@ -341,13 +371,13 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						top: { xs: "65%", md: "50%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						height: useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "38vh",
-						width: useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "38vh",
+						height: getGreyLogoPaddingSize(),
+						width: getGreyLogoPaddingSize(),
 						zIndex: 10,
 						justifyContent: "center",
 						alignItems: "center",
 					}}>
-					<MACSLogoGrey height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "36vh"} />
+					<MACSLogoGrey height={getGreyLogoSize()} />
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} factor={newFactor}>
@@ -366,7 +396,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isMD ? { x: 50, y: 50 } : { x: 55, y: 55 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>

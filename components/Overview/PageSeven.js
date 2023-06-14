@@ -13,7 +13,6 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -47,36 +46,46 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 							onClick={onClick}
 							xs={12}
 							md={4}
+							lg={5}
 							sx={{
 								display: "flex",
-								flexDirection: "column",
-								alignItems: { xs: "center", md: "flex-start" },
+								justifyContent: "center",
+								alignItems: "center",
 							}}>
-							<Typography
-								color='white'
-								fontFamily={"bitcount-mono-single-line-ci"}
-								fontSize={{ xs: "7rem", md: "9rem" }}
-								my={-1}
-								onClick={onClick}
-								sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
-								MACS
-							</Typography>
-							<GradientText
-								text='in'
-								gradient='linear-gradient(145deg, rgba(177,40,70,1) 0%, rgba(107,93,128,1) 100%)'
-								my={-5}
-								fontSize={{ xs: "5rem", md: "8rem" }}
-							/>
-							<GradientText
-								text='action'
-								gradient='linear-gradient(145deg, rgba(177,40,70,1) 0%, rgba(107,93,128,1) 36%, rgba(55,132,173,1) 90%)'
-								fontSize={{ xs: "5rem", md: "8rem" }}
-							/>
+							<Box
+								sx={{
+									display: "flex",
+									flexDirection: "column",
+									alignItems: { xs: "center", md: "flex-start" },
+									justifyContent: "center",
+								}}>
+								<Typography
+									color='white'
+									fontFamily={"bitcount-mono-single-line-ci"}
+									fontSize={{ xs: "6rem", mdPlus: "7rem", lg: "8rem", xl: "9rem" }}
+									my={-1}
+									onClick={onClick}
+									sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
+									MACS
+								</Typography>
+								<GradientText
+									text='in'
+									gradient='linear-gradient(145deg, rgba(177,40,70,1) 0%, rgba(107,93,128,1) 100%)'
+									my={-5}
+									fontSize={{ xs: "5rem", mdPlus: "6rem", lg: "7rem", xl: "8rem" }}
+								/>
+								<GradientText
+									text='action'
+									gradient='linear-gradient(145deg, rgba(177,40,70,1) 0%, rgba(107,93,128,1) 36%, rgba(55,132,173,1) 90%)'
+									fontSize={{ xs: "5rem", mdPlus: "6rem", lg: "7rem", xl: "8rem" }}
+								/>
+							</Box>
 						</Grid>
 						<Grid
 							item
 							xs={12}
 							md={8}
+							lg={7}
 							sx={{
 								display: "flex",
 								flexDirection: "column",

@@ -133,7 +133,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png?tr=h-1500'
 										hash='CiMaV5s.~qWBbI%2j]Rj'
 										alt='central hub render top'
 										height={getImageHeights()}
@@ -160,7 +160,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/button-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/button-top.png?tr=h-1500'
 										hash='CTNAxOxu~qt79Gxut8WB'
 										alt='button module render top'
 										height={getImageHeights()}
@@ -186,7 +186,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=h-1500'
 										hash='CCNwZs8^~p-=E2%LM|Ri'
 										alt='central hub module render bottom'
 										height={getImageHeights()}
@@ -212,7 +212,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=h-1500'
 										hash='CEODteIT~p-;4:%LRjRj'
 										alt='general module render bottom'
 										height={getImageHeights()}
@@ -240,7 +240,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png?tr=h-1500'
 										hash='CSMj{:t6~qt79Gxut7V@'
 										alt='switch module render top'
 										height={getImageHeights()}
@@ -267,7 +267,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png?tr=h-1500'
 										hash='CVNAuF%2~qt7M{xtWCj@'
 										alt='slider module render top'
 										height={getImageHeights()}
@@ -294,7 +294,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=h-1500'
 										hash='CCNwZs8^~p-=E2%LM|Ri'
 										alt='central hub module render bottom'
 										height={getImageHeights()}
@@ -321,7 +321,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=h-1500'
 										hash='CEODteIT~p-;4:%LRjRj'
 										alt='general module render bottom'
 										height={getImageHeights()}
@@ -348,7 +348,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png?tr=h-1500'
 										hash='CRN^h~xt~qxu9Fxut8WB'
 										alt='dial module render top'
 										height={getImageHeights()}
@@ -375,7 +375,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										minWidth: getImageHeights(),
 									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png?tr=h-1500'
 										hash='CQONF4xt~qxu9G%2ogWB'
 										alt='joystick module render top'
 										height={getImageHeights()}

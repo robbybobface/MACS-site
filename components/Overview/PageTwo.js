@@ -56,25 +56,31 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 							onClick={onClick}
 							lineHeight='1.2'
 							textAlign='center'
-							fontSize={{ xs: "2.5rem", md: "6rem" }}
+							fontSize={{ xs: "2.5rem", md: "4rem", mdPlus: "4.75rem", lg: "5.25rem", xl: "6rem" }}
 							width='100%'
 							pt={1}
 						/>
 						<Grid
 							container
-							spacing={4}
+							spacing={{ xs: 0, md: 2, lg: 4 }}
 							sx={{
 								display: "flex",
 								justifyContent: "center",
 								alignItems: "flex-start",
 								px: { xs: 0, md: 6 },
-								pb: 6,
+								pb: { xs: 4, lg: 6 },
 							}}>
 							<Grid item xs={12}>
 								<Typography
 									color='backgroundBlack.main'
 									sx={{
-										fontSize: { xs: "14px", md: "20px" },
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
 										px: { xs: 0, md: 4 },
 										mt: { xs: 1, md: 0 },
 									}}
@@ -85,7 +91,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									reparability, and configurability.
 								</Typography>
 							</Grid>
-							<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Grid item xs={12} lg={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 									<CardContent
 										sx={{
@@ -98,7 +104,12 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											gutterBottom
 											component='div'
-											fontSize='24px'
+											fontSize={{
+												xs: "2.5rem",
+												md: "20px",
+												mdPlus: "22px",
+												lg: "24px",
+											}}
 											fontWeight='bold'
 											fontFamily='Gilroy-Bold'>
 											Accessibility
@@ -106,7 +117,14 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											color='text.secondary'
 											textAlign='justify'
-											sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+											sx={{
+												fontSize: {
+													xs: "14px",
+													md: "15px",
+													mdPlus: "16px",
+													lg: "1rem",
+												},
+											}}>
 											For would-be gamers with motor disabilities, controller usability poses a
 											significant barrier to entry. Most gamers can relate to the frustration of
 											feeling limited by their controller; unfortunately, this is a struggle that
@@ -121,7 +139,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									</CardContent>
 								</Card>
 							</Grid>
-							<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Grid item xs={12} lg={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 									<CardContent
 										sx={{
@@ -134,7 +152,12 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											gutterBottom
 											component='div'
-											fontSize='24px'
+											fontSize={{
+												xs: "2.5rem",
+												md: "20px",
+												mdPlus: "22px",
+												lg: "24px",
+											}}
 											fontWeight='bold'
 											fontFamily='Gilroy-Bold'>
 											Repairability
@@ -142,7 +165,14 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											color='text.secondary'
 											textAlign='justify'
-											sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+											sx={{
+												fontSize: {
+													xs: "14px",
+													md: "15px",
+													mdPlus: "16px",
+													lg: "1rem",
+												},
+											}}>
 											Video game controllers comprise several components and inputs. In many
 											instances of failure, proprietary controllers were mostly functional save
 											for one critical piece. For instance, the Nintendo Switch is notorious for
@@ -157,7 +187,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									</CardContent>
 								</Card>
 							</Grid>
-							<Grid item xs={12} md={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+							<Grid item xs={12} lg={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
 									<CardContent
 										sx={{
@@ -170,7 +200,12 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											gutterBottom
 											component='div'
-											fontSize='24px'
+											fontSize={{
+												xs: "2.5rem",
+												md: "20px",
+												mdPlus: "22px",
+												lg: "24px",
+											}}
 											fontWeight='bold'
 											fontFamily='Gilroy-Bold'>
 											Configuability
@@ -178,7 +213,14 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 										<Typography
 											color='text.secondary'
 											textAlign='justify'
-											sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+											sx={{
+												fontSize: {
+													xs: "14px",
+													md: "15px",
+													mdPlus: "16px",
+													lg: "1rem",
+												},
+											}}>
 											The problem is not necessarily that video games demand too much of the user,
 											but also that the user is limited by their physical interaction with the
 											game. Ultimately, this is because traditional controllers have no means of

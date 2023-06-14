@@ -14,7 +14,51 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isLGPlus = useMediaQuery(theme.breakpoints.down("lgPlus"));
+	const isLGPLusPlus = useMediaQuery(theme.breakpoints.down("lgPlusPlus"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getBlueLogoSize = () => {
+		if (isMD) {
+			return "36min";
+		} else if (isMDPlus) {
+			return "24vmin";
+		} else if (isLG) {
+			return "27vmin";
+		} else if (isLGPlus) {
+			return "29vmin";
+		} else if (isLGPLusPlus) {
+			return "31vmin";
+		} else if (isXL) {
+			return "35vmin";
+		} else {
+			return "44vmin";
+		}
+	};
+
+	const getBlueLogoPaddingSize = () => {
+		if (isMD) {
+			return "27min";
+		} else if (isMDPlus) {
+			return "26vmin";
+		} else if (isLG) {
+			return "29vmin";
+		} else if (isLGPlus) {
+			return "32vmin";
+		} else if (isLGPLusPlus) {
+			return "34vmin";
+		} else if (isXL) {
+			return "38vmin";
+		} else {
+			return "47vmin";
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -41,7 +85,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 						display: { xs: "none", md: "flex" },
 						alignItems: "flex-start",
 						justifyContent: "flex-start",
-						minHeight: "70vh",
+						minHeight: { md: "80vmin", lg: "80vmin" },
 					}}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} sx={{ display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
@@ -61,13 +105,13 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 										"linear-gradient(145deg, rgba(54,133,173,1) 0%, rgba(116,182,158,1) 100%)"
 									}
 									my={-5}
-									fontSize={{ xs: "3.25rem", md: "6rem" }}
+									fontSize={{ xs: "4rem", mdPlus: "4rem", lg: "5rem", xl: "6rem" }}
 									onClick={onClick}
 								/>
 								<Typography
 									color='white'
 									fontFamily={"bitcount-mono-single-line-ci"}
-									fontSize={{ xs: "4.25rem", md: "7rem" }}
+									fontSize={{ xs: "5rem", mdPlus: "5rem", lg: "6rem", xl: "7rem" }}
 									mb={-3}
 									mt={-4}
 									ml={{ xs: 2, md: 4 }}
@@ -85,14 +129,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "55%", md: "20%" },
+						left: { xs: "55%", md: "18%", lg: "20%" },
 						top: { xs: "40%", md: "25%" },
 						transform: "rotate(4deg)",
 					}}>
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-39'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
+							height={isLG ? "32vh" : "35vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -112,7 +156,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.65rem", md: "2.5rem" }}
+							fontSize={{ xs: "1.65rem", md: "2.1rem", mdPlus: "2.25", lg: "2.5rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -129,14 +173,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "55%", md: "27%" },
-						top: { xs: "77%", md: "60%" },
+						left: { xs: "55%", md: "25%", lg: "27%" },
+						top: { xs: "77%", md: "64%", lg: "60%" },
 						transform: "rotate(-12deg)",
 					}}>
 					<Box className={styles.rotatingReverseNormal}>
 						<HexGrid
 							id='module-grid-40'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
+							height={isLG ? "32vh" : "35vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -156,7 +200,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.65rem", md: "2.5rem" }}
+							fontSize={{ xs: "1.65rem", md: "2.1rem", mdPlus: "2.25", lg: "2.5rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -173,14 +217,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "57%", md: "20%" },
+						right: { xs: "57%", md: "18%", lg: "20%" },
 						top: { xs: "53%", md: "25%" },
 						transform: "rotate(-2deg)",
 					}}>
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-41'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
+							height={isLG ? "32vh" : "35vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -200,7 +244,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.6rem", md: "2.5rem" }}
+							fontSize={{ xs: "1.65rem", md: "2.1rem", mdPlus: "2.25", lg: "2.5rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -217,14 +261,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "50%", md: "27%" },
-						top: { xs: "69%", md: "60%" },
+						right: { xs: "50%", md: "25%", lg: "27%" },
+						top: { xs: "69%", md: "64%", lg: "60%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-42'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "23vh" : "35vh"}
+							height={isLG ? "32vh" : "35vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -244,7 +288,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.5rem", md: "2.25rem" }}
+							fontSize={{ xs: "1.5rem", md: "1.9rem", mdPlus: "2rem", lg: "2.25rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -261,7 +305,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "0%", md: "11%" },
+						left: { xs: "0%", md: "8%", lg: "11%" },
 						top: { xs: "56%", md: "60%" },
 						transform: "rotate(10deg)",
 					}}>
@@ -288,7 +332,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.1rem", md: "1.8rem" }}
+							fontSize={{ xs: "1.1rem", md: "1.65rem", lg: "1.8rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -312,7 +356,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverse}>
 						<HexGrid
 							id='module-grid-44'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "13vh" : "20vh"}
+							height={isMD ? "13vh" : "20vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -356,7 +400,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-45'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "32vh"}
+							height={isLG ? "27vh" : "32vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -376,7 +420,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -53%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.4rem", md: "2.25rem" }}
+							fontSize={{ xs: "1.4rem", md: "1.9rem", mdPlus: "2rem", lg: "2.25rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -393,14 +437,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "0%", md: "5%" },
+						right: { xs: "0%", md: "2%", lg: "5%" },
 						top: { xs: "28%", md: "15%" },
 						transform: "rotate(-7deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-46'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "17vh" : "27vh"}
+							height={isLG ? "25vh" : "27vh"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -420,7 +464,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box sx={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
 						<Typography
 							fontFamily={"Gilroy-Heavy"}
-							fontSize={{ xs: "1.4rem", md: "2.25rem" }}
+							fontSize={{ xs: "1.4rem", md: "1.9rem", mdPlus: "2rem", lg: "2.25rem" }}
 							onClick={onClick}
 							sx={{
 								color: "white",
@@ -438,16 +482,16 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						top: "60%",
+						top: "55%",
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						height: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
-						width: useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "47vh",
+						height: getBlueLogoPaddingSize(),
+						width: getBlueLogoPaddingSize(),
 						zIndex: 10,
 						justifyContent: "center",
 						alignItems: "center",
 					}}>
-					<MACSLogoBlue height={useMediaQuery(theme.breakpoints.down("md")) ? "18vh" : "44vh"} />
+					<MACSLogoBlue height={getBlueLogoSize()} />
 				</Box>
 			</ParallaxLayer>
 		</>

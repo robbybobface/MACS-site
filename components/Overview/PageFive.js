@@ -14,7 +14,27 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1.2
 		: 1;
-	console.log(newFactor);
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getFlowchartHeight = () => {
+		if (isMD) {
+			return "40vw";
+		} else if (isMDPlus) {
+			return "45vw";
+		} else if (isLG) {
+			return "40vw";
+		} else if (isXL) {
+			return "43vw";
+		} else {
+			return "43vw";
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -45,7 +65,9 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 							item
 							onClick={onClick}
 							xs={12}
-							md={7}
+							md={5.5}
+							mdPlus={6}
+							xl={7}
 							sx={{
 								display: "flex",
 								flexDirection: "column",
@@ -59,13 +81,15 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 									overflow: "clip",
 									display: "flex",
 								}}>
-								<MACSFlowchart width={useMediaQuery(theme.breakpoints.down("md")) ? "95vw" : "43vw"} />
+								<MACSFlowchart width={getFlowchartHeight()} />
 							</Box>
 						</Grid>
 						<Grid
 							item
 							xs={12}
-							md={5}
+							md={6.5}
+							mdPlus={6}
+							xl={5}
 							sx={{
 								display: "flex",
 								flexDirection: "column",
@@ -76,7 +100,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 								text='Design & Implementation'
 								gradient='linear-gradient(161deg, rgba(245,186,60,1) 0%, rgba(177,40,70,1) 100%)'
 								lineHeight={1.2}
-								fontSize={{ xs: "3rem", md: "5rem" }}
+								fontSize={{ xs: "2.5rem", md: "4rem", mdPlus: "4.25rem", lg: "4.75rem", xl: "5rem" }}
 								textAlign='center'
 								mb={2}
 							/>
@@ -84,13 +108,21 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 								onClick={onClick}
 								className={boxStyles.lightGreyBox}
 								sx={{
-									px: { xs: 2, md: 4 },
+									px: { xs: 2, xl: 4 },
 									py: 2,
 									mb: 2,
 								}}>
 								<Typography
 									color={"white"}
-									sx={{ fontSize: { xs: "14px", md: "20px" } }}
+									sx={{
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}
 									textAlign='center'>
 									The design ascpets of the project were broken down into three main categories. Click
 									to learn more about each section of the project.
@@ -135,7 +167,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "24px" }}
+														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -145,7 +177,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													<Typography
 														color='text.secondary'
 														textAlign='center'
-														fontSize={{ xs: "16px", md: "18px" }}>
+														fontSize={{
+															xs: "14px",
+															md: "14px",
+															mdPlus: "16px",
+															lg: "17px",
+															xl: "18px",
+														}}>
 														The design of each module and the central hub
 													</Typography>
 												</Grid>
@@ -158,7 +196,17 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 														justifyContent: "center",
 														alignItems: "center",
 													}}>
-													<Button variant='contained' onClick={() => router.push("/modules")}>
+													<Button
+														variant='contained'
+														sx={{
+															fontSize: {
+																xs: "12px",
+																md: "12px",
+																lg: "14px",
+																xl: "16px",
+															},
+														}}
+														onClick={() => router.push("/modules")}>
 														Learn More
 													</Button>
 												</Grid>
@@ -180,7 +228,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												display: "flex",
 												flexDirection: { xs: "row", md: "column" },
 												position: "relative",
-												height: "100%",
+												justifyContent: "center",
 												alignItems: "center",
 												alignSelf: "stretch",
 												p: "16px !important",
@@ -201,7 +249,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "24px" }}
+														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -211,7 +259,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													<Typography
 														color='text.secondary'
 														textAlign='center'
-														fontSize={{ xs: "16px", md: "18px" }}>
+														fontSize={{
+															xs: "14px",
+															md: "14px",
+															mdPlus: "16px",
+															lg: "17px",
+															xl: "18px",
+														}}>
 														The communication between the modules and the application
 													</Typography>
 												</Grid>
@@ -226,6 +280,14 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													}}>
 													<Button
 														variant='contained'
+														sx={{
+															fontSize: {
+																xs: "12px",
+																md: "12px",
+																lg: "14px",
+																xl: "16px",
+															},
+														}}
 														onClick={() => router.push("/controller")}>
 														Learn More
 													</Button>
@@ -268,7 +330,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "24px" }}
+														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -278,7 +340,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													<Typography
 														color='text.secondary'
 														textAlign='center'
-														fontSize={{ xs: "16px", md: "18px" }}>
+														fontSize={{
+															xs: "14px",
+															md: "14px",
+															mdPlus: "16px",
+															lg: "17px",
+															xl: "18px",
+														}}>
 														The interpretation and emulation of inputs
 													</Typography>
 												</Grid>
@@ -293,6 +361,14 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													}}>
 													<Button
 														variant='contained'
+														sx={{
+															fontSize: {
+																xs: "12px",
+																md: "12px",
+																lg: "14px",
+																xl: "16px",
+															},
+														}}
 														onClick={() => router.push("/application")}>
 														Learn More
 													</Button>
@@ -306,11 +382,19 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 								onClick={onClick}
 								className={boxStyles.darkGreyBox}
 								sx={{
-									p: { xs: 2, md: 4 },
+									p: { xs: 2, xl: 4 },
 								}}>
 								<Typography
 									color={"white"}
-									sx={{ fontSize: { xs: "14px", md: "20px" } }}
+									sx={{
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}
 									textAlign='justify'>
 									MACS works using two bridges of communication. The communication between modules and
 									central hub, as well as the communication between the central hub and the

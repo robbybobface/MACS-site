@@ -330,7 +330,7 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 														: "hex-background"
 												}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
+													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png?tr=h-1500'
 													hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
 													alt='general pcb design'
 													height={"auto"}
@@ -363,7 +363,7 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 														: "hex-background"
 												}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
+													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png?tr=h-1500'
 													hash='L07K3vI:00$*~p%K4n9b04~A@q02'
 													alt='central hub pcb design'
 													height={"auto"}

@@ -57,7 +57,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 								text='Solution Proposition'
 								gradient='linear-gradient(161deg, rgba(159,242,130,1) 0%, rgba(255,105,48,1) 100%)'
 								onClick={onClick}
-								fontSize={{ xs: "3rem", md: "6rem" }}
+								fontSize={{ xs: "2.5rem", md: "4rem", mdPlus: "4.75rem", lg: "5.25rem", xl: "6rem" }}
 								textAlign={"center"}
 								lineHeight={1.1}
 								mb={3}
@@ -65,11 +65,19 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 							<Box
 								className={boxStyles.darkGreyBox}
 								sx={{
-									p: { xs: 2, md: 4 },
+									p: { xs: 2, md: 3, lg: 4 },
 								}}>
 								<Typography
 									color={"white"}
-									sx={{ fontSize: { xs: "14px", md: "20px" } }}
+									sx={{
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}
 									textAlign='justify'>
 									To address the problems of accessibility, repairability, and configurability (or
 									lack thereof) in modern game controllers, we aimed to design a modular game
@@ -106,10 +114,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 										},
 									}}>
 									<Typography
-										gutterBottom
+										pb={{ xs: 0, lg: 1 }}
 										component='div'
-										fontSize='24px'
-										sx={{ fontSize: { xs: "18px", md: "24px" } }}
+										fontSize={{
+											xs: "2.5rem",
+											md: "20px",
+											mdPlus: "22px",
+											lg: "24px",
+										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'>
 										Flexibility
@@ -117,7 +129,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 									<Typography
 										color='text.secondary'
 										textAlign='justify'
-										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+										sx={{
+											fontSize: {
+												xs: "14px",
+												md: "14px",
+												mdPlus: "15px",
+												lg: "1rem",
+											},
+										}}>
 										Our design will mean that modules can be arranged in any way you want. With no
 										limitations on the number of modules connected, the controller is flexible in
 										its size, shape, and complexity. This allows the controller to be catered to the
@@ -140,9 +159,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 										},
 									}}>
 									<Typography
-										gutterBottom
+										pb={{ xs: 0, lg: 1 }}
 										component='div'
-										sx={{ fontSize: { xs: "18px", md: "24px" } }}
+										fontSize={{
+											xs: "2.5rem",
+											md: "20px",
+											mdPlus: "22px",
+											lg: "24px",
+										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'>
 										Customizability
@@ -150,7 +174,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 									<Typography
 										color='text.secondary'
 										textAlign='justify'
-										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+										sx={{
+											fontSize: {
+												xs: "14px",
+												md: "14px",
+												mdPlus: "15px",
+												lg: "1rem",
+											},
+										}}>
 										Not only is the controller mechanically flexible, but the software associated
 										with it will allow the user to fully customize their controller. After
 										constructing the controller to their liking, a user can map and remap each
@@ -174,9 +205,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 										},
 									}}>
 									<Typography
-										gutterBottom
+										pb={{ xs: 0, lg: 1 }}
 										component='div'
-										sx={{ fontSize: { xs: "18px", md: "24px" } }}
+										fontSize={{
+											xs: "2.5rem",
+											md: "20px",
+											mdPlus: "22px",
+											lg: "24px",
+										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'>
 										Accessibility
@@ -184,7 +220,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 									<Typography
 										color='text.secondary'
 										textAlign='justify'
-										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+										sx={{
+											fontSize: {
+												xs: "14px",
+												md: "14px",
+												mdPlus: "15px",
+												lg: "1rem",
+											},
+										}}>
 										A modular controller will allow for easier development for physical modules that
 										can address the needs of any gamer according to their disability if they have
 										one. In conjunction with our software, both new and existing input types can be
@@ -207,9 +250,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 										},
 									}}>
 									<Typography
-										gutterBottom
+										pb={{ xs: 0, lg: 1 }}
 										component='div'
-										sx={{ fontSize: { xs: "18px", md: "24px" } }}
+										fontSize={{
+											xs: "2.5rem",
+											md: "20px",
+											mdPlus: "22px",
+											lg: "24px",
+										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'>
 										Repairability
@@ -217,7 +265,14 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 									<Typography
 										color='text.secondary'
 										textAlign='justify'
-										sx={{ fontSize: { xs: "14px", md: "1rem" } }}>
+										sx={{
+											fontSize: {
+												xs: "14px",
+												md: "14px",
+												mdPlus: "15px",
+												lg: "1rem",
+											},
+										}}>
 										Inherently, a modular controller would be easily reparable since the operation
 										of the controller would not depend on any one particular module. In the event of
 										a module failure, only that specific module requires repair, rather than having
