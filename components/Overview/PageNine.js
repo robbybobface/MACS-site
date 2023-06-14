@@ -136,7 +136,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-39'
-							height={isLG ? "32vh" : "35vh"}
+							height={isLG ? "32vmin" : "35vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -173,14 +173,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "55%", md: "25%", lg: "27%" },
+						left: { xs: "55%", md: "20%", lg: "27%" },
 						top: { xs: "77%", md: "64%", lg: "60%" },
 						transform: "rotate(-12deg)",
 					}}>
 					<Box className={styles.rotatingReverseNormal}>
 						<HexGrid
 							id='module-grid-40'
-							height={isLG ? "32vh" : "35vh"}
+							height={isLG ? "32vmin" : "35vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -224,7 +224,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-41'
-							height={isLG ? "32vh" : "35vh"}
+							height={isLG ? "32vmin" : "35vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -261,14 +261,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "50%", md: "25%", lg: "27%" },
+						right: { xs: "50%", md: "20%", lg: "27%" },
 						top: { xs: "69%", md: "64%", lg: "60%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-42'
-							height={isLG ? "32vh" : "35vh"}
+							height={isLG ? "32vmin" : "35vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -305,14 +305,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "0%", md: "8%", lg: "11%" },
+						left: { xs: "0%", md: "3%", mdPlus: "3%", lg: "11%" },
 						top: { xs: "56%", md: "60%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-43'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "16vh" : "22vh"}
+							height={isMD ? "16vmin" : "22vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -349,14 +349,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "2%", md: "8%" },
+						right: { xs: "2%", md: "2%", lg: "8%" },
 						top: { xs: "59%", md: "55%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingReverse}>
 						<HexGrid
 							id='module-grid-44'
-							height={isMD ? "13vh" : "20vh"}
+							height={isMD ? "13vmin" : "20vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -400,7 +400,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-45'
-							height={isLG ? "27vh" : "32vh"}
+							height={isLG ? "27vmin" : "32vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -444,7 +444,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-46'
-							height={isLG ? "25vh" : "27vh"}
+							height={isLG ? "25vmin" : "27vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>

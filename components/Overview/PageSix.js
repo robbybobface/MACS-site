@@ -620,12 +620,12 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 					sx={{ position: "absolute", left: { xs: "0%", md: "3%" }, top: "0%", transform: "rotate(34deg)" }}>
 					<HexGrid
 						id='module-grid-25'
-						height={"20vh"}
-						width={"20vw"}
+						height={"20vmin"}
+						width={"20vmin"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>

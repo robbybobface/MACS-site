@@ -25,11 +25,11 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 
 	const getGreyLogoSize = () => {
 		if (isMD) {
-			return "30min";
+			return "24min";
 		} else if (isMDPlus) {
-			return "30vmin";
+			return "24vmin";
 		} else if (isLG) {
-			return "34vmin";
+			return "28vmin";
 		} else if (isXL) {
 			return "36vmin";
 		} else {
@@ -39,15 +39,29 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 
 	const getGreyLogoPaddingSize = () => {
 		if (isMD) {
-			return "32min";
+			return "26vmin";
 		} else if (isMDPlus) {
-			return "32vmin";
+			return "26vmin";
 		} else if (isLG) {
-			return "36vmin";
+			return "30vmin";
 		} else if (isXL) {
 			return "38vmin";
 		} else {
 			return "38vmin";
+		}
+	};
+
+	const getPriceHexagonHeight = () => {
+		if (isMD) {
+			return "150px";
+		} else if (isMDPlus) {
+			return "225px";
+		} else if (isLG) {
+			return "250px";
+		} else if (isXL) {
+			return "300px";
+		} else {
+			return "300px";
 		}
 	};
 	return (
@@ -133,14 +147,14 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "47%", md: "75%", lg: "70%" },
-						top: { xs: "82%", md: "35%" },
+						left: { xs: "47%", md: "77%", lg: "77%" },
+						top: { xs: "82%", md: "42%" },
 						transform: "rotate(-17deg)",
 					}}>
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-35'
-							height={"50vmin"}
+							height={getPriceHexagonHeight()}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -190,14 +204,14 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "30%", md: "61%" },
-						top: { xs: "53%", md: "17%" },
+						right: { xs: "30%", md: "15%", lg: "12%", xl: "18%" },
+						top: { xs: "53%", md: "27%", lg: "17%" },
 						transform: "rotate(-3deg)",
 					}}>
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-34'
-							height={"40vmin"}
+							height={getPriceHexagonHeight()}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -247,14 +261,14 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "55%", lg: "57%", xl: "55%" },
+						left: { xs: "55%", md: "60%", lg: "58%", xl: "58%" },
 						top: { xs: "80%", md: "45%" },
 						transform: "rotate(15deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-33'
-							height={"40vmin"}
+							height={getPriceHexagonHeight()}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -338,12 +352,12 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 					}}>
 					<HexGrid
 						id='module-grid-37'
-						height={isMD ? "15vh" : "20vh"}
+						height={isMD ? "15vmin" : "20vmin"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={isMD ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+							size={isMD ? { x: 45, y: 45 } : { x: 49, y: 49 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -396,7 +410,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={isMD ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isMD ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -432,7 +446,7 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 						width={"20vw"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
-						<Layout size={{ x: 55, y: 55 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
+						<Layout size={{ x: 50, y: 50 }} flat={true} spacing={1.05} origin={{ x: 0, y: 0 }}>
 							<Hexagon
 								id={`hexagon-47`}
 								q={0}

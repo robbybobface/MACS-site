@@ -151,7 +151,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -240,7 +240,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>

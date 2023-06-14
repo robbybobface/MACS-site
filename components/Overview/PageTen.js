@@ -300,7 +300,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-47'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "30vh"}
+							height={isMD ? "20vmin" : "30vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -330,7 +330,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverseNormal}>
 						<HexGrid
 							id='module-grid-48'
-							height={"25vh"}
+							height={"25vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -360,7 +360,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-49'
-							height={"20vh"}
+							height={"20vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -390,7 +390,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-50'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "35vh"}
+							height={isMD ? "15vmin" : "30vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -420,12 +420,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-51'
-							height={"22vh"}
-							width={"22vw"}
+							height={"22vmin"}
+							width={"22vmin"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
 							<Layout
-								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+								size={isMD ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 								flat={true}
 								spacing={1.05}
 								origin={{ x: 0, y: 0 }}>
@@ -454,12 +454,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverse}>
 						<HexGrid
 							id='module-grid-52'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "35vh" : "20vh"}
-							width={useMediaQuery(theme.breakpoints.down("md")) ? "35vw" : "20vw"}
+							height={isMD ? "35vmin" : "20vmin"}
+							width={isMD ? "35vmin" : "20vmin"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
 							<Layout
-								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+								size={isMD ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 								flat={true}
 								spacing={1.05}
 								origin={{ x: 0, y: 0 }}>
@@ -489,12 +489,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-53'
-							height={useMediaQuery(theme.breakpoints.down("md")) ? "15vh" : "28vh"}
+							height={isMD ? "15vmin" : "28vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
 							<Layout
-								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+								size={isMD ? { x: 45, y: 45 } : { x: 49, y: 49 }}
 								flat={true}
 								spacing={1.05}
 								origin={{ x: 0, y: 0 }}>
@@ -523,12 +523,12 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-53'
-							height={"30vh"}
-							width={"30vw"}
+							height={"30vmin"}
+							width={"30vmin"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
 							<Layout
-								size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 40, y: 40 } : { x: 55, y: 55 }}
+								size={isMD ? { x: 40, y: 40 } : { x: 55, y: 55 }}
 								flat={true}
 								spacing={1.05}
 								origin={{ x: 0, y: 0 }}>
@@ -586,14 +586,14 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 						top: { xs: "75.5%", md: "50%" },
 						left: "50%",
 						transform: "translate(-50%, -50%)",
-						height: useMediaQuery(theme.breakpoints.down("md")) ? "21vh" : "28vh",
-						width: useMediaQuery(theme.breakpoints.down("md")) ? "21vh" : "28vh",
+						height: isMD ? "21vmin" : "28vmin",
+						width: isMD ? "21vmin" : "28vmin",
 						zIndex: 10,
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
 					}}>
-					<MACSLogo height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "27vh"} />
+					<MACSLogo height={isMD ? "20vmin" : "27vmin"} />
 				</Box>
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={-0.05} onClick={onClick} factor={newFactor}>

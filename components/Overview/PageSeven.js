@@ -13,6 +13,13 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 			? 1000 / window.innerHeight
 			: 1
 		: 1;
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 	return (
 		<>
 			<ParallaxLayer offset={offset} speed={0.1} onClick={onClick} factor={newFactor}>
@@ -159,7 +166,7 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
@@ -253,12 +260,12 @@ const PageSeven = ({ offset, gradient, onClick, router }) => {
 					}}>
 					<HexGrid
 						id='module-grid-31'
-						height={useMediaQuery(theme.breakpoints.down("md")) ? "20vh" : "40vh"}
+						height={isMD ? "20vh" : "40vh"}
 						width={"auto"}
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={useMediaQuery(theme.breakpoints.down("md")) ? { x: 50, y: 50 } : { x: 49, y: 49 }}
+							size={isMD ? { x: 50, y: 50 } : { x: 49, y: 49 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>

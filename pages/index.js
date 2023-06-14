@@ -166,7 +166,7 @@ export default function Home() {
 		return (
 			<HexGrid
 				id='module-grid'
-				height={"90vh"}
+				height={"90vmin"}
 				width={"auto"}
 				viewBox={viewBox}
 				preserveAspectRatio='xMidYMid meet'>
@@ -442,6 +442,7 @@ export default function Home() {
 							height: "100vh",
 							minHeight: { xs: "850px", md: "800px", mdPlus: "500px", lg: "500px" },
 							minWidth: "100%",
+							maxHeight: "900px",
 							mb: { xs: 5, xsPlus: 2, smMinus: 5, sm: 15, md: 0 },
 						}}>
 						<Grid
