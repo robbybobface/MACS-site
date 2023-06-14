@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, memo } from "react";
 import { useRouter } from "next/navigation";
 import {
+	Container,
 	Box,
 	Typography,
 	LinearProgress,
@@ -416,8 +417,8 @@ export default function Home() {
 						display: { xs: "none", mdPlus: "flex" },
 						position: "fixed",
 						zIndex: 100000000,
-						top: "3%",
-						left: { xs: "3%", lg: "6%" },
+						top: 30,
+						left: { xs: "3%", lg: 30 },
 						borderRadius: "50%",
 						boxShadow: "8px 8px 13px -6px rgba(0,0,0,0.4)",
 					}}>
@@ -425,94 +426,326 @@ export default function Home() {
 				</Box>
 			</TrailLogo>
 			<BottomNav router={router} home={true} />
-			<div className={styles.container}>
-				<Box className='bg'></Box>
-				<Box className='bg bg2'></Box>
-				<Box className='bg bg3'></Box>
-				<Grid
-					container
-					spacing={2}
-					sx={{
-						display: "flex",
-						justifyContent: "center",
-						flexDirection: "row",
-						height: "100vh",
-						minHeight: "850px",
-						minWidth: "100%",
-						mb: { xs: 10, sm: 15, md: 0 },
-					}}>
+			<Box className={styles.container}>
+				<Container maxWidth='xl'>
+					<Box className='bg'></Box>
+					<Box className='bg bg2'></Box>
+					<Box className='bg bg3'></Box>
 					<Grid
-						item
-						xs={6}
+						container
+						spacing={2}
 						sx={{
-							display: { xs: "none", mdPlus: "flex" },
-							flexDirection: "column",
-							justifyContent: { xs: "center", md: "flex-end" },
-							alignItems: { xs: "center", md: "flex-start" },
-							zIndex: 100,
+							display: "flex",
+							justifyContent: "center",
+							flexDirection: "row",
+							height: "100vh",
+							minHeight: "850px",
+							minWidth: "100%",
+							mb: { xs: 10, sm: 15, md: 0 },
 						}}>
-						<Box
-							className='noselect'
+						<Grid
+							item
+							xs={6}
 							sx={{
-								pl: { xs: 5, sm: 6, md: 7, lg: 8, lgPlus: 10, lgPlusPlus: 12, xl: 14.5 },
-								pb: 5,
+								display: { xs: "none", mdPlus: "flex" },
+								flexDirection: "column",
+								justifyContent: { xs: "center", md: "flex-end" },
+								alignItems: { xs: "center", md: "flex-start" },
+								zIndex: 100,
 							}}>
-							<Trail open={open}>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "flex-start",
-										justifyContent: "flex-start",
-									}}>
+							<Box
+								className='noselect'
+								sx={{
+									pl: { xs: 5, sm: 6, md: 3, lg: 2 },
+									pb: 5,
+								}}>
+								<Trail open={open}>
 									<Box
 										sx={{
 											display: "flex",
-											flexDirection: "column",
+											flexDirection: "row",
+											alignItems: "flex-start",
+											justifyContent: "flex-start",
+										}}>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+											}}>
+											<Typography
+												fontFamily='bitcount-mono-single-line-ci'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "4rem",
+														md: "7.5rem",
+														lg: "8.5rem",
+														lgPlus: "9rem",
+														xl: "10rem",
+														// xlPlus: "12rem",
+													},
+													ml: 0.5,
+												}}>
+												MACS
+											</Typography>
+											<LinearProgress
+												color='hexagonBlueFull'
+												sx={{ mt: { md: -3, lg: -4, lgPlus: -5 } }}
+											/>
+										</Box>
+									</Box>
+									<Box
+										sx={{
+											display: "flex",
+											flexDirection: "row",
+											alignItems: "flex-start",
+											justifyContent: "flex-start",
 										}}>
 										<Typography
-											fontFamily='bitcount-mono-single-line-ci'
+											fontFamily='Gilroy-Heavy'
 											color='white'
 											sx={{
 												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 												fontSize: {
-													xs: "4rem",
-													md: "7.5rem",
-													lg: "8.5rem",
-													lgPlus: "9rem",
-													xl: "10rem",
-													// xlPlus: "12rem",
+													xs: "2rem",
+													md: "3.15rem",
+													lg: "3.5rem",
+													lgPlus: "3.5rem",
+													lgPlusPlus: "4rem",
+													xl: "4.5rem",
+													// xlPlus: "5rem",
 												},
-												ml: 0.5,
 											}}>
-											MACS
+											A
 										</Typography>
-										<LinearProgress
-											color='hexagonBlueFull'
-											sx={{ mt: { md: -3, lg: -4, lgPlus: -5 } }}
-										/>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+												ml: 4,
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "2rem",
+														md: "3.15rem",
+														lg: "3.5rem",
+														lgPlus: "3.5rem",
+														lgPlusPlus: "4rem",
+														xl: "4.5rem",
+														// xlPlus: "5rem",
+													},
+												}}>
+												Modular
+											</Typography>
+											<LinearProgress color='hexagonGreenFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+										</Box>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+												ml: 4,
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "2rem",
+														md: "3.15rem",
+														lg: "3.5rem",
+														lgPlus: "3.5rem",
+														lgPlusPlus: "4rem",
+														xl: "4.5rem",
+														// xlPlus: "5rem",
+													},
+												}}>
+												Accessible
+											</Typography>
+											<LinearProgress color='hexagonYellowFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+										</Box>
 									</Box>
-								</Box>
-								<Box
+									<Box
+										sx={{
+											display: "flex",
+											flexDirection: "row",
+											alignItems: "flex-start",
+											justifyContent: "flex-start",
+											mb: 2,
+										}}>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "2rem",
+														md: "2.5rem",
+														lg: "3.5rem",
+														lgPlus: "3.5rem",
+														lgPlusPlus: "4rem",
+														xl: "4.5rem",
+														// xlPlus: "5rem",
+													},
+												}}>
+												Controller
+											</Typography>
+											<LinearProgress color='hexagonOrangeFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+										</Box>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+												ml: 4,
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "2rem",
+														md: "2.5rem",
+														lg: "3.5rem",
+														lgPlus: "3.5rem",
+														lgPlusPlus: "4rem",
+														xl: "4.5rem",
+														// xlPlus: "5rem",
+													},
+												}}>
+												System
+											</Typography>
+											<LinearProgress color='hexagonRedFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+										</Box>
+									</Box>
+									<Typography
+										fontFamily='K2D'
+										color='white'
+										sx={{
+											fontSize: {
+												xs: "1rem",
+												md: "1.25rem",
+												lg: "1.25rem",
+												lgPlus: "1.4rem",
+												lgPlusPlus: "1.5rem",
+											},
+										}}>
+										Capstone Project by:
+									</Typography>
+									<Typography
+										fontFamily='K2D'
+										color='white'
+										sx={{
+											fontSize: {
+												xs: "1rem",
+												md: "1.25rem",
+												lg: "1.25rem",
+												lgPlus: "1.4rem",
+												lgPlusPlus: "1.5rem",
+											},
+											// maxWidth: {
+											// 	xs: "100%",
+											// 	md: "100%",
+											// 	lg: "90%",
+											// 	lgPlus: "90%",
+											// },
+										}}>
+										Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and
+										William Freeman
+									</Typography>
+								</Trail>
+							</Box>
+						</Grid>
+						<Grid
+							item
+							xs={6}
+							sx={{
+								display: { xs: "none", mdPlus: "flex" },
+								flexDirection: "column",
+								justifyContent: { xs: "center", lg: "flex-start" },
+								alignItems: { xs: "center", lg: "flex-end" },
+							}}>
+							<Box
+								id='hexgrid-container'
+								sx={{
+									position: "relative",
+									justifyContent: "center",
+								}}>
+								<GeneratedHexgrid />
+								<Dropzones />
+							</Box>
+						</Grid>
+						<Grid
+							item
+							xs={6}
+							sx={{
+								display: { xs: "flex", mdPlus: "none" },
+								justifyContent: "center",
+								alignItems: "center",
+								flexDirection: "column",
+								mt: { xs: 0, smPlus: 0 },
+							}}>
+							<Box
+								className={boxStyles.darkerGreyBox}
+								sx={{
+									display: "flex",
+									flexDirection: "column",
+									px: 3,
+									pb: { xs: 0, smPlus: 0 },
+									pt: 0,
+									zIndex: 1000000,
+									mb: { xs: -1, smMinus: -2, sm: -1, smPlus: -2 },
+								}}>
+								<Typography
+									fontFamily='bitcount-mono-single-line-ci'
+									color='white'
 									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "flex-start",
-										justifyContent: "flex-start",
+										textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+										fontSize: {
+											xs: "4.5rem",
+											sm: "6rem",
+											smPlus: "6.5rem",
+											md: "6.5rem",
+										},
+										mb: -2,
+										mt: -3,
 									}}>
+									MACS
+								</Typography>
+								{/* <LinearProgress color='hexagonBlueFull' sx={{ mt: { xs: -3 }, height: 2.5 }} /> */}
+							</Box>
+							<Box
+								className={boxStyles.lightGreyBox}
+								sx={{
+									display: "flex",
+									flexDirection: "column",
+									px: 2,
+									pb: 1,
+									pt: 1,
+									zIndex: 99,
+									mb: { xs: -22, smMinus: -15 },
+								}}>
+								<Box sx={{ display: "flex", justifyContent: "center" }}>
 									<Typography
 										fontFamily='Gilroy-Heavy'
 										color='white'
 										sx={{
 											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 											fontSize: {
-												xs: "2rem",
-												md: "3.15rem",
-												lg: "3.5rem",
-												lgPlus: "3.5rem",
-												lgPlusPlus: "4rem",
-												xl: "4.5rem",
-												// xlPlus: "5rem",
+												xs: "1.8rem",
+												smMinus: "2.5rem",
+												md: "2.75rem",
+												mdPlus: "3rem",
 											},
 										}}>
 										A
@@ -521,7 +754,7 @@ export default function Home() {
 										sx={{
 											display: "flex",
 											flexDirection: "column",
-											ml: 4,
+											ml: 2,
 										}}>
 										<Typography
 											fontFamily='Gilroy-Heavy'
@@ -529,301 +762,16 @@ export default function Home() {
 											sx={{
 												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 												fontSize: {
-													xs: "2rem",
-													md: "3.15rem",
-													lg: "3.5rem",
-													lgPlus: "3.5rem",
-													lgPlusPlus: "4rem",
-													xl: "4.5rem",
-													// xlPlus: "5rem",
-												},
-											}}>
-											Modular
-										</Typography>
-										<LinearProgress color='hexagonGreenFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-									</Box>
-									<Box
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-											ml: 4,
-										}}>
-										<Typography
-											fontFamily='Gilroy-Heavy'
-											color='white'
-											sx={{
-												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-												fontSize: {
-													xs: "2rem",
-													md: "3.15rem",
-													lg: "3.5rem",
-													lgPlus: "3.5rem",
-													lgPlusPlus: "4rem",
-													xl: "4.5rem",
-													// xlPlus: "5rem",
-												},
-											}}>
-											Accessible
-										</Typography>
-										<LinearProgress color='hexagonYellowFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-									</Box>
-								</Box>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "row",
-										alignItems: "flex-start",
-										justifyContent: "flex-start",
-										mb: 2,
-									}}>
-									<Box
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-										}}>
-										<Typography
-											fontFamily='Gilroy-Heavy'
-											color='white'
-											sx={{
-												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-												fontSize: {
-													xs: "2rem",
-													md: "2.5rem",
-													lg: "3.5rem",
-													lgPlus: "3.5rem",
-													lgPlusPlus: "4rem",
-													xl: "4.5rem",
-													// xlPlus: "5rem",
-												},
-											}}>
-											Controller
-										</Typography>
-										<LinearProgress color='hexagonOrangeFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-									</Box>
-									<Box
-										sx={{
-											display: "flex",
-											flexDirection: "column",
-											ml: 4,
-										}}>
-										<Typography
-											fontFamily='Gilroy-Heavy'
-											color='white'
-											sx={{
-												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-												fontSize: {
-													xs: "2rem",
-													md: "2.5rem",
-													lg: "3.5rem",
-													lgPlus: "3.5rem",
-													lgPlusPlus: "4rem",
-													xl: "4.5rem",
-													// xlPlus: "5rem",
-												},
-											}}>
-											System
-										</Typography>
-										<LinearProgress color='hexagonRedFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-									</Box>
-								</Box>
-								<Typography
-									fontFamily='K2D'
-									color='white'
-									sx={{
-										fontSize: {
-											xs: "1rem",
-											md: "1.25rem",
-											lg: "1.25rem",
-											lgPlus: "1.4rem",
-											lgPlusPlus: "1.5rem",
-										},
-									}}>
-									Capstone Project by:
-								</Typography>
-								<Typography
-									fontFamily='K2D'
-									color='white'
-									sx={{
-										fontSize: {
-											xs: "1rem",
-											md: "1.25rem",
-											lg: "1.25rem",
-											lgPlus: "1.4rem",
-											lgPlusPlus: "1.5rem",
-										},
-										// maxWidth: {
-										// 	xs: "100%",
-										// 	md: "100%",
-										// 	lg: "90%",
-										// 	lgPlus: "90%",
-										// },
-									}}>
-									Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and
-									William Freeman
-								</Typography>
-							</Trail>
-						</Box>
-					</Grid>
-					<Grid
-						item
-						xs={6}
-						sx={{
-							display: { xs: "none", mdPlus: "flex" },
-							flexDirection: "column",
-							justifyContent: { xs: "center", lg: "flex-start" },
-							alignItems: { xs: "center", lg: "flex-end" },
-						}}>
-						<Box
-							id='hexgrid-container'
-							sx={{
-								position: "relative",
-								justifyContent: "center",
-							}}>
-							<GeneratedHexgrid />
-							<Dropzones />
-						</Box>
-					</Grid>
-					<Grid
-						item
-						xs={6}
-						sx={{
-							display: { xs: "flex", mdPlus: "none" },
-							justifyContent: "center",
-							alignItems: "center",
-							flexDirection: "column",
-							mt: { xs: 0, smPlus: 0 },
-						}}>
-						<Box
-							className={boxStyles.darkerGreyBox}
-							sx={{
-								display: "flex",
-								flexDirection: "column",
-								px: 3,
-								pb: { xs: 0, smPlus: 0 },
-								pt: 0,
-								zIndex: 1000000,
-								mb: { xs: -1, smMinus: -2, sm: -1, smPlus: -2 },
-							}}>
-							<Typography
-								fontFamily='bitcount-mono-single-line-ci'
-								color='white'
-								sx={{
-									textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-									fontSize: {
-										xs: "4.5rem",
-										sm: "6rem",
-										smPlus: "6.5rem",
-										md: "6.5rem",
-									},
-									mb: -2,
-									mt: -3,
-								}}>
-								MACS
-							</Typography>
-							{/* <LinearProgress color='hexagonBlueFull' sx={{ mt: { xs: -3 }, height: 2.5 }} /> */}
-						</Box>
-						<Box
-							className={boxStyles.lightGreyBox}
-							sx={{
-								display: "flex",
-								flexDirection: "column",
-								px: 2,
-								pb: 1,
-								pt: 1,
-								zIndex: 99,
-								mb: { xs: -22, smMinus: -15 },
-							}}>
-							<Box sx={{ display: "flex", justifyContent: "center" }}>
-								<Typography
-									fontFamily='Gilroy-Heavy'
-									color='white'
-									sx={{
-										textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-										fontSize: {
-											xs: "1.8rem",
-											smMinus: "2.5rem",
-											md: "2.75rem",
-											mdPlus: "3rem",
-										},
-									}}>
-									A
-								</Typography>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 2,
-									}}>
-									<Typography
-										fontFamily='Gilroy-Heavy'
-										color='white'
-										sx={{
-											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-											fontSize: {
-												xs: "1.8rem",
-												smMinus: "2.5rem",
-												md: "2.75rem",
-												mdPlus: "3rem",
-											},
-										}}>
-										Modular
-									</Typography>
-									{/* <LinearProgress
-											color='hexagonGreenFull'
-											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
-										/> */}
-								</Box>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 2,
-									}}>
-									<Typography
-										fontFamily='Gilroy-Heavy'
-										color='white'
-										sx={{
-											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-											fontSize: {
-												xs: "1.8rem",
-												smMinus: "2.5rem",
-												md: "2.75rem",
-												mdPlus: "3rem",
-											},
-										}}>
-										Accessible
-									</Typography>
-									{/* <LinearProgress
-											color='hexagonYellowFull'
-											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
-										/> */}
-								</Box>
-								<Box
-									display={{ xs: "none", smPlus: "flex", mdPlus: "none" }}
-									sx={{ justifyContent: "center" }}>
-									<Box
-										sx={{
-											flexDirection: "column",
-											ml: { xs: 0, smPlus: 2 },
-										}}>
-										<Typography
-											fontFamily='Gilroy-Heavy'
-											color='white'
-											sx={{
-												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-												fontSize: {
-													xs: "1.35rem",
-													smMinus: "1.75rem",
-													sm: "2rem",
-													smPlus: "2.5rem",
+													xs: "1.8rem",
+													smMinus: "2.5rem",
 													md: "2.75rem",
 													mdPlus: "3rem",
 												},
 											}}>
-											Controller
+											Modular
 										</Typography>
 										{/* <LinearProgress
-											color='hexagonOrangeFull'
+											color='hexagonGreenFull'
 											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
 										/> */}
 									</Box>
@@ -839,10 +787,116 @@ export default function Home() {
 											sx={{
 												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
 												fontSize: {
-													xs: "1.35rem",
-													smMinus: "1.75rem",
-													sm: "2rem",
-													smPlus: "2.5rem",
+													xs: "1.8rem",
+													smMinus: "2.5rem",
+													md: "2.75rem",
+													mdPlus: "3rem",
+												},
+											}}>
+											Accessible
+										</Typography>
+										{/* <LinearProgress
+											color='hexagonYellowFull'
+											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
+										/> */}
+									</Box>
+									<Box
+										display={{ xs: "none", smPlus: "flex", mdPlus: "none" }}
+										sx={{ justifyContent: "center" }}>
+										<Box
+											sx={{
+												flexDirection: "column",
+												ml: { xs: 0, smPlus: 2 },
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "1.35rem",
+														smMinus: "1.75rem",
+														sm: "2rem",
+														smPlus: "2.5rem",
+														md: "2.75rem",
+														mdPlus: "3rem",
+													},
+												}}>
+												Controller
+											</Typography>
+											{/* <LinearProgress
+											color='hexagonOrangeFull'
+											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
+										/> */}
+										</Box>
+										<Box
+											sx={{
+												display: "flex",
+												flexDirection: "column",
+												ml: 2,
+											}}>
+											<Typography
+												fontFamily='Gilroy-Heavy'
+												color='white'
+												sx={{
+													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+													fontSize: {
+														xs: "1.35rem",
+														smMinus: "1.75rem",
+														sm: "2rem",
+														smPlus: "2.5rem",
+														md: "2.75rem",
+														mdPlus: "3rem",
+													},
+												}}>
+												System
+											</Typography>
+											{/* <LinearProgress
+											color='hexagonRedFull'
+											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
+										/> */}
+										</Box>
+									</Box>
+								</Box>
+								<Box display={{ xs: "flex", smPlus: "none" }} sx={{ justifyContent: "center" }}>
+									<Box
+										sx={{
+											flexDirection: "column",
+											ml: { xs: 0, smPlus: 2 },
+										}}>
+										<Typography
+											fontFamily='Gilroy-Heavy'
+											color='white'
+											sx={{
+												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+												fontSize: {
+													xs: "1.8rem",
+													smMinus: "2.5rem",
+													md: "2.75rem",
+													mdPlus: "3rem",
+												},
+											}}>
+											Controller
+										</Typography>
+										{/* <LinearProgress
+												color='hexagonOrangeFull'
+												sx={{ mt: { xs: -0.25 }, height: 2.5 }}
+											/> */}
+									</Box>
+									<Box
+										sx={{
+											display: "flex",
+											flexDirection: "column",
+											ml: 2,
+										}}>
+										<Typography
+											fontFamily='Gilroy-Heavy'
+											color='white'
+											sx={{
+												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+												fontSize: {
+													xs: "1.8rem",
+													smMinus: "2.5rem",
 													md: "2.75rem",
 													mdPlus: "3rem",
 												},
@@ -850,157 +904,106 @@ export default function Home() {
 											System
 										</Typography>
 										{/* <LinearProgress
-											color='hexagonRedFull'
-											sx={{ mt: { xs: -0.25 }, height: 2.5 }}
-										/> */}
-									</Box>
-								</Box>
-							</Box>
-							<Box display={{ xs: "flex", smPlus: "none" }} sx={{ justifyContent: "center" }}>
-								<Box
-									sx={{
-										flexDirection: "column",
-										ml: { xs: 0, smPlus: 2 },
-									}}>
-									<Typography
-										fontFamily='Gilroy-Heavy'
-										color='white'
-										sx={{
-											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-											fontSize: {
-												xs: "1.8rem",
-												smMinus: "2.5rem",
-												md: "2.75rem",
-												mdPlus: "3rem",
-											},
-										}}>
-										Controller
-									</Typography>
-									{/* <LinearProgress
-												color='hexagonOrangeFull'
-												sx={{ mt: { xs: -0.25 }, height: 2.5 }}
-											/> */}
-								</Box>
-								<Box
-									sx={{
-										display: "flex",
-										flexDirection: "column",
-										ml: 2,
-									}}>
-									<Typography
-										fontFamily='Gilroy-Heavy'
-										color='white'
-										sx={{
-											textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-											fontSize: {
-												xs: "1.8rem",
-												smMinus: "2.5rem",
-												md: "2.75rem",
-												mdPlus: "3rem",
-											},
-										}}>
-										System
-									</Typography>
-									{/* <LinearProgress
 												color='hexagonRedFull'
 												sx={{ mt: { xs: -0.25 }, height: 2.5 }}
 											/> */}
+									</Box>
 								</Box>
 							</Box>
-						</Box>
-					</Grid>
-					<Grid
-						item
-						xs={12}
-						sx={{
-							display: { xs: "flex", mdPlus: "none" },
-							justifyContent: "center",
-							alignItems: "center",
-						}}>
-						<Box
-							id='hexgrid-container-2'
+						</Grid>
+						<Grid
+							item
+							xs={12}
 							sx={{
-								position: "relative",
-								display: "flex",
-								justifyContent: "center",
-								zIndex: 10,
-							}}>
-							<GeneratedHexgridAlt />
-							<DropzonesAlt />
-							<Box
-								className={boxStyles.lightGreyCircle}
-								sx={{
-									position: "absolute",
-									top: "50%",
-									left: "50%",
-									transform: "translate(-50%, -50%)",
-									height: `${getLogoScaler() + 15}px`,
-									width: `${getLogoScaler() + 15}px`,
-									display: "flex",
-									justifyContent: "center",
-									alignItems: "center",
-									zIndex: 0,
-								}}>
-								<MACSLogoWhite height={getLogoScaler()} />
-							</Box>
-						</Box>
-					</Grid>
-					<Grid
-						item
-						xs={12}
-						sx={{
-							display: { xs: "flex", mdPlus: "none" },
-							justifyContent: "center",
-							alignItems: "center",
-						}}>
-						<Box
-							className={boxStyles.whiteBox}
-							sx={{
-								flexDirection: "column",
+								display: { xs: "flex", mdPlus: "none" },
 								justifyContent: "center",
 								alignItems: "center",
-								maxWidth: { xs: "90%", smMinus: "80%", smPlus: "50%" },
-								zIndex: 100,
-								p: { xs: 1, smMinus: 2 },
-								pb: { xs: 2, sm: 2, smPlus: 2, md: 2 },
-								mt: { xs: -22, smMinus: -10, sm: -5, smPlus: -5, md: -5 },
 							}}>
-							<Typography
-								fontFamily='K2D'
-								color='backgroundBlack.main'
-								fontWeight='bold'
-								textAlign='center'
+							<Box
+								id='hexgrid-container-2'
 								sx={{
-									fontSize: {
-										xs: "1rem",
-										smMinus: "1.05rem",
-										sm: "1.1rem",
-										smPlus: "1.15rem",
-										md: "1.2rem",
-									},
+									position: "relative",
+									display: "flex",
+									justifyContent: "center",
+									zIndex: 10,
 								}}>
-								Capstone Project by:
-							</Typography>
-							<Typography
-								fontFamily='K2D'
-								color='backgroundBlack.main'
-								textAlign='center'
+								<GeneratedHexgridAlt />
+								<DropzonesAlt />
+								<Box
+									className={boxStyles.lightGreyCircle}
+									sx={{
+										position: "absolute",
+										top: "50%",
+										left: "50%",
+										transform: "translate(-50%, -50%)",
+										height: `${getLogoScaler() + 15}px`,
+										width: `${getLogoScaler() + 15}px`,
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
+										zIndex: 0,
+									}}>
+									<MACSLogoWhite height={getLogoScaler()} />
+								</Box>
+							</Box>
+						</Grid>
+						<Grid
+							item
+							xs={12}
+							sx={{
+								display: { xs: "flex", mdPlus: "none" },
+								justifyContent: "center",
+								alignItems: "center",
+							}}>
+							<Box
+								className={boxStyles.whiteBox}
 								sx={{
-									fontSize: {
-										xs: "0.9rem",
-										smMinus: "1.05rem",
-										sm: "1.1rem",
-										smPlus: "1.15rem",
-										md: "1.2rem",
-									},
+									flexDirection: "column",
+									justifyContent: "center",
+									alignItems: "center",
+									maxWidth: { xs: "90%", smMinus: "80%", smPlus: "50%", md: "60%" },
+									zIndex: 100,
+									p: { xs: 1, smMinus: 2 },
+									pb: { xs: 2, sm: 2, smPlus: 2, md: 2 },
+									mt: { xs: -22, smMinus: -10, sm: -5, smPlus: -5, md: -17 },
 								}}>
-								Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and William
-								Freeman
-							</Typography>
-						</Box>
+								<Typography
+									fontFamily='K2D'
+									color='backgroundBlack.main'
+									fontWeight='bold'
+									textAlign='center'
+									sx={{
+										fontSize: {
+											xs: "1rem",
+											smMinus: "1.05rem",
+											sm: "1.1rem",
+											smPlus: "1.15rem",
+											md: "1.2rem",
+										},
+									}}>
+									Capstone Project by:
+								</Typography>
+								<Typography
+									fontFamily='K2D'
+									color='backgroundBlack.main'
+									textAlign='center'
+									sx={{
+										fontSize: {
+											xs: "0.9rem",
+											smMinus: "1.05rem",
+											sm: "1.1rem",
+											smPlus: "1.15rem",
+											md: "1.2rem",
+										},
+									}}>
+									Jarrett Anderson, Jeff Zhou, Liam Kennedy, Michael McCooey, Natalie Potapov, and
+									William Freeman
+								</Typography>
+							</Box>
+						</Grid>
 					</Grid>
-				</Grid>
-			</div>
+				</Container>
+			</Box>
 		</>
 	);
 }
