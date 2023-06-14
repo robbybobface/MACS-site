@@ -6,6 +6,7 @@ import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../../styles/theme";
 import ImageCaption from "../ImageCaption";
+import BlurHashedImage from "../Partials/BlurHashedImage";
 
 const PageSix = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
@@ -155,6 +156,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 										sx={{
 											p: 2,
 											my: 1,
+											width: "93%",
 										}}>
 										<Grid container spacing={2}>
 											<Grid
@@ -180,73 +182,79 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 											<Grid item xs={11}>
 												<Grid container spacing={2}>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg'
+																hash='LILqC9xu~VE1M{WWE1M{R3M{9bs.'
 																alt='final central hub module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/central-hub.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Central Hub"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg'
+																hash='LNLgkQjr~Ut7%Mt7M{f6=^RjE2jY'
 																alt='final button module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/button-module.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Button Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg'
+																hash='LJM7V_t6~VbIxtogE1WB-ORj9aWA'
 																alt='final switch module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/switch-module.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Switch Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg'
+																hash='LPLqC8Rj~Vof-;tRRjju=@RjIpjY'
 																alt='final joystick module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/joystick-module.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Joystick Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg'
+																hash='LIMQbIjE~VkDxut8RjRj^hNG9as.'
 																alt='final slider module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/slider-module.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Slider Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex" }}>
-															<CardMedia
-																component='img'
+														<Card
+															elevation={4}
+															sx={{ display: "flex", position: "relative" }}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg'
+																hash='LOL;Kdax~VkC%Mt8Rjf6=^RjE3o0'
 																alt='final dial module'
-																height='150'
-																sx={{ objectFit: "cover" }}
-																image='/dial-module.jpg'
+																height={150}
 															/>
 														</Card>
 														<ImageCaption caption={"Dial Module"} light={true} />
@@ -302,24 +310,32 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 													<Grid item xs={12}>
 														<Card
 															elevation={4}
-															sx={{ display: "flex", alignSelf: "stretch" }}>
-															<CardMedia
-																component='img'
-																alt='microsoft adaptive controller'
-																height='200'
-																image='/macs-config-3.jpg'
+															sx={{
+																display: "flex",
+																alignSelf: "stretch",
+																position: "relative",
+															}}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg'
+																hash='LIKdYr_N},t7%Mi^V?Ri}*kDI]R*'
+																alt='macs configuration 1'
+																height={225}
 															/>
 														</Card>
 													</Grid>
 													<Grid item xs={12}>
 														<Card
 															elevation={4}
-															sx={{ display: "flex", alignSelf: "stretch" }}>
-															<CardMedia
-																component='img'
+															sx={{
+																display: "flex",
+																alignSelf: "stretch",
+																position: "relative",
+															}}>
+															<BlurHashedImage
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg'
+																hash='LKJk4M~p==%0S$s8M{e-^Gx[JDR+'
 																alt='macs configuration 2'
-																height='200'
-																image='/macs-config-4.jpg'
+																height={225}
 															/>
 														</Card>
 													</Grid>
@@ -360,37 +376,52 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 									<Grid item xs={10}>
 										<Grid container spacing={2}>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
-													<CardMedia
-														component='img'
-														alt='macs-application'
-														height='auto'
-														sx={{ objectFit: "contain" }}
-														image='/macs-application.png'
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
+													<BlurHashedImage
+														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png'
+														hash='L39jT61j00{e8|iwx=k;0f^d[J5Y'
+														alt='macs application'
+														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"User Interface"} light={false} />
 											</Grid>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
-													<CardMedia
-														component='img'
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
+													<BlurHashedImage
+														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png'
+														hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 														alt='application joystick configuration'
-														height='auto'
-														sx={{ objectFit: "contain" }}
-														image='/joystick-config.png'
+														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"Joystick Configuration"} light={false} />
 											</Grid>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
-													<CardMedia
-														component='img'
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
+													<BlurHashedImage
+														src='https://ik.imagekit.io/5ywj5edvn/button-config.png'
+														hash='L6E2qc3WBV=^00IA9YVc34,G~X-5'
 														alt='application button configuration'
-														height='auto'
-														sx={{ objectFit: "contain" }}
-														image='/button-config.png'
+														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"Button Configuration"} light={false} />

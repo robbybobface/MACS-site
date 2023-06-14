@@ -6,6 +6,7 @@ import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../../styles/theme";
 import GradientText from "../GradientText";
+import BlurHashedImage from "../Partials/BlurHashedImage";
 
 const PageThree = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md"))
@@ -82,24 +83,26 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 								</Typography>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-									<CardMedia
-										component='img'
-										alt='microsoft adaptive controller'
-										height='250'
-										sx={{ objectPosition: "50% 60%" }}
-										image='/xbox-adaptive-controller.png'
+								<Card
+									elevation={4}
+									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png'
+										hash='LNRC[6E1-;-;IVM{%Mt7~qt7WBRj'
+										alt='xbox adaptive controller'
+										height={300}
 									/>
 								</Card>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-									<CardMedia
-										component='img'
-										alt='project leonardo'
-										height='250'
-										sx={{ objectFit: { xs: "contain", md: "cover" } }}
-										image='/project-leonardo.jpg'
+								<Card
+									elevation={4}
+									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg'
+										hash='LNR:KPWA_2a$xuofoej[~qog9FWA'
+										alt="sony's project leonardo"
+										height={300}
 									/>
 								</Card>
 							</Grid>

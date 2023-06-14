@@ -7,6 +7,7 @@ import { HexGrid, Layout, Hexagon } from "react-hexgrid";
 import theme from "../../styles/theme";
 import GradientText from "../GradientText";
 import ImageCaption from "../ImageCaption";
+import BlurHashedImage from "../Partials/BlurHashedImage";
 
 const PageTwo = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1;
@@ -84,37 +85,45 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ position: "relative" }}>
-										<CardMedia
-											component='img'
-											alt='central hub top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/central-hub-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Central Hub Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png'
+										hash='CiMaV5s.~qWBbI%2j]Rj'
+										alt='central hub render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Central Hub Top"} light={false} />
 							</Grid>
 							<Grid
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='button top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/button-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Button Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/button-top.png'
+										hash='CTNAxOxu~qt79Gxut8WB'
+										alt='button module render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Button Top"} light={false} />
 							</Grid>
 							<Grid
 								item
@@ -125,18 +134,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									alignItems: "center",
 									justifyContent: "center",
 								}}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='central hub bottom'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/central-hub-bottom.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Central Hub Bottom"} light={false} />
-								</Box>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
+										hash='CCNwZs8^~p-=E2%LM|Ri'
+										alt='central hub module render bottom'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Central Hub Bottom"} light={false} />
 							</Grid>
 							<Grid
 								item
@@ -147,55 +155,62 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									alignItems: "center",
 									justifyContent: "center",
 								}}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='general module bottom'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/general-bottom.png'
-										/>
-									</Card>
-									<ImageCaption caption={"General Bottom"} light={false} />
-								</Box>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
+										hash='CEODteIT~p-;4:%LRjRj'
+										alt='general module render bottom'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"General Bottom"} light={false} />
 							</Grid>
 
 							<Grid
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='switch top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/switch-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Switch Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png'
+										hash='CSMj{:t6~qt79Gxut7V@'
+										alt='switch module render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Switch Top"} light={false} />
 							</Grid>
 							<Grid
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='slider top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/slider-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Slider Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png'
+										hash='CVNAuF%2~qt7M{xtWCj@'
+										alt='slider module render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Slider Top"} light={false} />
 							</Grid>
 							<Grid
 								item
@@ -205,20 +220,19 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									display: { xs: "none", md: "flex" },
 									alignItems: "center",
 									justifyContent: "center",
+									position: "relative",
 								}}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='central hub bottom'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											width={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/central-hub-bottom.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Central Hub Bottom"} light={false} />
-								</Box>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
+										hash='CCNwZs8^~p-=E2%LM|Ri'
+										alt='central hub module render bottom'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Central Hub Bottom"} light={false} />
 							</Grid>
 							<Grid
 								item
@@ -228,56 +242,63 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 									display: { xs: "none", md: "flex" },
 									alignItems: "center",
 									justifyContent: "center",
+									position: "relative",
 								}}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='general module bottom'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											width={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/general-bottom.png'
-										/>
-									</Card>
-									<ImageCaption caption={"General Bottom"} light={false} />
-								</Box>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
+										hash='CEODteIT~p-;4:%LRjRj'
+										alt='general module render bottom'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"General Bottom"} light={false} />
 							</Grid>
 							<Grid
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='dial top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/dial-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Dial Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png'
+										hash='CRN^h~xt~qxu9Fxut8WB'
+										alt='dial module render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Dial Top"} light={false} />
 							</Grid>
 							<Grid
 								item
 								xs={6}
 								md={3}
-								sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-								<Box sx={{ position: "relative" }}>
-									<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
-										<CardMedia
-											component='img'
-											alt='joystick top'
-											height={useMediaQuery(theme.breakpoints.down("md")) ? "150" : "250"}
-											sx={{ objectPosition: "50% 60%" }}
-											image='/joystick-top.png'
-										/>
-									</Card>
-									<ImageCaption caption={"Joystick Top"} light={false} />
-								</Box>
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+									position: "relative",
+								}}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									<BlurHashedImage
+										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png'
+										hash='CQONF4xt~qxu9G%2ogWB'
+										alt='joystick module render top'
+										height={250}
+									/>
+								</Card>
+								<ImageCaption caption={"Joystick Top"} light={false} />
 							</Grid>
 						</Grid>
 					</Box>

@@ -245,7 +245,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 								<GradientText
 									text='Project Overview'
 									gradient='linear-gradient(161deg, rgba(255,255,255,1) 0%, rgba(0,135,177,1) 100%)'
-									fontSize={{ xs: "2.5rem", md: "7.5rem" }}
+									fontSize={{ xs: "2.5rem", md: "4.5rem", mdPlus: "5rem", lg: "6rem", xl: "7.5rem" }}
 									onClick={onClick}
 									lineHeight='1.3'
 								/>
@@ -270,14 +270,22 @@ const PageOne = ({ offset, gradient, onClick }) => {
 										className={boxStyles.darkGreyBox}
 										sx={{
 											borderRadius: 2,
-											py: { xs: 1, md: 4 },
-											px: { xs: 2, md: 6 },
+											py: { xs: 1, md: 2, lg: 4 },
+											px: { xs: 2, md: 4, lg: 5, xl: 6 },
 										}}>
 										<Typography
 											textAlign='justify'
 											fontSize={"20px"}
 											color={"white"}
-											sx={{ fontSize: { xs: "14px", md: "20px" } }}>
+											sx={{
+												fontSize: {
+													xs: "14px",
+													md: "15px",
+													mdPlus: "16px",
+													lg: "18px",
+													xl: "20px",
+												},
+											}}>
 											In recent years, video gaming has become a cornerstone of digital
 											entertainment. Despite this, the rigid form factor of controllers and their
 											proprietary interfaces make for an inflexible and inaccessible gaming
@@ -302,7 +310,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 											maxWidth: 290,
 											minHeight: { xs: 175, md: 200 },
 											py: { xs: 1, md: 2 },
-											px: { xs: 3, md: 4 },
+											px: { xs: 3, md: 3, lg: 4 },
 											display: "flex",
 											flexDirection: "column",
 											justifyContent: "space-evenly",
@@ -318,7 +326,13 @@ const PageOne = ({ offset, gradient, onClick }) => {
 											<Typography
 												fontFamily='Gilroy-Heavy'
 												color='hexagonBlueFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+												fontSize={{
+													xs: "1.75rem",
+													md: "1.9rem",
+													mdPlus: "2.1rem",
+													lg: "2.3rem",
+													xl: "2.5rem",
+												}}
 												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
 												Accessibility
 											</Typography>
@@ -332,7 +346,13 @@ const PageOne = ({ offset, gradient, onClick }) => {
 											<Typography
 												fontFamily='Gilroy-Heavy'
 												color='hexagonRedFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+												fontSize={{
+													xs: "1.75rem",
+													md: "1.9rem",
+													mdPlus: "2.1rem",
+													lg: "2.3rem",
+													xl: "2.5rem",
+												}}
 												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
 												Repairability
 											</Typography>
@@ -346,7 +366,13 @@ const PageOne = ({ offset, gradient, onClick }) => {
 											<Typography
 												fontFamily='Gilroy-Heavy'
 												color='hexagonGreenFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+												fontSize={{
+													xs: "1.75rem",
+													md: "1.9rem",
+													mdPlus: "2.1rem",
+													lg: "2.3rem",
+													xl: "2.5rem",
+												}}
 												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
 												Customizability
 											</Typography>
@@ -369,17 +395,38 @@ const PageOne = ({ offset, gradient, onClick }) => {
 										sx={{
 											maxWidth: 275,
 											py: 2,
-											px: { xs: 4, md: 6 },
+											px: { xs: 4, md: 2, lg: 4, xl: 6 },
 											display: "flex",
 											flexDirection: "column",
 											justifyContent: "space-evenly",
 											alignItems: "center",
 											m: 0,
 										}}>
-										<Typography fontFamily={"Gilroy-Bold"} fontSize={"30px"} sx={{ mb: 2 }}>
+										<Typography
+											fontFamily={"Gilroy-Bold"}
+											fontSize={{
+												xs: "20px",
+												md: "22px",
+												mdPlus: "22px",
+												lg: "26px",
+												lgPlus: "27px",
+												xl: "30px",
+											}}
+											textAlign='center'
+											sx={{ mb: 2 }}>
 											2.2 Billion Gamers
 										</Typography>
-										<Typography fontFamily={"Gilroy-Bold"} fontSize={"30px"}>
+										<Typography
+											fontFamily={"Gilroy-Bold"}
+											textAlign='center'
+											fontSize={{
+												xs: "20px",
+												md: "22px",
+												mdPlus: "22px",
+												lg: "26px",
+												lgPlus: "27px",
+												xl: "30px",
+											}}>
 											23% are disabled
 										</Typography>
 									</Box>

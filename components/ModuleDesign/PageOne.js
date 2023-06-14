@@ -9,6 +9,7 @@ import GradientText from "../GradientText";
 import { animated, useTrail, to } from "@react-spring/web";
 import ImageCaption from "../ImageCaption";
 import ImageCaptionAlt from "../ImageCaptionAlt";
+import BlurHashedImage from "../Partials/BlurHashedImage";
 
 const Trail = ({ open, children }) => {
 	const items = React.Children.toArray(children);
@@ -54,6 +55,10 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	const [openHexagon, setOpenHexagon] = useState(false);
 
 	const newFactor = useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1;
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
 
 	useEffect(() => {
 		setInterval(() => {
@@ -239,7 +244,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 									text='A Modular Approach'
 									gradient='background: rgb(255,255,255);
 background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35%, rgba(255,136,0,1) 100%);'
-									fontSize={{ xs: "2.3rem", md: "7.5rem" }}
+									fontSize={{ xs: "2.5rem", md: "4.5rem", mdPlus: "5rem", lg: "6rem", xl: "7.5rem" }}
 									onClick={onClick}
 									lineHeight='1.3'
 									textAlign={{ xs: "center", md: "left" }}
@@ -297,17 +302,15 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 											position: "relative",
 											mb: { xs: 3, md: 0 },
 										}}>
-										<Box
-											className={
-												useMediaQuery(theme.breakpoints.down("md")) ? "hex-mobile" : "hex"
-											}>
-											<Box
-												className={
-													useMediaQuery(theme.breakpoints.down("md"))
-														? "hex-background-mobile"
-														: "hex-background"
-												}>
-												<img src='general-pcb.png' />
+										<Box className={isMD ? "hex-mobile" : "hex"}>
+											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
+													hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
+													alt='general pcb design'
+													height={"auto"}
+													hexagon={true}
+												/>
 											</Box>
 										</Box>
 										<ImageCaptionAlt caption={"General PCB"} light={false} center={true} />
@@ -324,17 +327,15 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 										margin: 0,
 									}}>
 									<Box sx={{ position: "relative" }}>
-										<Box
-											className={
-												useMediaQuery(theme.breakpoints.down("md")) ? "hex-mobile" : "hex"
-											}>
-											<Box
-												className={
-													useMediaQuery(theme.breakpoints.down("md"))
-														? "hex-background-mobile"
-														: "hex-background"
-												}>
-												<img src='central-hub-pcb.png' />
+										<Box className={isMD ? "hex-mobile" : "hex"}>
+											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
+													hash='L07K3vI:00$*~p%K4n9b04~A@q02'
+													alt='central hub pcb design'
+													height={"auto"}
+													hexagon={true}
+												/>
 											</Box>
 										</Box>
 										<ImageCaptionAlt caption={"Central Hub"} light={false} center={true} />
