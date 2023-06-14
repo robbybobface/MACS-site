@@ -313,10 +313,9 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 					className={styles.rotatingSlow}
 					sx={{
 						position: "absolute",
-						left: { xs: "-25%", lg: "-15%" },
-						right: { md: "45%" },
+						left: { xs: "5%", lg: "5%" },
+
 						bottom: "0%",
-						transform: "rotate(15deg)",
 					}}>
 					<HexGrid
 						id='module-grid-7'
@@ -325,7 +324,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 						viewBox='-50 -50 100 100'
 						preserveAspectRatio='xMidYMid meet'>
 						<Layout
-							size={isLG ? { x: 50, y: 50 } : { x: 55, y: 55 }}
+							size={isLG ? { x: 45, y: 45 } : { x: 50, y: 50 }}
 							flat={true}
 							spacing={1.05}
 							origin={{ x: 0, y: 0 }}>
