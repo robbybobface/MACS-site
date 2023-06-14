@@ -2,7 +2,7 @@ import { Box, CardMedia } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 
-function BlurHashedImage({ src, hash, alt, height, hexagon, ...props }) {
+function BlurHashedImage({ src, hash, alt, height, hexagon, size, ...props }) {
 	const [imageLoaded, setImageLoaded] = useState(false);
 
 	useEffect(() => {
@@ -37,7 +37,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, ...props }) {
 					title={alt}
 					alt={alt}
 					height={height}
-					sx={{ objectPosition: "50% 60%", objectFit: "cover" }}
+					sx={{ objectPosition: "50% 50%", objectFit: "cover", marginTop: size }}
 					image={src}
 					{...props}
 				/>

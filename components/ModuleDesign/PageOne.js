@@ -59,6 +59,8 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
 	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
 	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
 
 	useEffect(() => {
 		setInterval(() => {
@@ -232,7 +234,8 @@ const PageOne = ({ offset, gradient, onClick }) => {
 						<Grid
 							item
 							xs={12}
-							md={5}
+							md={4}
+							lg={5}
 							sx={{
 								mt: { xs: 0, md: -4 },
 								display: "flex",
@@ -244,7 +247,13 @@ const PageOne = ({ offset, gradient, onClick }) => {
 									text='A Modular Approach'
 									gradient='background: rgb(255,255,255);
 background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35%, rgba(255,136,0,1) 100%);'
-									fontSize={{ xs: "2.5rem", md: "4.5rem", mdPlus: "5rem", lg: "6rem", xl: "7.5rem" }}
+									fontSize={{
+										xs: "2.5rem",
+										md: "4.25rem",
+										mdPlus: "4.5rem",
+										lg: "6.5rem",
+										xl: "7.5rem",
+									}}
 									onClick={onClick}
 									lineHeight='1.3'
 									textAlign={{ xs: "center", md: "left" }}
@@ -254,7 +263,8 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 						<Grid
 							item
 							xs={12}
-							md={7}
+							md={8}
+							lg={7}
 							sx={{
 								display: "flex",
 								flexDirection: "column",
@@ -271,13 +281,21 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 										sx={{
 											borderRadius: 2,
 											py: { xs: 1, md: 4 },
-											px: { xs: 2, md: 6 },
+											px: { xs: 2, md: 4, lg: 5, xl: 6 },
 										}}>
 										<Typography
 											textAlign='justify'
 											fontSize={"20px"}
 											color={"white"}
-											sx={{ fontSize: { xs: "14px", md: "20px" } }}>
+											sx={{
+												fontSize: {
+													xs: "14px",
+													md: "15px",
+													mdPlus: "16px",
+													lg: "18px",
+													xl: "20px",
+												},
+											}}>
 											To facilitate I2C communication, 2 custom PCBs were developed, one for the
 											central hub, and one for any given input module. These PCBs are mostly
 											identical, with a few minor changes to account for the fact that the central
@@ -302,14 +320,22 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 											position: "relative",
 											mb: { xs: 3, md: 0 },
 										}}>
-										<Box className={isMD ? "hex-mobile" : "hex"}>
-											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+										<Box className={isLG ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"}>
+											<Box
+												className={
+													isLG
+														? isMDPlus
+															? "hex-background-xsmall"
+															: "hex-background-small"
+														: "hex-background"
+												}>
 												<BlurHashedImage
 													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
 													hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
 													alt='general pcb design'
 													height={"auto"}
 													hexagon={true}
+													size={isLG ? (isMDPlus ? "-20px" : "-25px") : "0"}
 												/>
 											</Box>
 										</Box>
@@ -327,14 +353,22 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 										margin: 0,
 									}}>
 									<Box sx={{ position: "relative" }}>
-										<Box className={isMD ? "hex-mobile" : "hex"}>
-											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+										<Box className={isLG ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"}>
+											<Box
+												className={
+													isLG
+														? isMDPlus
+															? "hex-background-xsmall"
+															: "hex-background-small"
+														: "hex-background"
+												}>
 												<BlurHashedImage
 													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
 													hash='L07K3vI:00$*~p%K4n9b04~A@q02'
 													alt='central hub pcb design'
 													height={"auto"}
 													hexagon={true}
+													size={isLG ? (isMDPlus ? "-20px" : "-25px") : "0"}
 												/>
 											</Box>
 										</Box>

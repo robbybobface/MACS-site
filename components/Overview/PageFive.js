@@ -158,9 +158,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 														justifyContent: "center",
 														alignItems: "center",
 													}}>
-													<Button
-														variant='contained'
-														onClick={() => router.push("/module-design")}>
+													<Button variant='contained' onClick={() => router.push("/modules")}>
 														Learn More
 													</Button>
 												</Grid>
@@ -228,7 +226,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													}}>
 													<Button
 														variant='contained'
-														onClick={() => router.push("/controller-design")}>
+														onClick={() => router.push("/controller")}>
 														Learn More
 													</Button>
 												</Grid>
@@ -295,7 +293,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													}}>
 													<Button
 														variant='contained'
-														onClick={() => router.push("/application-design")}>
+														onClick={() => router.push("/application")}>
 														Learn More
 													</Button>
 												</Grid>

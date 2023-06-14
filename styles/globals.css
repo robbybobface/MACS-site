@@ -49,6 +49,52 @@ body {
 	-moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
 }
 
+.hex-small {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 290px;
+	height: 251.14px; /* width * 0.866 */
+	background: white;
+	box-sizing: border-box;
+	-webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+	-moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.hex-background-small {
+	position: absolute;
+	background-color: transparent; /*color of the main-background*/
+	top: 2px; /* equal to border thickness */
+	left: 2px; /* equal to border thickness */
+	width: 286px; /* container height - (border thickness * 2) */
+	height: 247.14px; /* container height - (border thickness * 2) */
+	-webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+	-moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.hex-xsmall {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 250px;
+	height: 216.5px; /* width * 0.866 */
+	background: white;
+	box-sizing: border-box;
+	-webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+	-moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
+.hex-background-xsmall {
+	position: absolute;
+	background-color: transparent; /*color of the main-background*/
+	top: 2px; /* equal to border thickness */
+	left: 2px; /* equal to border thickness */
+	width: 246px; /* container height - (border thickness * 2) */
+	height: 212.5px; /* container height - (border thickness * 2) */
+	-webkit-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+	-moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+}
+
 .hex-mobile {
 	display: block;
 	margin: 0 auto;

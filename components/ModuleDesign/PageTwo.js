@@ -11,6 +11,27 @@ import BlurHashedImage from "../Partials/BlurHashedImage";
 
 const PageTwo = ({ offset, gradient, onClick, router }) => {
 	const newFactor = useMediaQuery(theme.breakpoints.down("md")) ? 1.1 : 1;
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
+	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
+
+	const getImageHeights = () => {
+		if (isMD) {
+			return 150;
+		} else if (isMDPlus) {
+			return 150;
+		} else if (isLG) {
+			return 190;
+		} else if (isXL) {
+			return 225;
+		} else {
+			return 225;
+		}
+	};
 	return (
 		<>
 			<ParallaxLayer offset={offset} onClick={onClick} speed={0.1} factor={newFactor}>
@@ -39,7 +60,7 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 						className={boxStyles.whiteBox}
 						sx={{
 							width: { xs: "100%", md: "85%" },
-							minHeight: 700,
+							// minHeight: 700,
 							zIndex: 10000000,
 							px: { xs: 2, md: 0 },
 						}}>
@@ -49,7 +70,13 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 							onClick={onClick}
 							lineHeight='1.2'
 							textAlign='center'
-							fontSize={{ xs: "2.5rem", md: "6rem" }}
+							fontSize={{
+								xs: "2.5rem",
+								md: "4.25rem",
+								mdPlus: "4.5rem",
+								lg: "5.5rem",
+								xl: "6.5rem",
+							}}
 							width='100%'
 							pt={1}
 						/>
@@ -61,15 +88,21 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								display: "flex",
 								justifyContent: "center",
 								alignItems: "center",
-								px: { xs: 0, md: 6 },
-								pb: { xs: 4, md: 6 },
+								px: { xs: 0, md: 3, lg: 6 },
+								pb: { xs: 4, md: 4, xl: 6 },
 							}}>
 							<Grid item xs={12}>
 								<Typography
 									color='backgroundBlack.main'
 									sx={{
-										fontSize: { xs: "14px", md: "20px" },
-										px: { xs: 0, md: 4 },
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+										px: { xs: 0, md: 2, lg: 3, xl: 4 },
 										mt: { xs: 1, md: 0 },
 									}}
 									textAlign='justify'>
@@ -93,12 +126,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png'
 										hash='CiMaV5s.~qWBbI%2j]Rj'
 										alt='central hub render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Central Hub Top"} light={false} />
@@ -115,12 +153,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/button-top.png'
 										hash='CTNAxOxu~qt79Gxut8WB'
 										alt='button module render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Button Top"} light={false} />
@@ -136,12 +179,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
 										hash='CCNwZs8^~p-=E2%LM|Ri'
 										alt='central hub module render bottom'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Central Hub Bottom"} light={false} />
@@ -157,12 +205,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
 										hash='CEODteIT~p-;4:%LRjRj'
 										alt='general module render bottom'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"General Bottom"} light={false} />
@@ -180,12 +233,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png'
 										hash='CSMj{:t6~qt79Gxut7V@'
 										alt='switch module render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Switch Top"} light={false} />
@@ -202,12 +260,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png'
 										hash='CVNAuF%2~qt7M{xtWCj@'
 										alt='slider module render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Slider Top"} light={false} />
@@ -224,12 +287,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
 										hash='CCNwZs8^~p-=E2%LM|Ri'
 										alt='central hub module render bottom'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Central Hub Bottom"} light={false} />
@@ -246,12 +314,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
 										hash='CEODteIT~p-;4:%LRjRj'
 										alt='general module render bottom'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"General Bottom"} light={false} />
@@ -268,12 +341,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png'
 										hash='CRN^h~xt~qxu9Fxut8WB'
 										alt='dial module render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Dial Top"} light={false} />
@@ -290,12 +368,17 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								}}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", position: "relative", minHeight: 250, minWidth: 250 }}>
+									sx={{
+										display: "flex",
+										position: "relative",
+										minHeight: getImageHeights(),
+										minWidth: getImageHeights(),
+									}}>
 									<BlurHashedImage
 										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png'
 										hash='CQONF4xt~qxu9G%2ogWB'
 										alt='joystick module render top'
-										height={250}
+										height={getImageHeights()}
 									/>
 								</Card>
 								<ImageCaption caption={"Joystick Top"} light={false} />
