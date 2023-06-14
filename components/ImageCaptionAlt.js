@@ -15,6 +15,7 @@ const ImageCaptionAlt = ({ caption, light, center }) => {
 				left: "50%",
 				WebkitTransform: "translateX(-50%)",
 				transform: "translateX(-50%)",
+				zIndex: 100,
 			}}>
 			<Typography color={light ? "backgroundBlack.main" : "white"} fontWeight='bold' fontSize={"16px"}>
 				{caption}

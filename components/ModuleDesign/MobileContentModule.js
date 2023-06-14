@@ -163,7 +163,7 @@ function MobileContentModule() {
 										<Box className={isMD ? "hex-mobile" : "hex"}>
 											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
 												<BlurHashedImage
-													src='/general-pcb.png'
+													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
 													hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
 													alt='general pcb design'
 													height={"auto"}
@@ -189,7 +189,7 @@ function MobileContentModule() {
 										<Box className={isMD ? "hex-mobile" : "hex"}>
 											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
 												<BlurHashedImage
-													src='/central-hub-pcb.png'
+													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
 													hash='L07K3vI:00$*~p%K4n9b04~A@q02'
 													alt='central hub pcb design'
 													height={"auto"}
@@ -282,7 +282,7 @@ function MobileContentModule() {
 								}}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/central-hub-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png'
 										hash='CiMaV5s.~qWBbI%2j]Rj'
 										alt='central hub render top'
 										height={getModuleImageHeight}
@@ -294,7 +294,7 @@ function MobileContentModule() {
 							<Grid item xs={6} md={3} sx={{ position: "relative" }}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/button-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/button-top.png'
 										hash='CTNAxOxu~qt79Gxut8WB'
 										alt='button module render top'
 										height={getModuleImageHeight}
@@ -312,7 +312,7 @@ function MobileContentModule() {
 								}}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/central-hub-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png'
 										hash='CCNwZs8^~p-=E2%LM|Ri'
 										alt='central hub module render bottom'
 										height={getModuleImageHeight}
@@ -330,7 +330,7 @@ function MobileContentModule() {
 								}}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/general-bottom.png'
+										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png'
 										hash='CEODteIT~p-;4:%LRjRj'
 										alt='general module render bottom'
 										height={getModuleImageHeight}
@@ -343,7 +343,7 @@ function MobileContentModule() {
 							<Grid item xs={6} md={3} sx={{ position: "relative" }}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/switch-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png'
 										hash='CSMj{:t6~qt79Gxut7V@'
 										alt='switch module render top'
 										height={getModuleImageHeight}
@@ -355,7 +355,7 @@ function MobileContentModule() {
 							<Grid item xs={6} md={3} sx={{ position: "relative" }}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/slider-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png'
 										hash='CVNAuF%2~qt7M{xtWCj@'
 										alt='slider module render top'
 										height={getModuleImageHeight}
@@ -367,7 +367,7 @@ function MobileContentModule() {
 							<Grid item xs={6} md={3} sx={{ position: "relative" }}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/dial-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png'
 										hash='CRN^h~xt~qxu9Fxut8WB'
 										alt='dial module render top'
 										height={getModuleImageHeight}
@@ -379,7 +379,7 @@ function MobileContentModule() {
 							<Grid item xs={6} md={3} sx={{ position: "relative" }}>
 								<Card elevation={4} sx={{ display: "flex", minHeight: getModuleImageHeight() }}>
 									<BlurHashedImage
-										src='/joystick-top.png'
+										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png'
 										hash='CQONF4xt~qxu9G%2ogWB'
 										alt='joystick module render top'
 										height={getModuleImageHeight}

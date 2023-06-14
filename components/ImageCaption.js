@@ -13,6 +13,7 @@ const ImageCaption = ({ caption, light, center }) => {
 				position: "absolute",
 				bottom: -10,
 				left: 10,
+				zIndex: 100,
 			}}>
 			<Typography color={light ? "backgroundBlack.main" : "white"} fontWeight='bold' fontSize={"12px"}>
 				{caption}

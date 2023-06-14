@@ -1,4 +1,4 @@
-import { CardMedia } from "@mui/material";
+import { Box, CardMedia } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 
@@ -14,14 +14,22 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, ...props }) {
 	return (
 		<>
 			{!imageLoaded ? (
-				<Blurhash
-					hash={hash}
-					width={hexagon ? 350 : height === "auto" ? 300 : "100%"}
-					height={hexagon ? 350 : height === "auto" ? 200 : height}
-					resolutionX={32}
-					resolutionY={32}
-					punch={1}
-				/>
+				<Box
+					sx={{
+						display: "flex",
+						width: hexagon ? 350 : height === "auto" ? 300 : "100%",
+						height: hexagon ? 350 : height === "auto" ? 200 : height,
+					}}>
+					<Blurhash
+						hash={hash}
+						width={hexagon ? 350 : height === "auto" ? 300 : "100%"}
+						height={hexagon ? 350 : height === "auto" ? 200 : height}
+						resolutionX={32}
+						resolutionY={32}
+						punch={1}
+					/>
+					<Box className='skeleton-loading' />
+				</Box>
 			) : (
 				<CardMedia
 					component='img'

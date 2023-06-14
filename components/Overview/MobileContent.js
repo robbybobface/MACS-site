@@ -80,13 +80,13 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 
 	const getFlowchartWidth = () => {
 		if (isXS) {
-			return "95vmin";
+			return "90vmin";
 		} else if (isXSPlus) {
-			return "95vmin";
+			return "90vmin";
 		} else if (isSM) {
-			return "90vmax";
+			return "55vmax";
 		} else if (isMD) {
-			return "85vmax";
+			return "80vmax";
 		} else {
 			return "43vmax";
 		}
@@ -651,9 +651,11 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 								</Typography>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='/xbox-adaptive-controller.png'
+										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png'
 										hash='LNRC[6E1-;-;IVM{%Mt7~qt7WBRj'
 										alt='xbox adaptive controller'
 										height={getSolutionImageHeights()}
@@ -661,9 +663,11 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 								</Card>
 							</Grid>
 							<Grid item xs={12} md={6}>
-								<Card elevation={4} sx={{ display: "flex", alignSelf: "stretch" }}>
+								<Card
+									elevation={4}
+									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='/project-leonardo.jpg'
+										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg'
 										hash='LNR:KPWA_2a$xuofoej[~qog9FWA'
 										alt="sony's project leonardo"
 										height={getSolutionImageHeights()}
@@ -1389,6 +1393,8 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 										sx={{
 											p: 2,
 											my: 1,
+											mx: 1,
+											width: "90%",
 										}}>
 										<Grid container spacing={2}>
 											<Grid
@@ -1414,9 +1420,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 											<Grid item xs={11}>
 												<Grid container spacing={2}>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/central-hub.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg'
 																hash='LILqC9xu~VE1M{WWE1M{R3M{9bs.'
 																alt='final central hub module'
 																height={getModuleImageHeight}
@@ -1425,9 +1437,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														<ImageCaption caption={"Central Hub"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/button-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg'
 																hash='LNLgkQjr~Ut7%Mt7M{f6=^RjE2jY'
 																alt='final button module'
 																height={getModuleImageHeight}
@@ -1436,9 +1454,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														<ImageCaption caption={"Button Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/switch-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg'
 																hash='LJM7V_t6~VbIxtogE1WB-ORj9aWA'
 																alt='final switch module'
 																height={getModuleImageHeight}
@@ -1447,9 +1471,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														<ImageCaption caption={"Switch Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/joystick-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg'
 																hash='LPLqC8Rj~Vof-;tRRjju=@RjIpjY'
 																alt='final joystick module'
 																height={getModuleImageHeight}
@@ -1458,9 +1488,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														<ImageCaption caption={"Joystick Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/slider-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg'
 																hash='LIMQbIjE~VkDxut8RjRj^hNG9as.'
 																alt='final slider module'
 																height={getModuleImageHeight}
@@ -1469,9 +1505,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														<ImageCaption caption={"Slider Module"} light={true} />
 													</Grid>
 													<Grid item xs={6} md={4} sx={{ position: "relative" }}>
-														<Card elevation={4} sx={{ display: "flex", maxWidth: 260 }}>
+														<Card
+															elevation={4}
+															sx={{
+																display: "flex",
+																maxWidth: 260,
+																position: "relative",
+															}}>
 															<BlurHashedImage
-																src='/dial-module.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg'
 																hash='LOL;Kdax~VkC%Mt8Rjf6=^RjE3o0'
 																alt='final dial module'
 																height={getModuleImageHeight}
@@ -1501,6 +1543,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 										sx={{
 											p: 2,
 											my: 1,
+											width: "100%",
 										}}>
 										<Grid
 											container
@@ -1534,9 +1577,10 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															sx={{
 																display: "flex",
 																alignSelf: "stretch",
+																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='/macs-config-3.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg'
 																hash='LIKdYr_N},t7%Mi^V?Ri}*kDI]R*'
 																alt='macs configuration 1'
 																height={"auto"}
@@ -1549,9 +1593,10 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															sx={{
 																display: "flex",
 																alignSelf: "stretch",
+																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='/macs-config-4.jpg'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg'
 																hash='LKJk4M~p==%0S$s8M{e-^Gx[JDR+'
 																alt='macs configuration 2'
 																height={"auto"}
@@ -1570,6 +1615,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 								sx={{
 									p: 2,
 									my: 1,
+									width: "92%",
 								}}>
 								<Grid container spacing={2}>
 									<Grid
@@ -1595,9 +1641,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									<Grid item xs={10}>
 										<Grid container spacing={2}>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
 													<BlurHashedImage
-														src='/macs-application.png'
+														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png'
 														hash='L39jT61j00{e8|iwx=k;0f^d[J5Y'
 														alt='macs application'
 														height={"auto"}
@@ -1606,9 +1658,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 												<ImageCaption caption={"User Interface"} light={false} />
 											</Grid>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
 													<BlurHashedImage
-														src='/joystick-config.png'
+														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png'
 														hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 														alt='application joystick configuration'
 														height={"auto"}
@@ -1617,9 +1675,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 												<ImageCaption caption={"Joystick Configuration"} light={false} />
 											</Grid>
 											<Grid item xs={12} md={4} sx={{ position: "relative" }}>
-												<Card elevation={4} sx={{ display: "flex" }}>
+												<Card
+													elevation={4}
+													sx={{
+														display: "flex",
+														alignSelf: "stretch",
+														position: "relative",
+													}}>
 													<BlurHashedImage
-														src='/button-config.png'
+														src='https://ik.imagekit.io/5ywj5edvn/button-config.png'
 														hash='L6E2qc3WBV=^00IA9YVc34,G~X-5'
 														alt='application button configuration'
 														height={"auto"}
