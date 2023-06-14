@@ -1393,10 +1393,13 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 										sx={{
 											p: 2,
 											my: 1,
-											mx: 1,
-											width: "90%",
+											mx: 0,
+											width: "93%",
 										}}>
-										<Grid container spacing={2}>
+										<Grid
+											container
+											spacing={2}
+											sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
 											<Grid
 												item
 												xs={1}

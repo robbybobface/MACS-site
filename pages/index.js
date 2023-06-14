@@ -442,7 +442,7 @@ export default function Home() {
 							height: "100vh",
 							minHeight: { xs: "850px", md: "950px", lg: "850px" },
 							minWidth: "100%",
-							mb: { xs: 10, sm: 15, md: 0 },
+							mb: { xs: 5, xsPlus: 2, smMinus: 5, sm: 15, md: 0 },
 						}}>
 						<Grid
 							item
@@ -966,7 +966,7 @@ export default function Home() {
 									zIndex: 100,
 									p: { xs: 1, smMinus: 2 },
 									pb: { xs: 2, sm: 2, smPlus: 2, md: 2 },
-									mt: { xs: -22, smMinus: -10, sm: -5, smPlus: -5, md: -17 },
+									mt: { xs: -30, smMinus: -10, sm: -5, smPlus: -5, md: -17 },
 								}}>
 								<Typography
 									fontFamily='K2D'

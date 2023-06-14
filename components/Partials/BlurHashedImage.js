@@ -15,6 +15,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, ...props }) {
 		<>
 			{!imageLoaded ? (
 				<Box
+					className='noselect'
 					sx={{
 						display: "flex",
 						width: hexagon ? 350 : height === "auto" ? 300 : "100%",
@@ -32,6 +33,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, ...props }) {
 				</Box>
 			) : (
 				<CardMedia
+					className='noselect'
 					component='img'
 					loading='lazy'
 					title={alt}
