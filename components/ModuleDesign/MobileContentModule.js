@@ -55,6 +55,7 @@ function MobileContentModule() {
 	return (
 		<>
 			<Box
+				className='noselect'
 				sx={{
 					display: "flex",
 					justifyContent: "center",

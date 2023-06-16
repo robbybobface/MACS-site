@@ -140,6 +140,7 @@ function MobileContentController() {
 	return (
 		<>
 			<Box
+				className='noselect'
 				sx={{
 					display: "flex",
 					justifyContent: "center",
@@ -161,7 +162,7 @@ function MobileContentController() {
 							justifyContent: "center",
 							alignItems: "center",
 							px: { xs: 0, md: 5 },
-							zIndex: 10000,
+							zIndex: 100,
 							// minHeight: "1000px",
 						}}>
 						<Grid
@@ -210,7 +211,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 									display: "flex",
 									justifyContent: "center",
 									alignItems: "center",
-									zIndex: 10000,
+									zIndex: 100,
 								}}>
 								<Grid
 									item
@@ -259,7 +260,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 									display: "flex",
 									justifyContent: "center",
 									alignItems: "center",
-									zIndex: 10000,
+									zIndex: 100,
 								}}>
 								<Grid
 									item

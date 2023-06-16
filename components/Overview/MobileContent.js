@@ -180,6 +180,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 	return (
 		<>
 			<Box
+				className='noselect'
 				sx={{
 					display: "flex",
 					justifyContent: "center",
