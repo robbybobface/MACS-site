@@ -276,6 +276,14 @@
 	background: linear-gradient(225deg, rgba(192, 0, 69) 50%, rgba(255, 184, 0) 67%);
 }
 
+.yellowMobile {
+	background: linear-gradient(60deg, rgba(255, 211, 100, 1) 0%, rgba(255, 184, 0, 1) 100%);
+}
+
+.yellowMobileAlt {
+	background: linear-gradient(60deg, rgba(255, 184, 0, 1) 0%, rgba(217, 155, 0, 1) 100%);
+}
+
 .yellow {
 	background: linear-gradient(225deg, rgba(160, 232, 134) 0%, rgba(255, 184, 0) 67%);
 }

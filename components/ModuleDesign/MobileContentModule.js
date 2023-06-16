@@ -64,7 +64,7 @@ function MobileContentModule() {
 					backgroundColor: "#323232",
 					overflow: "hidden",
 				}}>
-				<Box className={`${styles.slopeTopMobile} ${styles.yellow}`} sx={{ zIndex: 2 }} />
+				<Box className={`${styles.slopeTopMobile} ${styles.yellowMobile}`} sx={{ zIndex: 2 }} />
 				<Box className={`${styles.slopeTopMobileOffset} ${styles.white}`} sx={{ zIndex: 1 }} />
 				<Container className='noselect' maxWidth='xl'>
 					<Grid
@@ -205,7 +205,7 @@ function MobileContentModule() {
 						</Grid>
 					</Grid>
 				</Container>
-				<Box className={`${styles.slopeTopMobile} ${styles.yellowAlt}`} sx={{ zIndex: 2 }} />
+				<Box className={`${styles.slopeTopMobile} ${styles.yellowMobileAlt}`} sx={{ zIndex: 2 }} />
 				<Box className={`${styles.slopeTopMobileOffsetAlt} ${styles.white}`} sx={{ zIndex: 1 }} />
 				<Box className={`${styles.slopeTopMobileOffsetAltTwo} ${styles.white}`} sx={{ zIndex: 1 }} />
 				<Container
@@ -509,7 +509,7 @@ function MobileContentModule() {
 						</Grid>
 					</Box>
 				</Container>
-				<Box className={`${styles.slopeBottomMobile} ${styles.yellowAltTwo}`} sx={{ zIndex: 2 }} />
+				<Box className={`${styles.slopeBottomMobile} ${styles.yellowMobile}`} sx={{ zIndex: 2 }} />
 				<Box className={`${styles.slopeBottomMobileOffset} ${styles.white}`} sx={{ zIndex: 1 }} />
 			</Box>
 		</>

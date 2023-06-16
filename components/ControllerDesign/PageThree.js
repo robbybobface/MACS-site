@@ -105,7 +105,7 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 								fontSize={{ xs: "2.5rem", md: "4rem", mdPlus: "4.75rem", lg: "5.25rem", xl: "6rem" }}
 								textAlign={"center"}
 								lineHeight={1.1}
-								pb={1}
+								pb={{ xs: 0, md: 1, lg: 1.5, xl: 2 }}
 							/>
 						</Grid>
 						<Grid item xs={3.5}>
@@ -149,7 +149,7 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 								flexDirection: "column",
 							}}>
 							<Grid
-								container={2}
+								container
 								sx={{
 									display: "flex",
 									justifyContent: "space-evenly",
