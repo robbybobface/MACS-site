@@ -92,19 +92,6 @@ function MobileContentController() {
 		return "xl";
 	};
 
-	const getModuleImageHeight = () => {
-		if (isXS) {
-			return 140;
-		} else if (isXSPlus) {
-			return 140;
-		} else if (isSM) {
-			return 200;
-		} else if (isMD) {
-			return 225;
-		} else {
-			return 250;
-		}
-	};
 	const getImageHeights = () => {
 		if (isMD) {
 			return 275;
@@ -134,6 +121,24 @@ function MobileContentController() {
 			return "60vmin";
 		} else {
 			return "40vmin";
+		}
+	};
+
+	const getTableHeight = () => {
+		if (isXS) {
+			return "25vw";
+		} else if (isXSPlus) {
+			return "90vw";
+		} else if (isSMMinus) {
+			return "80vw";
+		} else if (isSM) {
+			return "70vw";
+		} else if (isSMPlus) {
+			return "55vw";
+		} else if (isMD) {
+			return "55vw";
+		} else {
+			return "55vw";
 		}
 	};
 
@@ -939,10 +944,9 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 								sx={{
 									overflow: "clip",
 									display: "flex",
-									maxWidth: `calc(${getFlowchartHeight()} - 10px)`,
 									height: "auto",
 								}}>
-								<USBTable width={getFlowchartHeight()} />
+								<USBTable width={getTableHeight()} />
 							</Box>
 						</Grid>
 						<Grid
