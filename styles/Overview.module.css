@@ -296,6 +296,14 @@
 	background: linear-gradient(225deg, rgba(255, 184, 0) 55%, rgba(160, 232, 134) 70%);
 }
 
+.greenAlt {
+	background: linear-gradient(60deg, rgba(160, 232, 134, 1) 0%, rgba(25, 177, 0, 1) 100%);
+}
+
+.green {
+	background: linear-gradient(125deg, rgba(160, 232, 134, 1) 0%, rgba(85, 215, 63, 1) 100%);
+}
+
 .greenBlue {
 	background: linear-gradient(225deg, rgba(160, 232, 134) 33%, rgba(0, 135, 177) 67%);
 }

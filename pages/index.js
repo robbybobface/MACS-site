@@ -142,7 +142,7 @@ export default function Home() {
 		const heightMax = Math.max(...Hexagons.map((hexagon) => hexagon.r));
 		const widthMin = Math.min(...Hexagons.map((hexagon) => hexagon.q));
 		const widthMax = Math.max(...Hexagons.map((hexagon) => hexagon.q));
-		console.log(widthMin, widthMax, heightMin, heightMax);
+		// console.log(widthMin, widthMax, heightMin, heightMax);
 		const controllerWidth =
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.q)) - Math.min(...Hexagons.map((hexagon) => hexagon.q))
@@ -151,14 +151,14 @@ export default function Home() {
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.r)) - Math.min(...Hexagons.map((hexagon) => hexagon.r))
 			) + 1;
-		console.log(controllerWidth, controllerHeight);
+		// console.log(controllerWidth, controllerHeight);
 		const viewBox = `${xMin * getWidthOffset(controllerWidth, controllerHeight)} ${
 			yMin * getHeightOffset(controllerHeight, controllerWidth)
 		} ${(xMax - xMin) * gridScaler(controllerWidth, controllerHeight)} ${
 			(yMax - yMin) * gridScaler(controllerWidth, controllerHeight)
 		}`;
 
-		console.log(viewBox);
+		// console.log(viewBox);
 		setViewBox(viewBox);
 	};
 
@@ -376,7 +376,7 @@ export default function Home() {
 	// On initial render
 	useEffect(() => {
 		window.setTimeout(() => {
-			console.log("resize");
+			// console.log("resize");
 			for (const [index, Hexagon] of filteredHexagons.entries()) {
 				positionDropzone(index, `hexagon-${Hexagon.id}`);
 			}
@@ -387,7 +387,7 @@ export default function Home() {
 			window.addEventListener(
 				"resize",
 				() => {
-					console.log("resize again");
+					// console.log("resize again");
 					for (const [index, Hexagon] of filteredHexagons.entries()) {
 						positionDropzone(index, `hexagon-${Hexagon.id}`);
 					}

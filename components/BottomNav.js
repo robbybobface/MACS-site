@@ -137,7 +137,7 @@ const BottomNav = ({ router, home }) => {
 						<Button
 							variant='contained'
 							color='drawerBackground'
-							onClick={() => console.log("zoom out")}
+							onClick={() => router.push("/controller")}
 							size='small'
 							sx={{ padding: 0, maxWidth: 64 }}>
 							<VideogameAssetOutlined color='primary' />

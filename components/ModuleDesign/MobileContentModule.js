@@ -149,12 +149,12 @@ function MobileContentModule() {
 									item
 									xs={12}
 									sm={6}
-									mb={5}
 									sx={{
 										display: "flex",
 										justifyContent: "center",
 										alignItems: "center",
 										zIndex: 100,
+										mb: { xs: 5, sm: 0 },
 									}}>
 									<Box
 										sx={{

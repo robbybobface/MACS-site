@@ -13,6 +13,7 @@ import {
 	getModuleBackgroundColor,
 	GeneratedHexagon,
 } from "../../utils/HelperFunctions";
+import { MACSLogo } from "../../assets/macs_logo";
 
 function PageTenMobile() {
 	const filteredHexagons = Hexagons.filter((hexagon) => {
@@ -56,7 +57,7 @@ function PageTenMobile() {
 		const heightMax = Math.max(...Hexagons.map((hexagon) => hexagon.r));
 		const widthMin = Math.min(...Hexagons.map((hexagon) => hexagon.q));
 		const widthMax = Math.max(...Hexagons.map((hexagon) => hexagon.q));
-		console.log(widthMin, widthMax, heightMin, heightMax);
+		// console.log(widthMin, widthMax, heightMin, heightMax);
 		const controllerWidth =
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.q)) - Math.min(...Hexagons.map((hexagon) => hexagon.q))
@@ -65,14 +66,14 @@ function PageTenMobile() {
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.r)) - Math.min(...Hexagons.map((hexagon) => hexagon.r))
 			) + 1;
-		console.log(controllerWidth, controllerHeight);
+		// console.log(controllerWidth, controllerHeight);
 		const viewBox = `${xMin * getWidthOffset(controllerWidth, controllerHeight)} ${
 			yMin * getHeightOffset(controllerHeight, controllerWidth)
 		} ${(xMax - xMin) * gridScaler(controllerWidth, controllerHeight)} ${
 			(yMax - yMin) * gridScaler(controllerWidth, controllerHeight)
 		}`;
 
-		console.log(viewBox);
+		// console.log(viewBox);
 		// setViewBox(viewBox);
 	};
 
@@ -180,23 +181,66 @@ function PageTenMobile() {
 			);
 		},
 		(prevProps, nextProps) => {
-			console.log(
-				prevProps.moduleID === nextProps.moduleID &&
-					prevProps.index === nextProps.index &&
-					prevProps.moduleType === nextProps.moduleType
-			);
+			// console.log(
+			// 	prevProps.moduleID === nextProps.moduleID &&
+			// 		prevProps.index === nextProps.index &&
+			// 		prevProps.moduleType === nextProps.moduleType
+			// );
 			return true;
 		}
 	);
 
+	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isSmMinus = useMediaQuery(theme.breakpoints.down("smMinus"));
+	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
+	const isSMPlus = useMediaQuery(theme.breakpoints.down("smPlus"));
+	const isMD = useMediaQuery(theme.breakpoints.down("md"));
+
+	const getLogoSize = () => {
+		if (isXS) {
+			return "22min";
+		} else if (isXSPlus) {
+			return "32vmin";
+		} else if (isSmMinus) {
+			return "30vmin";
+		} else if (isSM) {
+			return "23vmin";
+		} else if (isSMPlus) {
+			return "22vmin";
+		} else if (isMD) {
+			return "20vmin";
+		} else {
+			return "24vmin";
+		}
+	};
+
+	const getLogoPaddingSize = () => {
+		if (isXS) {
+			return "24min";
+		} else if (isXSPlus) {
+			return "33vmin";
+		} else if (isSmMinus) {
+			return "31vmin";
+		} else if (isSM) {
+			return "24vmin";
+		} else if (isSMPlus) {
+			return "23vmin";
+		} else if (isMD) {
+			return "21vmin";
+		} else {
+			return "21vmin";
+		}
+	};
+
 	useEffect(() => {
 		positionSVG();
 		for (const [index, Hexagon] of filteredHexagons.entries()) {
-			console.log("positioning dropzone");
+			// console.log("positioning dropzone");
 			positionDropzone(index, `hexagon-${Hexagon.id}`);
 		}
 		window.setTimeout(() => {
-			console.log("resize after timeout");
+			// console.log("resize after timeout");
 			for (const [index, Hexagon] of filteredHexagons.entries()) {
 				positionDropzone(index, `hexagon-${Hexagon.id}`);
 			}
@@ -204,7 +248,7 @@ function PageTenMobile() {
 		window.addEventListener(
 			"resize",
 			() => {
-				console.log("resize again");
+				// console.log("resize again");
 				for (const [index, Hexagon] of filteredHexagons.entries()) {
 					positionDropzone(index, `hexagon-${Hexagon.id}`);
 				}
@@ -271,6 +315,22 @@ function PageTenMobile() {
 						}}>
 						<GeneratedHexgrid height={"70vmax"} />
 						<Dropzones />
+						<Box
+							className={boxStyles.whiteCircle}
+							sx={{
+								position: "absolute",
+								top: "50%",
+								left: "50%",
+								transform: "translate(-50%, -50%)",
+								height: getLogoPaddingSize(),
+								width: getLogoPaddingSize(),
+								zIndex: 10,
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+							}}>
+							<MACSLogo height={getLogoSize()} />
+						</Box>
 					</Box>
 				</Grid>
 				<Grid

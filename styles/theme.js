@@ -50,6 +50,15 @@ const theme = createTheme({
 		hexagonGreenAlt: {
 			main: "rgba(25, 177, 0, 0.2)",
 		},
+		hexagonGreenAltTwo: {
+			main: "rgba(25, 177, 0, 0.35)",
+		},
+		hexagonGreenAltThree: {
+			main: "rgba(25, 177, 0, 0.65)",
+		},
+		hexagonGreenAltFour: {
+			main: "rgba(25, 177, 0, 0.75)",
+		},
 		hexagonGreenFull: {
 			main: "rgba(25, 177, 0)",
 		},

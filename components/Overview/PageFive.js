@@ -167,7 +167,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
+														fontSize={{
+															xs: "16px",
+															md: "17px",
+															mdPlus: "18px",
+															lg: "20px",
+															xl: "24px",
+														}}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -180,7 +186,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 														fontSize={{
 															xs: "14px",
 															md: "14px",
-															mdPlus: "16px",
+															mdPlus: "15px",
 															lg: "17px",
 															xl: "18px",
 														}}>
@@ -231,7 +237,12 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												justifyContent: "center",
 												alignItems: "center",
 												alignSelf: "stretch",
-												p: "16px !important",
+												py: "16px !important",
+												px: {
+													xs: "13px !important",
+													mdPlus: "10px !important",
+													lg: "14px !important",
+												},
 												backgroundColor: theme.palette.hexagonGreenAlt.main,
 												transition: "all ease-in 0.25s",
 												"&:hover": {
@@ -249,7 +260,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
+														fontSize={{
+															xs: "16px",
+															md: "17px",
+															mdPlus: "18px",
+															lg: "20px",
+															xl: "24px",
+														}}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -262,11 +279,11 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 														fontSize={{
 															xs: "14px",
 															md: "14px",
-															mdPlus: "16px",
+															mdPlus: "15px",
 															lg: "17px",
 															xl: "18px",
 														}}>
-														The communication between the modules and the application
+														The communication between modules and the application
 													</Typography>
 												</Grid>
 												<Grid
@@ -330,7 +347,13 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												<Grid item xs={8} md={12}>
 													<Typography
 														gutterBottom
-														fontSize={{ xs: "20px", md: "20px", lg: "22px", xl: "24px" }}
+														fontSize={{
+															xs: "16px",
+															md: "17px",
+															mdPlus: "18px",
+															lg: "20px",
+															xl: "24px",
+														}}
 														fontWeight='bold'
 														textAlign='center'
 														color='backgroundBlack.main'
@@ -343,7 +366,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 														fontSize={{
 															xs: "14px",
 															md: "14px",
-															mdPlus: "16px",
+															mdPlus: "15px",
 															lg: "17px",
 															xl: "18px",
 														}}>

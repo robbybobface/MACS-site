@@ -46,7 +46,7 @@ export default function Overview() {
 		if (!isMobile) {
 			scroll(to);
 		} else {
-			console.log("no scroll mobile");
+			// console.log("no scroll mobile");
 		}
 	};
 
@@ -64,7 +64,7 @@ export default function Overview() {
 		setIsMobile(window.screen.width <= 900);
 		let tempOffsets = [];
 		let accTempOffsets = [];
-		console.log("windowHeight: " + window.innerHeight);
+		// console.log("windowHeight: " + window.innerHeight);
 		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
 		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
 		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
@@ -77,27 +77,27 @@ export default function Overview() {
 		tempOffsets.push(1000 / window.innerHeight >= 1 ? 1000 / window.innerHeight : 1);
 
 		accTempOffsets.push(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 1).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 2).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 2).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 2).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 3).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 3).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 3).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 4).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 4).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 4).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 5).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 5).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 5).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 6).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 6).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 6).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 7).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 7).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 7).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 8).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 8).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 8).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 9).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 9).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 9).reduce((acc, curr) => acc + curr, 0));
 		accTempOffsets.push(tempOffsets.slice(0, 10).reduce((acc, curr) => acc + curr, 0));
-		console.log(tempOffsets.slice(0, 10).reduce((acc, curr) => acc + curr, 0));
+		// console.log(tempOffsets.slice(0, 10).reduce((acc, curr) => acc + curr, 0));
 
-		console.log(accTempOffsets);
+		// console.log(accTempOffsets);
 
 		setOffsets(accTempOffsets);
 		return () => {

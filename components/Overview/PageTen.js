@@ -72,7 +72,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 		const heightMax = Math.max(...Hexagons.map((hexagon) => hexagon.r));
 		const widthMin = Math.min(...Hexagons.map((hexagon) => hexagon.q));
 		const widthMax = Math.max(...Hexagons.map((hexagon) => hexagon.q));
-		console.log(widthMin, widthMax, heightMin, heightMax);
+		// console.log(widthMin, widthMax, heightMin, heightMax);
 		const controllerWidth =
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.q)) - Math.min(...Hexagons.map((hexagon) => hexagon.q))
@@ -81,14 +81,14 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			Math.abs(
 				Math.max(...Hexagons.map((hexagon) => hexagon.r)) - Math.min(...Hexagons.map((hexagon) => hexagon.r))
 			) + 1;
-		console.log(controllerWidth, controllerHeight);
+		// console.log(controllerWidth, controllerHeight);
 		const viewBox = `${xMin * getWidthOffset(controllerWidth, controllerHeight)} ${
 			yMin * getHeightOffset(controllerHeight, controllerWidth)
 		} ${(xMax - xMin) * gridScaler(controllerWidth, controllerHeight)} ${
 			(yMax - yMin) * gridScaler(controllerWidth, controllerHeight)
 		}`;
 
-		console.log(viewBox);
+		// console.log(viewBox);
 		// setViewBox(viewBox);
 	};
 
@@ -199,11 +199,11 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 			);
 		},
 		(prevProps, nextProps) => {
-			console.log(
-				prevProps.moduleID === nextProps.moduleID &&
-					prevProps.index === nextProps.index &&
-					prevProps.moduleType === nextProps.moduleType
-			);
+			// console.log(
+			// 	prevProps.moduleID === nextProps.moduleID &&
+			// 		prevProps.index === nextProps.index &&
+			// 		prevProps.moduleType === nextProps.moduleType
+			// );
 			return true;
 		}
 	);
@@ -261,14 +261,14 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 	// On initial render
 	useEffect(() => {
 		window.setTimeout(() => {
-			console.log("resize");
+			// console.log("resize");
 			for (const [index, Hexagon] of filteredHexagons.entries()) {
 				positionDropzone(index, `hexagon-${Hexagon.id}`);
 			}
 			window.addEventListener(
 				"resize",
 				() => {
-					console.log("resize again");
+					// console.log("resize again");
 					for (const [index, Hexagon] of filteredHexagons.entries()) {
 						positionDropzone(index, `hexagon-${Hexagon.id}`);
 					}
@@ -287,7 +287,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 				<div className={styles.slopeBegin} />
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.15} onClick={onClick} factor={newFactor}>
-				<div className={`${styles.slopeEndMobile} ${styles[gradient]}`} />
+				<div className={`${styles.slopeEnd} ${styles[gradient]}`} />
 			</ParallaxLayer>
 			<ParallaxLayer offset={offset} speed={0.5} onClick={onClick} factor={newFactor}>
 				<Box

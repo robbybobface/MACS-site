@@ -6,9 +6,12 @@ import BottomNav from "../components/BottomNav";
 import { useRouter } from "next/router";
 import { Parallax } from "@react-spring/parallax";
 import styles from "../styles/Overview.module.css";
-import PageOne from "../components/ModuleDesign/PageOne";
-import PageTwo from "../components/ModuleDesign/PageTwo";
+import PageOne from "../components/ControllerDesign/PageOne";
 import MobileContentModule from "../components/ModuleDesign/MobileContentModule";
+import PageTwo from "../components/ControllerDesign/PageTwo";
+import PageThree from "../components/ControllerDesign/PageThree";
+import PageFour from "../components/ControllerDesign/PageFour";
+import MobileContentController from "../components/ControllerDesign/MobileContentController";
 
 export default function Modules() {
 	const [isMobile, setIsMobile] = useState(false);
@@ -58,16 +61,18 @@ export default function Modules() {
 	return (
 		<>
 			<Head>
-				<title>Module Design</title>
+				<title>Controller Design</title>
 				<style>{"body { background-color: #FFF; !important; }"}</style>
 			</Head>
 			<Header router={router} />
 			<BottomNav router={router} home={true} />
-			{isMobile && <MobileContentModule />}
+			{isMobile && <MobileContentController />}
 			{!isMobile && (
-				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={2}>
-					<PageOne offset={0} gradient='yellowAlt' onClick={() => allowScroll(1)} router={router} />
-					<PageTwo offset={1} gradient='yellowAltTwo' onClick={() => allowScroll(2)} router={router} />
+				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={4}>
+					<PageOne offset={0} gradient='greenAlt' onClick={() => allowScroll(1)} router={router} />
+					<PageTwo offset={1} gradient='green' onClick={() => allowScroll(2)} router={router} />
+					<PageThree offset={2} gradient='greenAlt' onClick={() => allowScroll(3)} router={router} />
+					<PageFour offset={3} gradient='green' onClick={() => allowScroll(0)} router={router} />
 				</Parallax>
 			)}
 		</>
