@@ -1041,10 +1041,10 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 												alignItems: "center",
 												alignSelf: "stretch",
 												p: "16px !important",
-												backgroundColor: theme.palette.hexagonBlueAlt.main,
+												backgroundColor: theme.palette.hexagonYellowAlt.main,
 												transition: "all ease-in 0.25s",
 												"&:hover": {
-													backgroundColor: theme.palette.hexagonBlue.main,
+													backgroundColor: theme.palette.hexagonYellow.main,
 												},
 											}}>
 											<Grid
