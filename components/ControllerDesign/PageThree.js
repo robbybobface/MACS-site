@@ -108,6 +108,38 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 								pb={{ xs: 0, md: 1, lg: 1.5, xl: 2 }}
 							/>
 						</Grid>
+						<Grid item xs={2.5} />
+						<Grid
+							item
+							xs={7}
+							mt={1}
+							sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+							<Box
+								className={boxStyles.whiteBox}
+								sx={{
+									py: { xs: 2, md: 2, lg: 2 },
+									px: { xs: 2, md: 3, lg: 4 },
+									mt: { xs: 0, md: -1, lg: -2, xl: -3 },
+								}}>
+								<Typography
+									color={"black"}
+									sx={{
+										fontSize: {
+											xs: "14px",
+											md: "15px",
+											mdPlus: "16px",
+											lg: "18px",
+											xl: "20px",
+										},
+									}}
+									textAlign='justify'>
+									For information about the input states to be reflected in the application, these
+									states must first be read on the controller itself. To do this, the I2C protocol was
+									used.
+								</Typography>
+							</Box>
+						</Grid>
+						<Grid item xs={2.5} />
 						<Grid item xs={3.5}>
 							<Box
 								className={boxStyles.darkGreyBox}
@@ -139,7 +171,6 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 						</Grid>
 						<Grid
 							item
-							mt={1}
 							xs={12}
 							md={5}
 							sx={{
@@ -156,36 +187,6 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 									alignItems: "center",
 									flexDirection: "column",
 								}}>
-								<Grid
-									item
-									xs={12}
-									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.whiteBox}
-										sx={{
-											py: { xs: 2, md: 2, lg: 2 },
-											px: { xs: 2, md: 3, lg: 4 },
-											mt: { xs: 0, md: -1, lg: -2, xl: -3 },
-											mb: 2,
-										}}>
-										<Typography
-											color={"black"}
-											sx={{
-												fontSize: {
-													xs: "14px",
-													md: "15px",
-													mdPlus: "16px",
-													lg: "18px",
-													xl: "20px",
-												},
-											}}
-											textAlign='justify'>
-											For information about the input states to be reflected in the application,
-											these states must first be read on the controller itself. To do this, the
-											I2C protocol was used.
-										</Typography>
-									</Box>
-								</Grid>
 								<Grid
 									item
 									xs={12}

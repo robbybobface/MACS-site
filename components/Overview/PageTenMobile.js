@@ -219,7 +219,7 @@ function PageTenMobile() {
 		if (isXS) {
 			return "24min";
 		} else if (isXSPlus) {
-			return "33vmin";
+			return "34vmin";
 		} else if (isSmMinus) {
 			return "31vmin";
 		} else if (isSM) {

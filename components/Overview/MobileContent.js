@@ -94,9 +94,9 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 
 	const getBlueLogoHeight = () => {
 		if (isXS) {
-			return "14vmax";
+			return "16vmax";
 		} else if (isXSPlus) {
-			return "14vmax";
+			return "16vmax";
 		} else if (isSM) {
 			return "21vmax";
 		} else if (isMD) {
@@ -2082,7 +2082,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 										"linear-gradient(145deg, rgba(54,133,173,1) 0%, rgba(116,182,158,1) 100%)"
 									}
 									my={-5}
-									fontSize={{ xs: "3rem", smMinus: "4rem", md: "6rem" }}
+									fontSize={{ xs: "3.3rem", smMinus: "4rem", md: "6rem" }}
 									onClick={onClick}
 								/>
 								<Typography
@@ -2325,8 +2325,8 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 								className={boxStyles.whiteCircle}
 								sx={{
 									position: "absolute",
-									height: { xs: "15vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
-									width: { xs: "15vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
+									height: { xs: "18vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
+									width: { xs: "18vmax", xsPlus: "23vmax", sm: "26vmax", md: "30vmax" },
 									zIndex: 10,
 									display: "flex",
 									justifyContent: "center",
