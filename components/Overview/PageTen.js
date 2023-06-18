@@ -528,7 +528,7 @@ const PageTen = ({ offset, gradient, onClick, router }) => {
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
 							<Layout
-								size={isMD ? { x: 40, y: 40 } : { x: 55, y: 55 }}
+								size={isMD ? { x: 40, y: 40 } : { x: 50, y: 50 }}
 								flat={true}
 								spacing={1.05}
 								origin={{ x: 0, y: 0 }}>
