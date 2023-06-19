@@ -168,11 +168,16 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 								<Box
 									sx={{
 										position: "relative",
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
 										mb: 2,
 									}}>
 									<Card
 										elevation={4}
 										sx={{
+											display: "flex",
+											alignSelf: "stretch",
 											position: "relative",
 										}}>
 										<BlurHashedImage
@@ -187,10 +192,15 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 								<Box
 									sx={{
 										position: "relative",
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "center",
 									}}>
 									<Card
 										elevation={4}
 										sx={{
+											display: "flex",
+											alignSelf: "stretch",
 											position: "relative",
 										}}>
 										<BlurHashedImage
@@ -236,7 +246,8 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 											py: { xs: 2, md: 2, lg: 2 },
 											px: { xs: 2, md: 3, lg: 4 },
 											mt: { xs: 0, md: -1, lg: -2, xl: -3 },
-											mb: 2,
+											mb: { lg: -3 },
+											zIndex: 100,
 										}}>
 										<Typography
 											color={"white"}

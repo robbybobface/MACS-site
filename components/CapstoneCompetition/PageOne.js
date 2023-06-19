@@ -447,7 +447,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											borderRadius: "8px",
 											width: "100%",
 											height: maximized ? getMaximizedSize() : "100%",
-											backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
+											// backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",
@@ -556,7 +556,20 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 													<Typography className='p-details'>{data.description}</Typography> */}
 											</Box>
 										)}
-										{!maximized && <Box className='default' sx={{ borderRadius: 10 }} />}
+										{!maximized && (
+											<Box className='default'>
+												<BlurHashedImage
+													src={`${data.src}?tr=w-1200`}
+													hash={data.hash}
+													alt={`${data.name}`}
+													height={"100%"}
+													width={300}
+													sx={{ objectFit: "cover" }}
+													nonCard={true}
+													// maxWidth='800px'
+												/>
+											</Box>
+										)}
 									</Paper>
 								)}
 							</MauerGrid>

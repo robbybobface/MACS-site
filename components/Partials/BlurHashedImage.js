@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 import theme from "../../styles/theme";
 
-function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width, vertical, ...props }) {
+function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width, vertical, nonCard, ...props }) {
 	const [imageLoaded, setImageLoaded] = useState(false);
 
 	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -62,6 +62,18 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					/>
 					<Box className='skeleton-loading' />
 				</Box>
+			) : nonCard ? (
+				<Box
+					component='img'
+					loading='lazy'
+					title={alt}
+					alt={alt}
+					height={height}
+					width={width ?? "auto"}
+					sx={{ objectFit: "cover", marginTop: size }}
+					src={src}
+					{...props}
+				/>
 			) : (
 				<CardMedia
 					className='noselect'
@@ -71,7 +83,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					alt={alt}
 					height={height}
 					width={width ?? "auto"}
-					sx={{ objectFit: "cover", marginTop: size }}
+					sx={{ objectFit: "contain", marginTop: size }}
 					image={src}
 					{...props}
 				/>
