@@ -448,7 +448,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											borderRadius: "8px",
 											width: "100%",
 											height: maximized ? getMaximizedSize() : "100%",
-											// backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",

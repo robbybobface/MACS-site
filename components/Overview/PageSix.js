@@ -225,7 +225,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg?tr=w-1000'
 																hash='LILqC9xu~VE1M{WWE1M{R3M{9bs.'
 																alt='final central hub module'
 																height={getModuleImageHeights()}
@@ -238,7 +238,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg?tr=w-1000'
 																hash='LNLgkQjr~Ut7%Mt7M{f6=^RjE2jY'
 																alt='final button module'
 																height={getModuleImageHeights()}
@@ -251,7 +251,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg?tr=w-1000'
 																hash='LJM7V_t6~VbIxtogE1WB-ORj9aWA'
 																alt='final switch module'
 																height={getModuleImageHeights()}
@@ -264,7 +264,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg?tr=w-1000'
 																hash='LPLqC8Rj~Vof-;tRRjju=@RjIpjY'
 																alt='final joystick module'
 																height={getModuleImageHeights()}
@@ -277,7 +277,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg?tr=w-1000'
 																hash='LIMQbIjE~VkDxut8RjRj^hNG9as.'
 																alt='final slider module'
 																height={getModuleImageHeights()}
@@ -290,7 +290,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{ display: "flex", position: "relative" }}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg?tr=w-1000'
 																hash='LOL;Kdax~VkC%Mt8Rjf6=^RjE3o0'
 																alt='final dial module'
 																height={getModuleImageHeights()}
@@ -363,7 +363,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg?tr=w-1000'
 																hash='LIKdYr_N},t7%Mi^V?Ri}*kDI]R*'
 																alt='macs configuration 1'
 																height={getControllerImageHeights()}
@@ -379,7 +379,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 																position: "relative",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg?tr=h-1500'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg?tr=w-1000'
 																hash='LKJk4M~p==%0S$s8M{e-^Gx[JDR+'
 																alt='macs configuration 2'
 																height={getControllerImageHeights()}
@@ -437,7 +437,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png?tr=h-1500'
+														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png?tr=w-1000'
 														hash='L39jT61j00{e8|iwx=k;0f^d[J5Y'
 														alt='macs application'
 														height={"auto"}
@@ -454,7 +454,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
+														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
 														hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 														alt='application joystick configuration'
 														height={"auto"}
@@ -471,7 +471,7 @@ const PageSix = ({ offset, gradient, onClick, router }) => {
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/button-config.png?tr=h-1500'
+														src='https://ik.imagekit.io/5ywj5edvn/button-config.png?tr=w-1000'
 														hash='L6E2qc3WBV=^00IA9YVc34,G~X-5'
 														alt='application button configuration'
 														height={"auto"}

@@ -141,7 +141,7 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 												minWidth: getImageHeights(),
 											}}>
 											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/hexagon-map.png?tr=h-1500'
+												src='https://ik.imagekit.io/5ywj5edvn/hexagon-map.png?tr=w-1000'
 												hash='CiMaV5s.~qWBbI%2j]Rj'
 												alt='central hub render top'
 												height={getImageHeights()}

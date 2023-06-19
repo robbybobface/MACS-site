@@ -442,7 +442,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 											borderRadius: 2,
 											py: { xs: 1, md: 1.5, mdPlus: 2 },
 											px: { xs: 2, md: 2.5, lg: 3 },
-											mt: -10,
+											mt: -8,
 											zIndex: 100,
 										}}>
 										<Typography

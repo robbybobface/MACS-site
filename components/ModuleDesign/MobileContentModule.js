@@ -190,7 +190,7 @@ function MobileContentModule() {
 											<Box className={isMD ? "hex-mobile" : "hex"}>
 												<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
+														src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png?tr=w-1000'
 														hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
 														alt='general pcb design'
 														height={"auto"}
@@ -218,7 +218,7 @@ function MobileContentModule() {
 											<Box className={isMD ? "hex-mobile" : "hex"}>
 												<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
+														src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png?tr=w-1000'
 														hash='L07K3vI:00$*~p%K4n9b04~A@q02'
 														alt='central hub pcb design'
 														height={"auto"}
@@ -322,7 +322,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png?tr=w-1000'
 											hash='CiMaV5s.~qWBbI%2j]Rj'
 											alt='central hub render top'
 											height={getModuleImageHeight()}
@@ -351,7 +351,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/button-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/button-top.png?tr=w-1000'
 											hash='CTNAxOxu~qt79Gxut8WB'
 											alt='button module render top'
 											height={getModuleImageHeight()}
@@ -380,7 +380,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=w-1000'
 											hash='CCNwZs8^~p-=E2%LM|Ri'
 											alt='central hub module render bottom'
 											height={getModuleImageHeight()}
@@ -409,7 +409,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=w-1000'
 											hash='CEODteIT~p-;4:%LRjRj'
 											alt='general module render bottom'
 											height={getModuleImageHeight()}
@@ -438,7 +438,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/switch-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/switch-top.png?tr=w-1000'
 											hash='CSMj{:t6~qt79Gxut7V@'
 											alt='switch module render top'
 											height={getModuleImageHeight()}
@@ -467,7 +467,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/slider-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/slider-top.png?tr=w-1000'
 											hash='CVNAuF%2~qt7M{xtWCj@'
 											alt='slider module render top'
 											height={getModuleImageHeight()}
@@ -496,7 +496,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/dial-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/dial-top.png?tr=w-1000'
 											hash='CRN^h~xt~qxu9Fxut8WB'
 											alt='dial module render top'
 											height={getModuleImageHeight()}
@@ -525,7 +525,7 @@ function MobileContentModule() {
 											width: getModuleImageHeight(),
 										}}>
 										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png?tr=h-1500'
+											src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png?tr=w-1000'
 											hash='CQONF4xt~qxu9G%2ogWB'
 											alt='joystick module render top'
 											height={getModuleImageHeight()}

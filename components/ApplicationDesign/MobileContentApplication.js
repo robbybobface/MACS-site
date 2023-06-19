@@ -240,7 +240,7 @@ function MobileContentApplication() {
 													zIndex: 100,
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=w-1000'
 													hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
 													alt='macs application'
 													height={getImageSize()}
@@ -279,7 +279,7 @@ function MobileContentApplication() {
 													zIndex: 100,
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
 													hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 													alt='application joystick configuration'
 													height={getImageSize()}
@@ -318,7 +318,7 @@ function MobileContentApplication() {
 													zIndex: 100,
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
 													hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
 													alt='macs emulation in Minecraft'
 													height={getImageSize()}
@@ -787,7 +787,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/macs-searching.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/macs-searching.png?tr=w-1000'
 													hash='L06H$Ht700Rj*0j[ofay0mWB~qt8'
 													alt='macs detection/searching'
 													height={"auto"}
@@ -815,7 +815,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/macs-topology-2.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/macs-topology-2.png?tr=w-1000'
 													hash='L29G]o0L00{t0Z$v~n0M3THr}vuN'
 													alt='macs topology two'
 													height={"auto"}
@@ -901,7 +901,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=h-1500'
+														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
 														hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
 														alt='macs emulation in Minecraft'
 														height={"auto"}
@@ -926,7 +926,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 														position: "relative",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation-2.png?tr=h-1500'
+														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation-2.png?tr=w-1000'
 														hash='L0429*-PIqaJ#3$P-ixuEI$+a6V['
 														alt='macs emulation in Minecraft 2'
 														height={"auto"}
@@ -978,7 +978,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/slider-config.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/slider-config.png?tr=w-1000'
 													hash='L7AU1]csu|-n^ntk-:rawk$jP1xo'
 													alt='macs slider configuration'
 													height={"auto"}
@@ -1011,7 +1011,7 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 												}}>
 												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/button-config.png?tr=h-1500'
+													src='https://ik.imagekit.io/5ywj5edvn/button-config.png?tr=w-1000'
 													hash='L6E2qc3WBo=^00IA9YVb34,G~X-5'
 													alt='macs button configuration'
 													height={"auto"}

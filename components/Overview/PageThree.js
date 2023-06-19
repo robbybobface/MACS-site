@@ -117,7 +117,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 									elevation={4}
 									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png?tr=h-1500'
+										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png?tr=w-1200'
 										hash='LNRC[6E1-;-;IVM{%Mt7~qt7WBRj'
 										alt='xbox adaptive controller'
 										height={getImageHeights()}
@@ -129,7 +129,7 @@ const PageThree = ({ offset, gradient, onClick, router }) => {
 									elevation={4}
 									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg?tr=h-1500'
+										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg?tr=w-1200'
 										hash='LNR:KPWA_2a$xuofoej[~qog9FWA'
 										alt="sony's project leonardo"
 										height={getImageHeights()}

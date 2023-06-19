@@ -352,7 +352,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												position: "relative",
 											}}>
 											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=h-1500'
+												src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=w-1000'
 												hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
 												alt='macs application'
 												height={getImageSize()}
@@ -376,7 +376,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												position: "relative",
 											}}>
 											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
+												src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
 												hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
 												alt='application joystick configuration'
 												height={getImageSize()}
@@ -400,7 +400,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												position: "relative",
 											}}>
 											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=h-1500'
+												src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
 												hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
 												alt='macs emulation in Minecraft'
 												height={getImageSize()}
