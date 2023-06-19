@@ -32,7 +32,7 @@ const Trail = ({ open, children }) => {
 };
 
 function MobileContentCapstoneCompetition() {
-	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const isXS = useMediaQuery(theme.breakpoints.only("xs"));
 	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
 	const isSMMinus = useMediaQuery(theme.breakpoints.down("smMinus"));
 	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
@@ -44,11 +44,11 @@ function MobileContentCapstoneCompetition() {
 	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 
 	const getMaximizedSize = () => {
-		if (isXS) return "100%";
-		if (isXSPlus) return "100%";
-		if (isSM) return "100%";
-		if (isSMPlus) return "100%";
-		if (isMD) return "100%";
+		if (isXS) return "min-content";
+		if (isXSPlus) return "auto";
+		if (isSM) return "auto";
+		if (isSMPlus) return "auto";
+		if (isMD) return "70%";
 		if (isMDPlus) return "50%";
 		if (isLG) return "60%";
 		if (isLGPlus) return "70%";
@@ -62,6 +62,19 @@ function MobileContentCapstoneCompetition() {
 		if (isSM) return "100%";
 		if (isSMPlus) return "100%";
 		if (isMD) return "100%";
+		if (isMDPlus) return "320px";
+		if (isLG) return "385px";
+		if (isLGPlus) return "460px";
+		if (isXL) return "500px";
+		return "520px";
+	};
+
+	const getMinimumMaximizedImageHeight = (isVertical) => {
+		if (isXS) return isVertical ? "27rem" : "12rem";
+		if (isXSPlus) return "270px";
+		if (isSM) return "290px";
+		if (isSMPlus) return "300px";
+		if (isMD) return "290px";
 		if (isMDPlus) return "320px";
 		if (isLG) return "385px";
 		if (isLGPlus) return "460px";
@@ -163,6 +176,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 										id={data.id}
 										elevation={4}
 										sx={{
+											// py: { xs: 2, md: 0 },
 											position: "absolute",
 											top: "50%",
 											left: "50%",
@@ -188,6 +202,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 										{maximized && (
 											<Box
 												sx={{
+													py: { xs: 2, md: 0 },
 													position: "relative",
 													width: "100%",
 													height: "100%",
@@ -265,9 +280,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 														display: "flex",
 														justifyContent: "center",
 														alignItems: "center",
-														// maxHeight: "60%",
 														width: "auto",
 														height: "auto",
+														minHeight: getMinimumMaximizedImageHeight(data.vertical),
 														zIndex: 100,
 													}}>
 													<BlurHashedImage

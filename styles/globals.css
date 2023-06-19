@@ -201,8 +201,9 @@ img {
 	/* color: #777777; */
 	/* text-transform: uppercase;
 	font-size: 10px; */
+	opacity: 1 !important;
 	border-radius: 8px;
-	/* overflow: clip; */
+	overflow: clip;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -270,6 +271,4 @@ img {
 
 .grid {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 }

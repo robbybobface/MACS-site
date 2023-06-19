@@ -1,26 +1,28 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.12.1",
-    "@react-spring/parallax": "^9.7.2",
-    "@react-spring/web": "^9.7.2",
-    "i": "^0.3.7",
-    "mauerwerk": "^2.0.2",
-    "nanoid": "^4.0.2",
-    "next": "latest",
-    "npm": "^9.6.5",
-    "react": "18.2.0",
-    "react-blurhash": "^0.3.0",
-    "react-dom": "18.2.0",
-    "react-hexgrid": "^2.0.1",
-    "react-spinners": "^0.13.8"
-  }
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"postinstall": "patch-package"
+	},
+	"dependencies": {
+		"@emotion/react": "^11.10.6",
+		"@emotion/styled": "^11.10.6",
+		"@mui/icons-material": "^5.11.16",
+		"@mui/material": "^5.12.1",
+		"@react-spring/parallax": "^9.7.2",
+		"@react-spring/web": "^9.7.2",
+		"i": "^0.3.7",
+		"mauerwerk": "^2.0.2",
+		"nanoid": "^4.0.2",
+		"next": "latest",
+		"npm": "^9.6.5",
+		"patch-package": "^7.0.0",
+		"react": "18.2.0",
+		"react-blurhash": "^0.3.0",
+		"react-dom": "18.2.0",
+		"react-hexgrid": "^2.0.1",
+		"react-spinners": "^0.13.8"
+	}
 }

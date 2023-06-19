@@ -18,8 +18,8 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 
 	const getBlurHeight = () => {
-		if (isXS) return vertical ? "580px" : "280px";
-		if (isXSPlus) return vertical ? "580px" : "280px";
+		if (isXS) return vertical ? "580px" : "220px";
+		if (isXSPlus) return vertical ? "580px" : "300px";
 		if (isSM) return vertical ? "650px" : "350px";
 		if (isSMPlus) return vertical ? "650px" : "420px";
 		if (isMD) return vertical ? "650px" : "500px";
@@ -64,7 +64,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 
 	useEffect(() => {
 		const img = new Image();
-		img.onload = () => (gallery ? wait(1000).then(() => setImageLoaded(true)) : setImageLoaded(true));
+		img.onload = () => (gallery ? wait(1250).then(() => setImageLoaded(true)) : setImageLoaded(true));
 		img.src = src;
 	}, [src]);
 

@@ -1,0 +1,166 @@
+diff --git a/node_modules/mauerwerk/dist/mauerwerk.es.js b/node_modules/mauerwerk/dist/mauerwerk.es.js
+index d700aea..4560d19 100644
+--- a/node_modules/mauerwerk/dist/mauerwerk.es.js
++++ b/node_modules/mauerwerk/dist/mauerwerk.es.js
+@@ -122,7 +122,7 @@ function (_React$PureComponent) {
+           height = _ref.height;
+       var open = _this.state.open === key;
+       return {
+-        opacity: _this.state.open && !open ? 0 : 1,
++        opacity: _this.state.open && !open ? 0.25 : 1,
+         x: open ? _this.outerRef.scrollLeft : x,
+         y: open ? _this.outerRef.scrollTop : y,
+         width: open ? _this.state.width : width,
+@@ -256,10 +256,10 @@ function (_React$PureComponent) {
+             return d.key;
+           },
+           from: {
+-            opacity: 0
++            opacity: 0.25
+           },
+           leave: {
+-            opacity: 0
++            opacity: 0.25
+           },
+           enter: _this2.update,
+           update: _this2.update,
+@@ -329,7 +329,7 @@ function (_React$PureComponent2) {
+         children = _this$props2.children,
+         _this$props2$from = _this$props2.from,
+         from = _this$props2$from === void 0 ? {
+-      opacity: 0,
++      opacity: 0.25,
+       transform: 'translate3d(0,40px,0)'
+     } : _this$props2$from,
+         _this$props2$to = _this$props2.to,
+@@ -385,16 +385,16 @@ function (_React$PureComponent3) {
+         _this$props3$show = _this$props3.show,
+         show = _this$props3$show === void 0 ? true : _this$props3$show,
+         _this$props3$from = _this$props3.from,
+-        from = _this$props3$from === void 0 ? {
+-      opacity: 0
++        from = _this$props3$from === void 0.25 ? {
++      opacity: 0.25
+     } : _this$props3$from,
+         _this$props3$enter = _this$props3.enter,
+-        enter = _this$props3$enter === void 0 ? {
++        enter = _this$props3$enter === void 0.25 ? {
+       opacity: 1
+     } : _this$props3$enter,
+         _this$props3$leave = _this$props3.leave,
+-        leave = _this$props3$leave === void 0 ? {
+-      opacity: 0
++        leave = _this$props3$leave === void 0.25 ? {
++      opacity: 0.25
+     } : _this$props3$leave,
+         rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "show", "from", "enter", "leave"]);
+ 
+diff --git a/node_modules/mauerwerk/dist/mauerwerk.js b/node_modules/mauerwerk/dist/mauerwerk.js
+index 63fcf7c..b3351f7 100644
+--- a/node_modules/mauerwerk/dist/mauerwerk.js
++++ b/node_modules/mauerwerk/dist/mauerwerk.js
+@@ -128,7 +128,7 @@ function (_React$PureComponent) {
+           height = _ref.height;
+       var open = _this.state.open === key;
+       return {
+-        opacity: _this.state.open && !open ? 0 : 1,
++        opacity: _this.state.open && !open ? 0.25 : 1,
+         x: open ? _this.outerRef.scrollLeft : x,
+         y: open ? _this.outerRef.scrollTop : y,
+         width: open ? _this.state.width : width,
+@@ -262,10 +262,10 @@ function (_React$PureComponent) {
+             return d.key;
+           },
+           from: {
+-            opacity: 0
++            opacity: 0.25
+           },
+           leave: {
+-            opacity: 0
++            opacity: 0.25
+           },
+           enter: _this2.update,
+           update: _this2.update,
+@@ -334,12 +334,12 @@ function (_React$PureComponent2) {
+     var _this$props2 = this.props,
+         children = _this$props2.children,
+         _this$props2$from = _this$props2.from,
+-        from = _this$props2$from === void 0 ? {
+-      opacity: 0,
++        from = _this$props2$from === void 0.25 ? {
++      opacity: 0.25,
+       transform: 'translate3d(0,40px,0)'
+     } : _this$props2$from,
+         _this$props2$to = _this$props2.to,
+-        to = _this$props2$to === void 0 ? {
++        to = _this$props2$to === void 0.25 ? {
+       opacity: 1,
+       transform: 'translate3d(0,0px,0)'
+     } : _this$props2$to,
+@@ -391,16 +391,16 @@ function (_React$PureComponent3) {
+         _this$props3$show = _this$props3.show,
+         show = _this$props3$show === void 0 ? true : _this$props3$show,
+         _this$props3$from = _this$props3.from,
+-        from = _this$props3$from === void 0 ? {
+-      opacity: 0
++        from = _this$props3$from === void 0.25 ? {
++      opacity: 0.25
+     } : _this$props3$from,
+         _this$props3$enter = _this$props3.enter,
+-        enter = _this$props3$enter === void 0 ? {
++        enter = _this$props3$enter === void 0.25 ? {
+       opacity: 1
+     } : _this$props3$enter,
+         _this$props3$leave = _this$props3.leave,
+-        leave = _this$props3$leave === void 0 ? {
+-      opacity: 0
++        leave = _this$props3$leave === void 0.25 ? {
++      opacity: 0.25
+     } : _this$props3$leave,
+         rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "show", "from", "enter", "leave"]);
+ 
+diff --git a/node_modules/mauerwerk/src/index.js b/node_modules/mauerwerk/src/index.js
+index a5e3dab..44a170a 100644
+--- a/node_modules/mauerwerk/src/index.js
++++ b/node_modules/mauerwerk/src/index.js
+@@ -62,7 +62,7 @@ export class Grid extends React.PureComponent {
+   update = ({ key, x, y, width, height }) => {
+     const open = this.state.open === key
+     return {
+-      opacity: this.state.open && !open ? 0 : 1,
++      opacity: this.state.open && !open ? 0.25 : 1,
+       x: open ? this.outerRef.scrollLeft : x,
+       y: open ? this.outerRef.scrollTop : y,
+       width: open ? this.state.width : width,
+@@ -172,8 +172,8 @@ export class Grid extends React.PureComponent {
+                     delay={this.clicked && !open ? closeDelay : 0}
+                     items={displayData}
+                     keys={d => d.key}
+-                    from={{ opacity: 0 }}
+-                    leave={{ opacity: 0 }}
++                    from={{ opacity: 0.25 }}
++                    leave={{ opacity: 0.25 }}
+                     enter={this.update}
+                     update={this.update}
+                     impl={impl}
+@@ -221,7 +221,7 @@ export class Slug extends React.PureComponent {
+   render() {
+     const {
+       children,
+-      from = { opacity: 0, transform: 'translate3d(0,40px,0)' },
++      from = { opacity: 0.25, transform: 'translate3d(0,40px,0)' },
+       to = { opacity: 1, transform: 'translate3d(0,0px,0)' },
+       ...rest
+     } = this.props
+@@ -255,9 +255,9 @@ export class Fade extends React.PureComponent {
+     const {
+       children,
+       show = true,
+-      from = { opacity: 0 },
++      from = { opacity: 0.25 },
+       enter = { opacity: 1 },
+-      leave = { opacity: 0 },
++      leave = { opacity: 0.25 },
+       ...rest
+     } = this.props
+     const result = styles => wrap(children, styles)

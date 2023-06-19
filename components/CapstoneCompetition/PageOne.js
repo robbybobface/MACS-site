@@ -435,6 +435,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								// Can be a fixed value or an individual data accessor
 								heights={(d) => d.height}
 								margin={15}
+								occupySpace={true}
 								columns={3}>
 								{(data, maximized, toggle) => (
 									<Paper
