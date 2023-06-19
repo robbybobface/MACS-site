@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material";
 import theme from "../styles/theme";
 import "../styles/globals.css";
+import Loading from "../components/Partials/Loading";
 
 const MyApp = ({ Component, pageProps }) => {
 	return (
@@ -12,6 +13,7 @@ const MyApp = ({ Component, pageProps }) => {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<Component {...pageProps} />
+			{/* <Loading /> */}
 		</ThemeProvider>
 	);
 };

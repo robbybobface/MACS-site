@@ -32,6 +32,12 @@ const theme = createTheme({
 		hexagonRedAlt: {
 			main: "rgba(192, 0, 69, 0.2)",
 		},
+		hexagonRedTwo: {
+			main: "rgba(192, 0, 69, 0.65)",
+		},
+		hexagonRedAltTwo: {
+			main: "rgba(192, 0, 69, 0.35)",
+		},
 		hexagonRedFull: {
 			main: "rgba(192, 0, 69)",
 		},

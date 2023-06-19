@@ -19,6 +19,7 @@ const BottomNav = ({ router, home }) => {
 				alignItems: "center",
 				width: "100vw",
 				bottom: 30,
+				pointerEvents: "none",
 				right: { xs: undefined, smPlus: 40, md: 50, lg: 100 },
 			}}>
 			<Box
@@ -54,7 +55,12 @@ const BottomNav = ({ router, home }) => {
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => console.log("rotate left")}
-							sx={{ marginRight: { xs: 1.9, md: 4 }, minHeight: 40, maxWidth: 64 }}>
+							sx={{
+								marginRight: { xs: 1.9, md: 4 },
+								minHeight: 40,
+								maxWidth: 64,
+								pointerEvents: "visible",
+							}}>
 							<Diversity3Outlined color='primary' />
 						</Button>
 					</Tooltip>
@@ -72,8 +78,8 @@ const BottomNav = ({ router, home }) => {
 						<Button
 							variant='contained'
 							color='drawerBackground'
-							sx={{ minHeight: 40, maxWidth: 64 }}
-							onClick={() => console.log("rotate right")}>
+							sx={{ minHeight: 40, maxWidth: 64, pointerEvents: "visible" }}
+							onClick={() => router.push("/capstone-competition")}>
 							<EmojiEventsOutlined color='primary' />
 						</Button>
 					</Tooltip>
@@ -87,7 +93,7 @@ const BottomNav = ({ router, home }) => {
 					<Button
 						variant='contained'
 						color={home ? "startButtonGreen" : "stopButtonRed"}
-						sx={{ minWidth: "113px" }}
+						sx={{ minWidth: "113px", pointerEvents: "visible" }}
 						style={{
 							textTransform: "none",
 							color: "white",
@@ -119,7 +125,7 @@ const BottomNav = ({ router, home }) => {
 							onClick={() => {
 								router.push("/modules");
 							}}
-							sx={{ padding: 0, minHeight: 40, maxWidth: 64 }}>
+							sx={{ padding: 0, minHeight: 40, maxWidth: 64, pointerEvents: "visible" }}>
 							<BoltOutlined color='primary' />
 						</Button>
 					</Tooltip>
@@ -139,7 +145,7 @@ const BottomNav = ({ router, home }) => {
 							color='drawerBackground'
 							onClick={() => router.push("/controller")}
 							size='small'
-							sx={{ padding: 0, maxWidth: 64 }}>
+							sx={{ padding: 0, maxWidth: 64, pointerEvents: "visible" }}>
 							<VideogameAssetOutlined color='primary' />
 						</Button>
 					</Tooltip>
@@ -158,10 +164,10 @@ const BottomNav = ({ router, home }) => {
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => {
-								console.log("reset");
+								router.push("/application");
 							}}
 							size='small'
-							sx={{ maxWidth: 64 }}>
+							sx={{ maxWidth: 64, pointerEvents: "visible" }}>
 							<Terminal color='primary' />
 						</Button>
 					</Tooltip>

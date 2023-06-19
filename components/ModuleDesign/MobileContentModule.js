@@ -66,7 +66,7 @@ function MobileContentModule() {
 				}}>
 				<Box className={`${styles.slopeTopMobile} ${styles.yellowMobile}`} sx={{ zIndex: 2 }} />
 				<Box className={`${styles.slopeTopMobileOffset} ${styles.white}`} sx={{ zIndex: 1 }} />
-				<Container className='noselect' maxWidth='xl'>
+				<Container className='noselect' maxWidth='xl' sx={{ zIndex: 3 }}>
 					<Grid
 						container
 						spacing={2}
