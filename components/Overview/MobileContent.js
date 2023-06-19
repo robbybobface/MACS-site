@@ -23,16 +23,6 @@ import { MACSFlowchart } from "../../assets/macs_flowchart";
 import ImageCaption from "../ImageCaption";
 import { MACSLogoGrey } from "../../assets/macs_logo_grey";
 import { MACSLogoBlue } from "../../assets/macs_logo_light_blue";
-import { HexagonsAltTwo } from "../../utils/Hexagons";
-import {
-	getWidthOffset,
-	getHeightOffset,
-	gridScaler,
-	ModuleSVG,
-	getElevation,
-	getModuleBackgroundColor,
-	GeneratedHexagon,
-} from "../../utils/HelperFunctions";
 import PageTenMobile from "./PageTenMobile";
 import BlurHashedImage from "../Partials/BlurHashedImage";
 
@@ -45,6 +35,28 @@ const Trail = ({ open, children }) => {
 		y: open ? 0 : 50,
 		// height: open ? 110 : 0,
 		from: { opacity: 0, x: 10, y: 50 },
+	});
+	return (
+		<>
+			{trail.map(({ ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
+
+const TrailAlt = ({ open, children, delay }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 3, tension: 1000, friction: 100 },
+		opacity: open ? 1 : 0,
+		x: open ? 0 : -40,
+		from: { opacity: 0, x: -40 },
+		delay: delay ?? 0,
+		backdropBlur: "blur(7px)",
+		zIndex: 1000,
 	});
 	return (
 		<>
@@ -249,30 +261,34 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									item
 									xs={12}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.darkGreyBox}
-										sx={{
-											borderRadius: 2,
-											py: { xs: 1, md: 4 },
-											px: { xs: 2, md: 6 },
-										}}>
-										<Typography
-											textAlign='justify'
-											fontSize={"20px"}
-											color={"white"}
-											sx={{ fontSize: { xs: "14px", smMinus: "15px", sm: "16px", md: "20px" } }}>
-											In recent years, video gaming has become a cornerstone of digital
-											entertainment. Despite this, the rigid form factor of controllers and their
-											proprietary interfaces make for an inflexible and inaccessible gaming
-											experience that alienates a vast percentage of the population. Although
-											companies like Microsoft and Sony have developed their own modular
-											controllers, their attempts have left something to be desired. The MACS
-											(Modular Accessible Controller System) seeks to address these problems using
-											specially designed, hot-swappable input modules that allow users to
-											customize their controller according to their needs and preferences,
-											enabling a more personalized and immersive experience.
-										</Typography>
-									</Box>
+									<TrailAlt open={open} delay={150}>
+										<Box
+											className={boxStyles.darkGreyBox}
+											sx={{
+												borderRadius: 2,
+												py: { xs: 1, md: 4 },
+												px: { xs: 2, md: 6 },
+											}}>
+											<Typography
+												textAlign='justify'
+												fontSize={"20px"}
+												color={"white"}
+												sx={{
+													fontSize: { xs: "14px", smMinus: "15px", sm: "16px", md: "20px" },
+												}}>
+												In recent years, video gaming has become a cornerstone of digital
+												entertainment. Despite this, the rigid form factor of controllers and
+												their proprietary interfaces make for an inflexible and inaccessible
+												gaming experience that alienates a vast percentage of the population.
+												Although companies like Microsoft and Sony have developed their own
+												modular controllers, their attempts have left something to be desired.
+												The MACS (Modular Accessible Controller System) seeks to address these
+												problems using specially designed, hot-swappable input modules that
+												allow users to customize their controller according to their needs and
+												preferences, enabling a more personalized and immersive experience.
+											</Typography>
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -280,63 +296,67 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 									sm={6}
 									md={6}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.whiteBox}
-										sx={{
-											maxWidth: 290,
-											minHeight: { xs: 175, md: 200 },
-											py: { xs: 1, md: 2 },
-											px: { xs: 3, md: 4 },
-											display: "flex",
-											flexDirection: "column",
-											justifyContent: "space-evenly",
-											alignItems: "flex-start",
-										}}>
+									<TrailAlt open={open} delay={200}>
 										<Box
+											className={boxStyles.whiteBox}
 											sx={{
+												maxWidth: 290,
+												minHeight: { xs: 175, md: 200 },
+												py: { xs: 1, md: 2 },
+												px: { xs: 3, md: 4 },
 												display: "flex",
 												flexDirection: "column",
-												justifyContent: "flex-start",
-												mt: -2,
+												justifyContent: "space-evenly",
+												alignItems: "flex-start",
 											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='hexagonBlueFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
-												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
-												Accessibility
-											</Typography>
-											<Divider sx={{ borderColor: "hexagonBlueFull.main", borderWidth: 2 }} />
+											<Box
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													justifyContent: "flex-start",
+													mt: -2,
+												}}>
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='hexagonBlueFull.main'
+													fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+													sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
+													Accessibility
+												</Typography>
+												<Divider sx={{ borderColor: "hexagonBlueFull.main", borderWidth: 2 }} />
+											</Box>
+											<Box
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+												}}>
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='hexagonRedFull.main'
+													fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+													sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
+													Repairability
+												</Typography>
+												<Divider sx={{ borderColor: "hexagonRedFull.main", borderWidth: 2 }} />
+											</Box>
+											<Box
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+												}}>
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='hexagonGreenFull.main'
+													fontSize={{ xs: "1.75rem", md: "2.5rem" }}
+													sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
+													Customizability
+												</Typography>
+												<Divider
+													sx={{ borderColor: "hexagonGreenFull.main", borderWidth: 2 }}
+												/>
+											</Box>
 										</Box>
-										<Box
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='hexagonRedFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
-												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
-												Repairability
-											</Typography>
-											<Divider sx={{ borderColor: "hexagonRedFull.main", borderWidth: 2 }} />
-										</Box>
-										<Box
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='hexagonGreenFull.main'
-												fontSize={{ xs: "1.75rem", md: "2.5rem" }}
-												sx={{ textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>
-												Customizability
-											</Typography>
-											<Divider sx={{ borderColor: "hexagonGreenFull.main", borderWidth: 2 }} />
-										</Box>
-									</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -349,31 +369,33 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 										alignItems: "center",
 										margin: 0,
 									}}>
-									<Box
-										className={boxStyles.lightGreyBox}
-										sx={{
-											maxWidth: 275,
-											py: 2,
-											px: { xs: 4, sm: 2, md: 6 },
-											display: "flex",
-											flexDirection: "column",
-											justifyContent: "space-evenly",
-											alignItems: "center",
-											m: 0,
-										}}>
-										<Typography
-											fontFamily={"Gilroy-Bold"}
-											fontSize={"30px"}
-											sx={{ mb: 2, textAlign: "center" }}>
-											2.2 Billion Gamers
-										</Typography>
-										<Typography
-											fontFamily={"Gilroy-Bold"}
-											fontSize={"30px"}
-											sx={{ textAlign: "center" }}>
-											23% are disabled
-										</Typography>
-									</Box>
+									<TrailAlt open={open} delay={250}>
+										<Box
+											className={boxStyles.lightGreyBox}
+											sx={{
+												maxWidth: 275,
+												py: 2,
+												px: { xs: 4, sm: 2, md: 6 },
+												display: "flex",
+												flexDirection: "column",
+												justifyContent: "space-evenly",
+												alignItems: "center",
+												m: 0,
+											}}>
+											<Typography
+												fontFamily={"Gilroy-Bold"}
+												fontSize={"30px"}
+												sx={{ mb: 2, textAlign: "center" }}>
+												2.2 Billion Gamers
+											</Typography>
+											<Typography
+												fontFamily={"Gilroy-Bold"}
+												fontSize={"30px"}
+												sx={{ textAlign: "center" }}>
+												23% are disabled
+											</Typography>
+										</Box>
+									</TrailAlt>
 								</Grid>
 							</Grid>
 						</Grid>

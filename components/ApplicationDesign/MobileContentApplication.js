@@ -40,6 +40,26 @@ const Trail = ({ open, children }) => {
 	);
 };
 
+const TrailAlt = ({ open, children, delay }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 5, tension: 2000, friction: 200 },
+		opacity: open ? 1 : 0,
+		x: open ? 0 : -40,
+		from: { opacity: 0, x: -40 },
+		delay: delay ?? 0,
+	});
+	return (
+		<>
+			{trail.map(({ ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
+
 function MobileContentApplication() {
 	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
 	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
@@ -154,39 +174,42 @@ function MobileContentApplication() {
 									xs={12}
 									sm={10}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.darkGreyBox}
-										sx={{
-											borderRadius: 2,
-											py: { xs: 1, md: 3, lg: 3.5, xl: 4 },
-											px: { xs: 2, md: 4, lg: 5, xl: 6 },
-										}}>
-										<Typography
-											textAlign='justify'
-											fontSize={"20px"}
-											color={"white"}
+									<TrailAlt open={open} delay={150}>
+										<Box
+											className={boxStyles.darkGreyBox}
 											sx={{
-												fontSize: {
-													xs: "14px",
-													md: "14px",
-													mdPlus: "15px",
-													lg: "17px",
-													xl: "19px",
-												},
+												borderRadius: 2,
+												py: { xs: 1, md: 3, lg: 3.5, xl: 4 },
+												px: { xs: 2, md: 4, lg: 5, xl: 6 },
 											}}>
-											The application built for the MACS was designed to give users the ability to
-											configure their controller to their unique needs. The application was built
-											using Electron and React, and is available on Windows. The application is
-											designed to be accessible, intuitive and easy to use, with a simple and
-											clean interface that shows the real-time topology of the controller. Wherein
-											users can easily configure the inputs of their controller by simply clicking
-											on the module they want to configure, and then selecting the input they want
-											to assign to that module. Finally, the application also handles the virtual
-											controller emulation, where the inputs from the MACS are translated into
-											virtual controller inputs, based on the user's configurations, that can be
-											used in any game.
-										</Typography>
-									</Box>
+											<Typography
+												textAlign='justify'
+												fontSize={"20px"}
+												color={"white"}
+												sx={{
+													fontSize: {
+														xs: "14px",
+														md: "14px",
+														mdPlus: "15px",
+														lg: "17px",
+														xl: "19px",
+													},
+												}}>
+												The application built for the MACS was designed to give users the
+												ability to configure their controller to their unique needs. The
+												application was built using Electron and React, and is available on
+												Windows. The application is designed to be accessible, intuitive and
+												easy to use, with a simple and clean interface that shows the real-time
+												topology of the controller. Wherein users can easily configure the
+												inputs of their controller by simply clicking on the module they want to
+												configure, and then selecting the input they want to assign to that
+												module. Finally, the application also handles the virtual controller
+												emulation, where the inputs from the MACS are translated into virtual
+												controller inputs, based on the user's configurations, that can be used
+												in any game.
+											</Typography>
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -200,22 +223,32 @@ function MobileContentApplication() {
 										alignItems: "center",
 										position: "relative",
 									}}>
-									<Card
-										elevation={4}
-										sx={{
-											display: "flex",
-											alignSelf: "stretch",
-											position: "relative",
-											zIndex: 100,
-										}}>
-										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=h-1500'
-											hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
-											alt='macs application'
-											height={getImageSize()}
-										/>
-									</Card>
-									<ImageCaption caption={"Topology"} light={false} />
+									<TrailAlt open={open} delay={200}>
+										<Box
+											sx={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												position: "relative",
+											}}>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													alignSelf: "stretch",
+													position: "relative",
+													zIndex: 100,
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=h-1500'
+													hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
+													alt='macs application'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Topology"} light={false} />
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -229,22 +262,32 @@ function MobileContentApplication() {
 										alignItems: "center",
 										position: "relative",
 									}}>
-									<Card
-										elevation={4}
-										sx={{
-											display: "flex",
-											alignSelf: "stretch",
-											position: "relative",
-											zIndex: 100,
-										}}>
-										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
-											hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
-											alt='application joystick configuration'
-											height={getImageSize()}
-										/>
-									</Card>
-									<ImageCaption caption={"Configuration"} light={false} />
+									<TrailAlt open={open} delay={250}>
+										<Box
+											sx={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												position: "relative",
+											}}>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													alignSelf: "stretch",
+													position: "relative",
+													zIndex: 100,
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=h-1500'
+													hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
+													alt='application joystick configuration'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Configuration"} light={false} />
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -258,22 +301,32 @@ function MobileContentApplication() {
 										alignItems: "center",
 										position: "relative",
 									}}>
-									<Card
-										elevation={4}
-										sx={{
-											display: "flex",
-											alignSelf: "stretch",
-											position: "relative",
-											zIndex: 100,
-										}}>
-										<BlurHashedImage
-											src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=h-1500'
-											hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
-											alt='macs emulation in Minecraft'
-											height={getImageSize()}
-										/>
-									</Card>
-									<ImageCaption caption={"Emulation"} light={false} />
+									<TrailAlt open={open} delay={300}>
+										<Box
+											sx={{
+												display: "flex",
+												justifyContent: "center",
+												alignItems: "center",
+												position: "relative",
+											}}>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													alignSelf: "stretch",
+													position: "relative",
+													zIndex: 100,
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=h-1500'
+													hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
+													alt='macs emulation in Minecraft'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Emulation"} light={false} />
+										</Box>
+									</TrailAlt>
 								</Grid>
 							</Grid>
 						</Grid>

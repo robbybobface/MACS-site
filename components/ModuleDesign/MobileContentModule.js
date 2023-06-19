@@ -32,6 +32,26 @@ const Trail = ({ open, children }) => {
 	);
 };
 
+const TrailAlt = ({ open, children, delay }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 5, tension: 1500, friction: 150 },
+		opacity: open ? 1 : 0,
+		y: open ? 0 : 100,
+		from: { opacity: 0, y: 100 },
+		delay: delay ?? 0,
+	});
+	return (
+		<>
+			{trail.map(({ ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
+
 function MobileContentModule() {
 	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
 	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
@@ -120,31 +140,36 @@ function MobileContentModule() {
 									item
 									xs={12}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.darkGreyBox}
-										sx={{
-											borderRadius: 2,
-											py: { xs: 1, md: 4 },
-											px: { xs: 2, md: 6 },
-										}}>
-										<Typography
-											textAlign='justify'
-											fontSize={"20px"}
-											color={"white"}
-											sx={{ fontSize: { xs: "14px", smMinus: "15px", sm: "16px", md: "20px" } }}>
-											To facilitate I2C communication, 2 custom PCBs were developed, one for the
-											central hub, and one for any given input module. These PCBs are mostly
-											identical, with a few minor changes to account for the fact that the central
-											hub has a different role than any other module. The central hub PCB only has
-											5 connectors, while the general PCB has 6 connectors, one for each side. The
-											central hub uses one side for interfacing with the application on a
-											computer, so the Raspberry Pi Pico is shifted towards that side to allow for
-											easy USB connection. This also means that the central hub is powered over
-											USB, while the other modules are powered via a battery pack in the central
-											hub that feeds a power bus though the 6-pin header connectors. The general
-											PCB is equipped with through hole cutouts for each supported input type.
-										</Typography>
-									</Box>
+									<TrailAlt open={open} delay={150}>
+										<Box
+											className={boxStyles.darkGreyBox}
+											sx={{
+												borderRadius: 2,
+												py: { xs: 1, md: 4 },
+												px: { xs: 2, md: 6 },
+											}}>
+											<Typography
+												textAlign='justify'
+												fontSize={"20px"}
+												color={"white"}
+												sx={{
+													fontSize: { xs: "14px", smMinus: "15px", sm: "16px", md: "20px" },
+												}}>
+												To facilitate I2C communication, 2 custom PCBs were developed, one for
+												the central hub, and one for any given input module. These PCBs are
+												mostly identical, with a few minor changes to account for the fact that
+												the central hub has a different role than any other module. The central
+												hub PCB only has 5 connectors, while the general PCB has 6 connectors,
+												one for each side. The central hub uses one side for interfacing with
+												the application on a computer, so the Raspberry Pi Pico is shifted
+												towards that side to allow for easy USB connection. This also means that
+												the central hub is powered over USB, while the other modules are powered
+												via a battery pack in the central hub that feeds a power bus though the
+												6-pin header connectors. The general PCB is equipped with through hole
+												cutouts for each supported input type.
+											</Typography>
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -157,23 +182,25 @@ function MobileContentModule() {
 										zIndex: 100,
 										mb: { xs: 5, sm: 0 },
 									}}>
-									<Box
-										sx={{
-											position: "relative",
-										}}>
-										<Box className={isMD ? "hex-mobile" : "hex"}>
-											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
-												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
-													hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
-													alt='general pcb design'
-													height={"auto"}
-													hexagon={true}
-												/>
+									<TrailAlt open={open} delay={200}>
+										<Box
+											sx={{
+												position: "relative",
+											}}>
+											<Box className={isMD ? "hex-mobile" : "hex"}>
+												<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+													<BlurHashedImage
+														src='https://ik.imagekit.io/5ywj5edvn/general-pcb.png'
+														hash='L07TnUk:00D,UEcCQmMg00-SM0E4'
+														alt='general pcb design'
+														height={"auto"}
+														hexagon={true}
+													/>
+												</Box>
 											</Box>
+											<ImageCaptionAlt caption={"General PCB"} light={false} center={true} />
 										</Box>
-										<ImageCaptionAlt caption={"General PCB"} light={false} center={true} />
-									</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -186,20 +213,22 @@ function MobileContentModule() {
 										margin: 0,
 										zIndex: 100,
 									}}>
-									<Box sx={{ position: "relative" }}>
-										<Box className={isMD ? "hex-mobile" : "hex"}>
-											<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
-												<BlurHashedImage
-													src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
-													hash='L07K3vI:00$*~p%K4n9b04~A@q02'
-													alt='central hub pcb design'
-													height={"auto"}
-													hexagon={true}
-												/>
+									<TrailAlt open={open} delay={300}>
+										<Box sx={{ position: "relative" }}>
+											<Box className={isMD ? "hex-mobile" : "hex"}>
+												<Box className={isMD ? "hex-background-mobile" : "hex-background"}>
+													<BlurHashedImage
+														src='https://ik.imagekit.io/5ywj5edvn/central-hub-pcb.png'
+														hash='L07K3vI:00$*~p%K4n9b04~A@q02'
+														alt='central hub pcb design'
+														height={"auto"}
+														hexagon={true}
+													/>
+												</Box>
 											</Box>
+											<ImageCaptionAlt caption={"Central Hub"} light={false} center={true} />
 										</Box>
-										<ImageCaptionAlt caption={"Central Hub"} light={false} center={true} />
-									</Box>
+									</TrailAlt>
 								</Grid>
 							</Grid>
 						</Grid>

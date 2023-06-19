@@ -38,7 +38,7 @@ const TrailAlt = ({ open, children, delay }) => {
 		config: { mass: 5, tension: 1500, friction: 150 },
 		opacity: open ? 1 : 0,
 		y: open ? 0 : 40,
-		from: { opacity: 0, y: 0 },
+		from: { opacity: 0, y: 40 },
 		delay: delay ?? 0,
 	});
 	return (

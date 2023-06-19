@@ -83,7 +83,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					alt={alt}
 					height={height}
 					width={width ?? "auto"}
-					sx={{ objectFit: "contain", marginTop: size }}
+					sx={{ objectFit: "cover", marginTop: size }}
 					image={src}
 					{...props}
 				/>

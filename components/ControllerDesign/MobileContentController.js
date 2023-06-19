@@ -37,6 +37,26 @@ const Trail = ({ open, children }) => {
 	);
 };
 
+const TrailAlt = ({ open, children, delay }) => {
+	const items = React.Children.toArray(children);
+	const trail = useTrail(items.length, {
+		config: { mass: 5, tension: 2000, friction: 200 },
+		opacity: open ? 1 : 0,
+		y: open ? 0 : -40,
+		from: { opacity: 0, y: 0 },
+		delay: delay ?? 0,
+	});
+	return (
+		<>
+			{trail.map(({ ...style }, index) => (
+				<animated.div key={index} style={style}>
+					<animated.div>{items[index]}</animated.div>
+				</animated.div>
+			))}
+		</>
+	);
+};
+
 function MobileContentController() {
 	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
 	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
@@ -224,37 +244,39 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 									sm={10}
 									md={12}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										className={boxStyles.darkGreyBox}
-										sx={{
-											borderRadius: 2,
-											py: { xs: 1, md: 3, lg: 3.5, xl: 4 },
-											px: { xs: 2, md: 4, lg: 5, xl: 6 },
-										}}>
-										<Typography
-											textAlign='justify'
-											fontSize={"20px"}
-											color={"white"}
+									<TrailAlt open={open} delay={75}>
+										<Box
+											className={boxStyles.darkGreyBox}
 											sx={{
-												fontSize: {
-													xs: "14px",
-													md: "15px",
-													mdPlus: "16px",
-													lg: "18px",
-													xl: "20px",
-												},
+												borderRadius: 2,
+												py: { xs: 1, md: 3, lg: 3.5, xl: 4 },
+												px: { xs: 2, md: 4, lg: 5, xl: 6 },
 											}}>
-											The MACS was designed around allowing the user full control in customizing
-											the controller for their unique needs. To achieve this, the MACS uses
-											systems of identification and communication between each module and the
-											central hub. Module positions are identified by unique PWM signals sent on
-											the I2C bus. And because of their hexagonal shapes, module positions are
-											represented using a hexagonal coordinate system. The input states of each
-											module are communicated to the central hub using the I2C bus, and then are
-											subsequently packaged into individual USB data packets and sent to the
-											application.
-										</Typography>
-									</Box>
+											<Typography
+												textAlign='justify'
+												fontSize={"20px"}
+												color={"white"}
+												sx={{
+													fontSize: {
+														xs: "14px",
+														md: "15px",
+														mdPlus: "16px",
+														lg: "18px",
+														xl: "20px",
+													},
+												}}>
+												The MACS was designed around allowing the user full control in
+												customizing the controller for their unique needs. To achieve this, the
+												MACS uses systems of identification and communication between each
+												module and the central hub. Module positions are identified by unique
+												PWM signals sent on the I2C bus. And because of their hexagonal shapes,
+												module positions are represented using a hexagonal coordinate system.
+												The input states of each module are communicated to the central hub
+												using the I2C bus, and then are subsequently packaged into individual
+												USB data packets and sent to the application.
+											</Typography>
+										</Box>
+									</TrailAlt>
 								</Grid>
 							</Grid>
 							<Grid
@@ -273,46 +295,48 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 									sm={3}
 									md={4}
 									sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-									<Box
-										sx={{
-											position: "relative",
-											maxHeight: "234px",
-											minHeight: "115px",
-										}}>
-										<Card
-											elevation={4}
+									<TrailAlt open={open} delay={100}>
+										<Box
 											sx={{
-												display: "flex",
-												flexDirection: "column",
-												alignItems: "center",
-												justifyContent: "center",
 												position: "relative",
-												px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pb: { xs: 1, smPlus: 1, mdPlus: 1.15 },
-												backgroundColor: theme.palette.moduleBackground.main,
-												backdropFilter: "blur(7px)",
-												WebKitBackdropFilter: "blur(7px)",
 												maxHeight: "234px",
+												minHeight: "115px",
 											}}>
-											<PWMIcon size={getImageSize()} />
-											<Typography
-												mt={{ xs: 1.5, xsPlus: 2, md: 1.5 }}
-												fontSize={{
-													xs: "16px",
-													md: "17px",
-													mdPlus: "18px",
-													lg: "20px",
-													xl: "24px",
-												}}
-												fontWeight='bold'
-												textAlign='center'
-												color='white'
-												fontFamily='Gilroy-Bold'>
-												PWM
-											</Typography>
-										</Card>
-									</Box>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													alignItems: "center",
+													justifyContent: "center",
+													position: "relative",
+													px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pb: { xs: 1, smPlus: 1, mdPlus: 1.15 },
+													backgroundColor: theme.palette.moduleBackground.main,
+													backdropFilter: "blur(7px)",
+													WebKitBackdropFilter: "blur(7px)",
+													maxHeight: "234px",
+												}}>
+												<PWMIcon size={getImageSize()} />
+												<Typography
+													mt={{ xs: 1.5, xsPlus: 2, md: 1.5 }}
+													fontSize={{
+														xs: "16px",
+														md: "17px",
+														mdPlus: "18px",
+														lg: "20px",
+														xl: "24px",
+													}}
+													fontWeight='bold'
+													textAlign='center'
+													color='white'
+													fontFamily='Gilroy-Bold'>
+													PWM
+												</Typography>
+											</Card>
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -324,41 +348,43 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 										justifyContent: "center",
 										alignItems: "center",
 									}}>
-									<Box sx={{ position: "relative", maxHeight: "234px", minHeight: "115px" }}>
-										<Card
-											elevation={4}
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-												alignItems: "center",
-												justifyContent: "center",
-												position: "relative",
-												px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pb: 1,
-												backgroundColor: theme.palette.moduleBackground.main,
-												backdropFilter: "blur(7px)",
-												WebKitBackdropFilter: "blur(7px)",
-												maxHeight: "234px",
-											}}>
-											<HexagonIcon size={getImageSize()} />
-											<Typography
-												fontSize={{
-													xs: "16px",
-													md: "17px",
-													mdPlus: "18px",
-													lg: "20px",
-													xl: "24px",
-												}}
-												mt={{ xs: 1, smPlus: 0 }}
-												fontWeight='bold'
-												textAlign='center'
-												color='white'
-												fontFamily='Gilroy-Bold'>
-												I2C
-											</Typography>
-										</Card>
-									</Box>
+									<TrailAlt open={open} delay={150}>
+										<Box sx={{ position: "relative", maxHeight: "234px", minHeight: "115px" }}>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													alignItems: "center",
+													justifyContent: "center",
+													position: "relative",
+													px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pb: 1,
+													backgroundColor: theme.palette.moduleBackground.main,
+													backdropFilter: "blur(7px)",
+													WebKitBackdropFilter: "blur(7px)",
+													maxHeight: "234px",
+												}}>
+												<HexagonIcon size={getImageSize()} />
+												<Typography
+													fontSize={{
+														xs: "16px",
+														md: "17px",
+														mdPlus: "18px",
+														lg: "20px",
+														xl: "24px",
+													}}
+													mt={{ xs: 1, smPlus: 0 }}
+													fontWeight='bold'
+													textAlign='center'
+													color='white'
+													fontFamily='Gilroy-Bold'>
+													I2C
+												</Typography>
+											</Card>
+										</Box>
+									</TrailAlt>
 								</Grid>
 								<Grid
 									item
@@ -370,41 +396,43 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 										justifyContent: "center",
 										alignItems: "center",
 									}}>
-									<Box sx={{ position: "relative", maxHeight: "234px", minHeight: "115px" }}>
-										<Card
-											elevation={4}
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-												alignItems: "center",
-												justifyContent: "center",
-												position: "relative",
-												px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-												pb: 1,
-												backgroundColor: theme.palette.moduleBackground.main,
-												backdropFilter: "blur(7px)",
-												WebKitBackdropFilter: "blur(7px)",
-												maxHeight: "234px",
-											}}>
-											<USBIcon size={getImageSize()} />
-											<Typography
-												mt={{ xs: 0.5, xsPlus: -0.5, smPlus: -2 }}
-												fontSize={{
-													xs: "16px",
-													md: "17px",
-													mdPlus: "18px",
-													lg: "20px",
-													xl: "24px",
-												}}
-												fontWeight='bold'
-												textAlign='center'
-												color='white'
-												fontFamily='Gilroy-Bold'>
-												USB
-											</Typography>
-										</Card>
-									</Box>
+									<TrailAlt open={open} delay={200}>
+										<Box sx={{ position: "relative", maxHeight: "234px", minHeight: "115px" }}>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													alignItems: "center",
+													justifyContent: "center",
+													position: "relative",
+													px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
+													pb: 1,
+													backgroundColor: theme.palette.moduleBackground.main,
+													backdropFilter: "blur(7px)",
+													WebKitBackdropFilter: "blur(7px)",
+													maxHeight: "234px",
+												}}>
+												<USBIcon size={getImageSize()} />
+												<Typography
+													mt={{ xs: 0.5, xsPlus: -0.5, smPlus: -2 }}
+													fontSize={{
+														xs: "16px",
+														md: "17px",
+														mdPlus: "18px",
+														lg: "20px",
+														xl: "24px",
+													}}
+													fontWeight='bold'
+													textAlign='center'
+													color='white'
+													fontFamily='Gilroy-Bold'>
+													USB
+												</Typography>
+											</Card>
+										</Box>
+									</TrailAlt>
 								</Grid>
 							</Grid>
 						</Grid>

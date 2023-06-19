@@ -42,7 +42,7 @@ const TrailAlt = ({ open, children, delay }) => {
 		config: { mass: 5, tension: 2000, friction: 200 },
 		opacity: open ? 1 : 0,
 		x: open ? 0 : -40,
-		from: { opacity: 0, x: 0 },
+		from: { opacity: 0, x: -40 },
 		delay: delay ?? 0,
 	});
 	return (
@@ -77,7 +77,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 		if (isMDPlus) return "140px";
 		if (isLG) return "145px";
 		if (isXL) return "150px";
-		return "175px";
+		return "165px";
 	};
 
 	useEffect(() => {
@@ -347,6 +347,8 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										<Card
 											elevation={4}
 											sx={{
+												display: "flex",
+												alignSelf: "stretch",
 												position: "relative",
 											}}>
 											<BlurHashedImage
