@@ -199,37 +199,37 @@ function PageTenMobile() {
 
 	const getLogoSize = () => {
 		if (isXS) {
-			return "22min";
+			return "22max";
 		} else if (isXSPlus) {
-			return "32vmin";
+			return "20vmax";
 		} else if (isSmMinus) {
-			return "30vmin";
+			return "20vmax";
 		} else if (isSM) {
-			return "23vmin";
+			return "21vmax";
 		} else if (isSMPlus) {
-			return "22vmin";
+			return "22vmax";
 		} else if (isMD) {
-			return "20vmin";
+			return "20vmax";
 		} else {
-			return "24vmin";
+			return "24vmax";
 		}
 	};
 
 	const getLogoPaddingSize = () => {
 		if (isXS) {
-			return "24min";
+			return "24max";
 		} else if (isXSPlus) {
-			return "34vmin";
+			return "21vmax";
 		} else if (isSmMinus) {
-			return "31vmin";
+			return "21vmax";
 		} else if (isSM) {
-			return "24vmin";
+			return "22vmax";
 		} else if (isSMPlus) {
-			return "23vmin";
+			return "23vmax";
 		} else if (isMD) {
-			return "21vmin";
+			return "21vmax";
 		} else {
-			return "21vmin";
+			return "21vmax";
 		}
 	};
 
