@@ -137,7 +137,6 @@ function MobileContentTeamMACS() {
 							justifyContent: "center",
 							alignItems: "center",
 							px: { xs: 0, md: 5 },
-							zIndex: 10000,
 						}}>
 						<Grid
 							item
@@ -243,7 +242,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 													lg: "300px",
 												},
 												flex: 1,
-												zIndex: -1,
+												// zIndex: -1,
 											}}>
 											<BlurHashedImage
 												src='https://ik.imagekit.io/5ywj5edvn/capstone-competition-10.jpeg?tr=w-1800'
@@ -313,12 +312,11 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 										display: "flex",
 										justifyContent: "center",
 										alignItems: "center",
-										zIndex: -1,
+										zIndex: 100,
 									}}>
 									<TrailAlt open={open} delay={250}>
 										<Box
 											className={boxStyles.lightGreyBox}
-											zIndex={-2}
 											sx={{
 												borderRadius: 2,
 												py: { xs: 1.5, smMinus: 1.5, sm: 2, md: 2, lg: 2 },
@@ -358,6 +356,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 													display: "flex",
 													justifyContent: "center",
 													alignItems: "center",
+													zIndex: 100,
 												}}>
 												<Grid item xs={11} xsPlus={4}>
 													<Card

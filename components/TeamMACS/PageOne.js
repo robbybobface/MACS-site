@@ -388,380 +388,368 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 								height: "100%",
 							}}>
 							<Grid
-								container
-								spacing={1}
+								item
+								xs={12}
+								md={9}
+								lg={7}
 								sx={{
 									display: "flex",
-									flexDirection: "column",
+									justifyContent: "center",
+									alignItems: "center",
+									flex: 1,
+									width: "100%",
+									height: "100%",
+								}}>
+								<TrailAlt open={open} delay={150}>
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											maxHeight: { xs: "200px", md: "250px", lg: "300px" },
+											flex: 1,
+											zIndex: -1,
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/capstone-competition-10.jpeg?tr=w-1800'
+											hash='LgF#s[%1oexa~VofWBjZ%LRkRkRk'
+											alt='macs team award photo'
+											height={"auto"}
+											width={"100%"}
+											team={true}
+											sx={{
+												objectPosition: "50% 15%",
+											}}
+										/>
+									</Card>
+								</TrailAlt>
+							</Grid>
+							<Grid
+								item
+								xs={12}
+								md={10}
+								lg={8}
+								sx={{
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+									zIndex: 9999,
+								}}>
+								<TrailAlt open={open} delay={200}>
+									<Box
+										className={boxStyles.darkGreyBox}
+										sx={{
+											borderRadius: 2,
+											py: { xs: 1, md: 1.5, mdPlus: 2 },
+											px: { xs: 2, md: 2.5, lg: 3 },
+											mt: -10,
+											zIndex: 100,
+										}}>
+										<Typography
+											textAlign='justify'
+											fontSize={"20px"}
+											color={"white"}
+											sx={{
+												fontSize: {
+													xs: "12px",
+													md: "13px",
+													mdPlus: "13px",
+													lg: "13px",
+													xl: "14px",
+												},
+											}}>
+											Pictured from left to right: Liam Kennedy, Natalie Potapov, Jarrett
+											Anderson, Michael McCooey, Jeff Zhou, William Freeman, and Canek
+											Fuentes-Hernandez (Advisor)
+										</Typography>
+									</Box>
+								</TrailAlt>
+							</Grid>
+							<Grid
+								item
+								xs={12}
+								md={12}
+								lgPlus={10}
+								lgPlusPlus={9}
+								sx={{
+									display: "flex",
 									justifyContent: "center",
 									alignItems: "center",
 								}}>
-								<Grid
-									item
-									xs={12}
-									md={9}
-									lg={7}
-									sx={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										flex: 1,
-										width: "100%",
-										height: "100%",
-									}}>
-									<TrailAlt open={open} delay={150}>
-										<Card
-											elevation={4}
+								<TrailAlt open={open} delay={250}>
+									<Box
+										className={boxStyles.lightGreyBox}
+										sx={{
+											borderRadius: 2,
+											py: { xs: 1, md: 2, lg: 2 },
+											px: { xs: 2, md: 2, mdPlus: 3, lg: 4 },
+											mt: { md: -2, lg: -2, lgPlus: 0 },
+										}}>
+										<Typography
+											textAlign='justify'
+											fontSize={"20px"}
+											color={"white"}
+											sx={{
+												fontSize: {
+													xs: "12px",
+													md: "13px",
+													mdPlus: "14px",
+													lg: "15px",
+													xl: "16px",
+												},
+												mb: 1,
+											}}>
+											To create the MACS, we allocated the responsibilities of the project into
+											three teams: Module, Controller, and Application. Each team comprised of two
+											main members, and collaboration between teams was frequent. The Module team
+											was responsible for the design and assembly of the modules, the Controller
+											System team was responsible for the design and implementation of the
+											controller software architecture, and the Application team was responsible
+											for the design and implementation of the desktop application. Throughout the
+											project the team was advised by Professor Canek Fuentes-Hernandez.
+										</Typography>
+										<Grid
+											container
+											spacing={2}
 											sx={{
 												display: "flex",
-												position: "relative",
-												maxHeight: { xs: "200px", md: "250px", lg: "300px" },
-												flex: 1,
-												zIndex: -1,
+												justifyContent: "center",
+												alignItems: "center",
 											}}>
-											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/capstone-competition-10.jpeg?tr=w-1800'
-												hash='LgF#s[%1oexa~VofWBjZ%LRkRkRk'
-												alt='macs team award photo'
-												height={"auto"}
-												width={"100%"}
-												team={true}
-												sx={{
-													objectPosition: "50% 15%",
-												}}
-											/>
-										</Card>
-									</TrailAlt>
-								</Grid>
-								<Grid
-									item
-									xs={12}
-									md={10}
-									lg={8}
-									sx={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-									}}>
-									<TrailAlt open={open} delay={200}>
-										<Box
-											className={boxStyles.darkGreyBox}
-											sx={{
-												borderRadius: 2,
-												py: { xs: 1, md: 2 },
-												px: { xs: 2, md: 2.5, lg: 3 },
-												mt: -10,
-												zIndex: 100,
-											}}>
-											<Typography
-												textAlign='justify'
-												fontSize={"20px"}
-												color={"white"}
-												sx={{
-													fontSize: {
-														xs: "12px",
-														md: "13px",
-														mdPlus: "13px",
-														lg: "13px",
-														xl: "14px",
-													},
-												}}>
-												Pictured from left to right: Liam Kennedy, Natalie Potapov, Jarrett
-												Anderson, Michael McCooey, Jeff Zhou, William Freeman, and Canek
-												Fuentes-Hernandez (Advisor)
-											</Typography>
-										</Box>
-									</TrailAlt>
-								</Grid>
-								<Grid
-									item
-									xs={12}
-									md={12}
-									lgPlus={10}
-									lgPlusPlus={9}
-									sx={{
-										display: "flex",
-										justifyContent: "center",
-										alignItems: "center",
-										zIndex: -1,
-									}}>
-									<TrailAlt open={open} delay={250}>
-										<Box
-											className={boxStyles.lightGreyBox}
-											zIndex={-2}
-											sx={{
-												borderRadius: 2,
-												py: { xs: 1, md: 2, lg: 2 },
-												px: { xs: 2, md: 2, mdPlus: 3, lg: 4 },
-												mt: { md: -3, lg: -2, lgPlus: 0 },
-											}}>
-											<Typography
-												textAlign='justify'
-												fontSize={"20px"}
-												color={"white"}
-												sx={{
-													fontSize: {
-														xs: "12px",
-														md: "13px",
-														mdPlus: "14px",
-														lg: "15px",
-														xl: "16px",
-													},
-													mb: 1,
-												}}>
-												To create the MACS, we allocated the responsibilities of the project
-												into three teams: Module, Controller, and Application. Each team
-												comprised of two main members, and collaboration between teams was
-												frequent. The Module team was responsible for the design and assembly of
-												the modules, the Controller System team was responsible for the design
-												and implementation of the controller software architecture, and the
-												Application team was responsible for the design and implementation of
-												the desktop application. Throughout the project the team was advised by
-												Professor Canek Fuentes-Hernandez.
-											</Typography>
-											<Grid
-												container
-												spacing={2}
-												sx={{
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-												}}>
-												<Grid item xs={4}>
-													<Card
-														elevation={4}
-														className={boxStyles.whiteBox}
+											<Grid item xs={4}>
+												<Card
+													elevation={4}
+													className={boxStyles.whiteBox}
+													sx={{
+														position: "relative",
+														display: "flex",
+														flex: 1,
+													}}>
+													<CardContent
 														sx={{
-															position: "relative",
 															display: "flex",
 															flex: 1,
-														}}>
-														<CardContent
-															sx={{
-																display: "flex",
-																flex: 1,
-																flexDirection: { xs: "row", md: "column" },
-																position: "relative",
-																alignItems: "center",
-																justifyContent: "center",
-																alignSelf: "stretch",
-																p: "12px !important",
-																backgroundColor: theme.palette.hexagonYellowAlt.main,
-																transition: "all ease-in 0.25s",
-																"&:hover": {
-																	backgroundColor: theme.palette.hexagonYellow.main,
-																},
-															}}>
-															<Grid
-																container
-																spacing={1}
-																sx={{
-																	display: "flex",
-																	justifyContent: "center",
-																	alignItems: "center",
-																}}>
-																<Grid item xs={8} md={12}>
-																	<Typography
-																		fontSize={{
-																			xs: "16px",
-																			md: "16px",
-																			mdPlus: "16px",
-																			lg: "17px",
-																			xl: "18px",
-																		}}
-																		fontWeight='bold'
-																		textAlign='center'
-																		color='backgroundBlack.main'
-																		fontFamily='Gilroy-Bold'>
-																		MODULE
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		Michael McCooey E'23
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		Jeff Zhou E'23
-																	</Typography>
-																</Grid>
-															</Grid>
-														</CardContent>
-													</Card>
-												</Grid>
-												<Grid item xs={4}>
-													<Card
-														elevation={4}
-														className={boxStyles.whiteBox}
-														sx={{
+															flexDirection: { xs: "row", md: "column" },
 															position: "relative",
-															display: "flex",
+															alignItems: "center",
+															justifyContent: "center",
 															alignSelf: "stretch",
+															p: "12px !important",
+															backgroundColor: theme.palette.hexagonYellowAlt.main,
+															transition: "all ease-in 0.25s",
+															"&:hover": {
+																backgroundColor: theme.palette.hexagonYellow.main,
+															},
 														}}>
-														<CardContent
+														<Grid
+															container
+															spacing={1}
 															sx={{
 																display: "flex",
-																flex: 1,
-																flexDirection: { xs: "row", md: "column" },
-																position: "relative",
-																alignItems: "center",
 																justifyContent: "center",
-																alignSelf: "stretch",
-																p: "12px !important",
-																backgroundColor: theme.palette.hexagonGreenAlt.main,
-																transition: "all ease-in 0.25s",
-																"&:hover": {
-																	backgroundColor: theme.palette.hexagonGreen.main,
-																},
-															}}>
-															<Grid
-																container
-																spacing={1}
-																sx={{
-																	display: "flex",
-																	justifyContent: "center",
-																	alignItems: "center",
-																}}>
-																<Grid item xs={8} md={12}>
-																	<Typography
-																		fontSize={{
-																			xs: "16px",
-																			md: "16px",
-																			mdPlus: "16px",
-																			lg: "17px",
-																			xl: "18px",
-																		}}
-																		fontWeight='bold'
-																		textAlign='center'
-																		color='backgroundBlack.main'
-																		fontFamily='Gilroy-Bold'>
-																		CONTROLLER
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		Liam Kennedy E'23
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		Natalie Potapov E'23
-																	</Typography>
-																</Grid>
-															</Grid>
-														</CardContent>
-													</Card>
-												</Grid>
-												<Grid item xs={4}>
-													<Card
-														elevation={4}
-														className={boxStyles.whiteBox}
-														sx={{
-															position: "relative",
-															display: "flex",
-															alignSelf: "stretch",
-														}}>
-														<CardContent
-															sx={{
-																display: "flex",
-																flex: 1,
-																flexDirection: { xs: "row", md: "column" },
-																position: "relative",
 																alignItems: "center",
-																justifyContent: "center",
-																alignSelf: "stretch",
-																p: "12px !important",
-																backgroundColor: theme.palette.hexagonRedAlt.main,
-																transition: "all ease-in 0.25s",
-																"&:hover": {
-																	backgroundColor: theme.palette.hexagonRed.main,
-																},
 															}}>
-															<Grid
-																container
-																spacing={1}
-																sx={{
-																	display: "flex",
-																	justifyContent: "center",
-																	alignItems: "center",
-																}}>
-																<Grid item xs={8} md={12}>
-																	<Typography
-																		fontSize={{
-																			xs: "16px",
-																			md: "16px",
-																			mdPlus: "16px",
-																			lg: "17px",
-																			xl: "18px",
-																		}}
-																		fontWeight='bold'
-																		textAlign='center'
-																		color='backgroundBlack.main'
-																		fontFamily='Gilroy-Bold'>
-																		APPLICATION
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		Jarrett Anderson E'23
-																	</Typography>
-																	<Typography
-																		color='text.secondary'
-																		textAlign='center'
-																		fontSize={{
-																			xs: "14px",
-																			md: "14px",
-																			mdPlus: "14px",
-																			lg: "14px",
-																			xl: "14px",
-																		}}>
-																		William Freeman E'23
-																	</Typography>
-																</Grid>
+															<Grid item xs={8} md={12}>
+																<Typography
+																	fontSize={{
+																		xs: "16px",
+																		md: "16px",
+																		mdPlus: "16px",
+																		lg: "17px",
+																		xl: "18px",
+																	}}
+																	fontWeight='bold'
+																	textAlign='center'
+																	color='backgroundBlack.main'
+																	fontFamily='Gilroy-Bold'>
+																	MODULE
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	Michael McCooey E'23
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	Jeff Zhou E'23
+																</Typography>
 															</Grid>
-														</CardContent>
-													</Card>
-												</Grid>
+														</Grid>
+													</CardContent>
+												</Card>
 											</Grid>
-										</Box>
-									</TrailAlt>
-								</Grid>
+											<Grid item xs={4}>
+												<Card
+													elevation={4}
+													className={boxStyles.whiteBox}
+													sx={{
+														position: "relative",
+														display: "flex",
+														alignSelf: "stretch",
+													}}>
+													<CardContent
+														sx={{
+															display: "flex",
+															flex: 1,
+															flexDirection: { xs: "row", md: "column" },
+															position: "relative",
+															alignItems: "center",
+															justifyContent: "center",
+															alignSelf: "stretch",
+															p: "12px !important",
+															backgroundColor: theme.palette.hexagonGreenAlt.main,
+															transition: "all ease-in 0.25s",
+															"&:hover": {
+																backgroundColor: theme.palette.hexagonGreen.main,
+															},
+														}}>
+														<Grid
+															container
+															spacing={1}
+															sx={{
+																display: "flex",
+																justifyContent: "center",
+																alignItems: "center",
+															}}>
+															<Grid item xs={8} md={12}>
+																<Typography
+																	fontSize={{
+																		xs: "16px",
+																		md: "16px",
+																		mdPlus: "16px",
+																		lg: "17px",
+																		xl: "18px",
+																	}}
+																	fontWeight='bold'
+																	textAlign='center'
+																	color='backgroundBlack.main'
+																	fontFamily='Gilroy-Bold'>
+																	CONTROLLER
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	Liam Kennedy E'23
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	Natalie Potapov E'23
+																</Typography>
+															</Grid>
+														</Grid>
+													</CardContent>
+												</Card>
+											</Grid>
+											<Grid item xs={4}>
+												<Card
+													elevation={4}
+													className={boxStyles.whiteBox}
+													sx={{
+														position: "relative",
+														display: "flex",
+														alignSelf: "stretch",
+													}}>
+													<CardContent
+														sx={{
+															display: "flex",
+															flex: 1,
+															flexDirection: { xs: "row", md: "column" },
+															position: "relative",
+															alignItems: "center",
+															justifyContent: "center",
+															alignSelf: "stretch",
+															p: "12px !important",
+															backgroundColor: theme.palette.hexagonRedAlt.main,
+															transition: "all ease-in 0.25s",
+															"&:hover": {
+																backgroundColor: theme.palette.hexagonRed.main,
+															},
+														}}>
+														<Grid
+															container
+															spacing={1}
+															sx={{
+																display: "flex",
+																justifyContent: "center",
+																alignItems: "center",
+															}}>
+															<Grid item xs={8} md={12}>
+																<Typography
+																	fontSize={{
+																		xs: "16px",
+																		md: "16px",
+																		mdPlus: "16px",
+																		lg: "17px",
+																		xl: "18px",
+																	}}
+																	fontWeight='bold'
+																	textAlign='center'
+																	color='backgroundBlack.main'
+																	fontFamily='Gilroy-Bold'>
+																	APPLICATION
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	Jarrett Anderson E'23
+																</Typography>
+																<Typography
+																	color='text.secondary'
+																	textAlign='center'
+																	fontSize={{
+																		xs: "14px",
+																		md: "14px",
+																		mdPlus: "14px",
+																		lg: "14px",
+																		xl: "14px",
+																	}}>
+																	William Freeman E'23
+																</Typography>
+															</Grid>
+														</Grid>
+													</CardContent>
+												</Card>
+											</Grid>
+										</Grid>
+									</Box>
+								</TrailAlt>
 							</Grid>
 						</Grid>
 					</Grid>
