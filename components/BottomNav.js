@@ -54,7 +54,7 @@ const BottomNav = ({ router, home }) => {
 						<Button
 							variant='contained'
 							color='drawerBackground'
-							onClick={() => console.log("rotate left")}
+							onClick={() => router.push("/team-members")}
 							sx={{
 								marginRight: { xs: 1.9, md: 4 },
 								minHeight: 40,

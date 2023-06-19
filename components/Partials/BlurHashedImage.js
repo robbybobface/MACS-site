@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Blurhash } from "react-blurhash";
 import theme from "../../styles/theme";
 
-function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width, vertical, nonCard, ...props }) {
+function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width, vertical, nonCard, team, ...props }) {
 	const [imageLoaded, setImageLoaded] = useState(false);
 
-	const isXS = useMediaQuery(theme.breakpoints.down("xs"));
-	const isXSPlus = useMediaQuery(theme.breakpoints.down("xsPlus"));
+	const isXS = useMediaQuery(theme.breakpoints.only("xs"));
+	const isXSPlus = useMediaQuery(theme.breakpoints.only("xsPlus"));
 	const isSMMinus = useMediaQuery(theme.breakpoints.down("smMinus"));
 	const isSM = useMediaQuery(theme.breakpoints.down("sm"));
 	const isSMPlus = useMediaQuery(theme.breakpoints.down("smPlus"));
@@ -30,6 +30,32 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 		return "400px";
 	};
 
+	const getBlurWidthTeam = () => {
+		if (isXS) return "350px";
+		if (isXSPlus) return "415px";
+		if (isSM) return "475px";
+		if (isSMPlus) return "600px";
+		if (isMD) return "700px";
+		if (isMDPlus) return "425px";
+		if (isLG) return "475px";
+		if (isLGPlus) return "500px";
+		if (isXL) return "525px";
+		return "650px";
+	};
+
+	const getBlurHeightTeam = () => {
+		if (isXS) return "220px";
+		if (isXSPlus) return "250px";
+		if (isSM) return "280px";
+		if (isSMPlus) return "300px";
+		if (isMD) return "350px";
+		if (isMDPlus) return "400px";
+		if (isLG) return "400px";
+		if (isLGPlus) return "400px";
+		if (isXL) return "400px";
+		return "40px";
+	};
+
 	const wait = () => {
 		return new Promise((resolve) => {
 			setTimeout(resolve, 1000);
@@ -49,13 +75,39 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					className='noselect'
 					sx={{
 						display: "flex",
-						width: hexagon ? 350 : height === "auto" ? 300 : height === "100%" ? 750 : "100%",
-						height: hexagon ? 350 : height === "auto" ? 200 : height === "100%" ? getBlurHeight() : height,
+						width: team
+							? "100%"
+							: hexagon
+							? 350
+							: height === "auto"
+							? 300
+							: height === "100%"
+							? 750
+							: "100%",
+						height: team
+							? "100%"
+							: hexagon
+							? 350
+							: height === "auto"
+							? 200
+							: height === "100%"
+							? getBlurHeight()
+							: height,
 					}}>
 					<Blurhash
 						hash={hash}
-						width={hexagon ? 350 : height === "auto" ? 300 : "100%"}
-						height={hexagon ? 350 : height === "auto" ? 200 : height === "100%" ? getBlurHeight() : height}
+						width={team ? getBlurWidthTeam() : hexagon ? 350 : height === "auto" ? 300 : "100%"}
+						height={
+							team
+								? getBlurHeightTeam()
+								: hexagon
+								? 350
+								: height === "auto"
+								? 200
+								: height === "100%"
+								? getBlurHeight()
+								: height
+						}
 						resolutionX={32}
 						resolutionY={32}
 						punch={1}
@@ -83,7 +135,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					alt={alt}
 					height={height}
 					width={width ?? "auto"}
-					sx={{ objectFit: "cover", marginTop: size }}
+					sx={{ objectFit: "cover", marginTop: size, objectPosition: "50% 50%" }}
 					image={src}
 					{...props}
 				/>

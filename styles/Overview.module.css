@@ -268,6 +268,16 @@
 	text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.37);
 }
 
+.purple {
+	background: rgb(200, 130, 255);
+	background: linear-gradient(60deg, rgba(200, 130, 255, 1) 0%, rgba(143, 0, 255, 1) 100%);
+}
+
+.purpleAlt {
+	background: rgb(169, 58, 255);
+	background: linear-gradient(60deg, rgba(169, 58, 255, 1) 0%, rgba(143, 0, 255, 1) 100%);
+}
+
 .black {
 	background: linear-gradient(60deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 1) 100%);
 }
