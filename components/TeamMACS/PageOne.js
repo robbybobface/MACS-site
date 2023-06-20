@@ -34,7 +34,7 @@ const Trail = ({ open, children }) => {
 const TrailAlt = ({ open, children, delay }) => {
 	const items = React.Children.toArray(children);
 	const trail = useTrail(items.length, {
-		config: { mass: 3, tension: 1000, friction: 100 },
+		config: { mass: 20, tension: 2000, friction: 200 },
 		opacity: open ? 1 : 0,
 		x: open ? 0 : -20,
 		from: { opacity: 0, x: -20 },
@@ -351,7 +351,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 									<Typography
 										color='white'
 										fontFamily={"bitcount-mono-single-line-ci"}
-										fontSize={{ xs: "6rem", mdPlus: "7rem", lg: "8rem", xl: "9rem" }}
+										fontSize={{ xs: "5rem", md: "6rem", mdPlus: "7rem", lg: "8rem", xl: "9rem" }}
 										my={-7}
 										onClick={onClick}
 										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
@@ -438,9 +438,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 												fontSize: {
 													xs: "12px",
 													md: "13px",
-													mdPlus: "13px",
-													lg: "13px",
-													xl: "14px",
+													mdPlus: "14px",
+													lg: "14px",
+													xl: "16px",
 												},
 											}}>
 											Pictured from left to right: Liam Kennedy, Natalie Potapov, Jarrett
@@ -454,8 +454,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 								item
 								xs={12}
 								md={12}
-								lgPlus={10}
-								lgPlusPlus={9}
+								lgPlus={11}
+								lgPlusPlus={10}
+								xl={11}
 								sx={{
 									display: "flex",
 									justifyContent: "center",
@@ -468,7 +469,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 											borderRadius: 2,
 											py: { xs: 1, md: 2, lg: 2 },
 											px: { xs: 2, md: 2, mdPlus: 3, lg: 4 },
-											mt: { md: -2, lg: -2, lgPlus: 0 },
+											mt: { md: -2, lg: -2, lgPlus: -2 },
 										}}>
 										<Typography
 											textAlign='justify'
@@ -478,9 +479,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 												fontSize: {
 													xs: "12px",
 													md: "13px",
-													mdPlus: "14px",
-													lg: "15px",
-													xl: "16px",
+													mdPlus: "16px",
+													lg: "18px",
+													xl: "20px",
 												},
 												mb: 1,
 											}}>
@@ -540,8 +541,8 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "17px",
-																		xl: "18px",
+																		lg: "20px",
+																		xl: "24px",
 																	}}
 																	fontWeight='bold'
 																	textAlign='center'
@@ -555,9 +556,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	Michael McCooey E'23
 																</Typography>
@@ -567,9 +568,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	Jeff Zhou E'23
 																</Typography>
@@ -617,8 +618,8 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "17px",
-																		xl: "18px",
+																		lg: "20px",
+																		xl: "24px",
 																	}}
 																	fontWeight='bold'
 																	textAlign='center'
@@ -632,9 +633,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	Liam Kennedy E'23
 																</Typography>
@@ -644,9 +645,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	Natalie Potapov E'23
 																</Typography>
@@ -694,8 +695,8 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "17px",
-																		xl: "18px",
+																		lg: "20px",
+																		xl: "24px",
 																	}}
 																	fontWeight='bold'
 																	textAlign='center'
@@ -709,9 +710,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	Jarrett Anderson E'23
 																</Typography>
@@ -721,9 +722,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																	fontSize={{
 																		xs: "14px",
 																		md: "14px",
-																		mdPlus: "14px",
-																		lg: "14px",
-																		xl: "14px",
+																		mdPlus: "16px",
+																		lg: "18px",
+																		xl: "18px",
 																	}}>
 																	William Freeman E'23
 																</Typography>

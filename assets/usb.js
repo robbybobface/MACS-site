@@ -8,7 +8,7 @@ const USBIcon = (props) => (
 		preserveAspectRatio='xMidYMid meet'
 		fill='none'
 		{...props}>
-		<g filter='url(#e)'>
+		<g filter='url(#ok)'>
 			<path
 				fill='#fff'
 				stroke='#000'
@@ -25,7 +25,7 @@ const USBIcon = (props) => (
 		</g>
 		<defs>
 			<filter
-				id='e'
+				id='ok'
 				width={"auto"}
 				height={"auto"}
 				x={0.5}

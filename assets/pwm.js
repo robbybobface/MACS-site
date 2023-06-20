@@ -31,12 +31,12 @@ const PWMIcon = (props) => {
 			preserveAspectRatio='xMidYMid meet'
 			fill='none'
 			{...props}>
-			<g filter='url(#a)'>
+			<g filter='url(#test)'>
 				<path stroke='#000' strokeWidth={8} d='M154 5h-36.4v150H81.933V5H44.553v150H4' />
 			</g>
 			<defs>
 				<filter
-					id='a'
+					id='test'
 					width={"auto"}
 					height={"auto"}
 					x={0}

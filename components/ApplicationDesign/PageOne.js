@@ -39,7 +39,7 @@ const Trail = ({ open, children }) => {
 const TrailAlt = ({ open, children, delay }) => {
 	const items = React.Children.toArray(children);
 	const trail = useTrail(items.length, {
-		config: { mass: 5, tension: 2000, friction: 200 },
+		config: { mass: 20, tension: 2000, friction: 200 },
 		opacity: open ? 1 : 0,
 		x: open ? 0 : -40,
 		from: { opacity: 0, x: -40 },
@@ -344,21 +344,23 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={100}>
-										<Card
-											elevation={4}
-											sx={{
-												display: "flex",
-												alignSelf: "stretch",
-												position: "relative",
-											}}>
-											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=w-1000'
-												hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
-												alt='macs application'
-												height={getImageSize()}
-											/>
-										</Card>
-										<ImageCaption caption={"Topology"} light={false} />
+										<>
+											<Card
+												elevation={4}
+												sx={{
+													display: "flex",
+													alignSelf: "stretch",
+													position: "relative",
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=w-1000'
+													hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
+													alt='macs application'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Topology"} light={false} />
+										</>
 									</TrailAlt>
 								</Grid>
 								<Grid
@@ -370,19 +372,21 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={150}>
-										<Card
-											elevation={4}
-											sx={{
-												position: "relative",
-											}}>
-											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
-												hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
-												alt='application joystick configuration'
-												height={getImageSize()}
-											/>
-										</Card>
-										<ImageCaption caption={"Configuration"} light={false} />
+										<>
+											<Card
+												elevation={4}
+												sx={{
+													position: "relative",
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
+													hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
+													alt='application joystick configuration'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Configuration"} light={false} />
+										</>
 									</TrailAlt>
 								</Grid>
 								<Grid
@@ -394,19 +398,21 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={200}>
-										<Card
-											elevation={4}
-											sx={{
-												position: "relative",
-											}}>
-											<BlurHashedImage
-												src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
-												hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
-												alt='macs emulation in Minecraft'
-												height={getImageSize()}
-											/>
-										</Card>
-										<ImageCaption caption={"Emulation"} light={false} />
+										<>
+											<Card
+												elevation={4}
+												sx={{
+													position: "relative",
+												}}>
+												<BlurHashedImage
+													src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
+													hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
+													alt='macs emulation in Minecraft'
+													height={getImageSize()}
+												/>
+											</Card>
+											<ImageCaption caption={"Emulation"} light={false} />
+										</>
 									</TrailAlt>
 								</Grid>
 							</Grid>

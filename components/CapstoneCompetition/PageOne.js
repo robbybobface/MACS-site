@@ -11,6 +11,7 @@ import {
 	Card,
 	IconButton,
 	Paper,
+	Button,
 } from "@mui/material";
 import styles from "../../styles/Overview.module.css";
 import boxStyles from "../../styles/BoxStyles.module.css";
@@ -22,7 +23,7 @@ import { Grid as MauerGrid, Slug, Fade } from "mauerwerk";
 import { Blurhash } from "react-blurhash";
 import BlurHashedImage from "../Partials/BlurHashedImage";
 import { GalleryPhotos } from "../../utils/GalleryData";
-import lodash from "lodash";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Trail = ({ open, children }) => {
 	const items = React.Children.toArray(children);
@@ -377,8 +378,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								occupySpace={true}
 								columns={3}>
 								{(data, maximized, toggle) => (
-									<Paper
-										elevation={2}
+									<Box
 										sx={{
 											position: "absolute",
 											top: "50%",
@@ -390,115 +390,98 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",
-											overflow: "clip",
-											backgroundColor: "transparent",
-											backgroundSize: "cover",
-											backgroundPosition: "center",
-											backgroundRepeat: "no-repeat",
 											"&:hover": {
 												cursor: "pointer",
 											},
 										}}
-										onClick={toggle}>
+										onClick={() => {
+											if (!maximized) {
+												toggle();
+											}
+										}}>
 										{maximized && (
-											<Box
-												sx={{
-													position: "relative",
-													width: "100%",
-													height: "100%",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-													borderRadius: "8px",
-												}}>
-												{/* <Box
+											<>
+												<Box
 													sx={{
-														position: "absolute",
-														top: 0,
-														left: 0,
+														py: 2,
+														position: "relative",
 														width: "100%",
-														height: "100%",
+														height: "auto",
 														display: "flex",
-														overflow: "clip",
-														flexDirection: "column",
 														justifyContent: "center",
 														alignItems: "center",
 														borderRadius: "8px",
-													}}> */}
-												<Box
-													sx={{
-														position: "absolute",
-														display: "flex",
-														flex: 1,
-														width: "100%",
-														height: "100%",
-														overflow: "clip",
-														borderRadius: "8px",
 													}}>
-													<Blurhash
-														hash={data.hash}
-														width={1000}
-														height={"100%"}
-														resolutionX={32}
-														resolutionY={32}
-														punch={1}
-													/>
-												</Box>
-												<Box
-													sx={{
-														position: "absolute",
-														display: "flex",
-														flex: 1,
-														width: "100%",
-														height: "100%",
-														overflow: "clip",
-														borderRadius: "8px",
-														backgroundColor: "#ffffff96",
-													}}
-												/>
-												{/* <Paper
-														elevation={4}
-														// className='circle'
+													<Box
 														sx={{
 															position: "absolute",
-															width: "90%",
-															height: "90%",
-															top: "50%",
-															left: "50%",
-															transform: "translate(-50%, -50%)",
-															backgroundImage: `url(${data.src})`,
-															backgroundSize: "cover",
-															backgroundPosition: "center",
-															backgroundRepeat: "no-repeat",
+															display: "flex",
+															flex: 1,
+															width: "100%",
+															height: "100%",
+															overflow: "clip",
+															borderRadius: "8px",
+														}}>
+														<Blurhash
+															hash={data.hash}
+															width={1000}
+															height={"100%"}
+															resolutionX={32}
+															resolutionY={32}
+															punch={1}
+														/>
+													</Box>
+													<Box
+														sx={{
+															position: "absolute",
+															display: "flex",
+															flex: 1,
+															width: "100%",
+															height: "100%",
+															overflow: "clip",
+															borderRadius: "8px",
+															backgroundColor: "#ffffff96",
 														}}
-													/> */}
-												<Card
-													elevation={4}
-													sx={{
-														maxWidth: "90%",
-														maxHeight: "90%",
-														width: "90%",
-														height: "90%",
-														zIndex: 100,
-														backgroundColor: "transparent",
-													}}>
-													<BlurHashedImage
-														src={data.src}
-														hash={data.hash}
-														alt={`${data.name}`}
-														height={getMaximizedImageHeight()}
-														width={"100%"}
-														sx={{ objectFit: "cover" }}
-														gallery={true}
-														// maxWidth='800px'
 													/>
-												</Card>
-												{/* <Typography className='h-details'>{data.name}</Typography>
-													<Typography className='p-details'>{data.description}</Typography> */}
-											</Box>
+													<Card
+														elevation={4}
+														sx={{
+															maxWidth: "95%",
+															maxHeight: "90%",
+															width: "95%",
+															height: "90%",
+															zIndex: 100,
+															backgroundColor: "transparent",
+														}}>
+														<BlurHashedImage
+															src={data.src}
+															hash={data.hash}
+															alt={`${data.name}`}
+															height={getMaximizedImageHeight()}
+															width={"100%"}
+															sx={{ objectFit: "cover" }}
+															gallery={true}
+															// maxWidth='800px'
+														/>
+													</Card>
+													<Button
+														size='small'
+														sx={{ position: "absolute", top: -40, right: 0 }}
+														variant='contained'
+														color='stopButtonRed'
+														style={{ textTransform: "none" }}
+														endIcon={<CloseIcon color='white' />}
+														onClick={() => toggle()}>
+														Close
+													</Button>
+												</Box>
+											</>
 										)}
 										{!maximized && (
-											<Box className='default'>
+											<Paper
+												elevation={4}
+												className='default'
+												sx={{ overflow: "clip", flex: 1, backgroundColor: "transparent" }}>
 												<BlurHashedImage
 													src={`${data.src}?tr=w-1200`}
 													hash={data.hash}
@@ -509,9 +492,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 													nonCard={true}
 													// maxWidth='800px'
 												/>
-											</Box>
+											</Paper>
 										)}
-									</Paper>
+									</Box>
 								)}
 							</MauerGrid>
 						</Grid>

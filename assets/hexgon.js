@@ -8,18 +8,18 @@ const HexagonIcon = (props) => (
 		preserveAspectRatio='xMidYMid meet'
 		fill='none'
 		{...props}>
-		<g filter='url(#c)' shapeRendering='crispEdges'>
+		<g filter='url(#yes)' shapeRendering='crispEdges'>
 			<path fill='#323232' fillOpacity={0.6} d='M47.888 0h86.603l43.301 75-43.301 75H47.888l-43.3-75 43.3-75Z' />
 			<path fill='#70828F' fillOpacity={0.83} d='M47.301 0h86.603l43.301 75-43.301 75H47.301L4 75 47.301 0Z' />
 			<path stroke='#111' strokeWidth={8} d='M131.594 146H50.198L9.206 75 50.198 4h81.396l40.992 71-40.992 71Z' />
 		</g>
-		<g filter='url(#d)' shapeRendering='crispEdges'>
+		<g filter='url(#yes2)' shapeRendering='crispEdges'>
 			<circle cx={90.5} cy={74.5} r={27.5} fill='#0087B1' fillOpacity={0.5} />
 			<circle cx={90.5} cy={74.5} r={25} stroke='#111' strokeWidth={5} />
 		</g>
 		<defs>
 			<filter
-				id='c'
+				id='yes'
 				width={"auto"}
 				height={"auto"}
 				x={0}
@@ -36,7 +36,7 @@ const HexagonIcon = (props) => (
 				<feBlend in='SourceGraphic' in2='effect1_dropShadow_503_1164' result='shape' />
 			</filter>
 			<filter
-				id='d'
+				id='yes2'
 				width={"auto"}
 				height={"auto"}
 				x={59}

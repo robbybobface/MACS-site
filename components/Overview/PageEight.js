@@ -21,6 +21,8 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 	const isMD = useMediaQuery(theme.breakpoints.down("md"));
 	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
 	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isLGPlus = useMediaQuery(theme.breakpoints.down("lgPlus"));
+	const isLGPlusPlus = useMediaQuery(theme.breakpoints.down("lgPlusPlus"));
 	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 
 	const getGreyLogoSize = () => {
@@ -29,6 +31,10 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 		} else if (isMDPlus) {
 			return "24vmin";
 		} else if (isLG) {
+			return "28vmin";
+		} else if (isLGPlus) {
+			return "28vmin";
+		} else if (isLGPlusPlus) {
 			return "28vmin";
 		} else if (isXL) {
 			return "36vmin";
@@ -43,6 +49,10 @@ const PageEight = ({ offset, gradient, onClick, router }) => {
 		} else if (isMDPlus) {
 			return "26vmin";
 		} else if (isLG) {
+			return "30vmin";
+		} else if (isLGPlus) {
+			return "30vmin";
+		} else if (isLGPlusPlus) {
 			return "30vmin";
 		} else if (isXL) {
 			return "38vmin";

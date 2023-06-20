@@ -30,11 +30,11 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 		} else if (isMDPlus) {
 			return "24vmin";
 		} else if (isLG) {
-			return "27vmin";
+			return "26vmin";
 		} else if (isLGPlus) {
-			return "29vmin";
+			return "27vmin";
 		} else if (isLGPLusPlus) {
-			return "31vmin";
+			return "27vmin";
 		} else if (isXL) {
 			return "35vmin";
 		} else {
@@ -48,11 +48,11 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 		} else if (isMDPlus) {
 			return "26vmin";
 		} else if (isLG) {
-			return "29vmin";
+			return "28vmin";
 		} else if (isLGPlus) {
-			return "32vmin";
+			return "29vmin";
 		} else if (isLGPLusPlus) {
-			return "34vmin";
+			return "29vmin";
 		} else if (isXL) {
 			return "38vmin";
 		} else {
@@ -136,7 +136,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotating}>
 						<HexGrid
 							id='module-grid-39'
-							height={isLG ? "32vmin" : "35vmin"}
+							height={isLGPlus ? "32vmin" : "34vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -173,14 +173,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						left: { xs: "55%", md: "20%", lg: "27%" },
+						left: { xs: "55%", md: "20%", lg: "25%" },
 						top: { xs: "77%", md: "64%", lg: "60%" },
 						transform: "rotate(-12deg)",
 					}}>
 					<Box className={styles.rotatingReverseNormal}>
 						<HexGrid
 							id='module-grid-40'
-							height={isLG ? "32vmin" : "35vmin"}
+							height={isLG ? "32vmin" : "34vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -224,7 +224,7 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					<Box className={styles.rotatingReverseSlowEaseInOut}>
 						<HexGrid
 							id='module-grid-41'
-							height={isLG ? "32vmin" : "35vmin"}
+							height={isLG ? "32vmin" : "34vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>
@@ -261,14 +261,14 @@ const PageNine = ({ offset, gradient, onClick, router }) => {
 					sx={{
 						display: { xs: "none", md: "flex" },
 						position: "absolute",
-						right: { xs: "50%", md: "20%", lg: "27%" },
+						right: { xs: "50%", md: "20%", lg: "25%" },
 						top: { xs: "69%", md: "64%", lg: "60%" },
 						transform: "rotate(10deg)",
 					}}>
 					<Box className={styles.rotatingSlow}>
 						<HexGrid
 							id='module-grid-42'
-							height={isLG ? "32vmin" : "35vmin"}
+							height={isLG ? "32vmin" : "34vmin"}
 							width={"auto"}
 							viewBox='-50 -50 100 100'
 							preserveAspectRatio='xMidYMid meet'>

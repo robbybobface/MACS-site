@@ -38,7 +38,7 @@ const Trail = ({ open, children }) => {
 const TrailAlt = ({ open, children, delay }) => {
 	const items = React.Children.toArray(children);
 	const trail = useTrail(items.length, {
-		config: { mass: 5, tension: 2000, friction: 200 },
+		config: { mass: 20, tension: 2000, friction: 200 },
 		opacity: open ? 1 : 0,
 		y: open ? 0 : -40,
 		from: { opacity: 0, y: 0 },
@@ -337,12 +337,12 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 											sx={{
 												position: "relative",
 												mb: { xs: 3, md: 0 },
-												maxHeight: "234px",
 											}}>
 											<Card
 												elevation={4}
 												sx={{
 													display: "flex",
+													flex: 1,
 													flexDirection: "column",
 													alignItems: "center",
 													justifyContent: "center",
@@ -353,7 +353,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 													backgroundColor: theme.palette.moduleBackground.main,
 													backdropFilter: "blur(7px)",
 													WebKitBackdropFilter: "blur(7px)",
-													maxHeight: "234px",
 												}}>
 												<PWMIcon size={getImageSize()} />
 												<Typography
@@ -385,11 +384,12 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 										alignItems: "center",
 									}}>
 									<TrailAlt open={open} delay={150}>
-										<Box sx={{ position: "relative", maxHeight: "234px" }}>
+										<Box sx={{ position: "relative" }}>
 											<Card
 												elevation={4}
 												sx={{
 													display: "flex",
+													flex: 1,
 													flexDirection: "column",
 													alignItems: "center",
 													justifyContent: "center",
@@ -400,7 +400,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 													backgroundColor: theme.palette.moduleBackground.main,
 													backdropFilter: "blur(7px)",
 													WebKitBackdropFilter: "blur(7px)",
-													maxHeight: "234px",
 												}}>
 												<HexagonIcon size={getImageSize()} />
 												<Typography
@@ -431,11 +430,12 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 										alignItems: "center",
 									}}>
 									<TrailAlt open={open} delay={200}>
-										<Box sx={{ position: "relative", maxHeight: "234px" }}>
+										<Box sx={{ position: "relative" }}>
 											<Card
 												elevation={4}
 												sx={{
 													display: "flex",
+													flex: 1,
 													flexDirection: "column",
 													alignItems: "center",
 													justifyContent: "center",
@@ -446,11 +446,10 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 													backgroundColor: theme.palette.moduleBackground.main,
 													backdropFilter: "blur(7px)",
 													WebKitBackdropFilter: "blur(7px)",
-													maxHeight: "234px",
 												}}>
 												<USBIcon size={getImageSize()} />
 												<Typography
-													mt={-2}
+													mt={{ xs: 0, md: -1.25, mdPlus: -2, lg: -2 }}
 													fontSize={{
 														xs: "16px",
 														md: "17px",

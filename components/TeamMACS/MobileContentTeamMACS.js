@@ -155,13 +155,14 @@ function MobileContentTeamMACS() {
 										flexDirection: "row",
 										alignItems: { xs: "center", md: "flex-start" },
 										justifyContent: "center",
+										mb: -2,
 									}}>
 									<GradientText
 										text='Team'
 										gradient='background: rgb(255,255,255);
 background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 31%, rgba(143,0,255,1) 100%);'
 										fontSize={{
-											xs: "3.75rem",
+											xs: "3.5rem",
 											xsPlus: "4rem",
 											smMinus: "4.5rem",
 											sm: "5rem",
@@ -178,7 +179,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 										color='white'
 										fontFamily={"bitcount-mono-single-line-ci"}
 										fontSize={{
-											xs: "4.75rem",
+											xs: "4.25rem",
 											xsPlus: "5rem",
 											smMinus: "5.5rem",
 											sm: "6rem",
@@ -186,7 +187,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 											lg: "8rem",
 											xl: "9rem",
 										}}
-										my={-7}
+										my={0}
 										sx={{ textShadow: "2px 2px 5px rgba(0,0,0,0.37)" }}>
 										MACS
 									</Typography>

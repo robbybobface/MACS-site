@@ -35,7 +35,7 @@ const Trail = ({ open, children }) => {
 const TrailAlt = ({ open, children, delay }) => {
 	const items = React.Children.toArray(children);
 	const trail = useTrail(items.length, {
-		config: { mass: 5, tension: 1500, friction: 150 },
+		config: { mass: 20, tension: 1500, friction: 150 },
 		opacity: open ? 1 : 0,
 		y: open ? 0 : 40,
 		from: { opacity: 0, y: 40 },

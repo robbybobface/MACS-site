@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Grid, useMediaQuery, Card, Paper } from "@mui/material";
+import { Box, Container, Grid, useMediaQuery, Card, Paper, Button } from "@mui/material";
 import styles from "../../styles/Overview.module.css";
 import boxStyles from "../../styles/BoxStyles.module.css";
 import theme from "../../styles/theme";
@@ -9,6 +9,7 @@ import BlurHashedImage from "../Partials/BlurHashedImage";
 import { Grid as MauerGrid, Slug, Fade } from "mauerwerk";
 import { Blurhash } from "react-blurhash";
 import { GalleryPhotos } from "../../utils/GalleryData";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Trail = ({ open, children }) => {
 	const items = React.Children.toArray(children);
@@ -56,7 +57,7 @@ function MobileContentCapstoneCompetition() {
 		return "80%";
 	};
 
-	const getMaximizedImageHeight = () => {
+	const getMaximizedImageHeight = (vertical) => {
 		if (isXS) return "100%";
 		if (isXSPlus) return "100%";
 		if (isSM) return "100%";
@@ -80,6 +81,47 @@ function MobileContentCapstoneCompetition() {
 		if (isLGPlus) return "460px";
 		if (isXL) return "500px";
 		return "520px";
+	};
+
+	const getMaximizedPosition = (index) => {
+		if (isXSPlus) {
+			switch (index) {
+				case 1: {
+					return "-18rem";
+				}
+				case 2: {
+					return "-18rem";
+				}
+				case 3: {
+					return "-5rem";
+				}
+				case 4: {
+					return "-5rem";
+				}
+				case 5: {
+					return "0rem";
+				}
+				case 6: {
+					return "8rem";
+				}
+				case 7: {
+					return "10rem";
+				}
+				case 8: {
+					return "15rem";
+				}
+				case 9: {
+					return "15rem";
+				}
+				default: {
+					return "0rem";
+				}
+			}
+		}
+		if (isSM) return "-50%";
+		if (isSMPlus) return "-50%";
+		if (isMD) return "-50%";
+		return "0%";
 	};
 
 	return (
@@ -172,146 +214,136 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								lockScroll={true}
 								columns={isXSPlus ? 2 : 3}>
 								{(data, maximized, toggle) => (
-									<Paper
-										id={data.id}
-										elevation={2}
+									<Box
 										sx={{
 											// py: { xs: 2, md: 0 },
 											position: "absolute",
 											top: "50%",
 											left: "50%",
-											transform: "translate(-50%, -50%)",
+											transform: `translate(-50%, -50%)`,
 											borderRadius: "8px",
 											width: "100%",
-											height: maximized ? getMaximizedSize() : "100%",
-											backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
+											height: "100%",
+											// backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",
-											overflow: "clip",
-											backgroundSize: "cover",
-											backgroundPosition: "center",
-											backgroundRepeat: "no-repeat",
-											backgroundColor: "transparent",
+
 											"&:hover": {
 												cursor: "pointer",
 											},
 										}}
 										onClick={() => {
-											toggle();
+											if (!maximized) {
+												toggle();
+											}
 										}}>
 										{maximized && (
-											<Box
-												sx={{
-													py: { xs: 2, md: 0 },
-													position: "relative",
-													width: "100%",
-													height: "100%",
-													display: "flex",
-													justifyContent: "center",
-													alignItems: "center",
-													borderRadius: "8px",
-												}}>
-												{/* <Box
+											<>
+												<Box
 													sx={{
-														position: "absolute",
-														top: 0,
-														left: 0,
+														py: { xs: 2, md: 0 },
+														position: "relative",
 														width: "100%",
-														height: "100%",
+														height: "auto",
 														display: "flex",
-														overflow: "clip",
-														flexDirection: "column",
 														justifyContent: "center",
 														alignItems: "center",
 														borderRadius: "8px",
-													}}> */}
-												<Box
-													sx={{
-														position: "absolute",
-														display: "flex",
-														flex: 1,
-														width: "100%",
-														height: "100%",
-														overflow: "clip",
-														borderRadius: "8px",
+														transform: isXS
+															? `translateY(${getMaximizedPosition(data.id)})`
+															: "",
 													}}>
-													<Blurhash
-														hash={data.hash}
-														width={1000}
-														height={"100%"}
-														resolutionX={32}
-														resolutionY={32}
-														punch={1}
-													/>
-												</Box>
-												<Box
-													sx={{
-														position: "absolute",
-														display: "flex",
-														flex: 1,
-														width: "100%",
-														height: "100%",
-														overflow: "clip",
-														borderRadius: "8px",
-														backgroundColor: "#ffffff96",
-													}}
-												/>
-												{/* <Paper
-														elevation={4}
-														// className='circle'
+													<Box
 														sx={{
 															position: "absolute",
-															width: "90%",
-															height: "90%",
-															top: "50%",
-															left: "50%",
-															transform: "translate(-50%, -50%)",
-															backgroundImage: `url(${data.src})`,
-															backgroundSize: "cover",
-															backgroundPosition: "center",
-															backgroundRepeat: "no-repeat",
-														}}
-													/> */}
-												<Card
-													elevation={4}
-													sx={{
-														backgroundColor: "transparent",
-														maxWidth: "95%",
-														maxHeight: "95%",
-														display: "flex",
-														justifyContent: "center",
-														alignItems: "center",
-														width: "auto",
-														height: "auto",
-														minHeight: getMinimumMaximizedImageHeight(data.vertical),
-														zIndex: 100,
-													}}>
-													<BlurHashedImage
-														src={data.src}
-														hash={data.hash}
-														alt={`${data.name}`}
-														height={getMaximizedImageHeight()}
-														width={"100%"}
+															display: "flex",
+															flex: 1,
+															width: "100%",
+															height: "100%",
+															overflow: "clip",
+															borderRadius: "8px",
+														}}>
+														<Blurhash
+															hash={data.hash}
+															width={1000}
+															height={"100%"}
+															resolutionX={32}
+															resolutionY={32}
+															punch={1}
+														/>
+													</Box>
+													<Box
 														sx={{
-															objectFit: "cover",
+															position: "absolute",
+															display: "flex",
+															flex: 1,
+															width: "100%",
+															height: "100%",
+															overflow: "clip",
+															borderRadius: "8px",
+															backgroundColor: "#ffffff96",
 														}}
-														gallery={true}
-														vertical={data.vertical}
-														// maxWidth='800px'
 													/>
-												</Card>
-												{/* <Typography className='h-details'>{data.name}</Typography>
-													<Typography className='p-details'>{data.description}</Typography> */}
-											</Box>
+													<Card
+														elevation={4}
+														sx={{
+															backgroundColor: "transparent",
+															maxWidth: "95%",
+															maxHeight: "500px",
+															display: "flex",
+															justifyContent: "center",
+															alignItems: "center",
+															width: "auto",
+															height: "auto",
+															minHeight: getMinimumMaximizedImageHeight(data.vertical),
+															zIndex: 100,
+														}}>
+														<BlurHashedImage
+															src={data.src}
+															hash={data.hash}
+															alt={`${data.name}`}
+															height={getMaximizedImageHeight(data.vertical)}
+															width={"100%"}
+															sx={{
+																objectFit: "cover",
+															}}
+															gallery={true}
+															vertical={data.vertical}
+															// maxWidth='800px'
+														/>
+													</Card>
+													<Button
+														size='small'
+														sx={{ position: "absolute", top: -40, right: 0 }}
+														variant='contained'
+														color='stopButtonRed'
+														style={{ textTransform: "none" }}
+														endIcon={<CloseIcon color='white' />}
+														onClick={() => toggle()}>
+														Close
+													</Button>
+												</Box>
+											</>
 										)}
-										<Box
-											className='default'
-											sx={{
-												borderRadius: 10,
-											}}
-										/>
-									</Paper>
+										{!maximized && (
+											<Paper
+												elevation={4}
+												className='default'
+												sx={{ overflow: "clip", flex: 1, backgroundColor: "transparent" }}>
+												<BlurHashedImage
+													src={`${data.src}?tr=w-1200`}
+													hash={data.hash}
+													alt={`${data.name}`}
+													height={"100%"}
+													width={300}
+													sx={{ objectFit: "cover" }}
+													nonCard={true}
+													// maxWidth='800px'
+												/>
+											</Paper>
+										)}
+									</Box>
 								)}
 							</MauerGrid>
 						</Grid>
