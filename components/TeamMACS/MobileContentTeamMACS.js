@@ -171,6 +171,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 											xl: "8rem",
 										}}
 										mr={2}
+										mt={2}
 										lineHeight='1.3'
 										textAlign={{ xs: "center", md: "left" }}
 									/>
