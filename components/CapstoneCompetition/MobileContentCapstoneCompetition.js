@@ -276,6 +276,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 												<Card
 													elevation={4}
 													sx={{
+														backgroundColor: "transparent",
 														maxWidth: "95%",
 														maxHeight: "95%",
 														display: "flex",

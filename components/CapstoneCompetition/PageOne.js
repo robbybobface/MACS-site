@@ -480,6 +480,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 														width: "90%",
 														height: "90%",
 														zIndex: 100,
+														backgroundColor: "transparent",
 													}}>
 													<BlurHashedImage
 														src={data.src}
