@@ -22,6 +22,7 @@ import { Grid as MauerGrid, Slug, Fade } from "mauerwerk";
 import { Blurhash } from "react-blurhash";
 import BlurHashedImage from "../Partials/BlurHashedImage";
 import { GalleryPhotos } from "../../utils/GalleryData";
+import lodash from "lodash";
 
 const Trail = ({ open, children }) => {
 	const items = React.Children.toArray(children);
@@ -43,68 +44,6 @@ const Trail = ({ open, children }) => {
 		</>
 	);
 };
-
-// const Cell = ({ toggle, name, height, description, css, maximized }) => (
-// 	<Box
-// 		className='cell'
-// 		sx={{ backgroundImage: css, cursor: !maximized ? "pointer" : "auto" }}
-// 		onClick={!maximized ? toggle : undefined}>
-// 		<Fade show={maximized} delay={maximized ? 400 : 0}>
-// 			<Box className='details'>
-// 				<Slug delay={600}>
-// 					<Box sx={{ display: "flex", flex: 1 }}>
-// 						<IconButton
-// 							aria-label='close'
-// 							onClick={toggle}
-// 							sx={
-// 								{
-// 									// position: "relative",
-// 									// top: "40px",
-// 									// right: "40px",
-// 								}
-// 							}>
-// 							<Close color='primaryBlack' />
-// 						</IconButton>
-// 					</Box>
-// 					<Box className='circle' sx={{ background: css }} />
-// 					<Box
-// 						sx={{
-// 							width: "100%",
-// 						}}>
-// 						<Typography
-// 							sx={{
-// 								// position: "absolute",
-// 								color: "black",
-// 								textAlign: "left",
-// 							}}>
-// 							{description}
-// 						</Typography>
-// 					</Box>
-// 				</Slug>
-// 			</Box>
-// 		</Fade>
-// 		<Fade
-// 			show={!maximized}
-// 			from={{ opacity: 0, transform: "translate3d(0,140px,0)" }}
-// 			enter={{ opacity: 1, transform: "translate3d(0,0px,0)" }}
-// 			leave={{ opacity: 0, transform: "translate3d(0,-50px,0)" }}
-// 			delay={maximized ? 0 : 400}>
-// 			<Box className='default'>
-// 				<Typography
-// 					sx={{
-// 						position: "absolute",
-// 						top: "50%",
-// 						left: "50%",
-// 						transform: "translate(-50%, -50%)",
-// 						textAlign: "center",
-// 						color: "black",
-// 					}}>
-// 					{name}
-// 				</Typography>
-// 			</Box>
-// 		</Fade>
-// 	</Box>
-// );
 
 const PageOne = ({ offset, gradient, onClick }) => {
 	const [open, setOpen] = useState(false);
@@ -439,7 +378,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								columns={3}>
 								{(data, maximized, toggle) => (
 									<Paper
-										elevation={4}
+										elevation={2}
 										sx={{
 											position: "absolute",
 											top: "50%",
@@ -452,6 +391,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											justifyContent: "center",
 											alignItems: "center",
 											overflow: "clip",
+											backgroundColor: "transparent",
 											backgroundSize: "cover",
 											backgroundPosition: "center",
 											backgroundRepeat: "no-repeat",

@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
-import {
-	Box,
-	Typography,
-	Container,
-	Grid,
-	Divider,
-	useMediaQuery,
-	CardContent,
-	Card,
-	IconButton,
-	Paper,
-	Button,
-} from "@mui/material";
+import { Box, Typography, Container, Grid, useMediaQuery, CardContent, Card } from "@mui/material";
 import styles from "../../styles/Overview.module.css";
 import boxStyles from "../../styles/BoxStyles.module.css";
 import { HexGrid, Layout, Hexagon, Pattern } from "react-hexgrid";
 import theme from "../../styles/theme";
 import GradientText from "../GradientText";
 import { animated, useTrail, to } from "@react-spring/web";
-import { Grid as MauerGrid, Slug, Fade } from "mauerwerk";
-import { Blurhash } from "react-blurhash";
 import BlurHashedImage from "../Partials/BlurHashedImage";
-import { GalleryPhotos } from "../../utils/GalleryData";
 import { useRouter } from "next/router";
 
 const Trail = ({ open, children }) => {

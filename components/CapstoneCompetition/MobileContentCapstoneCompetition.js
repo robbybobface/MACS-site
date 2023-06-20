@@ -174,7 +174,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								{(data, maximized, toggle) => (
 									<Paper
 										id={data.id}
-										elevation={4}
+										elevation={2}
 										sx={{
 											// py: { xs: 2, md: 0 },
 											position: "absolute",
@@ -188,10 +188,11 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",
-											overflow: "scroll",
+											overflow: "clip",
 											backgroundSize: "cover",
 											backgroundPosition: "center",
 											backgroundRepeat: "no-repeat",
+											backgroundColor: "transparent",
 											"&:hover": {
 												cursor: "pointer",
 											},
