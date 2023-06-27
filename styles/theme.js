@@ -125,7 +125,7 @@ const theme = createTheme({
 			mdPlus: 1000,
 			lg: 1200,
 			lgPlus: 1300,
-			lgPlusPlus: 1450,
+			lgPlusPlus: 1470,
 			xl: 1620,
 			xlPlus: 1700,
 		},

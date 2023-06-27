@@ -63,6 +63,9 @@ const PageOne = ({ offset, gradient, onClick }) => {
 	const isMD = useMediaQuery(theme.breakpoints.down("md"));
 	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
 	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isLGPlus = useMediaQuery(theme.breakpoints.down("lgPlus"));
+	const isLGPlusPlus = useMediaQuery(theme.breakpoints.down("lgPlusPlus"));
+	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 
 	useEffect(() => {
 		setInterval(() => {
@@ -237,7 +240,9 @@ const PageOne = ({ offset, gradient, onClick }) => {
 							item
 							xs={12}
 							md={4}
-							lg={5}
+							lg={4}
+							lgPlus={4.5}
+							lgPlusPlus={5}
 							sx={{
 								mt: { xs: 0, md: -4 },
 								display: "flex",
@@ -253,7 +258,9 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 										xs: "2.5rem",
 										md: "4.25rem",
 										mdPlus: "4.5rem",
-										lg: "6.5rem",
+										lg: "5rem",
+										lgPlus: "5.5rem",
+										lgPlusPlus: "6rem",
 										xl: "7.5rem",
 									}}
 									onClick={onClick}
@@ -266,12 +273,15 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 							item
 							xs={12}
 							md={8}
-							lg={7}
+							lg={8}
+							lgPlus={7.5}
+							lgPlusPlus={7}
 							sx={{
 								display: "flex",
 								flexDirection: "column",
 								justifyContent: "center",
 								alignItems: "center",
+								mt: { xs: 0, lgPlus: 4, xl: 0 },
 							}}>
 							<Grid container spacing={2}>
 								<Grid
@@ -295,7 +305,8 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 														xs: "14px",
 														md: "15px",
 														mdPlus: "16px",
-														lg: "18px",
+														lg: "17px",
+														lgPlus: "18px",
 														xl: "20px",
 													},
 												}}>
@@ -309,7 +320,7 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 												towards that side to allow for easy USB connection. This also means that
 												the central hub is powered over USB, while the other modules are powered
 												via a battery pack in the central hub that feeds a power bus though the
-												6-pin header connectors. The general PCB is equipped with through hole
+												6-pin header connectors. The general PCBs are equipped with through hole
 												cutouts for each supported input type.
 											</Typography>
 										</Box>
@@ -326,10 +337,13 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 												position: "relative",
 												mb: { xs: 3, md: 0 },
 											}}>
-											<Box className={isLG ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"}>
+											<Box
+												className={
+													isLGPlusPlus ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"
+												}>
 												<Box
 													className={
-														isLG
+														isLGPlusPlus
 															? isMDPlus
 																? "hex-background-xsmall"
 																: "hex-background-small"
@@ -341,7 +355,7 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 														alt='general pcb design'
 														height={"auto"}
 														hexagon={true}
-														size={isLG ? (isMDPlus ? "-20px" : "-25px") : "0"}
+														size={isLGPlusPlus ? (isMDPlus ? "-20px" : "-25px") : "0"}
 													/>
 												</Box>
 											</Box>
@@ -361,10 +375,13 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 									}}>
 									<TrailAlt open={open} delay={200}>
 										<Box sx={{ position: "relative" }}>
-											<Box className={isLG ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"}>
+											<Box
+												className={
+													isLGPlusPlus ? (isMDPlus ? "hex-xsmall" : "hex-small") : "hex"
+												}>
 												<Box
 													className={
-														isLG
+														isLGPlusPlus
 															? isMDPlus
 																? "hex-background-xsmall"
 																: "hex-background-small"
@@ -376,7 +393,7 @@ background: linear-gradient(145deg, rgba(255,236,203,1) 0%, rgba(255,184,0,1) 35
 														alt='central hub pcb design'
 														height={"auto"}
 														hexagon={true}
-														size={isLG ? (isMDPlus ? "-20px" : "-25px") : "0"}
+														size={isLGPlusPlus ? (isMDPlus ? "-20px" : "-25px") : "0"}
 													/>
 												</Box>
 											</Box>

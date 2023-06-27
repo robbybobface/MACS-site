@@ -22,7 +22,7 @@ import { animated, useTrail, to } from "@react-spring/web";
 import { Grid as MauerGrid, Slug, Fade } from "mauerwerk";
 import { Blurhash } from "react-blurhash";
 import BlurHashedImage from "../Partials/BlurHashedImage";
-import { GalleryPhotos } from "../../utils/GalleryData";
+import { GalleryPhotos, GalleryPhotosSmall } from "../../utils/GalleryData";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Trail = ({ open, children }) => {
@@ -92,7 +92,7 @@ const PageOne = ({ offset, gradient, onClick }) => {
 		if (isLG) return "385px";
 		if (isLGPlus) return "460px";
 		if (isXL) return "500px";
-		return "520px";
+		return "500px";
 	};
 
 	useEffect(() => {
@@ -369,7 +369,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 							<MauerGrid
 								className='grid'
 								// Arbitrary data, should contain keys, possibly heights, etc.
-								data={GalleryPhotos}
+								data={window.innerHeight < 700 ? GalleryPhotosSmall : GalleryPhotos}
 								// Key accessor, instructs grid on how to fet individual keys from the data set
 								keys={(d) => d.name}
 								// Can be a fixed value or an individual data accessor
@@ -407,6 +407,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 														position: "relative",
 														width: "100%",
 														height: "auto",
+														maxHeight: window.innerHeight < 700 ? "400px" : undefined,
 														display: "flex",
 														justifyContent: "center",
 														alignItems: "center",
@@ -447,7 +448,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 														elevation={4}
 														sx={{
 															maxWidth: "95%",
-															maxHeight: "90%",
+															maxHeight: window.innerHeight < 700 ? "400px" : "500px",
 															width: "95%",
 															height: "90%",
 															zIndex: 100,
@@ -459,7 +460,14 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 															alt={`${data.name}`}
 															height={getMaximizedImageHeight()}
 															width={"100%"}
-															sx={{ objectFit: "cover" }}
+															sx={{
+																objectFit: "cover",
+																// objectPosition: "bottom",
+																transform:
+																	window.innerHeight < 700 && data.id === 7
+																		? "translate(0%, -20%)"
+																		: "",
+															}}
 															gallery={true}
 															// maxWidth='800px'
 														/>

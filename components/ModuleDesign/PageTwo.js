@@ -17,6 +17,8 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 	const isMD = useMediaQuery(theme.breakpoints.down("md"));
 	const isMDPlus = useMediaQuery(theme.breakpoints.down("mdPlus"));
 	const isLG = useMediaQuery(theme.breakpoints.down("lg"));
+	const isLGPlus = useMediaQuery(theme.breakpoints.down("lgPlus"));
+	const isLGPlusPlus = useMediaQuery(theme.breakpoints.down("lgPlusPlus"));
 	const isXL = useMediaQuery(theme.breakpoints.down("xl"));
 
 	const getImageHeights = () => {
@@ -25,11 +27,15 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 		} else if (isMDPlus) {
 			return 150;
 		} else if (isLG) {
-			return 190;
+			return 160;
+		} else if (isLGPlus) {
+			return 165;
+		} else if (isLGPlusPlus) {
+			return 170;
 		} else if (isXL) {
-			return 225;
+			return 180;
 		} else {
-			return 225;
+			return 215;
 		}
 	};
 	return (
@@ -74,8 +80,8 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								xs: "2.5rem",
 								md: "4.25rem",
 								mdPlus: "4.5rem",
-								lg: "5.5rem",
-								xl: "6.5rem",
+								lg: "5rem",
+								xl: "6rem",
 							}}
 							width='100%'
 							pt={1}
@@ -88,10 +94,10 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								display: "flex",
 								justifyContent: "center",
 								alignItems: "center",
-								px: { xs: 0, md: 3, lg: 6 },
+								px: { xs: 0, md: 3, lg: 4 },
 								pb: { xs: 4, md: 4, xl: 6 },
 							}}>
-							<Grid item xs={12}>
+							<Grid item xs={12} sx={{ mb: 2 }}>
 								<Typography
 									color='backgroundBlack.main'
 									sx={{
@@ -99,7 +105,9 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 											xs: "14px",
 											md: "15px",
 											mdPlus: "16px",
-											lg: "18px",
+											lg: "17px",
+											lgPlus: "18px",
+											isLGPlusPlus: "19px",
 											xl: "20px",
 										},
 										px: { xs: 0, md: 2, lg: 3, xl: 4 },
@@ -115,273 +123,291 @@ const PageTwo = ({ offset, gradient, onClick, router }) => {
 								</Typography>
 							</Grid>
 							<Grid
-								item
-								xs={6}
-								md={3}
+								container
+								maxWidth={{
+									xs: "mdPlus",
+									lg: "lg",
+									lgPlus: "lgPlus",
+									lgPlusPlus: "lgPlusPlus",
+									xl: "xl",
+								}}
+								spacing={1}
+								rowSpacing={2}
 								sx={{
 									display: "flex",
-									alignItems: "center",
 									justifyContent: "center",
-									position: "relative",
+									alignItems: "center",
+									mx: { xs: 0, md: 3, lg: 6, lgPlus: 4, lgPlusPlus: 2, xl: 0 },
+									pb: { xs: 4, md: 3, xl: 6 },
 								}}>
-								<Card
-									elevation={4}
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png?tr=w-1000'
-										hash='CiMaV5s.~qWBbI%2j]Rj'
-										alt='central hub render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Central Hub Top"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/central-hub-top.png?tr=w-1000'
+											hash='CiMaV5s.~qWBbI%2j]Rj'
+											alt='central hub render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Central Hub Top"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/button-top.png?tr=w-1000'
-										hash='CTNAxOxu~qt79Gxut8WB'
-										alt='button module render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Button Top"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: { xs: "flex", md: "none" },
-									alignItems: "center",
-									justifyContent: "center",
-								}}>
-								<Card
-									elevation={4}
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/button-top.png?tr=w-1000'
+											hash='CTNAxOxu~qt79Gxut8WB'
+											alt='button module render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Button Top"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
+									sx={{
+										display: { xs: "flex", md: "none" },
+										alignItems: "center",
+										justifyContent: "center",
+									}}>
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=w-1000'
+											hash='CCNwZs8^~p-=E2%LM|Ri'
+											alt='central hub module render bottom'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Central Hub Bottom"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={4}
+									sx={{
+										display: { xs: "flex", md: "none" },
+										alignItems: "center",
+										justifyContent: "center",
+									}}>
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=w-1000'
+											hash='CEODteIT~p-;4:%LRjRj'
+											alt='general module render bottom'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"General Bottom"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=w-1000'
-										hash='CCNwZs8^~p-=E2%LM|Ri'
-										alt='central hub module render bottom'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Central Hub Bottom"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={4}
-								sx={{
-									display: { xs: "flex", md: "none" },
-									alignItems: "center",
-									justifyContent: "center",
-								}}>
-								<Card
-									elevation={4}
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/switch-top.png?tr=w-1000'
+											hash='CSMj{:t6~qt79Gxut7V@'
+											alt='switch module render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Switch Top"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=w-1000'
-										hash='CEODteIT~p-;4:%LRjRj'
-										alt='general module render bottom'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"General Bottom"} light={false} />
-							</Grid>
-
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/slider-top.png?tr=w-1000'
+											hash='CVNAuF%2~qt7M{xtWCj@'
+											alt='slider module render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Slider Top"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
+									sx={{
+										display: { xs: "none", md: "flex" },
+										alignItems: "center",
+										justifyContent: "center",
+										position: "relative",
+									}}>
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=w-1000'
+											hash='CCNwZs8^~p-=E2%LM|Ri'
+											alt='central hub module render bottom'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Central Hub Bottom"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
+									sx={{
+										display: { xs: "none", md: "flex" },
+										alignItems: "center",
+										justifyContent: "center",
+										position: "relative",
+									}}>
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=w-1000'
+											hash='CEODteIT~p-;4:%LRjRj'
+											alt='general module render bottom'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"General Bottom"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/switch-top.png?tr=w-1000'
-										hash='CSMj{:t6~qt79Gxut7V@'
-										alt='switch module render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Switch Top"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/dial-top.png?tr=w-1000'
+											hash='CRN^h~xt~qxu9Fxut8WB'
+											alt='dial module render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Dial Top"} light={false} />
+								</Grid>
+								<Grid
+									item
+									xs={6}
+									md={3}
 									sx={{
 										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
 										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
 									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/slider-top.png?tr=w-1000'
-										hash='CVNAuF%2~qt7M{xtWCj@'
-										alt='slider module render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Slider Top"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: { xs: "none", md: "flex" },
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
-									sx={{
-										display: "flex",
-										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
-									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/central-hub-bottom.png?tr=w-1000'
-										hash='CCNwZs8^~p-=E2%LM|Ri'
-										alt='central hub module render bottom'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Central Hub Bottom"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: { xs: "none", md: "flex" },
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
-									sx={{
-										display: "flex",
-										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
-									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/general-bottom.png?tr=w-1000'
-										hash='CEODteIT~p-;4:%LRjRj'
-										alt='general module render bottom'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"General Bottom"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
-									sx={{
-										display: "flex",
-										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
-									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/dial-top.png?tr=w-1000'
-										hash='CRN^h~xt~qxu9Fxut8WB'
-										alt='dial module render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Dial Top"} light={false} />
-							</Grid>
-							<Grid
-								item
-								xs={6}
-								md={3}
-								sx={{
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "center",
-									position: "relative",
-								}}>
-								<Card
-									elevation={4}
-									sx={{
-										display: "flex",
-										position: "relative",
-										minHeight: getImageHeights(),
-										minWidth: getImageHeights(),
-									}}>
-									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png?tr=w-1000'
-										hash='CQONF4xt~qxu9G%2ogWB'
-										alt='joystick module render top'
-										height={getImageHeights()}
-									/>
-								</Card>
-								<ImageCaption caption={"Joystick Top"} light={false} />
+									<Card
+										elevation={4}
+										sx={{
+											display: "flex",
+											position: "relative",
+											minHeight: getImageHeights(),
+											minWidth: getImageHeights(),
+										}}>
+										<BlurHashedImage
+											src='https://ik.imagekit.io/5ywj5edvn/joystick-top.png?tr=w-1000'
+											hash='CQONF4xt~qxu9G%2ogWB'
+											alt='joystick module render top'
+											height={getImageHeights()}
+										/>
+									</Card>
+									<ImageCaption caption={"Joystick Top"} light={false} />
+								</Grid>
 							</Grid>
 						</Grid>
 					</Box>

@@ -106,7 +106,7 @@ const PageFour = ({ offset, gradient, onClick, router }) => {
 											xl: "18px",
 										},
 									}}
-									textAlign='center'>
+									textAlign='justify'>
 									At the heart of each module is a Raspberry Pi Pico using the TinyUSB library. This
 									allows the MACS to identify as a USB Human Interface Device (HID), so that a custom
 									message format can be defined.
@@ -190,7 +190,10 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 											xs: "2.5rem",
 											md: "18px",
 											mdPlus: "20px",
-											lg: "24px",
+											lg: "21px",
+											lgPlus: "22px",
+											lgPlusPlus: "23px",
+											xl: "24px",
 										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'
@@ -233,7 +236,10 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 											xs: "2.5rem",
 											md: "18px",
 											mdPlus: "20px",
-											lg: "24px",
+											lg: "21px",
+											lgPlus: "22px",
+											lgPlusPlus: "23px",
+											xl: "24px",
 										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'
@@ -248,11 +254,10 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 												xs: "14px",
 												md: "14px",
 												mdPlus: "15px",
-												mdPlus: "15px",
 												lgPlus: "1rem",
 											},
 										}}>
-										Each packet contains data for only 1 module, meaning MACS’s latency is roughly
+										Each packet contains data for only 1 module, meaning MACS's latency is roughly
 										proportional to the number of modules. Thus, if enough modules are connected to
 										the controller, the user would experience noticeable input latency. However, in
 										practice, most users will attach no more than 10 modules to the controller. In
@@ -277,7 +282,10 @@ background: linear-gradient(125deg, rgba(160,232,134,1) 0%, rgba(6,168,44,1) 100
 											xs: "2.5rem",
 											md: "18px",
 											mdPlus: "20px",
-											lg: "24px",
+											lg: "21px",
+											lgPlus: "22px",
+											lgPlusPlus: "23px",
+											xl: "24px",
 										}}
 										fontWeight='bold'
 										fontFamily='Gilroy-Bold'

@@ -384,6 +384,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 									flex: 1,
 									width: "100%",
 									height: "100%",
+									mb: -6,
 								}}>
 								<TrailAlt open={open} delay={150}>
 									<Card
@@ -425,9 +426,12 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 										className={boxStyles.darkGreyBox}
 										sx={{
 											borderRadius: 2,
-											py: { xs: 1, md: 1.5, mdPlus: 2 },
+											// py: { xs: 1, md: 4 },
+											// px: { xs: 2, md: 4, lg: 5, xl: 6 },
+											py: { xs: 1, md: 1.5, md: 1.5, xl: 2 },
 											px: { xs: 2, md: 2.5, lg: 3 },
 											mt: -8,
+											mb: -2,
 											zIndex: 100,
 										}}>
 										<Typography
@@ -454,9 +458,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 								item
 								xs={12}
 								md={12}
-								lgPlus={11}
-								lgPlusPlus={10}
-								xl={11}
+								lgPlus={12}
+								lgPlusPlus={12}
+								xl={12}
 								sx={{
 									display: "flex",
 									justifyContent: "center",
@@ -467,8 +471,10 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 										className={boxStyles.lightGreyBox}
 										sx={{
 											borderRadius: 2,
-											py: { xs: 1, md: 2, lg: 2 },
-											px: { xs: 2, md: 2, mdPlus: 3, lg: 4 },
+											py: { xs: 1, lg: 3, xl: 4 },
+											px: { xs: 2, md: 4, lg: 5, xl: 6 },
+											// py: { xs: 1, md: 2, lg: 2 },
+											// px: { xs: 2, md: 2, mdPlus: 3, lg: 4 },
 											mt: { md: -2, lg: -2, lgPlus: -2 },
 										}}>
 										<Typography
@@ -480,19 +486,20 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 													xs: "12px",
 													md: "13px",
 													mdPlus: "16px",
-													lg: "18px",
+													lg: "16px",
+													lgPlus: "16px",
+													lgPlusPlus: "18px",
 													xl: "20px",
 												},
 												mb: 1,
 											}}>
 											To create the MACS, we allocated the responsibilities of the project into
-											three teams: Module, Controller, and Application. Each team comprised of two
-											main members, and collaboration between teams was frequent. The Module team
-											was responsible for the design and assembly of the modules, the Controller
-											System team was responsible for the design and implementation of the
-											controller software architecture, and the Application team was responsible
-											for the design and implementation of the desktop application. Throughout the
-											project the team was advised by Professor Canek Fuentes-Hernandez.
+											three teams: Module, Controller, and Application. Each team had two main
+											members, and collaboration between teams was frequent. The Module team
+											designed and assembled the modules, the Controller System team was designed
+											and implemented the controller software, and the Application team was
+											designed and implemented the desktop application. Throughout the project the
+											team was advised by Professor Canek Fuentes-Hernandez.
 										</Typography>
 										<Grid
 											container
@@ -541,7 +548,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "20px",
+																		lg: "18px",
 																		xl: "24px",
 																	}}
 																	fontWeight='bold'
@@ -557,7 +564,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	Michael McCooey E'23
@@ -569,7 +576,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	Jeff Zhou E'23
@@ -618,7 +625,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "20px",
+																		lg: "18px",
 																		xl: "24px",
 																	}}
 																	fontWeight='bold'
@@ -634,7 +641,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	Liam Kennedy E'23
@@ -646,7 +653,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	Natalie Potapov E'23
@@ -695,7 +702,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "16px",
 																		md: "16px",
 																		mdPlus: "16px",
-																		lg: "20px",
+																		lg: "18px",
 																		xl: "24px",
 																	}}
 																	fontWeight='bold'
@@ -711,7 +718,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	Jarrett Anderson E'23
@@ -723,7 +730,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 																		xs: "14px",
 																		md: "14px",
 																		mdPlus: "16px",
-																		lg: "18px",
+																		lg: "16px",
 																		xl: "18px",
 																	}}>
 																	William Freeman E'23
