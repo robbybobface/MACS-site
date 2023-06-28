@@ -500,7 +500,7 @@ export default function Home() {
 											<LinearProgress
 												aria-hidden
 												color='hexagonBlueFull'
-												sx={{ mt: { md: -3, lg: -4, lgPlus: -5 } }}
+												sx={{ mt: { md: -1.5, lg: -2, lgPlus: -2 } }}
 											/>
 										</Box>
 									</Box>

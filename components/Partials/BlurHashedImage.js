@@ -178,7 +178,8 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 							style={{
 								objectFit: "cover",
 								objectPosition: team ? "50% 15%" : "50% 50%",
-								opacity: imageLoaded ? 1 : 0,
+								opacity: gallery ? (imageLoaded ? 1 : 0) : 1,
+								transition: "opacity 0.1s ease-in-out",
 							}}
 							onLoadingComplete={() =>
 								gallery ? wait(1200).then(() => setImageLoaded(true)) : setImageLoaded(true)
