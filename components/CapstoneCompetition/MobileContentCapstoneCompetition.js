@@ -71,11 +71,11 @@ function MobileContentCapstoneCompetition() {
 	};
 
 	const getMinimumMaximizedImageHeight = (isVertical) => {
-		if (isXS) return isVertical ? "27rem" : "12rem";
-		if (isXSPlus) return "270px";
-		if (isSM) return "290px";
-		if (isSMPlus) return "300px";
-		if (isMD) return "290px";
+		if (isXS) return isVertical ? "27rem" : "15rem";
+		if (isXSPlus) return "400px";
+		if (isSM) return "400px";
+		if (isSMPlus) return "400px";
+		if (isMD) return "450px";
 		if (isMDPlus) return "320px";
 		if (isLG) return "385px";
 		if (isLGPlus) return "460px";
@@ -242,7 +242,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											<>
 												<Box
 													sx={{
-														py: { xs: 2, md: 0 },
+														p: { xs: 2, md: 0 },
 														position: "relative",
 														width: "100%",
 														height: "auto",
@@ -288,29 +288,22 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 													<Card
 														elevation={4}
 														sx={{
-															backgroundColor: "transparent",
-															maxWidth: "95%",
-															maxHeight: "500px",
+															position: "relative",
 															display: "flex",
+															flex: 1,
+															backgroundColor: "transparent",
+															maxHeight: "500px",
 															justifyContent: "center",
 															alignItems: "center",
-															width: "auto",
-															height: "auto",
-															minHeight: getMinimumMaximizedImageHeight(data.vertical),
+															width: "90%",
+															height: getMinimumMaximizedImageHeight(data.vertical),
 															zIndex: 100,
 														}}>
 														<BlurHashedImage
 															src={data.src}
 															hash={data.hash}
 															alt={`${data.name}`}
-															height={getMaximizedImageHeight(data.vertical)}
-															width={"100%"}
-															sx={{
-																objectFit: "cover",
-															}}
 															gallery={true}
-															vertical={data.vertical}
-															// maxWidth='800px'
 														/>
 													</Card>
 													<Button
@@ -335,9 +328,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 													src={`${data.src}?tr=w-1200`}
 													hash={data.hash}
 													alt={`${data.name}`}
-													height={"100%"}
-													width={300}
-													sx={{ objectFit: "cover" }}
 													nonCard={true}
 													// maxWidth='800px'
 												/>

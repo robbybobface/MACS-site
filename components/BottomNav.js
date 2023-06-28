@@ -11,6 +11,9 @@ import {
 const BottomNav = ({ router, home }) => {
 	return (
 		<Box
+			component='nav'
+			role='navigation'
+			aria-label='bottom navigation'
 			sx={{
 				zIndex: 9999,
 				position: "fixed",
@@ -52,6 +55,8 @@ const BottomNav = ({ router, home }) => {
 							},
 						}}>
 						<Button
+							role='navigation'
+							aria-label='Go to team members page'
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => router.push("/team-members")}
@@ -76,6 +81,8 @@ const BottomNav = ({ router, home }) => {
 							},
 						}}>
 						<Button
+							role='navigation'
+							aria-label='Go to capstone competition page'
 							variant='contained'
 							color='drawerBackground'
 							sx={{ minHeight: 40, maxWidth: 64, pointerEvents: "visible" }}
@@ -91,6 +98,8 @@ const BottomNav = ({ router, home }) => {
 						justifyContent: "space-between",
 					}}>
 					<Button
+						role='navigation'
+						aria-label={`Go ${home ? "to project overview" : "home"}`}
 						variant='contained'
 						color={home ? "startButtonGreen" : "stopButtonRed"}
 						sx={{ minWidth: "113px", pointerEvents: "visible" }}
@@ -120,6 +129,8 @@ const BottomNav = ({ router, home }) => {
 							},
 						}}>
 						<Button
+							role='navigation'
+							aria-label='Go to module design page'
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => {
@@ -141,6 +152,8 @@ const BottomNav = ({ router, home }) => {
 							},
 						}}>
 						<Button
+							role='navigation'
+							aria-label='Go to controller design page'
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => router.push("/controller")}
@@ -161,6 +174,8 @@ const BottomNav = ({ router, home }) => {
 							},
 						}}>
 						<Button
+							role='navigation'
+							aria-label='Go to application design page'
 							variant='contained'
 							color='drawerBackground'
 							onClick={() => {

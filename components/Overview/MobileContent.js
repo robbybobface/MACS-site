@@ -90,6 +90,9 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 
 	const getModuleImageHeight = useMediaQuery("(min-width: 0px)") && useMediaQuery("(max-width: 600px)") ? 150 : 200;
 
+	const getControllerImageHeight =
+		useMediaQuery("(min-width: 0px)") && useMediaQuery("(max-width: 600px)") ? 250 : 300;
+
 	const getFlowchartWidth = () => {
 		if (isXS) {
 			return "90vmin";
@@ -206,7 +209,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 				<Container
 					className='noselect'
 					maxWidth='xl'
-					sx={{ mb: { xs: 6, md: 0 }, px: { xs: 2, smMinus: 10 }, zIndex: 3 }}>
+					sx={{ mb: { xs: 6, md: 0 }, px: { xs: 2, smMinus: 5 }, zIndex: 3 }}>
 					{/* <Trail open={open}> */}
 					<Grid
 						container
@@ -414,7 +417,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						zIndex: 3,
 						mt: -20,
 						mb: -5,
-						px: { xs: 2, smMinus: 8 },
+						px: { xs: 2, smMinus: 5 },
 					}}>
 					<Box
 						className={boxStyles.whiteBox}
@@ -617,7 +620,7 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 						flexDirection: { xs: "column", md: "row" },
 						zIndex: 3,
 						mb: -5,
-						px: { xs: 2, smMinus: 10 },
+						px: { xs: 2, smMinus: 5 },
 					}}>
 					<GradientText
 						text='Existing Solutions'
@@ -676,24 +679,36 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 							<Grid item xs={12} md={6}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
+									sx={{
+										display: "flex",
+										alignSelf: "stretch",
+										position: "relative",
+										flexGrow: 1,
+										height: getSolutionImageHeights(),
+										width: "100%",
+									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png'
-										hash='LNRC[6E1-;-;IVM{%Mt7~qt7WBRj'
+										src='https://ik.imagekit.io/5ywj5edvn/xbox-adaptive-controller.png?tr=w-1200'
+										hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAA2AEoDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAECAwQG/8QAGBABAQEBAQAAAAAAAAAAAAAAAAERAhL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9gmjU2gLS1N6T6BrKqVh7VOwbaesfZ+waaNZex7A7UWi1HVAuukXodVnaC/Zztjo0G87P2wlPQbex7ZaNB0JpkDOosa2JsBlYWNLyMBEhyKw5ALBi8GA0AAEVABNIAAqAAZ4AD//2Q=='
 										alt='xbox adaptive controller'
-										height={getSolutionImageHeights()}
 									/>
 								</Card>
 							</Grid>
 							<Grid item xs={12} md={6}>
 								<Card
 									elevation={4}
-									sx={{ display: "flex", alignSelf: "stretch", position: "relative" }}>
+									sx={{
+										display: "flex",
+										alignSelf: "stretch",
+										position: "relative",
+										flexGrow: 1,
+										height: getSolutionImageHeights(),
+										width: "100%",
+									}}>
 									<BlurHashedImage
-										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg'
-										hash='LNR:KPWA_2a$xuofoej[~qog9FWA'
+										src='https://ik.imagekit.io/5ywj5edvn/project-leonardo.jpg?tr=w-1200'
+										hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACaARIDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwb/xAAXEAEBAQEAAAAAAAAAAAAAAAAAEQES/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD2YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQUZpQaSs0oNUrFKo3SsUoN0rFKDdKzSg2M0qDQlKCgAAAAAAAAAAAAACJQWpU3U3QWpU3U3QWlYqUG6lYqUHSpWOk6UdKVz6OgdKtc6UHSrXOrQdKtc6tBurWKtBurWKtQbGatBQAAAAABAFSiAVN01ndA3U3TdZ3QN1N1N1ndBd1N1N1ndBqpWN1KDdSsUqjdKxSg6Va5VaDpWq5ZrWaDpmrmuea1mg6Zq5rGauaDea1WM1cQbq1hQaVlQVUAUQAQAEEBNTV1nQTWdXU0Gd1nda1jQTdTdNTQTdSmpoFSiKLSoA1VrK4DWa1msY1gNZrWM4uA3jWMY1gN4uM41iCtMqDQigoAACAAoiaqAms61qaDGs63rOgzrOtam4DGs63uM7gMaje4zAZRqEUZGoQEVYsBMawzFzAXGsTMazAMaxMawFxrExcQVUUFVFBQAAEAUURFQEZ1tIDG4m43GdwGNxncdNxNwHPcZ3HTcSA5xI6RIDnCOkSKMQjcIDEWNwgMxcxqLATMXMWLAMxcxcxYBmKRYgKKAKACgIKACgIjSAiRogMRI3EgMRI3CA5xI6QgOcSOkIo5xI6QgOcI6QgOcWNwgMwjcIDMWNQgJFixYCRYRYgiqAAoIKAgoAAAAAACEUBmEaAZiRogMxI3CKMQjcSAzCNQgMwjUIDMWLFgMwjUASEVUEFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//Z'
 										alt="sony's project leonardo"
-										height={getSolutionImageHeights()}
 									/>
 								</Card>
 							</Grid>
@@ -1449,14 +1464,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg'
-																hash='LILqC9xu~VE1M{WWE1M{R3M{9bs.'
+																src='https://ik.imagekit.io/5ywj5edvn/central-hub.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAwIEAQAG/8QAGRABAQEBAQEAAAAAAAAAAAAAAAECAxES/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQACA//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A+pTV+Jri2Oj0XQtFD0mq0ilOOuPEqjqYoJ1NU5Uh6HouhaQDoOj6DogVcVXCH1HjlhPE2ObQdQWjagdkC0Or0O1pOeuyo9dlRXFREq4kpyuvAootGotIA2LR9B00BVxVcLL6vxOoRNjm0DcBto2z7IBsOqXYNVoOevSotdlR0spIHNLkFcdcikU0eiVGkgaDo+g6LIq4quEPq3K65WSHbN0adsvRKs3Ss+6fpWbdaZTa9Ki16VDWjNLms+KfNDcNFIyoF6j0Sj0kLQdG2HRAq47XGg+rc06nVYIejL0rT0rJ1qVZutZd1o61k6VqMVFruaO13NIjTinxWbFPihuNGVizVystO1GlWo1UhbDou6DVaCK49an0h9bajVetHqubQ+lZetP0rL1pFZutZOlaOtZelbjNHarNHarNIacU+KzYrRis1uHzSSizVygu2o1XbUaqI90G6TdDullFrnqbXPSH1d0jVcuh605to6Vm6U29MvSkA61l3T9KzbrUGItVlCslYfDRis2D4oLRmq9Hmq9ZKrR6rto9VIe6DdJug3SE6qfU60n6IfV2o1XrR6rDaN1m6U26z9KQDpWbdP0rPpqLEqyheScNg+aDBsso0qvUR30J20Wqu0W6kLdZ9026zbpCNVPrmqn0p9bUaVUaYIts3Ro2z7KZ9s+j7BpqJK8oXlE2DZDk2QiR1yOhJo9kotoA2z9GjbN0KBpz13SSn//Z'
 																alt='final central hub module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Central Hub"} light={true} />
@@ -1466,14 +1482,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg'
-																hash='LNLgkQjr~Ut7%Mt7M{f6=^RjE2jY'
+																src='https://ik.imagekit.io/5ywj5edvn/button-module.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAgMEAQAG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAECAxESITH/xAAXAQEBAQEAAAAAAAAAAAAAAAACAQAD/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERAv/aAAwDAQACEQMRAD8A9k5zgrB0R0P0n6CcT7I0dukapQaweS/RZqofg7JGKfmpVNjQwQqGl7MpW0UjafajafasVoLdMZnpHOdSog0n6U/dTdKhJ+lI1TelT6pQa70eaT9DzVFTin5qXFPxRqnyi9LlF6JNtK2O0rdZSt1PunbqfdZi9UPrtVnrM9OytBqqMBupelP6VL1rQqn6VPvRvXSXejgVv0POk/0PGlHVmNKMVHjSjFGrFOaP0nNH6JNtL3RWlaqKXup903dT7qsDVD6zVZ6zPVeh1XWg1WWQvpUnWqOlR9asap+ukm9H9dI+mjjnXfRmNJfr9MxonPV3PSnGkPPSrFCnFWaP0nNHKJDtK1RWl6qEVup903dI3WYvVZ6HVZ6rPW2l7rbS9VDK6VH1qnpUnWlBqTrUfSqe1RdaccugfX6ZjSe39N50nJbzqrnUXOq+dCukVZo5Sc0yUTgrS9VtpeqhF7qfdN3U+6zF6rPQ6ofWZ6+0vVFaXqoZPSpOtU9Kk6lEqPtUXVZ1R9Djl0Tf6ZzL8/TME5Yr5qudSc1WArpFGaOUrJnom20vVFaXqopW6m3Tt1PusxWqH12qH1WewtL1RWg1RdCeiTqq2l6LBqPqk6RZ0S7hwKR5+mYjPB4i6GH81OE+IowNKQ7IwZEJOtK3TKVtlJ3U26f0T7ZCdUPrdAVnsaXodBoXQnaboo2n6KlS9E24p6EaKBSvB5jPB5jCbiH4JwdlCNggxqKylbNpW2Yjaboo2m6MxGgi0FkewoNDoNC6E7T9FG0/RUqbafSjoRohoB5APKidg7JODsopkayNQg0rZtK2jEdE3RT0TdFRPoItBZH/2Q=='
 																alt='final button module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Button Module"} light={true} />
@@ -1483,14 +1500,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg'
-																hash='LJM7V_t6~VbIxtogE1WB-ORj9aWA'
+																src='https://ik.imagekit.io/5ywj5edvn/switch-module.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAABAMCAQUGAP/EAB4QAQADAAIDAQEAAAAAAAAAAAABAgMREiExQQQy/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQACA//EABcRAQEBAQAAAAAAAAAAAAAAAAABEQL/2gAMAwEAAhEDEQA/APs3HXBU/SldSUrudaiN0pUvKNpRdaqny3WUlqrVQrK1ZQUh+ch1JmyF1rI3SH0GuToNdFGzLtmeSn0zjrjVYclHSVbD6Sw1EryhaW72QtYlvs3Ww/ZutjgKpK1ZFpZeshLxLvKcS1yk5aUry3aUryEhpI2kr6SNpJSdpZ5ctLnKL6lx+fparCd5G0lfSRNbMto6WGtZvWw17tYFO7dbCd1KXOA6liKWBzsTSwwFVlrlGtm+QnbSjeW7SjeUUtJF0lfSRdJBTtLPLlpZ5RfXuWl1i0lmI6SHrJOshbSY0NrYPS621gtbtyBvv5UpcLv5Vzu1jFelnYrOzz8rF52ZsBlZb5QrKkSyWplK8tTKV5BR0kXSV9JF0kGJWlnszaWeyafbTKd5amU7yhENZB2n2XrIO8tQg72eftc39E+3mb2dOQ538r5XA7eSsbN2MV6eNjM5efjJ2UudZLpKkSjSVIlktTKN5UmUbyyUNJF0kjSRNZTURvLHL9eWOQ0+6mUry3MpXlIfWQd59mayDt9aief+ifbzN/r0t/rzt4dOUJH9F4DRXyXjDpaxYfibkHjBubjRhNFISopDKfpSupKVwR9JD1krQTUNQa8sctXT5RfdzKV5bmU7gj6hbfTNA9monn7/AEDWHo7QFpVuVCxXyTlViK+V8qm0WFZQZnA2UFZwxazi9W4Zq2ysZlG61kbpDaB6mah6oi3Ybv7YRfcSnduU7AoaB6maCalA6wJeDdRbw0Uor5XzhOIXzhal84KpCGcE0ZZVq05VoJmyF17IXSG1D1M0D1SFv7YbuwU+3lOykp2ZI+gupWgupQmg1idBrNFmFs0oWoETmTQbMmgCtWmatBM2RutZG6AugepmgepQ12G7sJP/2Q=='
 																alt='final switch module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Switch Module"} light={true} />
@@ -1500,14 +1518,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg'
-																hash='LPLqC8Rj~Vof-;tRRjju=@RjIpjY'
+																src='https://ik.imagekit.io/5ywj5edvn/joystick-module.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGgABAQEBAQEBAAAAAAAAAAAAAwQCAQAGBf/EABwQAQEBAQEBAQEBAAAAAAAAAAACAQMRIRIxQf/EABgBAQEBAQEAAAAAAAAAAAAAAAEAAgME/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAiH/2gAMAwEAAhEDEQA/APs3nnhUzv8AAdD7/E/TXOtRN0T0fpqetCZakfrc6Qog8J408aSaWmJ1r1F7RUTRUEG09nsFhBpx2mQn0jjrjtWGa/ifpp71L11zaT9NTXpumpbpB31qdD+mpo4FcaojUkUeNLSmdb9DOt+ou7o61rdHWhCvU96a9T3oQ61z17dZ9ZT6Z7Xma10rI+mpOuqOmpOtAp+tJbovWknSjjFrv6bmk37bijg1dFKIpDzpTFHGormm80E0TNDTe6Ote3WK0Ed6C9JegvQmK1z1zdZ9CfVbo613dHekC6aj60o6aj66RU3WkfSj9qRdaakc7Xtv63FpNv6TnbeMSv0edKudPz+VK+dDHSLJomaniiZobJujrXt1itBYvQXpL0F6Ezus+ubrPoT6rdHeu7o71EPTUfbVPTUfbSzUfbUHalnfX5/ff63HHsO9PpuVI936fjrrjhzbr9HlSznqDlqznrFemK40uaCNJmsukb3WK13dYrQR3oL0t6C9CY3WfXK1z0J9VuirW90d6CDpqPtqvoj6oVD2fn936HZB2xuVy6iPf6fiPZ+m5Y6a4c8+rOSzmk5Yr5s69EiiCYOSYG3d1ita1igRXoL0tgvQh1rPr1OepPqtHTesUw0Doj6q+iXqhUPZF1xd1xJ0w6xYm/P0vOXPz9LGNazh+WKueJ+eKow63IWSYxLYL2jomjpEFgs9p7QFTPrtMgPrNHRNHTDoDol6qrTdEEfXEt4r6JrxAPhIxzwkYpRhueKIwMYohokltmWymdHRdFSQLT2otPaAaZaplB9Zo6Jo6YdAWm6KbTdEkvRNanontkDLA/8ASQYDwogEHhpFlpmWyWdFRdFaQLT2otPaZBTLVMoP/9k='
 																alt='final joystick module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Joystick Module"} light={true} />
@@ -1517,14 +1536,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg'
-																hash='LIMQbIjE~VkDxut8RjRj^hNG9as.'
+																src='https://ik.imagekit.io/5ywj5edvn/slider-module.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAgMEAQAG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAIBAxEhEjH/xAAXAQEBAQEAAAAAAAAAAAAAAAABAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD2bGsFTN/hPQ7f4T0YaieyKOvSK0lgpB6KdQPg2SJ06dCNxoc1voTKKsyirCItPai01pFUx1MRemY1jrWGUn6afWpumsNQi9IrTOmp60lvop0n9DmiFM6dOpYo+dAPzRel5rfQm7pV6PdKrQib1PenXpF6iVWs9dWh9RepY52t1gu9TdNP6al66Gk/TU10b11NdNJ36HNJ/wBCmljKyKPikcUoiglM6L0mdH6ELdKrRbpdaCVep7069T3qJdaz1laz0p6xla30FahCumpOuqOmpOumFL11L0o/rqPpTUFZtCmiNr6KKaxlbzpRFIudKY1mhXOj9InTM1ki3S61u6XWol3qe9NvSL1EutZ6ytD6i9hugrRbpdaET01H11T01J10xJO2oumqu2ouutwUvd+ijSt36ONaYqvnqrnqPnqrmzUpnTM0mdMzWSLdLrRbpdaCVep7069T3qJdaz1laz0l7DdLrRbpdaySempOuqumpOpSPsi6LOqTo3ARv9FDNz6OMLFh/NVzTc8UwKj5MwuR4ynaXRmlUCVae9PtPaJVBbQUXr90FaLdLpkk9EvRTaboUk6pbxX0TXjSI8HGO8HOHRhkYojCow+MAwyRskQQdLo3SqSItPai09hE0xtBRet0FC0FAlWm6KLT9EU3RPWKLJrCivBzjvBzhRkYdOFRh8pkeNdjQg6VRul2kntPam01hE0EVBCes0FD0FJom0/RRafoUnsmjrJooI5AOUjoNkqTpQHgmY1ANFUbRVBEWmtTaewiKCKghP/Z'
 																alt='final slider module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Slider Module"} light={true} />
@@ -1534,14 +1554,15 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 															elevation={4}
 															sx={{
 																display: "flex",
-																maxWidth: 260,
 																position: "relative",
+																flexGrow: 1,
+																height: getModuleImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg'
-																hash='LOL;Kdax~VkC%Mt8Rjf6=^RjE3o0'
+																src='https://ik.imagekit.io/5ywj5edvn/dial-module.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAgMEAQAG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAIBAxEhEjH/xAAXAQEBAQEAAAAAAAAAAAAAAAABAAID/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD2bGsFTN/hPQ7f4T0YaieyKOvSK0lgpB6KdQPg2SJ06dCNxoc1voTKKsyirCItPai01pFUx1MRemY1jrWGUn6afWpumsNQi9IrTOmp60lvop0n9DmiFM6dOpYo+dAPzRel5rfQm7pV6PdKrQib1PenXpF6iVWs9dWh9RepY52t1gu9TdNP6al66Gk/TU10b11NdNJ36HNJ/wBCmljKyKPikcUoiglM6L0mdH6ELdKrRbpdaCVep7069T3qJdaz1laz0p6xla30FahCumpOuqOmpOumFL11L0o/rqPpTUFZtCmiNr6KKaxlbzpRFIudKY1mhXOj9InTM1ki3S61u6XWol3qe9NvSL1EutZ6ytD6i9hugrRbpdaET01H11T01J10xJO2oumqu2ouutwUvd+ijSt36ONaYqvnqrnqPnqrmzUpnTM0mdMzWSLdLrRbpdaCVep7069T3qJdaz1laz0l7DdLrRbpdaySempOuqumpOpSPsi6LOqTo3ARv9FDNz6OMLFh/NVzTc8UwKj5MwuR4ynaXRmlUCVae9PtPaJVBbQUXr90FaLdLpkk9EvRTaboUk6pbxX0TXjSI8HGO8HOHRhkYojCow+MAwyRskQQdLo3SqSItPai09hE0xtBRet0FC0FAlWm6KLT9EU3RPWKLJrCivBzjvBzhRkYdOFRh8pkeNdjQg6VRul2kntPam01hE0EVBCes0FD0FJom0/RRafoUnsmjrJooI5AOUjoNkqTpQHgmY1ANFUbRVBEWmtTaewiKCKghP/Z'
 																alt='final dial module'
-																height={getModuleImageHeight}
 															/>
 														</Card>
 														<ImageCaption caption={"Dial Module"} light={true} />
@@ -1603,12 +1624,14 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 																display: "flex",
 																alignSelf: "stretch",
 																position: "relative",
+																flexGrow: 1,
+																height: getControllerImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg'
-																hash='LIKdYr_N},t7%Mi^V?Ri}*kDI]R*'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-3.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAgMEAQAGB//EABwQAQEBAQEBAQEBAAAAAAAAAAABAgMREjFBIf/EABgBAQEBAQEAAAAAAAAAAAAAAAECAAME/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERAv/aAAwDAQACEQMRAD8A9kxrHGkOidnaJ6JVE+yNHbI1TGDWwPrZVMZkzJWaZmsTI0MaCHROzdFbDJ9p9qNptsxOmN0EB7FjWVVQDRHSnaqfpQondT6pvSkbqpAz1spdrpVYD803NT5puaMUdK70ErfQXapO6ZqlbrEnpU26f0qbdAK1Wes1WehntGVoapEL3U3Sn7qbpWkUn6VPum9Km3pcia66dNFXTZpWJ1TnRualzo7OhipVErfSpRepxTdUndHaVuhielT9Kd0qbpQxeqH1mqH1me5Bqt9BqsIVupulP6VL1qo1T9al6aO61J006SIrLp00VdOzpeJ1XjR2dJMaPxU2KimVvpWaL1FUK0rdFaVugldKm6U7pUvSgl6ofQ6ofoM99aXqitL1WYrpUnWqelSdaqJqXrUnSqetR9K6RFK1pudF6rs10QqxT8VJiqMVNXFOaL0rNH651bbSt0VpW6CV0qXpT+lS9KCTrQfoO9B+gcfQrQaorS9UAnpUvWqeiTqYEnVH1V9UfR0lRYRr9dl2nZdNTh2KoxU+D8ItXIfmi9BkSLVY60rdHaVugkdKl61R0qTrQqRPvQPpnTRX22rnL6VaDQqDSXMnol6qdpehlCTqk6K+qXoqUYn1GQVjpFaMMwfgnB2U2qw2CDGp04ylbM0VttVifpUfWquiPtRqpEXbX+k+j6X3QA7yY+nUGh0Gg8pG03RTtN0IS9EvRV0TbOsRYyQVdG04PJ2Ssm5GnDI1kaNIdE7O0TttKbqh71b1Q9xavmIdftCK/rFOz6ZQaHQaDxk7TdFO03RmS9E21XRLtmKrI2sgJmTclZNyxMjWRrEGidnaJ2xTdUHf+ruqHv8A1NXyirG1jo6v/9k='
 																alt='macs configuration 1'
-																height={"auto"}
 															/>
 														</Card>
 													</Grid>
@@ -1619,12 +1642,14 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 																display: "flex",
 																alignSelf: "stretch",
 																position: "relative",
+																flexGrow: 1,
+																height: getControllerImageHeight,
+																width: "100%",
 															}}>
 															<BlurHashedImage
-																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg'
-																hash='LKJk4M~p==%0S$s8M{e-^Gx[JDR+'
+																src='https://ik.imagekit.io/5ywj5edvn/macs-config-4.jpg?tr=w-1000'
+																hash='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCACJAIkDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAgMEAQAHBv/EABwQAQEBAQEBAQEBAAAAAAAAAAABAgMRMRIhIv/EABgBAQEBAQEAAAAAAAAAAAAAAAIBAwAE/8QAGREBAQEBAQEAAAAAAAAAAAAAAAERAhIx/9oADAMBAAIRAxEAPwD7F1c6sFBonZ2idrCI2To7ZGjgl0IqAka5jRpRoa1lEgaJ2borblT7T7UbT7KCRpjdBNHoDq5lYIDROzdE7pRSdkapu6RunBoLQ+u1Q+liC9aD1vqUoJld6y0CDonZuidopG0+z9p9nEJ1Q+t1Qkj0INaGsHQGqRunbqfdOOpO6Rum7pG60gUGqH1mqH08EfrZS5RSjYUH6y1nrrWdOB1St0zVJ3XKTupulP6VN0pRxWqH12qH03PRA1odV53F7qfdO3SN04lI3U+6d0qbdaxnQaofWaofTEyUUpUopQpQz11ofXWhTjNUndM1St0SJ6VL0qjpUvSnFJ1Q+u3Qem7HpHoNVtodV5nFbpG6dup+lODSOlTbp/Spt1rGdL1Qeu1Q+mI5RylSjlGlDJXWhlb6zrSM1Sd0zRW6KkdKl6VR0qXrShEbpf6d0pf6aw5HptBoVBp5WZW0/Sn7T9CiVP0qbdP6Jt1rKFhWqH12qH0tTByjlLg4NpSGRoY5naUjNE7N0TtNIjpUnWquiPrVlKRJ1v8AShdL/oDX01keo0GhUGnmYFbT9D9p+hRE3RNtR0TdDlTCdBboK67BwcLg4Nq4ZHMjQtLA6J2boraauJuiPtfqvoi73670ciPX9tC2sJq9RoNCoNA8pW03RRtP0Jybol2p6JtrrsJ0AWgutLBQyFweQtXDI5kaOuwOidm6J27VTdUXb5VvVD3+UZdp8pKxtY3OvUKDQ6DQPKTtP0UbT9FVL0TbU9E21cRoA9AGlBQzJcMyNUcayNFwNE7O0TtypeqLv8q3qi7/ACpz9OJK51c9BV//2Q=='
 																alt='macs configuration 2'
-																height={"auto"}
 															/>
 														</Card>
 													</Grid>
@@ -1672,12 +1697,14 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														display: "flex",
 														alignSelf: "stretch",
 														position: "relative",
+														flexGrow: 1,
+														height: getModuleImageHeight + 50,
+														width: "100%",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png'
-														hash='L39jT61j00{e8|iwx=k;0f^d[J5Y'
+														src='https://ik.imagekit.io/5ywj5edvn/macs-application.png?tr=w-1000'
+														hash='data:image/png;base64,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'
 														alt='macs application'
-														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"User Interface"} light={false} />
@@ -1689,12 +1716,14 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														display: "flex",
 														alignSelf: "stretch",
 														position: "relative",
+														flexGrow: 1,
+														height: getModuleImageHeight + 50,
+														width: "100%",
 													}}>
 													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png'
-														hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
+														src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
+														hash='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAuCAYAAABu3ppsAAAAAXNSR0IArs4c6QAACIRJREFUaEOFWWl3G0cMm5Hy+2znsNW7zeEkbfr/P0WrPhIAiVmpTt7bt0ekNUACJGc07+7eXy4j/s3Bi7GNMeKZji3+z+7HzC/EV8bkcZhjHOZlxPl4iGucj/n89jHHzO/ni/yliQV/c+SZxyUwNc64nnd3H/A5HnER107iRwQCYAABaJKI+x0BEQu4hwnwiMULBIoMgDuB+N5CoIgsJCz6E+T8b64Z6MgnmcjIVRYA/BCwkwBY5Lmii4gj+oPZaAIKclL3DHgmkLY1E/lSkTD5KPollQS9ymmVEeEyA7jrTEDKJhsjAowto3l3Dwl19K8jLjJ8L/POyLkHqP3/j768oHgjC4v+BZ5yQbRX+TTgOeb9/Ud5t0mUJ2ZksQ2Mv1aSndKxm3QhQcB6ltqnXyghvI7vrcgDQAEvQ+9NPMa8f/i4ZoAIq+pMZkSRkt/yTD3fyMLL1QdEWvktga48JEE/dlViQIl63j98UhVdMpAaVPQZ+bhX6Yjoq4wiqjMN61rfk3Dzhol34mHUFf0w754Ei4gyEnAeXpMASi7NQ09E9JVd1bwCDgJVDgv8BAknQ+kkUcnICbiIBTqrz+UmifSrMvDw5rkkVBWG0c8P7oB7BvK/DpIRzwmcJNwbTF6WT+n/knWN0SKMkAwKPkuok7iwuXU5n6/fioCVyBvARQTSYRMieMgHoFFSrwmUfKxtsdd2OAWc2snbygKIJDnPwJt3n6sTIxwioiJt5wO0ngQEPoEr+p0N90JUmRgzFv+jVd0UPPAHYD/8mdI2xnzz+GWREJxF7Zt8EjhB48yDkglCinxmhPLRdWqfoAU8z4tTM8QFPK+33T29oTTMt08iUINJEVClkTYCZCZIBHgO+RRo8wQ+Tmmpt8Yz5jwlxGhDHxv1D9B5bwTwLHyAc8b67enrmoEl6iqbkAyk8wIBl5P3CE06ktEFg8J19Elgw/ly2cZIArrvDAXz4DDf/fT30geqRLC2S+8L+MrAIYmlB8rE5gmRsMoj2ZR8AiQjqwwAeIBWBuIzt0gEgZ+bgCbDpVm57l06h0NWnvRCgC8ZqRq1rPbmrW5jwKF9B07QSzZIwrI3H3/5Z5cBLjIol644NLHAJmCSuPLC2hty4VLzJSrPFPgAQ5DQvAM/7+7lEaxWUkKPv4JATYU241S1CYBL9HmfZA4cIxhxy4Tm/bKV+rwMSPlk5HfRBxEQgJTOyJAypXc8/fZtyUASqVqPup8GJgnondoXsZBT+UDSYbOL58uai8N5yUfVp+UzAmwC57nAI0NJhDKaT783AfQxDWmqPKw6CdaizfvUfhmZRNgHqlf46My6nxJKEDAqzuc6NwHJqLNR5TakePrDM9Dgb9X7lJEAexb2XlCTE5Fu8Oi+Bj6vFVVJZclAAMcB4MwAMzhPf4oAl9fugRoZGnhXHJdRVySvRi9lQBJw7SsLAlzn8sLZyKKhzdNf//Y6vcTa+vUqVOBdPjnIeT+QjOgf232o2UdVKCuJa1+676ivJGTk7tjz9H5HgD6AjzX/dBWS5kFGnrBspGysasnENalA+yqjqkAg4uYVie9jo4TqM6pGmYEPIFBzuUnoenSGkdcG5uCvpdSTSVQjJbsNXDMQK82VfPK5ZYRyQh9IAt+4ECsKXCra3L/3AktpV6C1rGK87u5cC5isRvsZSKbsWi8S2/a9DNxSss8ngY8koBUqefSad7+AYRZ8hPA+UB165wFJiAMdKlF3VjWqfQYgn+9XPQG9YIx5+oQqZPFXW+bipYFgJWaRrbHCGtnSF3qwqx0ZzNIspd5ZV/1L96X/8oE+Ry+JgNY4+kNamdXWH8EHieshrmeitbH5YKe4aCWmeUadGBWm5QPdO4HNRgs1s3l65jBXq7TOhc9HINLTp2eiQJvB8Yy7FrkU9Q292nVampPPPJ0B+GCLZldZ6DXCDQK93ixhsRQWASNSjas6NBf4JaXeuUBp9kpECYUXNLQxyi6hVU7qxigG8/TM9YBloJdoJSyu923U9nqv9bA8ceT6WFmo3YuWEdaVlA/PGWUjcE1iGxtHbuxOBIHPTWDZJLWti9rFp0FqRKhKFFGGD3DExpYtdLjJxSGXi+KWESrKBpnQB3EdBHDgOrIEH1BCUXyePtua2HY5ag9eW3PmctT13WqswDcBEcI6mvuhcR0vx1S3lNKM7sXAGvgiZMvM+PYVAWWhBkb9nZ3Ja2fa5DNDOsqAX1NK2MkzH1BGGie2XKwo4oj2dlYmIB+YWUvLIPCF2yrc4dByU7tdN4nUfNOVJiVD0PlTkggcYeKQFcCTQGVA2yTUN0EKbEjnnCR+QKAjv9tQ9c7PLHDwJphV88cETgJ+vRCI3IeM4APs8wRAaNvBnssL28A19R/neM3jF2wtLusM25P0XY/+gQyf18Tqxs3IH2HiJMPrmWd+J3d4aeKIRuh6XK4IALCAk9gWnwORxLAS0AYq1tjaWG0S0lkvfnLitsojAgDv2SABkggC8V3EEVmAiS8AzUw0CTwP4CAAc87HL9idds0ncGyKoWTV3lNve0tGuWHHsrmPfGWgMmE+yF84Lvz9IeEzA07gQtkgC+cATwKJKQl8fYYEtWmKJSqij8VSXdf2NkUnCSEL0P0xpJJnyGchIR+oEmU9RvTz71FGyACJFPCVQOISARjY5YNr7DHFi5iJMnT3amSgpZIV6JUTkaEpoahKzFr3gog/CWSEIZOIuCIvA2cWtGsdBN59/cSfPbRFaZE38JUJNVA6un4bo4wqA6/W6MfzMjIzIQLlAgIPgAmeJGBkPhPBrEIioA7M6rOP/HKfOuqBrz3QEnL5HF9ZBqwnoIxqIWLySRLygUDvCGjLPb6eGSgC19LJuntTRmhI+kkpjNz6H+PoMhKJiHyS4FBXHmAdEnhFPjOxgm8jQzj/AV0gcasykiXxAAAAAElFTkSuQmCC'
 														alt='application joystick configuration'
-														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"Joystick Configuration"} light={false} />
@@ -1706,12 +1735,14 @@ const MobileContent = ({ offset, gradient, onClick, router }) => {
 														display: "flex",
 														alignSelf: "stretch",
 														position: "relative",
+														flexGrow: 1,
+														height: getModuleImageHeight + 50,
+														width: "100%",
 													}}>
 													<BlurHashedImage
 														src='https://ik.imagekit.io/5ywj5edvn/button-config.png'
-														hash='L6E2qc3WBV=^00IA9YVc34,G~X-5'
+														hash='data:image/png;base64,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'
 														alt='application button configuration'
-														height={"auto"}
 													/>
 												</Card>
 												<ImageCaption caption={"Button Configuration"} light={false} />

@@ -447,28 +447,32 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 													<Card
 														elevation={4}
 														sx={{
+															position: "relative",
+															display: "flex",
+															flex: 1,
 															maxWidth: "95%",
 															maxHeight: window.innerHeight < 700 ? "400px" : "500px",
 															width: "95%",
-															height: "90%",
+															height: getMaximizedImageHeight(),
 															zIndex: 100,
 															backgroundColor: "transparent",
 														}}>
 														<BlurHashedImage
 															src={data.src}
-															hash={data.hash}
+															hash={data.hashURL}
 															alt={`${data.name}`}
 															height={getMaximizedImageHeight()}
-															width={"100%"}
-															sx={{
-																objectFit: "cover",
-																// objectPosition: "bottom",
-																transform:
-																	window.innerHeight < 700 && data.id === 7
-																		? "translate(0%, -20%)"
-																		: "",
-															}}
 															gallery={true}
+															// width={"100%"}
+															// sx={{
+															// 	objectFit: "cover",
+															// 	// objectPosition: "bottom",
+															// 	transform:
+															// 		window.innerHeight < 700 && data.id === 7
+															// 			? "translate(0%, -20%)"
+															// 			: "",
+															// }}
+															// gallery={true}
 															// maxWidth='800px'
 														/>
 													</Card>
@@ -492,11 +496,8 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 												sx={{ overflow: "clip", flex: 1, backgroundColor: "transparent" }}>
 												<BlurHashedImage
 													src={`${data.src}?tr=w-1200`}
-													hash={data.hash}
+													hash={data.hashURL}
 													alt={`${data.name}`}
-													height={"100%"}
-													width={300}
-													sx={{ objectFit: "cover" }}
 													nonCard={true}
 													// maxWidth='800px'
 												/>

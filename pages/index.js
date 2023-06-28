@@ -165,6 +165,7 @@ export default function Home() {
 	const GeneratedHexgrid = () => {
 		return (
 			<HexGrid
+				aria-label='MACS Example Graphic'
 				id='module-grid'
 				height={"90vmin"}
 				width={"auto"}
@@ -182,6 +183,7 @@ export default function Home() {
 	const GeneratedHexgridAlt = () => {
 		return (
 			<HexGrid
+				aria-label='MACS Example Graphic'
 				id='module-grid-2'
 				height={"550px"}
 				width={"auto"}
@@ -239,23 +241,24 @@ export default function Home() {
 				}}>
 				{foundHexagon?.moduleType !== undefined ? (
 					<Card
+						aria-hidden
 						elevation={getElevation(moduleType)}
 						sx={{
 							width: "70px",
 							height: "70px",
 							backgroundColor: getModuleBackgroundColor(moduleType),
 						}}>
-						<CardActionArea onClick={(e) => {}}>
-							<CardContent
-								sx={{
-									width: "70px",
-									height: "70px",
-									padding: 0,
-									margin: 0,
-								}}>
-								<ModuleSVGAlt moduleType={moduleType} />
-							</CardContent>
-						</CardActionArea>
+						{/* <CardActionArea onClick={(e) => {}}> */}
+						<CardContent
+							sx={{
+								width: "70px",
+								height: "70px",
+								padding: 0,
+								margin: 0,
+							}}>
+							<ModuleSVGAlt moduleType={moduleType} />
+						</CardContent>
+						{/* </CardActionArea> */}
 					</Card>
 				) : (
 					""
@@ -292,6 +295,7 @@ export default function Home() {
 		const foundHexagon = Hexagons.find((hexagon) => hexagon.id === moduleID);
 		return (
 			<Box
+				aria-hidden
 				id={`dropzone-${moduleID}`}
 				ref={(el) => (dropzoneRefs.current[index] = el)}
 				sx={{
@@ -306,23 +310,24 @@ export default function Home() {
 				}}>
 				{foundHexagon.moduleType !== undefined ? (
 					<Card
+						aria-hidden
 						elevation={getElevation(moduleType)}
 						sx={{
 							width: "70px",
 							height: "70px",
 							backgroundColor: getModuleBackgroundColor(moduleType),
 						}}>
-						<CardActionArea onClick={(e) => {}}>
-							<CardContent
-								sx={{
-									width: "70px",
-									height: "70px",
-									padding: 0,
-									margin: 0,
-								}}>
-								<ModuleSVG moduleType={moduleType} />
-							</CardContent>
-						</CardActionArea>
+						{/* <CardActionArea aria-hidden onClick={(e) => {}}> */}
+						<CardContent
+							sx={{
+								width: "70px",
+								height: "70px",
+								padding: 0,
+								margin: 0,
+							}}>
+							<ModuleSVG moduleType={moduleType} />
+						</CardContent>
+						{/* </CardActionArea> */}
 					</Card>
 				) : (
 					""
@@ -475,6 +480,7 @@ export default function Home() {
 												flexDirection: "column",
 											}}>
 											<Typography
+												variant='h1'
 												fontFamily='bitcount-mono-single-line-ci'
 												color='white'
 												sx={{
@@ -492,40 +498,20 @@ export default function Home() {
 												MACS
 											</Typography>
 											<LinearProgress
+												aria-hidden
 												color='hexagonBlueFull'
 												sx={{ mt: { md: -3, lg: -4, lgPlus: -5 } }}
 											/>
 										</Box>
 									</Box>
-									<Box
-										sx={{
-											display: "flex",
-											flexDirection: "row",
-											alignItems: "flex-start",
-											justifyContent: "flex-start",
-										}}>
-										<Typography
-											fontFamily='Gilroy-Heavy'
-											color='white'
-											sx={{
-												textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-												fontSize: {
-													xs: "2rem",
-													md: "3.15rem",
-													lg: "3.5rem",
-													lgPlus: "3.5rem",
-													lgPlusPlus: "4rem",
-													xl: "4.5rem",
-													// xlPlus: "5rem",
-												},
-											}}>
-											A
-										</Typography>
+									<Box role='heading' aria-label='A Modular Accessible Controller System'>
 										<Box
+											aria-hidden
 											sx={{
 												display: "flex",
-												flexDirection: "column",
-												ml: 4,
+												flexDirection: "row",
+												alignItems: "flex-start",
+												justifyContent: "flex-start",
 											}}>
 											<Typography
 												fontFamily='Gilroy-Heavy'
@@ -542,95 +528,137 @@ export default function Home() {
 														// xlPlus: "5rem",
 													},
 												}}>
-												Modular
+												A
 											</Typography>
-											<LinearProgress color='hexagonGreenFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+											<Box
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													ml: 4,
+												}}>
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='white'
+													sx={{
+														textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+														fontSize: {
+															xs: "2rem",
+															md: "3.15rem",
+															lg: "3.5rem",
+															lgPlus: "3.5rem",
+															lgPlusPlus: "4rem",
+															xl: "4.5rem",
+															// xlPlus: "5rem",
+														},
+													}}>
+													Modular
+												</Typography>
+												<LinearProgress
+													aria-hidden
+													color='hexagonGreenFull'
+													sx={{ mt: { xs: 0, lg: -1 } }}
+												/>
+											</Box>
+											<Box
+												sx={{
+													display: "flex",
+													flexDirection: "column",
+													ml: 4,
+												}}>
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='white'
+													sx={{
+														textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+														fontSize: {
+															xs: "2rem",
+															md: "3.15rem",
+															lg: "3.5rem",
+															lgPlus: "3.5rem",
+															lgPlusPlus: "4rem",
+															xl: "4.5rem",
+															// xlPlus: "5rem",
+														},
+													}}>
+													Accessible
+												</Typography>
+												<LinearProgress
+													aria-hidden
+													color='hexagonYellowFull'
+													sx={{ mt: { xs: 0, lg: -1 } }}
+												/>
+											</Box>
 										</Box>
 										<Box
+											aria-hidden
 											sx={{
 												display: "flex",
-												flexDirection: "column",
-												ml: 4,
+												flexDirection: "row",
+												alignItems: "flex-start",
+												justifyContent: "flex-start",
+												mb: 2,
 											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='white'
+											<Box
 												sx={{
-													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-													fontSize: {
-														xs: "2rem",
-														md: "3.15rem",
-														lg: "3.5rem",
-														lgPlus: "3.5rem",
-														lgPlusPlus: "4rem",
-														xl: "4.5rem",
-														// xlPlus: "5rem",
-													},
+													display: "flex",
+													flexDirection: "column",
 												}}>
-												Accessible
-											</Typography>
-											<LinearProgress color='hexagonYellowFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-										</Box>
-									</Box>
-									<Box
-										sx={{
-											display: "flex",
-											flexDirection: "row",
-											alignItems: "flex-start",
-											justifyContent: "flex-start",
-											mb: 2,
-										}}>
-										<Box
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='white'
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='white'
+													sx={{
+														textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+														fontSize: {
+															xs: "2rem",
+															md: "2.5rem",
+															lg: "3.5rem",
+															lgPlus: "3.5rem",
+															lgPlusPlus: "4rem",
+															xl: "4.5rem",
+															// xlPlus: "5rem",
+														},
+													}}>
+													Controller
+												</Typography>
+												<LinearProgress
+													aria-hidden
+													color='hexagonOrangeFull'
+													sx={{ mt: { xs: 0, lg: -1 } }}
+												/>
+											</Box>
+											<Box
 												sx={{
-													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-													fontSize: {
-														xs: "2rem",
-														md: "2.5rem",
-														lg: "3.5rem",
-														lgPlus: "3.5rem",
-														lgPlusPlus: "4rem",
-														xl: "4.5rem",
-														// xlPlus: "5rem",
-													},
+													display: "flex",
+													flexDirection: "column",
+													ml: 4,
 												}}>
-												Controller
-											</Typography>
-											<LinearProgress color='hexagonOrangeFull' sx={{ mt: { xs: 0, lg: -1 } }} />
-										</Box>
-										<Box
-											sx={{
-												display: "flex",
-												flexDirection: "column",
-												ml: 4,
-											}}>
-											<Typography
-												fontFamily='Gilroy-Heavy'
-												color='white'
-												sx={{
-													textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
-													fontSize: {
-														xs: "2rem",
-														md: "2.5rem",
-														lg: "3.5rem",
-														lgPlus: "3.5rem",
-														lgPlusPlus: "4rem",
-														xl: "4.5rem",
-														// xlPlus: "5rem",
-													},
-												}}>
-												System
-											</Typography>
-											<LinearProgress color='hexagonRedFull' sx={{ mt: { xs: 0, lg: -1 } }} />
+												<Typography
+													fontFamily='Gilroy-Heavy'
+													color='white'
+													sx={{
+														textShadow: "2px 2px 5px rgba(0,0,0,0.37)",
+														fontSize: {
+															xs: "2rem",
+															md: "2.5rem",
+															lg: "3.5rem",
+															lgPlus: "3.5rem",
+															lgPlusPlus: "4rem",
+															xl: "4.5rem",
+															// xlPlus: "5rem",
+														},
+													}}>
+													System
+												</Typography>
+												<LinearProgress
+													aria-hidden
+													color='hexagonRedFull'
+													sx={{ mt: { xs: 0, lg: -1 } }}
+												/>
+											</Box>
 										</Box>
 									</Box>
 									<Typography
+										variant='h3'
 										fontFamily='K2D'
 										color='white'
 										sx={{
@@ -645,6 +673,7 @@ export default function Home() {
 										Capstone Project by:
 									</Typography>
 									<Typography
+										aria-label='Team MACS members'
 										fontFamily='K2D'
 										color='white'
 										sx={{
@@ -684,7 +713,7 @@ export default function Home() {
 									justifyContent: "center",
 								}}>
 								<GeneratedHexgrid />
-								<Dropzones />
+								<Dropzones aria-hidden />
 							</Box>
 						</Grid>
 						<Grid

@@ -1,6 +1,6 @@
 import { Box, CardMedia, useMediaQuery } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { Blurhash } from "react-blurhash";
+import React, { use, useEffect, useState } from "react";
+import Image from "next/image";
 import theme from "../../styles/theme";
 
 function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width, vertical, nonCard, team, ...props }) {
@@ -56,21 +56,28 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 		return "40px";
 	};
 
-	const wait = () => {
+	const wait = (delay) => {
 		return new Promise((resolve) => {
-			setTimeout(resolve, 1000);
+			setTimeout(resolve, delay);
 		});
 	};
-
-	useEffect(() => {
-		const img = new Image();
-		img.onload = () => (gallery ? wait(1250).then(() => setImageLoaded(true)) : setImageLoaded(true));
-		img.src = src;
-	}, [src]);
+	// const img = new Image();
+	// useEffect(() => {
+	// 	async function loadImage(url, elem) {
+	// 		return new Promise((resolve, reject) => {
+	// 			elem.onload = () => resolve(elem);
+	// 			elem.onerror = reject;
+	// 			elem.src = url;
+	// 		});
+	// 	}
+	// 	loadImage(src, img).finally(() => {
+	// 		gallery ? wait(1250).then(() => setImageLoaded(true)) : setImageLoaded(true);
+	// 	});
+	// }, [src]);
 
 	return (
 		<>
-			{!imageLoaded ? (
+			{/* {!imageLoaded ? (
 				<Box
 					className='noselect'
 					sx={{
@@ -139,6 +146,46 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 					image={src}
 					{...props}
 				/>
+			)} */}
+
+			{nonCard ? (
+				<Image
+					className={!imageLoaded ? "skeleton-loading" : ""}
+					src={src}
+					alt={alt}
+					title={alt}
+					fill={true}
+					loading='lazy'
+					placeholder='blur'
+					blurDataURL={hash}
+					style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+					onLoadingComplete={() => setImageLoaded(true)}
+				/>
+			) : (
+				<CardMedia sx={{ display: "flex", flex: 1, alignSelf: "stretch" }}>
+					<Box
+						className={!imageLoaded ? "skeleton-loading" : ""}
+						sx={{ position: "relative", width: "100%", height: "100%" }}>
+						<Image
+							unoptimized={gallery ? true : false}
+							src={src}
+							alt={alt}
+							title={alt}
+							fill={true}
+							loading='lazy'
+							placeholder='blur'
+							blurDataURL={hash}
+							style={{
+								objectFit: "cover",
+								objectPosition: team ? "50% 15%" : "50% 50%",
+								opacity: imageLoaded ? 1 : 0,
+							}}
+							onLoadingComplete={() =>
+								gallery ? wait(1200).then(() => setImageLoaded(true)) : setImageLoaded(true)
+							}
+						/>
+					</Box>
+				</CardMedia>
 			)}
 		</>
 	);

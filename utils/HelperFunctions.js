@@ -197,6 +197,11 @@ export const getHexagonBackgroundColor = (moduleType) => {
 export const GeneratedHexagon = ({ hexagon, index }) => {
 	return (
 		<Hexagon
+			aria-label={`${
+				hexagon?.moduleType === undefined
+					? "Central Hub"
+					: hexagon?.moduleType?.slice(0, 1)?.toUpperCase() + hexagon?.moduleType?.slice(1)
+			} Module`}
 			id={`hexagon-${hexagon.id}`}
 			q={hexagon.q}
 			r={hexagon.r}

@@ -6,6 +6,7 @@ import theme from "../styles/theme";
 const Header = ({ router }) => {
 	return (
 		<Box
+			role='header'
 			sx={{
 				position: "fixed",
 				top: 0,
@@ -22,6 +23,8 @@ const Header = ({ router }) => {
 				width: "100vw",
 			}}>
 			<Box
+				role='navigation'
+				aria-label='Go home'
 				sx={{
 					position: "relative",
 					display: "flex",
@@ -35,6 +38,8 @@ const Header = ({ router }) => {
 				onClick={() => router.push("/")}>
 				<MACSLogoWhite height={useMediaQuery(theme.breakpoints.down("md")) ? 45 : 60} />
 				<Typography
+					role='navigation'
+					aria-label='MACS Brand Go Home'
 					fontFamily='bitcount-mono-single-line-ci'
 					fontSize={{ xs: "2.5rem", md: "3.5rem" }}
 					lineHeight={1.4}

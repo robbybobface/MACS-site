@@ -8,12 +8,7 @@ import theme from "../../styles/theme";
 import GradientText from "../GradientText";
 import { animated, useTrail, to } from "@react-spring/web";
 import ImageCaption from "../ImageCaption";
-import ImageCaptionAlt from "../ImageCaptionAlt";
 import BlurHashedImage from "../Partials/BlurHashedImage";
-import PWMIcon from "../../assets/pwm";
-import HexagonIcon from "../../assets/hexgon";
-import USBIcon from "../../assets/usb";
-import { Slug } from "mauerwerk";
 
 const Trail = ({ open, children }) => {
 	const items = React.Children.toArray(children);
@@ -351,12 +346,14 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 													display: "flex",
 													alignSelf: "stretch",
 													position: "relative",
+													height: getImageSize(),
+													width: "100%",
+													backgroundColor: "transparent",
 												}}>
 												<BlurHashedImage
 													src='https://ik.imagekit.io/5ywj5edvn/macs-toplogy.png?tr=w-1000'
-													hash='L49QdO4:02;[M.Rh%eM#2srW}uFw'
+													hash='data:image/png;base64,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'
 													alt='macs application'
-													height={getImageSize()}
 												/>
 											</Card>
 											<ImageCaption caption={"Topology"} light={false} />
@@ -376,13 +373,17 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 											<Card
 												elevation={4}
 												sx={{
+													display: "flex",
+													alignSelf: "stretch",
 													position: "relative",
+													height: getImageSize(),
+													width: "100%",
+													backgroundColor: "transparent",
 												}}>
 												<BlurHashedImage
 													src='https://ik.imagekit.io/5ywj5edvn/joystick-config.png?tr=w-1000'
-													hash='L3A-Fx0E8w?Zm1GO$TML00rD*0%D'
+													hash='data:image/png;base64,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'
 													alt='application joystick configuration'
-													height={getImageSize()}
 												/>
 											</Card>
 											<ImageCaption caption={"Configuration"} light={false} />
@@ -402,13 +403,17 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 											<Card
 												elevation={4}
 												sx={{
+													display: "flex",
+													alignSelf: "stretch",
 													position: "relative",
+													height: getImageSize(),
+													width: "100%",
+													backgroundColor: "transparent",
 												}}>
 												<BlurHashedImage
 													src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
-													hash='L~D,{5bJofa#%%WFoca}o#WAjra#'
+													hash='data:image/png;base64,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'
 													alt='macs emulation in Minecraft'
-													height={getImageSize()}
 												/>
 											</Card>
 											<ImageCaption caption={"Emulation"} light={false} />

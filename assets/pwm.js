@@ -1,18 +1,17 @@
 import * as React from "react";
-const PWMIcon = (props) => {
+const PWMIcon = ({ size }) => {
 	const getImageSize = () => {
-		console.log(props.size);
-		switch (props.size) {
+		switch (size) {
 			case "xs":
-				return 98;
+				return 75;
 			case "xsPlus":
-				return 108;
+				return 100;
 			case "sm":
-				return 118;
+				return 115;
 			case "md":
-				return 128;
+				return 130;
 			case "mdPlus":
-				return 128;
+				return 130;
 			case "lg":
 				return 138;
 			case "xl":
@@ -25,12 +24,11 @@ const PWMIcon = (props) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
-			width={"75%"}
-			height={"75%"}
-			viewBox='0 0 150 160'
+			width={size ? getImageSize() : 150}
+			height={size ? getImageSize() : 150}
+			viewBox='0 0 150 180'
 			preserveAspectRatio='xMidYMid meet'
-			fill='none'
-			{...props}>
+			fill='none'>
 			<g filter='url(#test)'>
 				<path stroke='#000' strokeWidth={8} d='M154 5h-36.4v150H81.933V5H44.553v150H4' />
 			</g>

@@ -54,6 +54,7 @@ const TrailAlt = ({ open, children, delay }) => {
 		x: open ? 0 : -20,
 		from: { opacity: 0, x: -20 },
 		delay: delay ?? 0,
+		width: "100%",
 	});
 	return (
 		<>
@@ -204,8 +205,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 								flexDirection: "column",
 								justifyContent: "center",
 								alignItems: "center",
-								width: "100%",
-								height: "100%",
 							}}>
 							<Grid
 								container
@@ -219,16 +218,14 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 								<Grid
 									item
 									xs={12}
-									smMinus={11}
-									md={9}
-									lg={7}
+									smPlus={10}
 									sx={{
+										position: "relative",
 										display: "flex",
+										flexDirection: "column",
 										justifyContent: "center",
 										alignItems: "center",
-										flex: 1,
 										width: "100%",
-										height: "100%",
 									}}>
 									<TrailAlt open={open} delay={150}>
 										<Card
@@ -236,26 +233,20 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(200,130,255,1) 
 											sx={{
 												display: "flex",
 												position: "relative",
-												maxHeight: {
-													xs: "300px",
-													sm: "350px",
-													smPlus: "400px",
-													md: "250px",
-													lg: "300px",
-												},
+												justifyContent: "center",
+												alignItems: "center",
+												alignSelf: "stretch",
 												flex: 1,
-												// zIndex: -1,
+												height: { xs: "250px", xsPlus: "300px", sm: "350px", smPlus: "375px" },
+												// width: "100%",
+												backgroundColor: "transparent",
+												zIndex: -1,
 											}}>
 											<BlurHashedImage
 												src='https://ik.imagekit.io/5ywj5edvn/capstone-competition-10.jpeg?tr=w-1800'
 												hash='LgF#s[%1oexa~VofWBjZ%LRkRkRk'
 												alt='macs team award photo'
-												height={"auto"}
-												width={"100%"}
 												team={true}
-												sx={{
-													objectPosition: "50% 15%",
-												}}
 											/>
 										</Card>
 									</TrailAlt>

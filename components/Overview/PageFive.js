@@ -131,12 +131,22 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 							<Grid
 								container
 								spacing={1}
-								sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
-								<Grid item xs={11} md={4}>
+								sx={{ display: "flex", justifyContent: "center", alignItems: "stretch", mb: 2 }}>
+								<Grid
+									item
+									xs={11}
+									md={4}
+									sx={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "stretch",
+										flexGrow: 1,
+									}}>
 									<Card
 										elevation={4}
 										className={boxStyles.whiteBox}
 										sx={{
+											flex: 1,
 											position: "relative",
 											display: "flex",
 											alignSelf: "stretch",
@@ -161,8 +171,10 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												spacing={1}
 												sx={{
 													display: "flex",
-													justifyContent: "center",
+													flex: 1,
+													justifyContent: "space-between",
 													alignItems: "center",
+													flexGrow: 1,
 												}}>
 												<Grid item xs={8} md={12}>
 													<Typography
@@ -220,11 +232,21 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 										</CardContent>
 									</Card>
 								</Grid>
-								<Grid item xs={11} md={4}>
+								<Grid
+									item
+									xs={11}
+									md={4}
+									sx={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "stretch",
+										flexGrow: 1,
+									}}>
 									<Card
 										elevation={4}
 										className={boxStyles.whiteBox}
 										sx={{
+											flex: 1,
 											position: "relative",
 											display: "flex",
 											alignSelf: "stretch",
@@ -254,8 +276,10 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												spacing={1}
 												sx={{
 													display: "flex",
-													justifyContent: "center",
+													flex: 1,
+													justifyContent: "space-between",
 													alignItems: "center",
+													flexGrow: 1,
 												}}>
 												<Grid item xs={8} md={12}>
 													<Typography
@@ -313,11 +337,21 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 										</CardContent>
 									</Card>
 								</Grid>
-								<Grid item xs={11} md={4}>
+								<Grid
+									item
+									xs={11}
+									md={4}
+									sx={{
+										display: "flex",
+										justifyContent: "center",
+										alignItems: "stretch",
+										flexGrow: 1,
+									}}>
 									<Card
 										elevation={4}
 										className={boxStyles.whiteBox}
 										sx={{
+											flex: 1,
 											display: "flex",
 											alignSelf: "stretch",
 										}}>
@@ -341,8 +375,10 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												spacing={1}
 												sx={{
 													display: "flex",
-													justifyContent: "center",
+													flex: 1,
+													justifyContent: "space-between",
 													alignItems: "center",
+													flexGrow: 1,
 												}}>
 												<Grid item xs={8} md={12}>
 													<Typography

@@ -356,7 +356,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 												}}>
 												<PWMIcon size={getImageSize()} />
 												<Typography
-													mt={1.5}
 													fontSize={{
 														xs: "16px",
 														md: "17px",
@@ -396,7 +395,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 													position: "relative",
 													px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
 													pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-													pb: 1,
+													pb: { xs: 0.6, mdPlus: 1.15 },
 													backgroundColor: theme.palette.moduleBackground.main,
 													backdropFilter: "blur(7px)",
 													WebKitBackdropFilter: "blur(7px)",
@@ -442,14 +441,13 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(160,232,134,1) 
 													position: "relative",
 													px: { xs: 2, md: 2, lg: 2.5, xl: 4 },
 													pt: { xs: 2, md: 2, lg: 2.5, xl: 4 },
-													pb: 1,
+													pb: { xs: 0.6, mdPlus: 1.15 },
 													backgroundColor: theme.palette.moduleBackground.main,
 													backdropFilter: "blur(7px)",
 													WebKitBackdropFilter: "blur(7px)",
 												}}>
 												<USBIcon size={getImageSize()} />
 												<Typography
-													mt={{ xs: 0, md: -1.25, mdPlus: -2, lg: -2 }}
 													fontSize={{
 														xs: "16px",
 														md: "17px",

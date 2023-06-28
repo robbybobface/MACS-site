@@ -1,5 +1,11 @@
 export const MACSLogo = ({ height }) => (
-	<svg xmlns='http://www.w3.org/2000/svg' height={height ?? 75} width={height ?? 75} viewBox='0 0 3500 3500'>
+	<svg
+		aria-label='MACS Main Logo'
+		alt='MACS Main Logo'
+		xmlns='http://www.w3.org/2000/svg'
+		height={height ?? 75}
+		width={height ?? 75}
+		viewBox='0 0 3500 3500'>
 		<circle
 			cx={1750}
 			cy={1750}
