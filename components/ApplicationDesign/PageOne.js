@@ -36,8 +36,8 @@ const TrailAlt = ({ open, children, delay }) => {
 	const trail = useTrail(items.length, {
 		config: { mass: 20, tension: 2000, friction: 200 },
 		opacity: open ? 1 : 0,
-		x: open ? 0 : -40,
-		from: { opacity: 0, x: -40 },
+		x: open ? 0 : -20,
+		from: { opacity: 0, x: -20 },
 		delay: delay ?? 0,
 	});
 	return (
@@ -339,7 +339,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={100}>
-										<>
+										<Box sx={{ position: "relative", width: "100%", height: "100%" }}>
 											<Card
 												elevation={4}
 												sx={{
@@ -357,7 +357,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												/>
 											</Card>
 											<ImageCaption caption={"Topology"} light={false} />
-										</>
+										</Box>
 									</TrailAlt>
 								</Grid>
 								<Grid
@@ -369,7 +369,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={150}>
-										<>
+										<Box sx={{ position: "relative", width: "100%", height: "100%" }}>
 											<Card
 												elevation={4}
 												sx={{
@@ -387,7 +387,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												/>
 											</Card>
 											<ImageCaption caption={"Configuration"} light={false} />
-										</>
+										</Box>
 									</TrailAlt>
 								</Grid>
 								<Grid
@@ -399,7 +399,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 										position: "relative",
 									}}>
 									<TrailAlt open={open} delay={200}>
-										<>
+										<Box sx={{ position: "relative", width: "100%", height: "100%" }}>
 											<Card
 												elevation={4}
 												sx={{
@@ -417,7 +417,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(190,77,106,1) 3
 												/>
 											</Card>
 											<ImageCaption caption={"Emulation"} light={false} />
-										</>
+										</Box>
 									</TrailAlt>
 								</Grid>
 							</Grid>

@@ -167,7 +167,7 @@ export default function Home() {
 			<HexGrid
 				aria-label='MACS Example Graphic'
 				id='module-grid'
-				height={"90vmin"}
+				height={"80vmin"}
 				width={"auto"}
 				viewBox={viewBox}
 				preserveAspectRatio='xMidYMid meet'>
@@ -403,7 +403,7 @@ export default function Home() {
 				},
 				false
 			);
-		}, 5);
+		}, 100);
 		positionSVG();
 		for (const [index, Hexagon] of filteredHexagons.entries()) {
 			positionDropzone(index, `hexagon-${Hexagon.id}`);

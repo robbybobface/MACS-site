@@ -29,10 +29,12 @@ const PWMIcon = ({ size }) => {
 			viewBox='0 0 150 180'
 			preserveAspectRatio='xMidYMid meet'
 			fill='none'>
-			<g filter='url(#test)'>
+			<g
+			// filter='url(#test)'
+			>
 				<path stroke='#000' strokeWidth={8} d='M154 5h-36.4v150H81.933V5H44.553v150H4' />
 			</g>
-			<defs>
+			{/* <defs>
 				<filter
 					id='test'
 					width={"auto"}
@@ -54,7 +56,7 @@ const PWMIcon = ({ size }) => {
 					<feBlend in2='BackgroundImageFix' result='effect1_dropShadow_503_1152' />
 					<feBlend in='SourceGraphic' in2='effect1_dropShadow_503_1152' result='shape' />
 				</filter>
-			</defs>
+			</defs> */}
 		</svg>
 	);
 };

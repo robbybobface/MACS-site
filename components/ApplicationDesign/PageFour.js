@@ -337,24 +337,26 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 													flex: 1,
 												}}>
-												<Card
-													elevation={4}
-													sx={{
-														display: "flex",
-														alignSelf: "stretch",
-														position: "relative",
-														flexGrow: 1,
-														height: 150,
-														width: "100%",
-														backgroundColor: "transparent",
-													}}>
-													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
-														hash='data:image/png;base64,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'
-														alt='macs emulation in Minecraft'
-													/>
-												</Card>
-												<ImageCaption caption={"Emulation Ex. 1"} light={true} />
+												<Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+													<Card
+														elevation={4}
+														sx={{
+															display: "flex",
+															alignSelf: "stretch",
+															position: "relative",
+															flexGrow: 1,
+															height: 150,
+															width: "100%",
+															backgroundColor: "transparent",
+														}}>
+														<BlurHashedImage
+															src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation.png?tr=w-1000'
+															hash='data:image/png;base64,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'
+															alt='macs emulation in Minecraft'
+														/>
+													</Card>
+													<ImageCaption caption={"Emulation Ex. 1"} light={true} />
+												</Box>
 											</Grid>
 											<Grid
 												item
@@ -367,24 +369,26 @@ background: linear-gradient(125deg, rgba(176,38,84,1) 0%, rgba(162,0,42,1) 88%);
 													position: "relative",
 													flex: 1,
 												}}>
-												<Card
-													elevation={4}
-													sx={{
-														display: "flex",
-														alignSelf: "stretch",
-														position: "relative",
-														flexGrow: 1,
-														height: 150,
-														width: "100%",
-														backgroundColor: "transparent",
-													}}>
-													<BlurHashedImage
-														src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation-2.png?tr=w-1000'
-														hash='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAuCAYAAABu3ppsAAAAAXNSR0IArs4c6QAABZFJREFUaEOtWQlS3DAQ3OEVARLY3UASWP7/PacszdFzCZNKKlVry1d3T/dINnR7Om+n8A8HZLv67Y6dttP+X/9tMKDj45y5t8HJYxOuj8+QG8s4/RsBGvexmzMQgZwIGEpPwNAmMXjgPxOYwPmxbtuwT/SpiixtJsD34zLo/WNVQDABsJ9yoAKkgAX4kd9JwlB4mxjDJeBQBXyuCBYIeLBHgP5LDvS+CrDJgqheVZQZ0O35cjDETK7xZrZMyEUIp9anut/qGQFtQ2CCXVbgk/JKN/FlX+UDm4I9PIU44KLb89VxiuWwGxRZ6DoFPgRSiwGOfp6EMTWBUCHYfklBIKufKwFkFv6c14UTsJs4UAH8gQBPAuefURj1znbqreQU3Ky9ysVVsLrqDpqrtpk10P5Gt/ML2lW97wHuj1iTKYR2GcJQZSLQbuHBlf/jtfTOBAz5wkJb32YFbVIeJKmrEsA3zaMWiE70fnn193XeK8iMctp4DOMRIqkzhVyklqzH83Pp/fKrEgZ6aPQ3d4dxVV2t2od+edFlpQXP1Y+COQJRWa9mXQ0kUVbDsbEd13MWncwIZSGHhG+X341tg987xfVqX96Ie55WP6pSfdVE8Bi9Xf/UKap8B2B73zWSh+G+pRYrWb02V8ETGCeS68nzWlB3RQJBdu0oFCoRKeaDqnZid/pzfestlI7w09342jq1lfzol6oRTgYCDRBIf18NAbQiU3ZrZeKPeqt0GRne+H19X4bYcmfg5tYnXjgQhePK9/NOIFApSKF5VPC/YqNQiWDHTzsSC6MZ+HW9NU6PoDwRihU4oHh1SlsFNzc0k+nug0wgA/cjYKXFHBCL3jWlWnEAXKxER6dkNeh1VKCF6ETzqq9rQAFxF2Ebb4KrBOplC71ePmpxCL3eB7hzfxzH9b6osvQ7H6yW8agqvZQEQF1HZHYfBNfVARciCrSZpHCi8i823WIRBP0ZCERAxAQQul6eyIE2FWpG2gU3v5WF9dhY3gS7X8/TQmoYPu4MNHawKr4OyyY67m6Qw6593Suqk+2Tn0RCAIPMeA00GeB5LM8FPYn8FS59elS/WwXnUAx2QeDyLCEeKKFAJDhPYiMhJrUwoqGPOY/MHWcP2JHNCHiORwtlS9EZCJi3WXEl5Mn480y1pA/7BW2TPrXHT+nwhUNIeRN6EvT8JBkw+cUmTnE+rNVwWfFz7H6IdXfLkE2+QItl0DqOSFYe5wtsw0rAmUdCu4PGbfa/EZu3gkY1B2IHki/VAlJ/+cUyqg4fDqosOKxPP3AiC1YRlakZN5vmlZHzuc9BVQnhvLlPN/j3iGhQbiQ/vjMB7DT7Md4f6jKBuQlhh9Dn/gBf2+SbJ1YCbGTgpXj2ViitFPOAqaPvTMCCOdXWHAwbFWOsvgO+nxv+sKEfbPdxzACT2ock5DtY60qYA2ynXip6fPywdy6pAntfgYPqMobe9xnA5WOoAnqftwdg3ObeP0lVFrKy7+fQ48OHTnhedbCOVIED29nIJRjsIh9vp7qTlAHf9/mPhmqrDNwvIaw69LATkCkjdh2xDtooZELSm6aY0vfSdaadhMgoAqNQS2EldEJD+0yS9HBvIRZbmHXA/2IjIBNbKDpVJiz9ZWQTLIDHMIuVdsCulfo84KxD90JA7VFYJ1RAc4BLD3mDwTnAdR0BbS3VV2EGGL3v5wCRJ4T4/t7eyCSMA+DdnKAwyHOfJy7sTKMUNldKK7Guw38bE+VDFSzERsLap6hfV4G+fZsv9bhEUOCDBLdQlwerktnoCwSwhXKgRX2byKSl1p1IWueawK72nRBAMpEAgIelJ1Zgdh2zkQRXg6ytFDuS2SbaSXKgBMb6U+1hYO8KAmOWdsuLhgB7Y3qd5wSe0Ezx2YHcPk9onY14BTZ+/gL2y65bi+WXAgAAAABJRU5ErkJggg=='
-														alt='macs emulation in Minecraft 2'
-													/>
-												</Card>
-												<ImageCaption caption={"Emulation Ex. 2"} light={true} />
+												<Box sx={{ position: "relative", width: "100%", height: "100%" }}>
+													<Card
+														elevation={4}
+														sx={{
+															display: "flex",
+															alignSelf: "stretch",
+															position: "relative",
+															flexGrow: 1,
+															height: 150,
+															width: "100%",
+															backgroundColor: "transparent",
+														}}>
+														<BlurHashedImage
+															src='https://ik.imagekit.io/5ywj5edvn/minecraft-emulation-2.png?tr=w-1000'
+															hash='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAuCAYAAABu3ppsAAAAAXNSR0IArs4c6QAABZFJREFUaEOtWQlS3DAQ3OEVARLY3UASWP7/PacszdFzCZNKKlVry1d3T/dINnR7Om+n8A8HZLv67Y6dttP+X/9tMKDj45y5t8HJYxOuj8+QG8s4/RsBGvexmzMQgZwIGEpPwNAmMXjgPxOYwPmxbtuwT/SpiixtJsD34zLo/WNVQDABsJ9yoAKkgAX4kd9JwlB4mxjDJeBQBXyuCBYIeLBHgP5LDvS+CrDJgqheVZQZ0O35cjDETK7xZrZMyEUIp9anut/qGQFtQ2CCXVbgk/JKN/FlX+UDm4I9PIU44KLb89VxiuWwGxRZ6DoFPgRSiwGOfp6EMTWBUCHYfklBIKufKwFkFv6c14UTsJs4UAH8gQBPAuefURj1znbqreQU3Ky9ysVVsLrqDpqrtpk10P5Gt/ML2lW97wHuj1iTKYR2GcJQZSLQbuHBlf/jtfTOBAz5wkJb32YFbVIeJKmrEsA3zaMWiE70fnn193XeK8iMctp4DOMRIqkzhVyklqzH83Pp/fKrEgZ6aPQ3d4dxVV2t2od+edFlpQXP1Y+COQJRWa9mXQ0kUVbDsbEd13MWncwIZSGHhG+X341tg987xfVqX96Ie55WP6pSfdVE8Bi9Xf/UKap8B2B73zWSh+G+pRYrWb02V8ETGCeS68nzWlB3RQJBdu0oFCoRKeaDqnZid/pzfestlI7w09342jq1lfzol6oRTgYCDRBIf18NAbQiU3ZrZeKPeqt0GRne+H19X4bYcmfg5tYnXjgQhePK9/NOIFApSKF5VPC/YqNQiWDHTzsSC6MZ+HW9NU6PoDwRihU4oHh1SlsFNzc0k+nug0wgA/cjYKXFHBCL3jWlWnEAXKxER6dkNeh1VKCF6ETzqq9rQAFxF2Ebb4KrBOplC71ePmpxCL3eB7hzfxzH9b6osvQ7H6yW8agqvZQEQF1HZHYfBNfVARciCrSZpHCi8i823WIRBP0ZCERAxAQQul6eyIE2FWpG2gU3v5WF9dhY3gS7X8/TQmoYPu4MNHawKr4OyyY67m6Qw6593Suqk+2Tn0RCAIPMeA00GeB5LM8FPYn8FS59elS/WwXnUAx2QeDyLCEeKKFAJDhPYiMhJrUwoqGPOY/MHWcP2JHNCHiORwtlS9EZCJi3WXEl5Mn480y1pA/7BW2TPrXHT+nwhUNIeRN6EvT8JBkw+cUmTnE+rNVwWfFz7H6IdXfLkE2+QItl0DqOSFYe5wtsw0rAmUdCu4PGbfa/EZu3gkY1B2IHki/VAlJ/+cUyqg4fDqosOKxPP3AiC1YRlakZN5vmlZHzuc9BVQnhvLlPN/j3iGhQbiQ/vjMB7DT7Md4f6jKBuQlhh9Dn/gBf2+SbJ1YCbGTgpXj2ViitFPOAqaPvTMCCOdXWHAwbFWOsvgO+nxv+sKEfbPdxzACT2ock5DtY60qYA2ynXip6fPywdy6pAntfgYPqMobe9xnA5WOoAnqftwdg3ObeP0lVFrKy7+fQ48OHTnhedbCOVIED29nIJRjsIh9vp7qTlAHf9/mPhmqrDNwvIaw69LATkCkjdh2xDtooZELSm6aY0vfSdaadhMgoAqNQS2EldEJD+0yS9HBvIRZbmHXA/2IjIBNbKDpVJiz9ZWQTLIDHMIuVdsCulfo84KxD90JA7VFYJ1RAc4BLD3mDwTnAdR0BbS3VV2EGGL3v5wCRJ4T4/t7eyCSMA+DdnKAwyHOfJy7sTKMUNldKK7Guw38bE+VDFSzERsLap6hfV4G+fZsv9bhEUOCDBLdQlwerktnoCwSwhXKgRX2byKSl1p1IWueawK72nRBAMpEAgIelJ1Zgdh2zkQRXg6ytFDuS2SbaSXKgBMb6U+1hYO8KAmOWdsuLhgB7Y3qd5wSe0Ezx2YHcPk9onY14BTZ+/gL2y65bi+WXAgAAAABJRU5ErkJggg=='
+															alt='macs emulation in Minecraft 2'
+														/>
+													</Card>
+													<ImageCaption caption={"Emulation Ex. 2"} light={true} />
+												</Box>
 											</Grid>
 										</Grid>
 									</Box>

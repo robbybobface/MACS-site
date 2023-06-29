@@ -29,7 +29,9 @@ const USBIcon = ({ size }) => {
 			viewBox='0 0 95 180'
 			preserveAspectRatio='xMidYMid meet'
 			fill='none'>
-			<g filter='url(#ok)'>
+			<g
+			// filter='url(#ok)'
+			>
 				<path
 					fill='#fff'
 					stroke='#000'
@@ -44,7 +46,7 @@ const USBIcon = ({ size }) => {
 					d='M7 55.079h28.146v-3.596a5 5 0 0 1 5-5H52.91a6 6 0 0 1 6 6v2.596h28.652v47.696c0 15.638-12.677 28.315-28.315 28.315v6.741h-7.584V153h-9.27v-15.169h-7.247v-6.741h-4.719C17.489 131.09 7 120.601 7 107.663V55.079Z'
 				/>
 			</g>
-			<defs>
+			{/* <defs>
 				<filter
 					id='ok'
 					width={"auto"}
@@ -66,7 +68,7 @@ const USBIcon = ({ size }) => {
 					<feBlend in2='BackgroundImageFix' result='effect1_dropShadow_504_1173' />
 					<feBlend in='SourceGraphic' in2='effect1_dropShadow_504_1173' result='shape' />
 				</filter>
-			</defs>
+			</defs> */}
 		</svg>
 	);
 };

@@ -29,7 +29,9 @@ const HexagonIcon = ({ size }) => {
 			viewBox='0 0 182 158'
 			preserveAspectRatio='xMidYMid meet'
 			fill='none'>
-			<g filter='url(#yes)' shapeRendering='crispEdges'>
+			<g
+				// filter='url(#yes)'
+				shapeRendering='crispEdges'>
 				<path
 					fill='#323232'
 					fillOpacity={0.6}
@@ -46,11 +48,13 @@ const HexagonIcon = ({ size }) => {
 					d='M131.594 146H50.198L9.206 75 50.198 4h81.396l40.992 71-40.992 71Z'
 				/>
 			</g>
-			<g filter='url(#yes2)' shapeRendering='crispEdges'>
+			<g
+				// filter='url(#yes2)'
+				shapeRendering='crispEdges'>
 				<circle cx={90.5} cy={74.5} r={27.5} fill='#0087B1' fillOpacity={0.5} />
 				<circle cx={90.5} cy={74.5} r={25} stroke='#111' strokeWidth={5} />
 			</g>
-			<defs>
+			{/* <defs>
 				<filter
 					id='yes'
 					width={"auto"}
@@ -93,7 +97,7 @@ const HexagonIcon = ({ size }) => {
 					<feBlend in2='BackgroundImageFix' result='effect1_dropShadow_503_1164' />
 					<feBlend in='SourceGraphic' in2='effect1_dropShadow_503_1164' result='shape' />
 				</filter>
-			</defs>
+			</defs> */}
 		</svg>
 	);
 };

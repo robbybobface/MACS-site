@@ -159,7 +159,15 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												alignItems: "center",
 												justifyContent: "center",
 												alignSelf: "stretch",
-												p: "16px !important",
+												py: "16px !important",
+												px: {
+													xs: "13px !important",
+													md: "4px !important",
+													lg: "12px !important",
+													lgPlus: "18px !important",
+													lgPlusPlus: "20px !important",
+													xl: "12px !important",
+												},
 												backgroundColor: theme.palette.hexagonYellowAlt.main,
 												transition: "all ease-in 0.25s",
 												"&:hover": {
@@ -202,7 +210,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 															lg: "17px",
 															xl: "18px",
 														}}>
-														The design of each module and the central hub
+														The design and assembly of modules and the central hub
 													</Typography>
 												</Grid>
 												<Grid
@@ -263,7 +271,9 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												px: {
 													xs: "13px !important",
 													mdPlus: "10px !important",
-													lg: "14px !important",
+													lg: "18px !important",
+													lgPlusPlus: "22px !important",
+													xl: "14px !important",
 												},
 												backgroundColor: theme.palette.hexagonGreenAlt.main,
 												transition: "all ease-in 0.25s",
@@ -363,7 +373,12 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 												justifyContent: "center",
 												alignItems: "center",
 												alignSelf: "stretch",
-												p: "16px !important",
+												py: "16px !important",
+												px: {
+													xs: "13px !important",
+													mdPlus: "10px !important",
+													lg: "16px !important",
+												},
 												backgroundColor: theme.palette.hexagonRedAlt.main,
 												transition: "all ease-in 0.25s",
 												"&:hover": {
@@ -378,7 +393,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 													flex: 1,
 													justifyContent: "space-between",
 													alignItems: "center",
-													flexGrow: 1,
+													// flexGrow: 1,
 												}}>
 												<Grid item xs={8} md={12}>
 													<Typography
@@ -406,7 +421,7 @@ const PageFive = ({ offset, gradient, onClick, router }) => {
 															lg: "17px",
 															xl: "18px",
 														}}>
-														The interpretation and emulation of inputs
+														The interpretation, configuration, and emulation of inputs
 													</Typography>
 												</Grid>
 												<Grid
