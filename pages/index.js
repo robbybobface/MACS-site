@@ -57,8 +57,7 @@ const TrailLogo = ({ open, children }) => {
 	const items = React.Children.toArray(children);
 	const trail = useTrail(items.length, {
 		config: { mass: 10, tension: 2000, friction: 250 },
-		opacity: open ? 1 : 0,
-		from: { opacity: 0 },
+		to: { opacity: 1 },
 	});
 	return (
 		<>
@@ -431,7 +430,9 @@ export default function Home() {
 					</Box>
 				</Container>
 			</TrailLogo>
-			<BottomNav router={router} home={true} />
+			<TrailLogo open={open}>
+				<BottomNav router={router} home={true} />
+			</TrailLogo>
 			<Box className={styles.container}>
 				<Container maxWidth='xl'>
 					<Box className='bg'></Box>

@@ -61,7 +61,7 @@ export default function CapstoneCompetition() {
 				<style>{"body { background-color: #FFF; !important; }"}</style>
 			</Head>
 			<Header router={router} />
-			<BottomNav router={router} home={true} />
+			<BottomNav router={router} home={false} />
 			{isMobile && <MobileContentCapstoneCompetition />}
 			{!isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={1}>

@@ -119,7 +119,7 @@ export default function Overview() {
 				</style>
 			</Head>
 			<Header router={router} />
-			<BottomNav router={router} />
+			<BottomNav router={router} home={false} />
 			{isMobile && <MobileContent router={router} />}
 			{!isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={10}>

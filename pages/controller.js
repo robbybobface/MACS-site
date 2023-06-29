@@ -65,7 +65,7 @@ export default function Modules() {
 				<style>{"body { background-color: #FFF; !important; }"}</style>
 			</Head>
 			<Header router={router} />
-			<BottomNav router={router} home={true} />
+			<BottomNav router={router} home={false} />
 			{isMobile && <MobileContentController />}
 			{!isMobile && (
 				<Parallax className={`${styles.parallaxContainer} parallax-scroll`} ref={parallax} pages={4}>
