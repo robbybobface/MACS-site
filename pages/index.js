@@ -167,7 +167,7 @@ export default function Home() {
 			<HexGrid
 				aria-label='MACS Example Graphic'
 				id='module-grid'
-				height={"80vmin"}
+				height={`75vmin`}
 				width={"auto"}
 				viewBox={viewBox}
 				preserveAspectRatio='xMidYMid meet'>
