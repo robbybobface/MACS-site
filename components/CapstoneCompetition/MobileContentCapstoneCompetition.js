@@ -216,7 +216,6 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 								{(data, maximized, toggle) => (
 									<Box
 										sx={{
-											// py: { xs: 2, md: 0 },
 											position: "absolute",
 											top: "50%",
 											left: "50%",
@@ -224,11 +223,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 											borderRadius: "8px",
 											width: "100%",
 											height: "100%",
-											// backgroundImage: !maximized ? `url(${data.src}?tr=w-1200)` : "",
 											display: "flex",
 											justifyContent: "center",
 											alignItems: "center",
-
 											"&:hover": {
 												cursor: "pointer",
 											},
@@ -301,8 +298,9 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 														}}>
 														<BlurHashedImage
 															src={data.src}
-															hash={data.hash}
+															hash={data.hashURL}
 															alt={`${data.name}`}
+															height={getMinimumMaximizedImageHeight(data.vertical)}
 															gallery={true}
 														/>
 													</Card>
@@ -326,7 +324,7 @@ background: linear-gradient(125deg, rgba(255,255,255,1) 0%, rgba(255,137,100,1) 
 												sx={{ overflow: "clip", flex: 1, backgroundColor: "transparent" }}>
 												<BlurHashedImage
 													src={`${data.src}?tr=w-1200`}
-													hash={data.hash}
+													hash={data.hashURL}
 													alt={`${data.name}`}
 													nonCard={true}
 													// maxWidth='800px'

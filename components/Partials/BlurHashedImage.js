@@ -182,7 +182,7 @@ function BlurHashedImage({ src, hash, alt, height, hexagon, size, gallery, width
 								transition: "opacity 0.1s ease-in-out",
 							}}
 							onLoadingComplete={() =>
-								gallery ? wait(1200).then(() => setImageLoaded(true)) : setImageLoaded(true)
+								gallery ? wait(1000).then(() => setImageLoaded(true)) : setImageLoaded(true)
 							}
 						/>
 					</Box>
