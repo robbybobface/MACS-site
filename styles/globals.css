@@ -142,7 +142,7 @@ img {
 }
 
 .skeleton-loading {
-	background-color: rgb(129, 129, 129);
+	background-color: rgb(154, 154, 154);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -155,13 +155,13 @@ img {
 
 @keyframes pulse {
 	0% {
-		opacity: 0.5;
+		opacity: 1;
 	}
 	50% {
-		opacity: 0.4;
+		opacity: 0.9;
 	}
 	100% {
-		opacity: 0.5;
+		opacity: 1;
 	}
 }
 
